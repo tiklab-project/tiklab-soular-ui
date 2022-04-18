@@ -1,0 +1,16 @@
+{
+    "home": "HOME",
+    "org_center": "ORG CENTER",
+    "sys" : "SYSTEM",
+    "login": "Login",
+    "help": "Help",
+    "loginForm": {
+        "userLoginTitle": "user login",
+        "usernameRequired": "please input email or phone",
+        "usernameCustomRequired": "你输入的手机号或者邮箱格式不正确",
+        "usernamePlaceholder": "请输入邮箱或手机号码",
+        "passwordPlaceholder": "输入密码",
+        "passwordRequired": "输入密码",
+        "LoginBtn": "Login In"
+    }
+}

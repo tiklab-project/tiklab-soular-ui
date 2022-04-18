@@ -1,0 +1,47 @@
+@import "../../../styles/index";
+.portal-login{
+    min-height: 64px;
+    height: 64px;
+    background: $white;
+    border-bottom: 1px solid $bottom;
+    &-header{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 20px;
+
+    }
+
+
+    &-logo {
+        display: flex;
+        align-items: center;
+    }
+    &-image{
+        width: 64px;
+        height: 64px;
+        margin-right: 16px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    &-dropdown{
+        margin-right: 20px;
+    }
+}
+.popover{
+    min-width: 120px;
+    &_header{
+        background: #cccccc;
+        display: flex;
+        justify-content: space-between;
+        span:last-child{
+            color: #0063FF;
+            cursor: pointer;
+        }
+    }
+}
