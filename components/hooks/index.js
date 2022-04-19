@@ -7,9 +7,11 @@
 
 import useAccountConfig from './useAccountConfig'
 import useDingDingAuthConfig from './useDingDingAuthCinfig';
-import useWorkAppConfig from './workAppConfig/useWorkAppConfig'
+import useWorkAppConfig from './workAppConfig/useWorkAppConfig';
+import useVersion from './useVersion'
 export {
     useAccountConfig,
     useDingDingAuthConfig,
-    useWorkAppConfig
+    useWorkAppConfig,
+    useVersion
 }

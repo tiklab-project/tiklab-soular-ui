@@ -22,10 +22,11 @@ import LoginElectron from './electron/login'
 import PortalElectron from './electron/portal'
 
 import {portal_cn} from './language'
-import {useAccountConfig} from './hooks';
+import {useAccountConfig, useVersion} from './hooks';
 
 import PortalRouter from './modules/routers';
 import PortalStore from './modules/stores';
+
 
 export {
     LoginElectron,
@@ -48,7 +49,7 @@ export {
     useSassPortal,
     useBasePortal,
     useAccountConfig,
-
+    useVersion,
 
     // 给企业版门户使用
     PortalRouter,
