@@ -9,7 +9,7 @@ import React, {useState, useEffect}  from 'react';
 import {renderRoutes} from 'react-router-config'
 import {MenuList} from 'doublekit-privilege-ui';
 import {inject, observer} from "mobx-react";
-import {PLUGIN_STORE} from "doublekit-plugin-ui";
+import {PLUGIN_STORE} from "doublekit-plugin-manage";
 import {settingMenuData} from "../../utils/staticConfig";
 
 const Setting = props => {

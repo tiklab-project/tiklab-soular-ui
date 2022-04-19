@@ -6,8 +6,9 @@
  * @update: 2021-07-05 09:23
  */
 import React, {useState, useEffect} from 'react';
+
+import {LOCALSTORAGE_KEY} from "doublekit-core-ui";
 import api from "../login/api";
-import {LOCALSTORAGE_KEY} from "../utils/constans";
 
 const useAccountConfig = () => {
     const [authData, setAuthData] = useState(JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG)) || {})

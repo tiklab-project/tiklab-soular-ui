@@ -2,7 +2,7 @@ import React, {useState, useEffect}  from 'react';
 import {renderRoutes} from 'react-router-config';
 import {observer, inject} from "mobx-react";
 import {MenuList} from 'doublekit-privilege-ui';
-import {PLUGIN_STORE} from 'doublekit-plugin-ui';
+import {PLUGIN_STORE} from 'doublekit-plugin-manage';
 import {orgaMenuData} from "../../../utils/staticConfig";
 
 

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {inject, observer} from "mobx-react";
-import {PLUGIN_STORE} from "doublekit-plugin-ui";
+import {PLUGIN_STORE} from "doublekit-plugin-manage";
 import {renderRoutes} from "react-router-config";
 import useVersion from "../components/hooks/useVersion";
 

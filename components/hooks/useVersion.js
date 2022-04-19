@@ -5,8 +5,9 @@
  * @description 获取版本的自定义hooks
  */
 import React, {useEffect} from 'react';
+import {LOCALSTORAGE_KEY} from "doublekit-core-ui";
 import api from "../login/api";
-import {LOCALSTORAGE_KEY} from "../utils/constans";
+
 
 const useVersion = () => {
 

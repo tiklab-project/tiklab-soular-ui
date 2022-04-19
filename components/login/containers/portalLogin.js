@@ -9,11 +9,10 @@ import React, {useState, useLayoutEffect, useEffect} from 'react';
 import {inject, observer} from 'mobx-react';
 import {useTranslation} from "react-i18next";
 import {Button, Dropdown, Menu, Row, Col, Image, Input, Form, message, Checkbox} from "antd";
-import { getUser} from 'doublekit-core-ui'
+import { getUser, disableFunction} from 'doublekit-core-ui'
 
 import Layout, {Header, Content, Footer} from '../../Layout'
-import {useDingDingAuthConfig} from "../../hooks";
-import {scopedClassMaker, parseSearch, disableFunction} from "../../utils";
+import {scopedClassMaker, parseSearch, } from "../../utils";
 import {LOGIN_STATUS} from "../store";
 
 import '../components/loginHeader/loginHeader.scss';

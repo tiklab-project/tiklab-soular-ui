@@ -8,7 +8,7 @@
 import React, {useEffect, useState} from 'react';
 import {inject, observer} from 'mobx-react';
 import {Row, Col, Image, Button} from 'antd';
-import {getUser} from "doublekit-core-ui";
+import {getUser, disableFunction} from "doublekit-core-ui";
 
 import Layout, {Header, Content, Footer} from '../../Layout'
 import LocalLogin from "../components/localLogin";
@@ -16,7 +16,7 @@ import AccountLogin from "../components/accountLogin";
 import LoginHeader from "../components/loginHeader/loginHeader";
 import {useAccountConfig} from "../../hooks";
 import {LOGIN_STATUS} from "../store";
-import {disableFunction, parseSearch} from "../../utils";
+import {parseSearch} from "../../utils";
 import useAuthConfig from "../../hooks/useDingDingAuthCinfig";
 
 

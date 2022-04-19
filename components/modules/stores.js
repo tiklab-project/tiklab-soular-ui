@@ -1,5 +1,5 @@
 import { LoginStore, LOGIN_STATUS } from '../index';
-import {PLUGIN_STORE, PluginStore} from "doublekit-plugin-ui"
+import {PLUGIN_STORE, PluginStore} from "doublekit-plugin-manage"
 function createStores() {
     return {
         [LOGIN_STATUS]: new LoginStore(),
