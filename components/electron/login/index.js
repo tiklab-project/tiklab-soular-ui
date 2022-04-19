@@ -8,7 +8,7 @@
 import React from 'react'
 import {Form, Input, Button, message} from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import {phoneReg, emailReg} from '../../utils';
+
 import {Axios} from "doublekit-core-ui";
 
 import styles from './login.module.scss'
@@ -19,18 +19,9 @@ const LoginElectron = (props) => {
     console.log(portalLoginStore, 'LoginElectron')
     const [form] = Form.useForm();
     const onFinish = (values) => {
-        const isPhone = phoneReg.test(values.username)
-        let params = {}
-        if (isPhone) {
-            params = {
-                phone: values.username,
-                password: values.password
-            }
-        } else {
-            params = {
-                email: values.username,
-                password: values.password
-            }
+        let  params = {
+            account: values.username,
+            password: values.password
         }
         Axios.post('passport/login', params).then(res => {
             if(res.code) {
@@ -57,13 +48,13 @@ const LoginElectron = (props) => {
                         { required: true, message: '手机号或者邮箱必填!' },
                         ({ getFieldValue }) => ({
                             validator(rule, value,callback) {
-                                if(value) {
-                                    const vaild = phoneReg.test(value) || emailReg.test(value)
-                                    if (vaild) {
-                                        return Promise.resolve();
-                                    }
-                                    return Promise.reject('请输入手机号码或邮箱格式不正确');
-                                }
+                                // if(value) {
+                                //     const vaild = phoneReg.test(value) || emailReg.test(value)
+                                //     if (vaild) {
+                                //         return Promise.resolve();
+                                //     }
+                                //     return Promise.reject('请输入手机号码或邮箱格式不正确');
+                                // }
                                 callback()
                             },
                         }),

@@ -7,7 +7,7 @@
  */
 import React, {useEffect, useState} from 'react';
 import {inject, observer} from 'mobx-react';
-import {Row, Col, Image} from 'antd';
+import {Row, Col, Image, Button} from 'antd';
 import {getUser} from "doublekit-core-ui";
 
 import Layout, {Header, Content, Footer} from '../../Layout'
@@ -16,7 +16,7 @@ import AccountLogin from "../components/accountLogin";
 import LoginHeader from "../components/loginHeader/loginHeader";
 import {useAccountConfig} from "../../hooks";
 import {LOGIN_STATUS} from "../store";
-import {parseSearch} from "../../utils";
+import {disableFunction, parseSearch} from "../../utils";
 import useAuthConfig from "../../hooks/useDingDingAuthCinfig";
 
 
@@ -176,8 +176,8 @@ const ProjectLogin = props => {
                                         />
                                     }
                                     <div className={'portal-login-content-action'}>
-                                        <Button type="text" onClick={goDingLogin} disabled={isCommunity} >钉钉</Button>
-                                        <Button type="text" onClick={goWechat} disabled={isCommunity}>企业微信</Button>
+                                        <Button type="text" onClick={goDingLogin} disabled={disableFunction()} >钉钉</Button>
+                                        <Button type="text" onClick={goWechat} disabled={disableFunction()}>企业微信</Button>
                                         <button>demo1</button>
                                     </div>
                                 </div>

@@ -7,9 +7,10 @@
  */
 import React, {useState, useEffect} from 'react';
 import api from "../login/api";
+import {LOCALSTORAGE_KEY} from "../utils/constans";
 
 const useAccountConfig = () => {
-    const [authData, setAuthData] = useState(JSON.parse(localStorage.getItem('authConfig')) || {})
+    const [authData, setAuthData] = useState(JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG)) || {})
     useEffect(async () => {
         await getProjectAuthentication()
         return () => {
@@ -21,7 +22,7 @@ const useAccountConfig = () => {
     const getProjectAuthentication = async () => {
         const res = await api.authConfig()
         if (!res.code) {
-            localStorage.setItem('authConfig', JSON.stringify(res.data))
+            localStorage.setItem(LOCALSTORAGE_KEY.AUTH_CONFIG, JSON.stringify(res.data))
             setAuthData(res.data)
         }
     }

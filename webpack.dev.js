@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const customEnv = process.env.CUSTOM_ENV;
-const {webpackGlobal} = require('../environment/environment-' + customEnv)
+const {webpackGlobal} = require('./environment/environment-' + customEnv)
 
 module.exports = merge(baseWebpackConfig,{
     // 指定构建环境
@@ -24,8 +24,8 @@ module.exports = merge(baseWebpackConfig,{
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
             title:'组织中心',
-            template: path.resolve(__dirname, '../public/index.template.html'),
-            favicon: path.resolve('../public/favicon.png'),
+            template: path.resolve(__dirname, './public/index.template.html'),
+            favicon: path.resolve('./public/favicon.png'),
             hash: false,
             filename: 'index.html',
             inject: 'body',

@@ -4,7 +4,6 @@
     "description": "",
     "main": "distIndex.js",
     "scripts": {
-        "start": "cross-env NODE_ENV=development CUSTOM_ENV=dev webpack-dev-server --progress --config ./webpack.dev.js ",
         "build:dev": "cross-env NODE_ENV=production CUSTOM_ENV=dev webpack --config ./webpack.prod.js ",
         "build:test": "cross-env NODE_ENV=production CUSTOM_ENV=test webpack --config ./webpack.prod.js ",
         "build:prod": "cross-env NODE_ENV=production CUSTOM_ENV=prod webpack --config ./webpack.prod.js ",
@@ -20,7 +19,6 @@
     "license": "ISC",
     "dependencies": {
         "doublekit-core-ui": "^1.0.0",
-        "doublekit-framework-ui": "^1.0.0",
         "doublekit-message-ui": "^1.0.0",
         "doublekit-privilege-ui": "^1.0.0",
         "doublekit-plugin-ui": "^1.0.0",

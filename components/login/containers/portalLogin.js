@@ -13,7 +13,7 @@ import { getUser} from 'doublekit-core-ui'
 
 import Layout, {Header, Content, Footer} from '../../Layout'
 import {useDingDingAuthConfig} from "../../hooks";
-import {scopedClassMaker, parseSearch} from "../../utils";
+import {scopedClassMaker, parseSearch, disableFunction} from "../../utils";
 import {LOGIN_STATUS} from "../store";
 
 import '../components/loginHeader/loginHeader.scss';
@@ -256,8 +256,8 @@ const PortalLogin = props => {
                                         </Form>
                                     </div>
                                     <div className={'portal-login-content-action'}>
-                                        <span onClick={goDingLogin}>钉钉</span>
-                                        <span onClick={goWechat}>企业微信</span>
+                                        <Button type="text" onClick={goDingLogin} disabled={disableFunction()}  >钉钉</Button>
+                                        <Button type="text" onClick={goWechat} disabled={disableFunction()} >企业微信</Button>
                                         <span>demo1</span>
                                     </div>
                                 </div>
