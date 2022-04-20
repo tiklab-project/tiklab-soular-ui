@@ -52,6 +52,10 @@ const Setting = props => {
                 key:'1',
                 router: '/setting/plugin'
             },
+            {
+                key:'2',
+                router: '/setting/license'
+            },
         ].concat(PluginMenus);
         onSelectMenuSetting(props.history, key, links)
     }

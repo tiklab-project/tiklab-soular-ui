@@ -11,7 +11,7 @@ const LogOut = SyncComponent(() => import('./logOut/logOut'));
 
 // 设置模块
 const Setting = SyncComponent(() => import('./setting/setting'));
-const SettingAbout = SyncComponent(() => import('./setting/about/about'));
+const LicensePage = SyncComponent(() => import('./setting/license/licensePage'));
 const PluginList = SyncComponent(() => import('./setting/plugin'))
 
 const Work = SyncComponent(() => import('./work/work'))
@@ -81,6 +81,12 @@ const routes = [
                         component: PluginList,
                         exact: true
                     },
+                    {
+                        path: '/setting/license',
+                        component: LicensePage,
+                        exact: true
+                    },
+
                     {
                         path: "/setting",
                         exact: true,

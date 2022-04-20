@@ -154,6 +154,13 @@ const settingMenuData = [
         title: '插件管理',
         purviewCode:'plugin',
         icon :<SettingOutlined />,
+    },
+    {
+        id:'2',
+        key:'2',
+        title: 'License管理',
+        purviewCode:'license',
+        icon :<SettingOutlined />,
     }
 ]
 const onSettingMenu = (history, key) => {

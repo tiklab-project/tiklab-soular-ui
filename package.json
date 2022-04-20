@@ -29,6 +29,7 @@
     "dependencies": {
         "antd": "^4.8.4",
         "doublekit-core-ui": "^1.0.0",
+        "doublekit-licence-ui": "^1.0.1",
         "doublekit-message-ui": "^1.0.0",
         "doublekit-plugin-manage": "^1.0.0",
         "doublekit-privilege-ui": "^1.0.0",

@@ -4,11 +4,13 @@
  * create: $2022/1/25
  */
 import React, {useState} from 'react';
-import {useBasePortal, LOGIN_STATUS, loginOutLocal} from '../../../index';
+import {getVersionInfo} from 'doublekit-core-ui';
 import {inject, observer} from "mobx-react";
+import {useBasePortal, LOGIN_STATUS, loginOutLocal} from '../../../index';
 import logo from '../../assets/images/logo.jpeg'
 
 import './layout.scss'
+import {Button} from "antd";
 
 
 const Portal = props => {
@@ -20,7 +22,6 @@ const Portal = props => {
 
 
     const [currentLink, setCurrentLink] = useState(props.location.pathname);
-
 
     const homeRouter = [
         {
@@ -54,6 +55,32 @@ const Portal = props => {
         loginOutLocal(history, portalLoginStore, '/login')
     }
 
+    const showVersion = () => {
+        const info = getVersionInfo();
+        switch (info.release) {
+            case 1:
+                return {
+                    title:"社区版",
+                    disable: false
+                }
+            case 2:
+                return {
+                    title:"企业版",
+                    disable: !info.expired
+                }
+
+            case 3:
+                return {
+                    title:"SASS版",
+                    disable: !info.expired
+                }
+            default:
+                return {
+                    title:"社区版",
+                    disable: false
+                }
+        }
+    }
     return(
         <main className={'layout'}>
             <header className={'layout_header'}>
@@ -69,7 +96,9 @@ const Portal = props => {
                         }
                     </div>
                 </div>
+
                 <div className={'layout_header_right'}>
+                    <Button type={'link'} disabled = {showVersion().disable}>{showVersion().title}</Button>
                     <span onClick={Logout}>退出</span>
                 </div>
             </header>
