@@ -11,10 +11,9 @@ import { renderRoutes } from 'react-router-config';
 import {inject, observer} from "mobx-react";
 import {LOGIN_STATUS} from "../../login";
 import {Redirect} from "react-router";
-import {getUser} from "../../utils";
 import {Button, Dropdown, Menu, message} from "antd";
 import {useTranslation} from "react-i18next";
-import {Axios} from "doublekit-core-ui";
+import {Axios, getUser} from "doublekit-core-ui";
 
 import styles from './layout.module.scss';
 

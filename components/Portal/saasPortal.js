@@ -8,14 +8,14 @@
 import React, {useState} from 'react';
 import {inject, observer} from 'mobx-react';
 import {Redirect} from "react-router";
-import {removeUser} from "doublekit-core-ui";
+import {removeUser, getUser, getVersionInfo} from "doublekit-core-ui";
 import {useTranslation} from "react-i18next";
 import {Col, Row, message, Dropdown, Button, Menu} from "antd";
 
 import {LOGIN_STATUS} from "../login";
 
 import Layout, {Header, Content, Footer, Aside} from '../Layout';
-import {getUser, scopedClassMaker} from "../utils";
+import {scopedClassMaker} from "../utils";
 import frameApi from "../login/api";
 
 import './components/header.scss';
@@ -106,7 +106,32 @@ const SaasPortal = props => {
             logout()
         }
     }
+    const showVersion = () => {
+        const info = getVersionInfo();
+        switch (info.release) {
+            case 1:
+                return {
+                    title:"社区版",
+                    disable: false
+                }
+            case 2:
+                return {
+                    title:"企业版",
+                    disable: !info.expired
+                }
 
+            case 3:
+                return {
+                    title:"SASS版",
+                    disable: !info.expired
+                }
+            default:
+                return {
+                    title:"社区版",
+                    disable: false
+                }
+        }
+    }
     return(
         <Layout>
             <Header>
@@ -133,7 +158,10 @@ const SaasPortal = props => {
                                         <Dropdown overlay={menu} className={'portal-header-dropdown'}>
                                             <Button>{lan}</Button>
                                         </Dropdown>
-                                        <span onClick={saasLogout}>退出</span>
+                                        <div className={'layout_header_right'}>
+                                            <Button type={'link'} disabled = {showVersion().disable}>{showVersion().title}</Button>
+                                            <span onClick={saasLogout}>退出</span>
+                                        </div>
                                     </div>
                                 </div>
                             </Col>

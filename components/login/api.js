@@ -25,7 +25,7 @@ const VALID_TICKET_API = '/passport/valid';
 const AUTH_CONFIG = '/authConfig/getAuthConfig';
 
 const GET_VERSION = '/version/getVersion';
-
+const GET_SASS_VERSION = '/version/sass/getVersion';
 
 
 class Api {
@@ -174,6 +174,13 @@ class Api {
         const res = await Axios.post(GET_VERSION);
         return res;
     }
+    getSassVersion = async (code) => {
+        const formData = new FormData();
+        formData.append("code", code)
+        const res = await Axios.post(GET_SASS_VERSION, formData);
+        return res;
+    }
+
 
 }
 

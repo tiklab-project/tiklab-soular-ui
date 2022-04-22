@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
+import {useTranslation} from "react-i18next";
 import routes from '../components/modules/routers';
 import { Provider } from 'mobx-react';
 import { privilegeStores } from 'doublekit-privilege-ui';
@@ -19,8 +20,8 @@ const Index = () => {
         ...messageModuleStores,
         ...orgStores
     };
+    allStore.pluginsStore.initLoadPlugin(method, plugin_url, useTranslation)
 
-    allStore.pluginsStore.initLoadPlugin(method, plugin_url)
     allStore.pluginsStore.setProjectRouter(routes);
 
     return (
