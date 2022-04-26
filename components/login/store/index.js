@@ -46,19 +46,19 @@ class LoginStore {
 
         let response;
         switch (loginType) {
-            case "01":
+            case "21":
                 response = await api.logout(ticket);
                 break
-            case "02":
+            case "22":
                 response = await api.LDAPLogout(ticket);
                 break
-            case "03":
+            case "23":
                 response = await api.dingdingLogout(ticket);
                 break
-            case "04":
+            case "24":
                 debugger
                 break
-            case "06":
+            case "26":
                 response = await api.weChatLogout(ticket);
                 break
             default:

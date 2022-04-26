@@ -49,7 +49,7 @@ const ProjectLogin = props => {
             try {
                 // sass版本环境变量 需要市场 cookieDomain
                 if(cookieDomain){
-                    window.location.href = `${authData.authAccConfig.accUrl}/login?redirect=${window.location.origin}`
+                    window.location.href = `${authData.accUrl}/login?redirect=${window.location.origin}`
                 }
             } catch (e) {
                 // 企业版 社区版
@@ -59,7 +59,7 @@ const ProjectLogin = props => {
                         window.location.href = `${accUrl_env}/#/login?authType=${authData.authType}&redirect=${window.location.origin}`
                     }
                 } catch (e) {
-                    window.location.href = `${authData.authAccConfig.accUrl}/#/login?authType=${authData.authType}&redirect=${window.location.origin}`
+                    window.location.href = `${authData.accUrl}/#/login?authType=${authData.authType}&redirect=${window.location.origin}`
                 }
             }
         }

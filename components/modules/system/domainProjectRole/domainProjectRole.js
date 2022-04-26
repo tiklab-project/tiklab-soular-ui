@@ -7,11 +7,11 @@
  */
 import React from 'react';
 import {inject, observer} from "mobx-react";
-import { PrivilegeDomainRole, SYSTEM_ROLE_STORE,} from "doublekit-privilege-ui";
+import { DomainRoleList, SYSTEM_ROLE_STORE,} from "doublekit-privilege-ui";
 
 const DomainProjectRole = props => {
     return(
-        <PrivilegeDomainRole {...props} domainId={'111'} />
+        <DomainRoleList {...props} domainId={'111'} />
     )
 }
 export default inject(SYSTEM_ROLE_STORE)(observer(DomainProjectRole))

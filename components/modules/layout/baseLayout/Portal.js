@@ -17,10 +17,7 @@ const Portal = props => {
 
     const { portalLoginStore, history} = props;
 
-    useBasePortal(portalLoginStore, history, '/login');
-
-
-
+    // useBasePortal(portalLoginStore, history, '/login');
     const [currentLink, setCurrentLink] = useState(props.location.pathname);
 
     const homeRouter = [

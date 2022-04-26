@@ -27,6 +27,8 @@ import {useAccountConfig, useVersion, useSaSSVersion} from './hooks';
 import PortalRouter from './modules/routers';
 import PortalStore from './modules/stores';
 
+import verifyUserHOC from './HOC/VaildUserHOC'
+
 
 export {
     LoginElectron,
@@ -54,5 +56,7 @@ export {
 
     // 给企业版门户使用
     PortalRouter,
-    PortalStore
+    PortalStore,
+
+    verifyUserHOC
 }

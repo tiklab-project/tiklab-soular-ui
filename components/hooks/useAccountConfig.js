@@ -23,8 +23,14 @@ const useAccountConfig = () => {
     const getProjectAuthentication = async () => {
         const res = await api.authConfig()
         if (!res.code) {
-            localStorage.setItem(LOCALSTORAGE_KEY.AUTH_CONFIG, JSON.stringify(res.data))
-            setAuthData(res.data)
+            debugger
+            try {
+                localStorage.setItem(LOCALSTORAGE_KEY.AUTH_CONFIG, JSON.stringify({...res.data, authUrl:acc_url}))
+                setAuthData({...res.data, authUrl:acc_url})
+            } catch (e) {
+                localStorage.setItem(LOCALSTORAGE_KEY.AUTH_CONFIG, JSON.stringify(res.data))
+                setAuthData(res.data)
+            }
         }
     }
 

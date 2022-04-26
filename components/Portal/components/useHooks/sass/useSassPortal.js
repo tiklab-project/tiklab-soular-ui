@@ -9,7 +9,6 @@ import {getUser, removeUser, urlQuery, setCookie} from 'doublekit-core-ui'
 
 const useSassPortal = (accUrl, urlSearch='', wechatApplicationType=undefined) =>  {
     const queryUrl = urlQuery(urlSearch);
-
     if (queryUrl && queryUrl.ticket) {
         if (wechatApplicationType) {
             setCookie("applicationType", wechatApplicationType)
@@ -18,12 +17,13 @@ const useSassPortal = (accUrl, urlSearch='', wechatApplicationType=undefined) =>
             setCookie(key, queryUrl[key]);
         }
     } else {
-        if(!getUser().ticket) {
-            removeUser()
-            location.href = `${accUrl}/#/login?redirect=${location.href}`
+        if (accUrl) {
+            if(!getUser().ticket) {
+                removeUser()
+                location.href = `${accUrl}/#/login?redirect=${location.href}`
+            }
         }
     }
-
 }
 
 export default useSassPortal;

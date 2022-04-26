@@ -7,13 +7,13 @@
  */
 import React from 'react';
 import {inject, observer} from "mobx-react";
-import {PrivilegeSystemFeature, SYSTEM_ROLE_STORE, PRIVILEGE_SYSTEM_STORE} from "doublekit-privilege-ui";
+import {FeatureList, SYSTEM_ROLE_STORE, PRIVILEGE_SYSTEM_STORE} from "doublekit-privilege-ui";
 
 
 const Feature = props => {
     return(
         <div>
-            <PrivilegeSystemFeature {...props}/>
+            <FeatureList {...props}/>
         </div>
     )
 }

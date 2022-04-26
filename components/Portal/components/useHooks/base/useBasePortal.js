@@ -4,7 +4,7 @@
  * create: $2022/1/15
  */
 
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {getUser, saveUser} from 'doublekit-core-ui'
 import {parseSearch} from "../../../../utils";
 import useAccountConfig from "../../../../hooks/useAccountConfig";
@@ -20,6 +20,8 @@ import {message} from "antd";
 const useBasePortal = (portalLoginStore, history, redirect) => {
     const {login } = portalLoginStore;
     const user = parseSearch(window.location.search);
+    const [loading,setLoading] = useState(true);
+
     useEffect(() => {
         const redirect = localStorage.getItem('redirect');
         if (user.state === "wechat" || user.appid) {
@@ -39,6 +41,7 @@ const useBasePortal = (portalLoginStore, history, redirect) => {
                         } else {
                             saveUser(res.data)
                             login(res.data);
+                            setLoading(false)
                             if (redirect) {
                                 localStorage.removeItem('redirect');
                                 window.location.href= `${redirect}?email=${res.data.email}&name=${res.data.name}&ticket=${res.data.ticket}&phone=${res.data.phone}&userId=${res.data.userId}`
@@ -69,7 +72,7 @@ const useBasePortal = (portalLoginStore, history, redirect) => {
                                 if (res.data) {
                                     saveUser(res.data)
                                     login(res.data);
-                                    debugger
+                                    setLoading(false)
                                     if (redirect) {
                                         localStorage.removeItem('redirect');
                                         window.location.href= `${redirect}?email=${res.data.email}&name=${res.data.name}&ticket=${res.data.ticket}&phone=${res.data.phone}&userId=${res.data.userId}`
@@ -102,7 +105,7 @@ const useBasePortal = (portalLoginStore, history, redirect) => {
         // 没有用户数据
         if (!getUser().ticket) {
             if (authData.authType === 'acc') {
-                const url =`${authData.authAccConfig.accUrl}/#/logout?redirect=${window.location.origin}`
+                const url =`${authData.authUrl}/#/logout?redirect=${window.location.origin}`
                 window.location.href = url
             } else {
                 // if (!user.state || user.code) {
@@ -112,6 +115,11 @@ const useBasePortal = (portalLoginStore, history, redirect) => {
             }
         }
     }, [authData])
+
+
+    if (loading) {
+        return <div>加载中。。。</div>
+    }
 
 }
 
