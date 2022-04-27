@@ -11,7 +11,7 @@ import {parseSearch} from "../utils";
 import Api from "../login/api";
 import {message} from "antd";
 
-function verifyUserHOC (WrapComponent, isSaas = false){
+function verifyUserHOC (WrapComponent){
     return class wrapComponent extends Component {
         constructor(props){
             super(props)
@@ -45,7 +45,6 @@ function verifyUserHOC (WrapComponent, isSaas = false){
                             window.location.href = `${authData.authUrl}/#/logout?redirect=${window.location.origin}`
                         } else {
                             if (getUser().ticket) {
-                                debugger
                                 this.setState({
                                     loading: false
                                 })

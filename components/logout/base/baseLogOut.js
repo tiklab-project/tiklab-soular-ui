@@ -14,7 +14,6 @@ import {getUser} from "doublekit-core-ui";
 function BaseLogOut(props) {
     const {portalLoginStore, authConfig, history, localLogin='/login'} = props;
     const {logout} = portalLoginStore;
-
     useEffect(async () => {
         const user = getUser();
         if (authConfig) {
@@ -30,7 +29,7 @@ function BaseLogOut(props) {
 
     }, [authConfig])
     return (
-        <div>退出中...</div>
+        <div>退出中 portal...</div>
     );
 }
 export default inject(LOGIN_STATUS)(observer(BaseLogOut));

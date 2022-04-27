@@ -28,7 +28,7 @@ import PortalRouter from './modules/routers';
 import PortalStore from './modules/stores';
 
 import verifyUserHOC from './HOC/VaildUserHOC'
-
+import verifyUserSaasHOC from './HOC/verifyUserSassHOC'
 
 export {
     LoginElectron,
@@ -58,5 +58,6 @@ export {
     PortalRouter,
     PortalStore,
 
-    verifyUserHOC
+    verifyUserHOC,
+    verifyUserSaasHOC
 }

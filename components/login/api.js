@@ -157,8 +157,8 @@ class Api {
      * 获取登录配置方式
      * @returns {Promise<*>}
      */
-    authConfig = async () => {
-        return await Axios.post(AUTH_CONFIG)
+    authConfig = async (axiosHeader) => {
+        return await Axios.post(AUTH_CONFIG, {}, axiosHeader)
     }
 
 
