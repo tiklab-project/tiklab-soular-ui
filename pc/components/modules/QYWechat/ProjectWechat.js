@@ -5,7 +5,7 @@
  * @description 企业微信内部应用中的项目管理
  */
 import React, {useEffect} from 'react';
-import {saveUser, urlQuery} from 'doublekit-core-ui';
+import {saveUser, urlQuery, setCookie} from 'doublekit-core-ui';
 import {inject, observer} from 'mobx-react'
 import InternalWechatService from './service/workService';
 import {LOGIN_STATUS} from "../../login";
@@ -17,6 +17,7 @@ const ProjectWechat = props => {
         InternalWechatService.internalWechatLogin(query.code).then(res => {
             if (!res.code) {
                 saveUser(res.data)
+                setCookie('loginType',query.state)
                 portalLoginStore.login(res.data)
                 history.push('/')
             }
