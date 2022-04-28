@@ -1,0 +1,38 @@
+@import "../styles/index";
+
+
+.portal-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    overflow: hidden;
+    &-header {
+        min-height: 64px;
+        height: 64px;
+        background: $white;
+        border-bottom: 1px solid $bottom;
+    }
+    &-content {
+        flex-grow: 1;
+        overflow: auto;
+    }
+    &-footer {
+        height: 74px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & & {
+        flex-grow: 1;
+        flex-direction: row;
+    }
+    &-hasAside {
+        flex-direction: row;
+        .portal-layout {
+            flex-direction: column;
+        }
+    }
+}

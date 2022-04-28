@@ -1,0 +1,27 @@
+/**
+* @name: work
+* @author: mahai
+* @date: 2021-05-24 09:38
+* @description：work
+* @update: 2021-05-24 09:38
+*/
+.work {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  &-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 200px;
+    box-shadow:0 0 5px 5px #ccc;
+    margin: 20px;
+    img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+  }
+}
