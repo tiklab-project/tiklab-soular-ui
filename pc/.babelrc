@@ -1,0 +1,35 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "browsers": [
+                        "> 1%",
+                        "last 5 versions",
+                        "ie >= 8"
+                    ]
+                }
+            }
+        ],
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        "@babel/plugin-transform-react-jsx",
+        ["@babel/plugin-transform-arrow-functions"],
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        "@babel/plugin-syntax-dynamic-import",
+        ["@babel/plugin-transform-runtime",
+            {
+                "regenerator": true
+            }
+        ],
+        ["import", {
+            "libraryName": "antd",
+            "libraryDirectory": "es",
+            "style": "css"
+        }],
+        "@babel/plugin-transform-regenerator",
+        "react-hot-loader/babel"
+    ]
+}
