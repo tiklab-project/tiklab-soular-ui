@@ -69,7 +69,7 @@ class Api {
      * @param params
      * @returns {Promise<*>}
      */
-    login = async (params) => {
+    localLogin = async (params) => {
         return await Axios.post(LOGIN, params)
     }
 

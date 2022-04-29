@@ -18,9 +18,6 @@ import {
 
 import {BaseLogOut, SassLogout} from './logout';
 
-import LoginElectron from './electron/login'
-import PortalElectron from './electron/portal'
-
 import {portal_cn} from './language'
 import {useAccountConfig, useVersion, useSaSSVersion} from './hooks';
 
@@ -29,10 +26,8 @@ import PortalStore from './modules/stores';
 
 import verifyUserHOC from './HOC/VaildUserHOC'
 import verifyUserSaasHOC from './HOC/verifyUserSassHOC'
-
+import {ProjectWechat} from './modules'
 export {
-    LoginElectron,
-    PortalElectron,
     ProjectLogin,
     PortalLogin,
     SaasPortal,
@@ -59,5 +54,6 @@ export {
     PortalStore,
 
     verifyUserHOC,
-    verifyUserSaasHOC
+    verifyUserSaasHOC,
+    ProjectWechat
 }

@@ -20,7 +20,6 @@ function verifyUserSaasHOC(WrapComponent, wechatApplicationType) {
         }
 
         componentDidMount() {
-            const {login } = this.props.portalLoginStore;
             const query = parseSearch(window.location.search);
             this.getProjectAuthentication(query.tenant).then(authData => {
                 if (query.ticket) {
@@ -31,7 +30,6 @@ function verifyUserSaasHOC(WrapComponent, wechatApplicationType) {
                     //     setCookie(key, query[key]);
                     // }
                     saveUser(query)
-                    login(query);
                     this.setState({
                         loading: false
                     }, () => {

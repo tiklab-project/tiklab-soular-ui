@@ -18,7 +18,6 @@ import {message} from "antd";
  * @param redirect 本地重定向页面
  */
 const useBasePortal = (portalLoginStore, history, redirect) => {
-    const {login } = portalLoginStore;
     const user = parseSearch(window.location.search);
     const [loading,setLoading] = useState(true);
 
@@ -40,7 +39,6 @@ const useBasePortal = (portalLoginStore, history, redirect) => {
                             window.location.href = url
                         } else {
                             saveUser(res.data)
-                            login(res.data);
                             setLoading(false)
                             if (redirect) {
                                 localStorage.removeItem('redirect');
@@ -71,7 +69,6 @@ const useBasePortal = (portalLoginStore, history, redirect) => {
                             } else {
                                 if (res.data) {
                                     saveUser(res.data)
-                                    login(res.data);
                                     setLoading(false)
                                     if (redirect) {
                                         localStorage.removeItem('redirect');
@@ -94,7 +91,6 @@ const useBasePortal = (portalLoginStore, history, redirect) => {
         // 门户中心返回数据
         if (user.ticket) {
             saveUser(user)
-            login(user);
             const url = window.location.origin + '/' + window.location.hash
             window.location.href = url
         }

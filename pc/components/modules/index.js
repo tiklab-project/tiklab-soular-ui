@@ -30,6 +30,7 @@ import Login from './login/login';
 
 import DirectoryWrap from './directory/directory';
 
+import ProjectWechat from './QYWechat/ProjectWechat'
 export {
     Work,
     WorkBench,
@@ -56,4 +57,5 @@ export {
     Login,
 
     DirectoryWrap,
+    ProjectWechat
 }

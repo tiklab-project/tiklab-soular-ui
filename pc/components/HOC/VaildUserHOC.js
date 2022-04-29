@@ -5,7 +5,7 @@
  * @description VaildUserHOC
  */
 import React, {Component} from "react";
-import {getUser, LOCALSTORAGE_KEY, saveUser} from 'doublekit-core-ui'
+import {getUser, LOCALSTORAGE_KEY, saveUser, setCookie} from 'doublekit-core-ui'
 
 import {parseSearch} from "../utils";
 import Api from "../login/api";
@@ -23,7 +23,6 @@ function verifyUserHOC (WrapComponent){
 
         componentDidMount() {
             const {history} = this.props;
-            const {login } = this.props.portalLoginStore;
             const user = parseSearch(window.location.search);
             const redirect = localStorage.getItem('redirect');
             this.getProjectAuthentication().then(authData => {
@@ -39,7 +38,6 @@ function verifyUserHOC (WrapComponent){
                     // 门户中心返回数据
                     else if (user.ticket) {
                         saveUser(user)
-                        login(user);
                         window.location.href = window.location.origin + '/' + window.location.hash
                     } else if (!getUser().ticket) {
                         if (authData.authType === 'acc') {
@@ -84,7 +82,6 @@ function verifyUserHOC (WrapComponent){
         }
 
         authWechatLogin(redirect) {
-            const {login } = this.props.portalLoginStore;
             const user = parseSearch(window.location.search);
             Api.getConfByRelDirectoryId('4').then(res => {
                 if (!res.code){
@@ -98,8 +95,8 @@ function verifyUserHOC (WrapComponent){
                         if (res.code) {
                             window.location.href = window.location.origin + '/#/login'
                         } else {
+                            setCookie('loginType',"wechatQR")
                             saveUser(res.data)
-                            login(res.data);
                             this.setState({
                                 loading:false
                             }, () => {
@@ -118,7 +115,6 @@ function verifyUserHOC (WrapComponent){
 
         authDingDingLogin(redirect){
             const {history } = this.props
-            const {login } = this.props.portalLoginStore;
             const user = parseSearch(window.location.search);
             // 钉钉
             Api.getConfByRelDirectoryId('3').then(res => {
@@ -135,8 +131,8 @@ function verifyUserHOC (WrapComponent){
                             window.location.href = url
                         } else {
                             if (res.data) {
+                                setCookie('loginType',"dingdingQR")
                                 saveUser(res.data)
-                                login(res.data);
                                 this.setState({
                                     loading:false
                                 }, () => {

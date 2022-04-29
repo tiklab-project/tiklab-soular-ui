@@ -124,13 +124,6 @@ const ProjectLogin = props => {
         }
     }
 
-    let isCommunity =true;
-    try {
-        isCommunity = isCe
-    } catch (e) {
-        isCommunity = isCommunity
-    }
-
     return(
         <Layout>
             <Header>
@@ -178,7 +171,7 @@ const ProjectLogin = props => {
                                     <div className={'portal-login-content-action'}>
                                         <Button type="text" onClick={goDingLogin} disabled={disableFunction()} >钉钉</Button>
                                         <Button type="text" onClick={goWechat} disabled={disableFunction()}>企业微信</Button>
-                                        <button>demo1</button>
+                                        <Button type="text">demo1</Button>
                                     </div>
                                 </div>
                             </div>

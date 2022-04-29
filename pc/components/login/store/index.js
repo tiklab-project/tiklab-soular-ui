@@ -8,8 +8,7 @@
 import { action, observable } from 'mobx';
 import api from '../api';
 
-import {getUser, removeUser, saveUser} from 'doublekit-core-ui'
-import {parseSearch} from "../../utils";
+import {getUser, removeUser, saveUser, setCookie} from 'doublekit-core-ui'
 
 class LoginStore {
     @observable user = getUser() || {};
@@ -21,9 +20,10 @@ class LoginStore {
         if (userType === '2') {
             res = await api.ldapLogin(data)
         } else {
-            res = await api.login(data);
+            res = await api.localLogin(data);
         }
         if (!res.code) {
+            setCookie('loginType',userType === "2" ? "ldap" : "local")
             saveUser(res.data)
             this.user = res.data
             this.isLogin = true
@@ -34,6 +34,7 @@ class LoginStore {
     dingdingLogin = async params => {
         const res = await api.dingDingLogin(params);
         if (!res.code) {
+            setCookie('loginType',"dingdingQR")
             saveUser(res.data)
             this.user = res.data
             this.isLogin = true
