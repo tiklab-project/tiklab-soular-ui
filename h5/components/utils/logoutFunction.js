@@ -5,11 +5,11 @@
  * create: $2022/1/24
  */
 
-import {getUser, removeUser} from "doublekit-core-ui";
+import {getUser, removeUser} from "doublekit-core-h5";
 
 
 // Sass 项目
-const loginOutSass = (accUrl, redirect) => {
+const loginOutSaas = (accUrl, redirect) => {
     removeUser()
     location.href = `${accUrl}/#/logout?redirect=${redirect || window.location.origin}`
 }
@@ -43,7 +43,7 @@ const loginOutLocal = async (history, portalLoginStore, localLogin='/login', sea
 
 
 export {
-    loginOutSass,
+    loginOutSaas,
     loginOutAcc,
     loginOutLocal,
 }

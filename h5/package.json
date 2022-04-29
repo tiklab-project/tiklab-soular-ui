@@ -23,7 +23,7 @@
     "antd-mobile": "^5.7.1",
     "axios": "^0.21.0",
     "cross-env": "^7.0.3",
-    "doublekit-core-ui": "^1.0.0",
+    "doublekit-core-h5": "0.0.0",
     "doublekit-message-ui": "^1.0.0",
     "doublekit-plugin-manage": "^1.0.0",
     "doublekit-privilege-ui": "^1.0.0",

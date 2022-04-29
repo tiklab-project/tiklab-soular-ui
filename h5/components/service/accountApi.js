@@ -5,12 +5,16 @@
  * @description accountApi
  */
 
-import {Axios} from "doublekit-core-ui";
+import {Axios} from "doublekit-core-h5";
 
 const LOGIN_API = '/passport/login';
 const RAM_LOGOUT_API = '/passport/logout';
+
 const LDAP_LOGOUT = '/ldap/passport/logout';
+
+
 const DINGDING_LOGOUT = '/dingding/passport/logout'
+
 const WECHAT_LOGOUT = '/wechat/passport/logout';
 
 const AUTH_CONFIG = '/authConfig/getAuthConfig';
@@ -61,6 +65,7 @@ class AccountApi {
     authConfig = async (axiosHeader) => {
         return await Axios.post(AUTH_CONFIG, {}, axiosHeader)
     }
+
 
 }
 const accountApi = new AccountApi();

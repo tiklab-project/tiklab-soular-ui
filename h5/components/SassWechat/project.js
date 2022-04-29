@@ -7,11 +7,11 @@
 
 
 import React, {useEffect, useState} from 'react';
-import {removeUser, saveUser, urlQuery} from 'doublekit-core-ui'
+import {removeUser, saveUser, urlQuery} from 'doublekit-core-h5'
 import weChatServiceApi from "../service/wechat.service";
 
 
-const Project = ({location}) =>  {
+const ProjectWechatSaas = ({location}) =>  {
 
     const query = urlQuery(location.search);
 
@@ -116,4 +116,4 @@ const Project = ({location}) =>  {
     );
 }
 
-export default Project;
+export default ProjectWechatSaas;

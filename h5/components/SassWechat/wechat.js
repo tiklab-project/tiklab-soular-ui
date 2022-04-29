@@ -7,7 +7,7 @@
 
 
 import React, {useEffect, useState} from "react";
-import {saveUser, removeUser, urlQuery} from "doublekit-core-ui";
+import {saveUser, removeUser, urlQuery} from "doublekit-core-h5";
 import weChatServiceApi from "../service/wechat.service";
 
 

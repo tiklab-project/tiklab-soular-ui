@@ -4,7 +4,7 @@
  * @date 2022/3/10 11:36 AM
  * @description 企业微信第三方服务接口
  */
-import {Axios} from "doublekit-core-ui";
+import {Axios} from "doublekit-core-h5";
 const WECHAT_APPLICATION_TENANT = "/wechatapplication/create"
 
 const WECHAT_APPLICATION_SYNC_DATA = "/wechatapplication/syncdata";

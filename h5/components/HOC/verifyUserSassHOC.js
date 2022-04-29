@@ -5,7 +5,7 @@
  * @description verifyUserSassHOC
  */
 import React, {Component} from "react";
-import {getUser, LOCALSTORAGE_KEY, removeUser, saveUser, setCookie} from 'doublekit-core-ui'
+import {getUser, LOCALSTORAGE_KEY, removeUser, saveUser, setCookie} from 'doublekit-core-h5'
 import {Toast} from "antd-mobile";
 import {parseSearch} from "../utils";
 import AccountApi from "../service/accountApi";

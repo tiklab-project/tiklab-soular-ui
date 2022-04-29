@@ -8,19 +8,27 @@
 import Login from './Login/Login';
 import Logout from './Logout/logout';
 import SassPortal from './Portal/portal';
-import Wechat from "./wechat/wechat";
+import Wechat from "./SassWechat/wechat";
+import ProjectWechatSaas from "./SassWechat/project";
+import ProjectWechatCE from './QYWechatCe/ProjectWechat'
+
 import {LOGIN_STATUS, LoginStore} from './store'
-import {loginOutSass, loginOutAcc, loginOutLocal,} from './utils/logoutFunction';
+import {loginOutSaas, loginOutAcc, loginOutLocal,} from './utils/logoutFunction';
 import verifyUserSaasHOC from './HOC/verifyUserSassHOC'
+import verifyUserHOC from './HOC/VaildUserHOC'
+
 export {
     Login,
     Logout,
     SassPortal,
     Wechat,
+    ProjectWechatSaas,
     LOGIN_STATUS,
     LoginStore,
-    loginOutSass,
+    loginOutSaas,
     loginOutAcc,
     loginOutLocal,
-    verifyUserSaasHOC
+    verifyUserSaasHOC,
+    verifyUserHOC,
+    ProjectWechatCE
 }

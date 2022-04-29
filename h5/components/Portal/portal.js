@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import {urlQuery, saveUser, setCookie} from "doublekit-core-ui"
+import {urlQuery, saveUser, setCookie} from "doublekit-core-h5"
 
 const SassPortal = (props) => {
     const {redirect = '/login', location,  portalLoginStore, history, accUrl, wechatApplicationType=undefined} = props;

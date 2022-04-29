@@ -6,7 +6,7 @@
  * @update: 2021-07-05 14:32
  */
 import React, {useEffect} from 'react';
-import {getUser, urlQuery} from 'doublekit-core-ui'
+import {getUser, urlQuery} from 'doublekit-core-h5'
 import {inject, observer} from "mobx-react";
 import {LOGIN_STATUS} from '../store'
 
@@ -23,9 +23,9 @@ const LogOut = props => {
             if (query.redirect) {
                 const loutData = await logout(user.ticket)
                 if (!loutData.code) {
-                    location.href = `${window.location.origin}/#/login?redirect=${query.redirect || window.location.origin}`
+                    location.href = `${window.location.origin}/#/logout?redirect=${query.redirect || window.location.origin}`
                 } else {
-                    location.href = `${window.location.origin}/#/login?redirect=${query.redirect || window.location.origin}`
+                    location.href = `${window.location.origin}/#/logout?redirect=${query.redirect || window.location.origin}`
                 }
             } else {
                 const loutData = await logout(user.ticket)
