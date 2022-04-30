@@ -9,17 +9,30 @@ import {getUser, removeUser} from "doublekit-core-ui";
 
 
 // Sass 项目
-const loginOutSass = (accUrl, redirect) => {
+const loginOutSass = (accUrl, redirect, history) => {
     removeUser()
-    location.href = `${accUrl}/#/logout?redirect=${redirect || window.location.origin}`
+    try {
+        if (electronVersion) {
+            history.push('/login')
+        }
+    } catch (e) {
+        location.href = `${accUrl}/#/logout?redirect=${redirect || window.location.origin}`
+    }
 }
 
 // 社区 企业退出登录 （本地登录和acc登录）
-const loginOutAcc = (accUrl) => {
+const loginOutAcc = (accUrl, history) => {
     removeUser()
-    // 数据库配置
-    const url =`${accUrl}/#/logout?redirect=${window.location.origin}`
-    return window.location.href = url
+    try {
+        if (electronVersion) {
+            history.push('/login')
+        }
+    } catch (e) {
+        // 数据库配置
+        const url =`${accUrl}/#/logout?redirect=${window.location.origin}`
+        return window.location.href = url
+    }
+
 }
 
 const loginOutLocal = async (history, portalLoginStore, localLogin='/login', search) => {

@@ -41,7 +41,13 @@ function verifyUserHOC (WrapComponent){
                         window.location.href = window.location.origin + '/' + window.location.hash
                     } else if (!getUser().ticket) {
                         if (authData.authType === 'acc') {
-                            window.location.href = `${authData.authUrl}/#/logout?redirect=${window.location.origin}`
+                            try {
+                                if (electronVersion){
+                                    history.push('/logout')
+                                }
+                            } catch (e) {
+                                window.location.href = `${authData.authUrl}/#/logout?redirect=${window.location.origin}`
+                            }
                         } else {
                             if (getUser().ticket) {
                                 this.setState({

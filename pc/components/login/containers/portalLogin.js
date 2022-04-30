@@ -17,6 +17,7 @@ import {LOGIN_STATUS} from "../store";
 
 import '../components/loginHeader/loginHeader.scss';
 import useAuthConfig from "../../hooks/useDingDingAuthCinfig";
+import {Link} from "react-router-dom";
 
 const sc = scopedClassMaker('portal-login');
 
@@ -46,7 +47,10 @@ const PortalLogin = props => {
     const [wechatUrl,setWechatUrl] = useState("")
     const [form] = Form.useForm();
     // stores
-    const {login,dingdingLogin, user} = portalLoginStore
+    const {login,dingdingLogin} = portalLoginStore;
+
+    const [loginType,setUseType] = useState("1");
+
     // custom Hooks
     // const country = useInitLanguageType({fetchMethod:fetchMethod, url:languageUrl});
     // url params
@@ -130,7 +134,7 @@ const PortalLogin = props => {
         let params = {
             account: values.account,
             password: values.password,
-            userType: values.userType ? "2" : "1"
+            userType:loginType
         }
         const res = await login(params);
         if (res.code) {
@@ -159,6 +163,10 @@ const PortalLogin = props => {
         if (wechatUrl) {
             window.location.href = wechatUrl
         }
+    }
+
+    const onLdap = () => {
+      setUseType(loginType === "1" ? "2" : "1")
     }
 
     return (
@@ -193,7 +201,8 @@ const PortalLogin = props => {
                         <Col span={12}>
                             <div className={'portal-login-content-wrap-row'}>
                                 <div className={'portal-login-content-formWrap'}>
-                                    <h1 style={{textAlign: 'center', marginTop: '30px'}}>{t('loginForm.userLoginTitle')}</h1>
+                                    <h1 style={{textAlign: 'center', marginTop: '30px'}}>{t(loginType
+                                        === "1" ?'loginForm.userLoginTitle' : "loginForm.userLoginLdapTitle")}</h1>
 
                                     <div className={'portal-login-content-form'}>
                                         <Form
@@ -245,20 +254,24 @@ const PortalLogin = props => {
                                                     </Button>
                                                 )}
                                             </FormItem>
-                                            <FormItem
-                                                className={'portal-login-content-form-item'}
-                                                name="userType"
-                                                valuePropName="checked"
-                                            >
-                                                <Checkbox>启用LDAP</Checkbox>
-                                            </FormItem>
                                         </Form>
                                     </div>
-                                    <div className={'portal-login-content-action'}>
-                                        <Button type="text" onClick={goDingLogin} disabled={disableFunction()}  >钉钉</Button>
-                                        <Button type="text" onClick={goWechat} disabled={disableFunction()} >企业微信</Button>
-                                        <span>demo1</span>
-                                    </div>
+                                    {
+                                        loginType === "1" ?
+                                            <div className={'portal-login-content-action'}>
+                                                <Button type="text" onClick={goDingLogin} disabled={disableFunction()}  >钉钉</Button>
+                                                <Button type="text" onClick={goWechat} disabled={disableFunction()} >企业微信</Button>
+                                                <Button type="text" onClick={onLdap}>
+                                                    Ldap
+                                                </Button>
+                                            </div>
+                                            :
+                                            <div className={'portal-login-content-action'}>
+                                                <Button type="text" onClick={onLdap}>
+                                                    返回
+                                                </Button>
+                                            </div>
+                                    }
                                 </div>
                             </div>
                         </Col>

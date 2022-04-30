@@ -7,7 +7,7 @@
  */
 import React from 'react';
 import {useTranslation} from "react-i18next";
-import {Button, Input, Form,Checkbox} from 'antd';
+import {Button, Input, Form,Checkbox, message} from 'antd';
 import './login.scss'
 
 const FormItem = Form.Item;
@@ -17,7 +17,7 @@ const layout = {
 };
 
 const AccountLogin = props => {
-    const {urlParams, portalLoginStore} = props;
+    const {urlParams, portalLoginStore, history} = props;
 
     const {login, user} = portalLoginStore
     const { t } = useTranslation();
@@ -28,20 +28,24 @@ const AccountLogin = props => {
         let params = {
             account: values.account,
             password: values.password,
-            userType: values.userType ? "52" : "51"
+            userType: values.userType ? "2" : "1"
         }
         const res =  await login(params)
-        // window.location.href= `${urlParams.redirect}?email=${user.email}&name=${user.name}&expireTime=${user.expireTime}&ticket=${user.ticket}&phone=${user.phone}&userId=${user.userId}`
         if(res.code) {
             return message.error(res.msg)
         } else  {
-            window.location.href= `${urlParams.redirect}?email=${res.data.email}&name=${res.data.name}&expireTime=${res.data.expireTime}&ticket=${res.data.ticket}&phone=${res.data.phone}&userId=${res.data.userId}`
+            try {
+                if (electronVersion) {
+                    history.push('/')
+                }
+            } catch (e) {
+                window.location.href= `${urlParams.redirect}?email=${res.data.email}&name=${res.data.name}&expireTime=${res.data.expireTime}&ticket=${res.data.ticket}&phone=${res.data.phone}&userId=${res.data.userId}`
+            }
         }
     };
     console.log('accountLogin')
     return (
         <>
-            <h1 style={{textAlign: 'center', marginTop: '30px'}}>{t('loginForm.userLoginTitle')}</h1>
             <div className={'portal-login-content-form'}>
                 <Form
                     form={form}

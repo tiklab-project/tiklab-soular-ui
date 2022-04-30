@@ -21,7 +21,7 @@ function BaseLogOut(props) {
                 if (user.ticket) {
                     logout(user.ticket)
                 }
-                loginOutAcc();
+                loginOutAcc(authConfig.authUrl,history);
             } else {
                await loginOutLocal(history, portalLoginStore, localLogin, authConfig.search)
             }

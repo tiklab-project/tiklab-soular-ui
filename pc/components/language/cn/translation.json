@@ -6,6 +6,7 @@
     "help": "帮助",
     "loginForm": {
         "userLoginTitle": "用户登陆",
+        "userLoginLdapTitle": "LDAP登陆",
         "usernameRequired": "请输入邮箱或手机号码、用户名",
         "usernameCustomRequired": "请输入邮箱、用户名、手机号一种登录",
         "usernamePlaceholder": "请输入邮箱或手机号码、用户名",

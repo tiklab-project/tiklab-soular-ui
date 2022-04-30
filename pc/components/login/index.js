@@ -10,10 +10,11 @@
 import {LoginStore, LOGIN_STATUS} from './store'
 import ProjectLogin from './containers/projectLogin'
 import PortalLogin from './containers/portalLogin'
-
+import ProjectElectronLogin from './containers/projectElectronLogin'
 export {
     ProjectLogin,
     PortalLogin,
     LoginStore,
     LOGIN_STATUS,
+    ProjectElectronLogin
 }

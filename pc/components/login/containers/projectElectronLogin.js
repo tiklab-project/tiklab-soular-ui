@@ -18,12 +18,10 @@ import {useAccountConfig} from "../../hooks";
 import {LOGIN_STATUS} from "../store";
 import {parseSearch} from "../../utils";
 import useAuthConfig from "../../hooks/useDingDingAuthCinfig";
-import {Link} from "react-router-dom";
-import {useTranslation} from "react-i18next";
 
 
 
-const ProjectLogin = props => {
+const ProjectElectronLogin = props => {
     const {
         logoImg,
         logoName,
@@ -32,11 +30,9 @@ const ProjectLogin = props => {
         title = '',
         pickerData=[],
         languageSelectData = [], // 切换语言包的数据
-        electronDingDingQR,
-        electronWeChatQR,
         ...rest
     } = props;
-    const { t } = useTranslation();
+
     // 获取登录配置
     const authData = useAccountConfig();
 
@@ -46,29 +42,6 @@ const ProjectLogin = props => {
     const wechatConfig = useAuthConfig('4');
     const [wechatUrl,setWechatUrl] = useState("")
     const [dingdingURL, setDingdingURL] = useState('');
-    const [loginType,setUseType] = useState("1");
-
-    // 判断页面是否有回调url
-    useEffect(() => {
-        if (authData.authType === 'acc') {
-            try {
-                // sass版本环境变量 需要市场 cookieDomain
-                if(cookieDomain){
-                    window.location.href = `${authData.accUrl}/login?redirect=${window.location.origin}`
-                }
-            } catch (e) {
-                // 企业版 社区版
-                try {
-                    // 配置本地工作台
-                    if (acc_url) {
-                        window.location.href = `${acc_url}/#/login?authType=${authData.authType}&redirect=${window.location.origin}`
-                    }
-                } catch (e) {
-                    window.location.href = `${authData.authUrl}/#/login?authType=${authData.authType}&redirect=${window.location.origin}`
-                }
-            }
-        }
-    },[authData])
 
     useEffect(() => {
         if (DingKeys) {
@@ -118,31 +91,17 @@ const ProjectLogin = props => {
 
 
     const goDingLogin = () => {
-        try {
-            if (electronVersion) {
-                electronDingDingQR(dingdingURL)
-            }
-        } catch (e) {
-            if (dingdingURL) {
-                window.location.href = dingdingURL
-            }
+        if (dingdingURL) {
+            window.location.href = dingdingURL
         }
     }
 
     const goWechat = () => {
-        try {
-            if (electronVersion) {
-                electronWeChatQR(wechatUrl)
-            }
-        } catch (e) {
-            if (wechatUrl) {
-                window.location.href = wechatUrl
-            }
+        if (wechatUrl) {
+            window.location.href = wechatUrl
         }
     }
-    const onLdap = () => {
-        setUseType(loginType === "1" ? "2" : "1")
-    }
+
     return(
         <Layout>
             <Header>
@@ -171,10 +130,7 @@ const ProjectLogin = props => {
                         <Col span={12}>
                             <div className={'portal-login-content-wrap-row'}>
                                 <div className={'portal-login-content-formWrap'}>
-                                    <h1 style={{textAlign: 'center', marginTop: '30px'}}>
-                                        {
-                                            t(loginType === "1" ?'loginForm.userLoginTitle' : "loginForm.userLoginLdapTitle")}
-                                    </h1>                                    {
+                                    {
                                         authData.authType === 'acc' && <AccountLogin
                                             loginGo={loginGoRouter}
                                             urlParams={authData}
@@ -190,22 +146,11 @@ const ProjectLogin = props => {
                                             {...rest}
                                         />
                                     }
-                                    {
-                                        loginType === "1" ?
-                                            <div className={'portal-login-content-action'}>
-                                                <Button type="text" onClick={goDingLogin} disabled={disableFunction()}  >钉钉</Button>
-                                                <Button type="text" onClick={goWechat} disabled={disableFunction()} >企业微信</Button>
-                                                <Button type="text" onClick={onLdap}>
-                                                    Ldap
-                                                </Button>
-                                            </div>
-                                            :
-                                            <div className={'portal-login-content-action'}>
-                                                <Button type="text" onClick={onLdap}>
-                                                    返回
-                                                </Button>
-                                            </div>
-                                    }
+                                    <div className={'portal-login-content-action'}>
+                                        <Button type="text" onClick={goDingLogin} disabled={disableFunction()} >钉钉</Button>
+                                        <Button type="text" onClick={goWechat} disabled={disableFunction()}>企业微信</Button>
+                                        <Button type="text">demo1</Button>
+                                    </div>
                                 </div>
                             </div>
                         </Col>
@@ -216,4 +161,4 @@ const ProjectLogin = props => {
         </Layout>
     )
 }
-export default inject(LOGIN_STATUS)(observer(ProjectLogin))
+export default inject(LOGIN_STATUS)(observer(ProjectElectronLogin))

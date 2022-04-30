@@ -42,8 +42,6 @@ const LocalLogin =  props => {
 
     return (
         <>
-            <h1 style={{textAlign: 'center', marginTop: '30px'}}>{t('loginForm.userLoginTitle')}</h1>
-
             <div className={'portal-login-content-form'}>
                 <Form
                     form={form}
