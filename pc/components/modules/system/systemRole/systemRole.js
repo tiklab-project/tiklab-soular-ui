@@ -8,13 +8,13 @@
 
 import React from 'react';
 import {inject, observer} from "mobx-react";
-import {PrivilegeSystemRole, SYSTEM_ROLE_STORE} from "doublekit-privilege-ui";
+import {RoleList, SYSTEM_ROLE_STORE} from "doublekit-privilege-ui";
 
 const SystemRole = props => {
 
     return(
         <div>
-            <PrivilegeSystemRole {...props} group={'system'} tableLink={'/privilege/role/system/'}/>
+            <RoleList {...props} group={'system'} tableLink={'/privilege/role/system/'}/>
         </div>
     )
 }

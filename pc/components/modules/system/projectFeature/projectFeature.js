@@ -8,12 +8,12 @@
 
 import React from 'react';
 import {inject, observer} from "mobx-react";
-import {PrivilegeProjectFeature, SYSTEM_ROLE_STORE, PRIVILEGE_PROJECT_FEATURE_STORE} from "doublekit-privilege-ui";
+import {ProjectFeatureList, SYSTEM_ROLE_STORE, PRIVILEGE_PROJECT_FEATURE_STORE} from "doublekit-privilege-ui";
 
 
 const ProjectFeature = props => {
     return(
-        <PrivilegeProjectFeature
+        <ProjectFeatureList
             {...props}
         />
     )

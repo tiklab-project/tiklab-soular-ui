@@ -14,6 +14,7 @@ import {LOGIN_STATUS} from "../../login";
 import verifyUserHOC from "../../HOC/VaildUserHOC";
 
 const Layout = props => {
+
     return (
         <Portal {...props}>
             {renderRoutes(props.route.routes)}

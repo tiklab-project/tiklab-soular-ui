@@ -7,7 +7,7 @@
  */
 import React from 'react';
 import {inject, observer} from "mobx-react";
-import {PrivilegeProjectRole, SYSTEM_ROLE_STORE} from "doublekit-privilege-ui";
+import {ProjectRoleList, SYSTEM_ROLE_STORE} from "doublekit-privilege-ui";
 import {onSelectMenuSwitch} from "../../../utils/staticConfig";
 
 
@@ -19,7 +19,7 @@ const ProjectSystemRole = props => {
         onSelectMenuSwitch(props.history, key)
     }
     return(
-        <PrivilegeProjectRole
+        <ProjectRoleList
             {...props}
             group={'project'}
         />
