@@ -8,7 +8,7 @@ import React, {useEffect} from 'react';
 import {inject, observer} from "mobx-react";
 import {LOGIN_STATUS} from "../../login";
 import {loginOutAcc} from "../../index";
-import {getUser, urlQuery} from "doublekit-core-ui";
+import {getUser, LOCALSTORAGE_KEY, urlQuery} from "doublekit-core-ui";
 
 
 function BaseLogOut(props) {
@@ -25,7 +25,12 @@ function BaseLogOut(props) {
         if (query.redirect) {
             loginOutAcc(query.redirect,history);
         } else {
-            loginOutAcc(location.origin,history);
+            const authConfig = localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG) ? JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG)) : null;
+            if (authConfig.authType === 'acc') {
+                loginOutAcc(authConfig.authUrl,history);
+            } else {
+                loginOutAcc(location.origin,history);
+            }
         }
     }, [])
     return (
