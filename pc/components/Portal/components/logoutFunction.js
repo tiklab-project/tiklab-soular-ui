@@ -14,7 +14,7 @@ const loginOutAcc = (accUrl, history) => {
             history.push('/login')
         }
     } catch (e) {
-        const authConfig = localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG) ? JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG)) : null;
+        const authConfig = localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG) ? JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG)) : {};
         let url =`${window.location.origin}/#/login?redirect=${accUrl}`
         if (authConfig.authType === 'acc') {
             url=`${accUrl}/#/login?redirect=${window.location.origin}`
