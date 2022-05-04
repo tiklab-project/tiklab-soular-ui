@@ -11,12 +11,7 @@ import {BaseLogOut} from "../../logout";
 
 const LogOut = props => {
     const {location} = props
-    const {search} = location;
-    const authConfig = {
-        authType: 'local',
-        search:search
-    }
-    return <BaseLogOut {...props} authConfig={authConfig}/>
+    return <BaseLogOut {...props}/>
 }
 
 export default LogOut

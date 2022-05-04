@@ -25,7 +25,7 @@ function BaseLogOut(props) {
         if (query.redirect) {
             loginOutAcc(query.redirect,history);
         } else {
-            const authConfig = localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG) ? JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG)) : null;
+            const authConfig = localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG) ? JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG)) : {};
             if (authConfig.authType === 'acc') {
                 loginOutAcc(authConfig.authUrl,history);
             } else {
