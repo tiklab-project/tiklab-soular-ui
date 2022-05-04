@@ -6,7 +6,7 @@
 import React, {useState} from 'react';
 import {getVersionInfo} from 'doublekit-core-ui';
 import {inject, observer} from "mobx-react";
-import {useBasePortal, LOGIN_STATUS, loginOutLocal} from '../../../index';
+import { LOGIN_STATUS, verifyUserHOC} from '../../../index';
 import logo from '../../assets/images/logo.jpeg'
 
 import './layout.scss'
@@ -15,9 +15,7 @@ import {Button} from "antd";
 
 const Portal = props => {
 
-    const { portalLoginStore, history} = props;
-
-    // useBasePortal(portalLoginStore, history, '/login');
+    const {history} = props;
     const [currentLink, setCurrentLink] = useState(props.location.pathname);
 
     const homeRouter = [
@@ -49,7 +47,7 @@ const Portal = props => {
 
 
     const Logout = () => {
-        loginOutLocal(history, portalLoginStore, '/login')
+        history.push('/logout')
     }
 
     const showVersion = () => {
@@ -112,5 +110,5 @@ const Portal = props => {
         </main>
     )
 };
-
-export default inject(LOGIN_STATUS)(observer(Portal))
+const verifyPortal = verifyUserHOC(Portal)
+export default inject(LOGIN_STATUS)(observer(verifyPortal))

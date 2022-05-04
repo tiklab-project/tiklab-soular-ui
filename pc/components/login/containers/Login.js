@@ -8,16 +8,15 @@
 import React, {useState, useLayoutEffect, useEffect} from 'react';
 import {inject, observer} from 'mobx-react';
 import {useTranslation} from "react-i18next";
-import {Button, Dropdown, Menu, Row, Col, Image, Input, Form, message, Checkbox} from "antd";
-import { getUser, disableFunction} from 'doublekit-core-ui'
+import {Button, Dropdown, Menu, Row, Col, Image, Input, Form, message} from "antd";
+import { removeUser, disableFunction} from 'doublekit-core-ui'
 
 import Layout, {Header, Content, Footer} from '../../Layout'
 import {scopedClassMaker, parseSearch, } from "../../utils";
 import {LOGIN_STATUS} from "../store";
 
-import '../components/loginHeader/loginHeader.scss';
 import useAuthConfig from "../../hooks/useDingDingAuthCinfig";
-import {Link} from "react-router-dom";
+import '../components/loginHeader/loginHeader.scss';
 
 const sc = scopedClassMaker('portal-login');
 
@@ -27,7 +26,7 @@ const layout = {
     wrapperCol: { span: 16 },
 };
 
-const PortalLogin = props => {
+const Login = props => {
     const {
         className,
         logoImg='https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1735300731,83723593&fm=26&gp=0.jpg',
@@ -62,13 +61,10 @@ const PortalLogin = props => {
     const wechatConfig = useAuthConfig('4');
     const query = parseSearch(props.location.search);
     useLayoutEffect(() => {
-        const user = getUser();
+        removeUser()
         // acc 模式下保存 redirect 用来钉钉企业微信扫码后处理跳转到对应的项目中
         if (query.redirect) {
             localStorage.setItem('redirect', query.redirect)
-        }
-        if (query.redirect && user.ticket) {
-            window.location.href= `${query.redirect}?email=${user.email}&name=${user.name}&ticket=${user.ticket}&phone=${user.phone}&userId=${user.userId}`
         }
     }, []);
 
@@ -282,4 +278,4 @@ const PortalLogin = props => {
         </Layout>
     )
 }
-export default inject(LOGIN_STATUS)(observer(PortalLogin))
+export default inject(LOGIN_STATUS)(observer(Login))

@@ -26,9 +26,6 @@ function verifyUserSaasHOC(WrapComponent, wechatApplicationType) {
                     if (wechatApplicationType) {
                         setCookie("applicationType", wechatApplicationType)
                     }
-                    // for (let key in query) {
-                    //     setCookie(key, query[key]);
-                    // }
                     saveUser(query)
                     this.setState({
                         loading: false

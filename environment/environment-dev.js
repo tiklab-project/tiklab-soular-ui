@@ -21,6 +21,8 @@ const webpackGlobal = {
     client: JSON.stringify('client-1'),
 
     tenant_type: JSON.stringify('single'), // mult  参数带tenant
+
+    acc_url: JSON.stringify('http://192.168.10.7:8001'),
 }
 
 module.exports =  {

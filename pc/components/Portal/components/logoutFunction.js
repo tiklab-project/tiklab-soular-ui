@@ -5,22 +5,8 @@
  * create: $2022/1/24
  */
 
-import {getUser, removeUser} from "doublekit-core-ui";
+import {LOCALSTORAGE_KEY, removeUser} from "doublekit-core-ui";
 
-
-// Sass 项目
-const loginOutSass = (accUrl, redirect, history) => {
-    removeUser()
-    try {
-        if (electronVersion) {
-            history.push('/login')
-        }
-    } catch (e) {
-        location.href = `${accUrl}/#/logout?redirect=${redirect || window.location.origin}`
-    }
-}
-
-// 社区 企业退出登录 （本地登录和acc登录）
 const loginOutAcc = (accUrl, history) => {
     removeUser()
     try {
@@ -28,40 +14,18 @@ const loginOutAcc = (accUrl, history) => {
             history.push('/login')
         }
     } catch (e) {
+        const authConfig = localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG) ? JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG)) : null;
+        let url =`${window.location.origin}/#/login?redirect=${accUrl}`
+        if (authConfig.authType === 'acc') {
+            url=`${accUrl}/#/login?redirect=${window.location.origin}`
+        }
         // 数据库配置
-        const url =`${accUrl}/#/logout?redirect=${window.location.origin}`
         return window.location.href = url
     }
 
 }
 
-const loginOutLocal = async (history, portalLoginStore, localLogin='/login', search) => {
-    const {logout} = portalLoginStore;
-    const user = getUser();
-    if (user.ticket) {
-        removeUser()
-        logout(user.ticket)
-        if (search) {
-            const url = window.location.origin + '/#/login'
-                + search
-            return window.location.href = url
-        }else {
-            return history.push(localLogin)
-        }
-    } else {
-        if (search) {
-            const url = window.location.origin + '/#/login'
-                + search
-            return  window.location.href = url
-        } else {
-            return history.push(localLogin)
-        }
-    }
-}
-
 
 export {
-    loginOutSass,
     loginOutAcc,
-    loginOutLocal,
 }

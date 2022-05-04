@@ -6,7 +6,7 @@
  * @update: 2021-05-24 10:52
  */
 import React from 'react';
-import {PortalLogin} from "../../login";
+import {Login as PortalLogin} from "../../login";
 
 
 const Login  = props => {

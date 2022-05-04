@@ -5,15 +5,10 @@
  */
 
 import SaasPortal from './saasPortal';
-import useBasePortal from './components/useHooks/base/useBasePortal';
-import useSassPortal from './components/useHooks/sass/useSassPortal';
-import {loginOutLocal, loginOutSass, loginOutAcc} from './components/logoutFunction'
+
+import {loginOutAcc} from './components/logoutFunction'
 
 export {
     SaasPortal,
-    useBasePortal,
-    useSassPortal,
-    loginOutLocal,
-    loginOutSass,
     loginOutAcc
 }

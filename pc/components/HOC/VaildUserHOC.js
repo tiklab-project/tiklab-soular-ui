@@ -30,7 +30,6 @@ function verifyUserHOC (WrapComponent){
                     // 企业微信扫码登录返回的数据
                     this.authWechatLogin(redirect)
                 } else {
-
                     if (user.code && user.state !== "internal_wechat") {
                         // 钉钉微信扫码登录返回的数据
                         this.authDingDingLogin(redirect)
@@ -40,22 +39,12 @@ function verifyUserHOC (WrapComponent){
                         saveUser(user)
                         window.location.href = window.location.origin + '/' + window.location.hash
                     } else if (!getUser().ticket) {
-                        if (authData.authType === 'acc') {
-                            try {
-                                if (electronVersion){
-                                    history.push('/logout')
-                                }
-                            } catch (e) {
-                                window.location.href = `${authData.authUrl}/#/logout?redirect=${window.location.origin}`
+                        try {
+                            if (electronVersion){
+                                history.push('/logout')
                             }
-                        } else {
-                            if (getUser().ticket) {
-                                this.setState({
-                                    loading: false
-                                })
-                            } else if (!user.code) {
-                                history.push('/login')
-                            }
+                        } catch (e) {
+                            window.location.href = `${authData.authUrl}/#/logout?redirect=${window.location.origin}`
                         }
                     } else {
                         this.setState({

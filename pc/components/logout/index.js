@@ -5,8 +5,6 @@
  */
 
 import BaseLogOut from './base/baseLogOut';
-import SassLogout from './sass/sassLogout'
 export {
-    BaseLogOut,
-    SassLogout
+    BaseLogOut
 }
