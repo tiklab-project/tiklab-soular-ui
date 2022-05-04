@@ -26,7 +26,6 @@ function BaseLogOut(props) {
                await loginOutLocal(history, portalLoginStore, localLogin, authConfig.search)
             }
         }
-
     }, [authConfig])
     return (
         <div>退出中 portal...</div>

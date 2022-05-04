@@ -9,6 +9,7 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const baseWebpackConfig = require('./webpack.base');
 const webpack = require("webpack");
@@ -39,7 +40,7 @@ module.exports = merge(baseWebpackConfig, {
             title:'组织中心',
             template: path.resolve(__dirname, '../public/index.template.html'),
             hash: false,
-            filename: 'index.html',
+            filename: 'portal.html',
             inject: 'body',
             minify: {
                 collapseWhitespace: true,
@@ -54,7 +55,8 @@ module.exports = merge(baseWebpackConfig, {
             ignoreOrder: true
         }),
         new CssMinimizerPlugin(),
-        new ProgressBarPlugin()
+        new ProgressBarPlugin(),
+        new BundleAnalyzerPlugin()
     ],
     optimization: {
         minimize: true,
