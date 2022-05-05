@@ -33,7 +33,7 @@ const ProjectWechatCE = props => {
             } else {
                 InternalWechatService.internalWechatLogin(query.code).then(res => {
                     if (!res.code) {
-                        if (query.state === "internal_wechat") {
+                        if (query.state === "internal_portal") {
                             saveUser(res.data)
                             setCookie('loginType',query.state)
                             history.push('/')

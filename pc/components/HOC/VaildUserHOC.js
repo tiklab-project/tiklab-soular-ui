@@ -30,7 +30,7 @@ function verifyUserHOC (WrapComponent){
                     // 企业微信扫码登录返回的数据
                     this.authWechatLogin(redirect)
                 } else {
-                    if (user.code && user.state !== "internal_wechat") {
+                    if (user.code && user.state !== "internal_portal") {
                         // 钉钉微信扫码登录返回的数据
                         this.authDingDingLogin(redirect)
                     }
