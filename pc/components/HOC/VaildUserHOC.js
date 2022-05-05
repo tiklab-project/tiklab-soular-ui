@@ -30,7 +30,8 @@ function verifyUserHOC (WrapComponent){
                     // 企业微信扫码登录返回的数据
                     this.authWechatLogin(redirect)
                 } else {
-                    if (user.code && user.state !== "internal_portal") {
+                    // 企业微信内部应用在企业微信客户端中的state都是  internal_wechat 字段,
+                    if (user.code && user.state !== "internal_wechat") {
                         // 钉钉微信扫码登录返回的数据
                         this.authDingDingLogin(redirect)
                     }

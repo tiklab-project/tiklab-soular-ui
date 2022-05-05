@@ -33,17 +33,20 @@ const ProjectWechat = props => {
             } else {
                 InternalWechatService.internalWechatLogin(query.code).then(res => {
                     if (!res.code) {
-                        if (query.state === "internal_portal") {
-                            saveUser(res.data)
-                            setCookie('loginType',query.state)
-                            history.push('/')
-                        } else {
-                            switch (query.state) {
-                                case "internal_project": {
-                                    return window.location.href= `http://192.168.10.9?email=${res.data.email}&name=${res.data.name}&ticket=${res.data.ticket}&phone=${res.data.phone}&userId=${res.data.userId}`
-                                }
-                            }
-                        }
+                        saveUser(res.data)
+                        setCookie('loginType',query.state)
+                        history.push('/')
+                        // if (query.state === "internal_portal") {
+                        //     saveUser(res.data)
+                        //     setCookie('loginType',query.state)
+                        //     history.push('/')
+                        // } else {
+                        //     switch (query.state) {
+                        //         case "internal_project": {
+                        //             return window.location.href= `http://192.168.10.9?email=${res.data.email}&name=${res.data.name}&ticket=${res.data.ticket}&phone=${res.data.phone}&userId=${res.data.userId}`
+                        //         }
+                        //     }
+                        // }
 
                     }
                 })
