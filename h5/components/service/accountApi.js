@@ -11,6 +11,7 @@ const LOGIN_API = '/passport/login';
 const RAM_LOGOUT_API = '/passport/logout';
 
 const LDAP_LOGOUT = '/ldap/passport/logout';
+const LDAP_LOGIN = '/ldap/passport/login';
 
 
 const DINGDING_LOGOUT = '/dingding/passport/logout'
@@ -25,7 +26,7 @@ class AccountApi {
         return res;
     };
     async ldapLogin(data, axiosHeader) {
-        const res = await Axios.post(LDAP_LOGOUT, data, axiosHeader)
+        const res = await Axios.post(LDAP_LOGIN, data, axiosHeader)
         return res;
     };
     async logout (ticket, axiosHeader) {

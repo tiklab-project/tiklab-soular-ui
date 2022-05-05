@@ -16,7 +16,7 @@ const url =  'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib
 
 const Login  = props => {
 
-    const {location, history, portalLoginStore, isSass = false} = props;
+    const {location, portalLoginStore, isSass = false} = props;
     const { login } = portalLoginStore;
 
 
