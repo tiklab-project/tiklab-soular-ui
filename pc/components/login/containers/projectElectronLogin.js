@@ -42,6 +42,7 @@ const ProjectElectronLogin = props => {
     const wechatConfig = useAuthConfig('4');
     const [wechatUrl,setWechatUrl] = useState("")
     const [dingdingURL, setDingdingURL] = useState('');
+    const [loginType,setUseType] = useState("1");
 
     useEffect(() => {
         if (DingKeys) {
@@ -57,51 +58,21 @@ const ProjectElectronLogin = props => {
         }
     }, [wechatConfig])
 
-    // 判断 是否有用户信息
-    useEffect(() => {
-        const user = getUser()
-        if (user && user.ticket) {
-            props.history.push('/')
-        }
-    }, []);
-
-    // 钉钉扫码登录返回临时code处理
-    useEffect(async () => {
-        const DingDingUrl = window.location.href;
-        const params = parseSearch(DingDingUrl)
-        if(params.code && DingKeys) {
-            await getDingDingCodeFindUser(params.code)
-        }
-    },[DingKeys]);
-    const getDingDingCodeFindUser = async (code) => {
-        const params = {
-            code,
-            appKey:DingKeys.appKey,
-            appSecret:DingKeys.appSecret,
-            url:DingKeys.url
-        }
-        await props.portalLoginStore.dingdingLogin(params);
-        if (props.portalLoginStore.isLogin ) {
-            if (props.loginGo) {
-                window.location.href = window.location.origin + '/#/' + props.loginGo
-            }
-            window.location.href = window.location.origin
-        }
-    }
-
 
     const goDingLogin = () => {
-        if (dingdingURL) {
-            window.location.href = dingdingURL
+        if (dingdingURL && rest.electronDingDingQR) {
+            rest.electronWeChatQR(dingdingURL)
         }
     }
 
     const goWechat = () => {
-        if (wechatUrl) {
-            window.location.href = wechatUrl
+        if (wechatUrl && rest.electronWeChatQR) {
+            rest.electronWeChatQR(wechatUrl)
         }
     }
-
+    const onLdap = () => {
+        setUseType(loginType === "1" ? "2" : "1")
+    }
     return(
         <Layout>
             <Header>
@@ -146,11 +117,22 @@ const ProjectElectronLogin = props => {
                                             {...rest}
                                         />
                                     }
-                                    <div className={'portal-login-content-action'}>
-                                        <Button type="text" onClick={goDingLogin} disabled={disableFunction()} >钉钉</Button>
-                                        <Button type="text" onClick={goWechat} disabled={disableFunction()}>企业微信</Button>
-                                        <Button type="text">demo1</Button>
-                                    </div>
+                                    {
+                                        loginType === "1" ?
+                                            <div className={'portal-login-content-action'}>
+                                                <Button type="text" onClick={goDingLogin} disabled={disableFunction()}  >钉钉</Button>
+                                                <Button type="text" onClick={goWechat} disabled={disableFunction()} >企业微信</Button>
+                                                <Button type="text" onClick={onLdap}>
+                                                    Ldap
+                                                </Button>
+                                            </div>
+                                            :
+                                            <div className={'portal-login-content-action'}>
+                                                <Button type="text" onClick={onLdap}>
+                                                    返回
+                                                </Button>
+                                            </div>
+                                    }
                                 </div>
                             </div>
                         </Col>

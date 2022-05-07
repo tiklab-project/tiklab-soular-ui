@@ -23,6 +23,7 @@ import PortalStore from './modules/stores';
 import verifyUserHOC from './HOC/VaildUserHOC'
 import verifyUserSaasHOC from './HOC/verifyUserSassHOC'
 import {ProjectWechat} from './modules'
+import SassWechatEntry from './sassWechat/sassWechatEntry'
 export {
     Login,
     SaasPortal,
@@ -45,5 +46,6 @@ export {
 
     verifyUserHOC,
     verifyUserSaasHOC,
-    ProjectWechat
+    ProjectWechat,
+    SassWechatEntry
 }
