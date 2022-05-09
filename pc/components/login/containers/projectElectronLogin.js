@@ -16,8 +16,8 @@ import AccountLogin from "../components/accountLogin";
 import LoginHeader from "../components/loginHeader/loginHeader";
 import {useAccountConfig} from "../../hooks";
 import {LOGIN_STATUS} from "../store";
-import {parseSearch} from "../../utils";
 import useAuthConfig from "../../hooks/useDingDingAuthCinfig";
+import {useTranslation} from "react-i18next";
 
 
 
@@ -32,7 +32,7 @@ const ProjectElectronLogin = props => {
         languageSelectData = [], // 切换语言包的数据
         ...rest
     } = props;
-
+    const { t, i18n } = useTranslation();
     // 获取登录配置
     const authData = useAccountConfig();
 
@@ -46,14 +46,14 @@ const ProjectElectronLogin = props => {
 
     useEffect(() => {
         if (DingKeys) {
-            const url = `${DingKeys.url}/connect/qrconnect?appid=${DingKeys.appKey}&response_type=code&scope=snsapi_login&state=STATE&redirect_uri=${DingKeys.redirectUri}`;
+            const url = `${DingKeys.url}/connect/qrconnect?appid=${DingKeys.appKey}&response_type=code&scope=snsapi_login&state=dingDingScan&redirect_uri=${DingKeys.redirectUri}`;
             setDingdingURL(url)
         }
     }, [DingKeys]);
 
     useEffect(() => {
         if (wechatConfig && wechatConfig.agentId && wechatConfig.url) {
-            const url = `https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=${wechatConfig.corpid}&agentid=${wechatConfig.agentId}&redirect_uri=${wechatConfig.url}&state=wechat`;
+            const url = `https://open.work.weixin.qq.com/wwopen/sso/qrConnect?appid=${wechatConfig.corpid}&agentid=${wechatConfig.agentId}&redirect_uri=${wechatConfig.url}&state=wechatScan`;
             setWechatUrl(url)
         }
     }, [wechatConfig])
@@ -101,11 +101,14 @@ const ProjectElectronLogin = props => {
                         <Col span={12}>
                             <div className={'portal-login-content-wrap-row'}>
                                 <div className={'portal-login-content-formWrap'}>
+                                    <h1 style={{textAlign: 'center', marginTop: '30px'}}>{t(loginType
+                                    === "1" ?'loginForm.userLoginTitle' : "loginForm.userLoginLdapTitle")}</h1>
                                     {
                                         authData.authType === 'acc' && <AccountLogin
                                             loginGo={loginGoRouter}
                                             urlParams={authData}
                                             title={title}
+                                            loginType={loginType}
                                             {...rest}
                                         />
                                     }
@@ -114,6 +117,7 @@ const ProjectElectronLogin = props => {
                                         <LocalLogin
                                             title={title}
                                             loginGo={loginGoRouter}
+                                            loginType={loginType}
                                             {...rest}
                                         />
                                     }

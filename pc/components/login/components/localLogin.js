@@ -27,7 +27,7 @@ const LocalLogin =  props => {
         let params = {
             account: values.account,
             password: values.password,
-            userType: values.userType ? "2" : "1"
+            userType: props.loginType
         }
         const res = await props.portalLoginStore.login(params)
         if(res.code) {
@@ -92,13 +92,6 @@ const LocalLogin =  props => {
                                 {t('loginForm.LoginBtn')}
                             </Button>
                         )}
-                    </FormItem>
-                    <FormItem
-                        className={'portal-login-content-form-item'}
-                        name="userType"
-                        valuePropName="checked"
-                    >
-                        <Checkbox>启用LDAP</Checkbox>
                     </FormItem>
                 </Form>
             </div>

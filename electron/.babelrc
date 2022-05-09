@@ -1,0 +1,40 @@
+
+
+
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "browsers": [
+                        "> 1%",
+                        "last 5 versions",
+                        "ie >= 8"
+                    ]
+                }
+            }
+        ],
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        "@babel/plugin-transform-react-jsx",
+        ["@babel/plugin-transform-arrow-functions"],
+        ["import", {
+            "libraryName": "antd",
+            "libraryDirectory": "es",
+            "style": "css"
+        }],
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        ["@babel/plugin-proposal-class-properties", { "loose" : false }],
+        ["dynamic-import-webpack"],
+        "@babel/plugin-syntax-dynamic-import",
+        ["@babel/plugin-transform-runtime",
+            {
+                "regenerator": true
+            }
+        ],
+        "@babel/plugin-transform-regenerator",
+        "react-hot-loader/babel"
+    ]
+}

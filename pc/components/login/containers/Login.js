@@ -70,7 +70,7 @@ const Login = props => {
 
     useEffect(() => {
         if (DingKeys) {
-            const url = `${DingKeys.url}/connect/qrconnect?appid=${DingKeys.appKey}&response_type=code&scope=snsapi_login&state=STATE&redirect_uri=${DingKeys.redirectUri}`;
+            const url = `${DingKeys.url}/connect/qrconnect?appid=${DingKeys.appKey}&response_type=code&scope=snsapi_login&state=dingDingScan&redirect_uri=${DingKeys.redirectUri}`;
             setDingdingURL(url)
         }
     }, [DingKeys]);
