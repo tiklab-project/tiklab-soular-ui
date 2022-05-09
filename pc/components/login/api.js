@@ -69,12 +69,12 @@ class Api {
      * @param params
      * @returns {Promise<*>}
      */
-    localLogin = async (params) => {
-        return await Axios.post(LOGIN, params)
+    localLogin = async (params, header={}) => {
+        return await Axios.post(LOGIN, params, header)
     }
 
-    ldapLogin = async (params) => {
-        return await Axios.post(LDAP_LOGIN, params)
+    ldapLogin = async (params, header={}) => {
+        return await Axios.post(LDAP_LOGIN, params, header)
     }
     /**
      * 退出

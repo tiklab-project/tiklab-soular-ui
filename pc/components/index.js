@@ -5,7 +5,7 @@
  * @description：index
  * @update: 2021-09-01 18:21
  */
-import {Login, LOGIN_STATUS, LoginStore, ProjectElectronLogin} from "./login";
+import {Login, LOGIN_STATUS, LoginStore, ProjectElectronLogin, ProjectElectronSassLogin} from "./login";
 
 import {
     SaasPortal,
@@ -28,6 +28,7 @@ export {
     Login,
     SaasPortal,
     ProjectElectronLogin,
+    ProjectElectronSassLogin,
     LOGIN_STATUS,
     LoginStore,
     portal_cn,

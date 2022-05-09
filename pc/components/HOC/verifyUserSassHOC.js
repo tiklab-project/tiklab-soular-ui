@@ -5,10 +5,11 @@
  * @description verifyUserSassHOC
  */
 import React, {Component} from "react";
+import {message} from "antd";
 import {getUser, LOCALSTORAGE_KEY, removeUser, saveUser, setCookie} from 'doublekit-core-ui'
 import {parseSearch} from "../utils";
 import Api from "../login/api";
-import {message} from "antd";
+
 
 function verifyUserSaasHOC(WrapComponent, wechatApplicationType) {
     return class wrapComponent extends Component {
@@ -30,13 +31,21 @@ function verifyUserSaasHOC(WrapComponent, wechatApplicationType) {
                     this.setState({
                         loading: false
                     }, () => {
-                        location.href = location.origin + '/' + location.hash
+                        if (electronVersion) {
+                            this.props.history.push('/')
+                        } else {
+                            location.href = location.origin + '/' + location.hash
+                        }
                     })
                 } else {
                     if (authData.authUrl) {
                         if(!getUser().ticket) {
                             removeUser()
-                            location.href = `${authData.authUrl}/#/logout?redirect=${location.href}`
+                            if (electronVersion) {
+                                this.props.history.push('/login')
+                            } else {
+                                location.href = `${authData.authUrl}/#/logout?redirect=${location.href}`
+                            }
                         } else {
                             this.setState({
                                 loading: false

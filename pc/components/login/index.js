@@ -9,10 +9,12 @@
 
 import {LoginStore, LOGIN_STATUS} from './store'
 import Login from './containers/Login'
-import ProjectElectronLogin from './containers/projectElectronLogin'
+import ProjectElectronLogin from './containers/projectElectronLogin';
+import ProjectElectronSassLogin from './containers/projectElectronSassLogin'
 export {
     Login,
     LoginStore,
     LOGIN_STATUS,
-    ProjectElectronLogin
+    ProjectElectronLogin,
+    ProjectElectronSassLogin
 }
