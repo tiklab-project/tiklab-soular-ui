@@ -39,7 +39,7 @@ function verifyUserSaasHOC(WrapComponent, wechatApplicationType) {
                                 this.props.history.push('/')
                             }
                         }catch (e) {
-                            location.href = location.origin + '/' + location.hash
+                            window.location.href = location.origin + '/' + location.hash
                         }
                     })
                 } else {

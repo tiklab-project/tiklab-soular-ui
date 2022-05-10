@@ -59,7 +59,7 @@ const Login = props => {
     const DingKeys = useAuthConfig('3');
 
     const wechatConfig = useAuthConfig('4');
-    const query = urlQuery(props.location.href);
+    const query = urlQuery(window.location.href);
     useLayoutEffect(() => {
         removeUser()
         // acc 模式下保存 redirect 用来钉钉企业微信扫码后处理跳转到对应的项目中

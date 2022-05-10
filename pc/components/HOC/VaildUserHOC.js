@@ -22,7 +22,7 @@ function verifyUserHOC (WrapComponent){
 
         componentDidMount() {
             const {history} = this.props;
-            const user = urlQuery(window.location.href);
+            const user = urlQuery(window.location.search || window.location.href);
             const redirect = localStorage.getItem('redirect');
             this.getProjectAuthentication().then(authData => {
                 if (user.state === "wechat" || user.appid) {
@@ -37,7 +37,11 @@ function verifyUserHOC (WrapComponent){
                     // 门户中心返回数据
                     else if (user.ticket) {
                         saveUser(user)
-                        window.location.href = window.location.origin + '/' + window.location.hash
+                        this.setState({
+                            loading: false
+                        }, () =>{
+                            window.location.href = window.location.origin + '/#' + history.location.pathname
+                        })
                     } else if (!getUser().ticket) {
                         try {
                             if (electronVersion){
@@ -94,14 +98,13 @@ function verifyUserHOC (WrapComponent){
                             saveUser(res.data)
                             this.setState({
                                 loading:false
-                            }, () => {
-                                if (redirect) {
-                                    localStorage.removeItem('redirect');
-                                    window.location.href= `${redirect}?email=${res.data.email}&name=${res.data.name}&ticket=${res.data.ticket}&phone=${res.data.phone}&userId=${res.data.userId}`
-                                } else {
-                                    window.location.href = window.location.origin + '/' + window.location.hash
-                                }
                             })
+                            if (redirect) {
+                                localStorage.removeItem('redirect');
+                               return  window.location.href= `${redirect}?email=${res.data.email}&name=${res.data.name}&ticket=${res.data.ticket}&phone=${res.data.phone}&userId=${res.data.userId}`
+                            } else {
+                                return window.location.href = window.location.origin + '/' + window.location.hash
+                            }
                         }
                     })
                 }

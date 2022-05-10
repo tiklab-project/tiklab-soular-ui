@@ -12,11 +12,12 @@ import {getUser, LOCALSTORAGE_KEY, urlQuery} from "doublekit-core-ui";
 
 
 function BaseLogOut(props) {
-    const {portalLoginStore, history} = props;
+    const {portalLoginStore, history, location} = props;
     const {logout} = portalLoginStore;
+    const {state={}} = location;
     useEffect(async () => {
         const user = getUser();
-        const hash = location.href;
+        const hash = window.location.href;
         const query = urlQuery(hash);
 
         if (user.ticket) {
@@ -27,9 +28,9 @@ function BaseLogOut(props) {
         } else {
             const authConfig = localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG) ? JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY.AUTH_CONFIG)) : {};
             if (authConfig.authType === 'acc') {
-                loginOutAcc(authConfig.authUrl,history);
+                loginOutAcc(authConfig.authUrl, history, state);
             } else {
-                loginOutAcc(location.origin,history);
+                loginOutAcc(window.location.origin, history, state);
             }
         }
     }, [])
