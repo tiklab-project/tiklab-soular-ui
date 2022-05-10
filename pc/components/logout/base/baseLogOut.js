@@ -16,7 +16,7 @@ function BaseLogOut(props) {
     const {logout} = portalLoginStore;
     useEffect(async () => {
         const user = getUser();
-        const hash = location.hash;
+        const hash = location.href;
         const query = urlQuery(hash);
 
         if (user.ticket) {

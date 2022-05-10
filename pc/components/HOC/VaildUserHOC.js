@@ -5,9 +5,8 @@
  * @description VaildUserHOC
  */
 import React, {Component} from "react";
-import {getUser, LOCALSTORAGE_KEY, saveUser, setCookie} from 'doublekit-core-ui'
+import {getUser, LOCALSTORAGE_KEY, saveUser, setCookie, urlQuery} from 'doublekit-core-ui'
 
-import {parseSearch} from "../utils";
 import Api from "../login/api";
 import {message} from "antd";
 
@@ -23,7 +22,7 @@ function verifyUserHOC (WrapComponent){
 
         componentDidMount() {
             const {history} = this.props;
-            const user = parseSearch(window.location.search);
+            const user = urlQuery(window.location.href);
             const redirect = localStorage.getItem('redirect');
             this.getProjectAuthentication().then(authData => {
                 if (user.state === "wechat" || user.appid) {
@@ -78,7 +77,7 @@ function verifyUserHOC (WrapComponent){
         }
 
         authWechatLogin(redirect) {
-            const user = parseSearch(window.location.search);
+            const user = urlQuery(window.location.href);
             Api.getConfByRelDirectoryId('4').then(res => {
                 if (!res.code){
                     const wechatCfg = res.data;
@@ -111,7 +110,7 @@ function verifyUserHOC (WrapComponent){
 
         authDingDingLogin(redirect){
             const {history } = this.props
-            const user = parseSearch(window.location.search);
+            const user = urlQuery(window.location.href);
             // 钉钉
             Api.getConfByRelDirectoryId('3').then(res => {
                 if (!res.code){

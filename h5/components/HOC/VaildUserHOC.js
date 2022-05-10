@@ -5,8 +5,7 @@
  * @description VaildUserHOC
  */
 import React, {Component} from "react";
-import {getUser, LOCALSTORAGE_KEY, saveUser} from 'doublekit-core-ui'
-import {parseSearch} from "../utils";
+import {getUser, LOCALSTORAGE_KEY, saveUser, urlQuery} from 'doublekit-core-ui'
 import AccountApi from "../service/accountApi";
 
 function verifyUserHOC (WrapComponent){
@@ -21,7 +20,7 @@ function verifyUserHOC (WrapComponent){
 
         componentDidMount() {
             const {history} = this.props;
-            const user = parseSearch(window.location.search);
+            const user = urlQuery(window.location.href);
             this.getProjectAuthentication().then(authData => {
                     // 门户中心返回数据
                   if (user.ticket) {

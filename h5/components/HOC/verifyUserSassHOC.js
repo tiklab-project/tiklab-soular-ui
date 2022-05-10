@@ -5,9 +5,15 @@
  * @description verifyUserSassHOC
  */
 import React, {Component} from "react";
-import {getUser, LOCALSTORAGE_KEY, removeUser, saveUser, setCookie} from 'doublekit-core-h5'
+import {
+    getUser,
+    LOCALSTORAGE_KEY,
+    removeUser,
+    saveUser,
+    setCookie,
+    urlQuery
+} from 'doublekit-core-ui'
 import {Toast} from "antd-mobile";
-import {parseSearch} from "../utils";
 import AccountApi from "../service/accountApi";
 
 
@@ -22,7 +28,7 @@ function verifyUserSaasHOC(WrapComponent, wechatApplicationType) {
 
         componentDidMount() {
             const {login } = this.props.portalLoginStore;
-            const query = parseSearch(window.location.search);
+            const query = urlQuery(window.location.href);
             this.getProjectAuthentication(query.tenant).then(authData => {
                 if (query.ticket) {
                     if (wechatApplicationType) {

@@ -16,7 +16,7 @@ const LogOut = props => {
     const {logout} = portalLoginStore;
 
     const user = getUser();
-    const query = urlQuery(location.hash);
+    const query = urlQuery(location.href);
     useEffect(( ) => {
 
         (async () => {

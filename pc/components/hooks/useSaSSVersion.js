@@ -11,7 +11,7 @@ import api from "../login/api";
 
 const useSaSSVersion = (code) => {
     // 如果是官网首页嵌套portal系统，通过url把用户数据携带过来, 通过ifarme方式
-    const query = urlQuery(location.hash);
+    const query = urlQuery(location.href);
     const user = getUser();
 
     useEffect(() => {

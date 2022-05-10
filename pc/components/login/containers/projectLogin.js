@@ -9,7 +9,7 @@ import React, {useState, useLayoutEffect, useEffect} from 'react';
 import {inject, observer} from 'mobx-react';
 import {useTranslation} from "react-i18next";
 import {Button, Dropdown, Menu, Row, Col, Image, Input, Form, message} from "antd";
-import { getUser, disableFunction} from 'doublekit-core-ui'
+import {getUser, disableFunction, urlQuery} from 'doublekit-core-ui'
 
 import Layout, {Header, Content, Footer} from '../../Layout'
 import {scopedClassMaker, parseSearch, } from "../../utils";
@@ -59,7 +59,7 @@ const ProjectLogin = props => {
     const DingKeys = useAuthConfig('3');
 
     const wechatConfig = useAuthConfig('4');
-    const query = parseSearch(props.location.search);
+    const query = urlQuery(props.location.href);
     useLayoutEffect(() => {
         // const user = getUser();
         // acc 模式下保存 redirect 用来钉钉企业微信扫码后处理跳转到对应的项目中

@@ -16,11 +16,11 @@ const url =  'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib
 
 const Login  = props => {
 
-    const {location, portalLoginStore, isSass = false} = props;
+    const { portalLoginStore, isSass = false} = props;
     const { login } = portalLoginStore;
 
 
-    const query = urlQuery(location.search);
+    const query = urlQuery(window.location.href);
     const [form] = Form.useForm();
     const [userType,setUserType] = useState('1');
 

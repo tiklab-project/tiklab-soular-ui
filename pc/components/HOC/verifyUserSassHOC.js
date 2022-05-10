@@ -6,11 +6,14 @@
  */
 import React, {Component} from "react";
 import {message} from "antd";
-import {getUser, LOCALSTORAGE_KEY, removeUser, saveUser, setCookie} from 'doublekit-core-ui'
-import {parseSearch} from "../utils";
+import {getUser, LOCALSTORAGE_KEY, removeUser, saveUser, setCookie, urlQuery} from 'doublekit-core-ui'
 import Api from "../login/api";
 
-
+/**
+ *
+ * @param WrapComponent
+ * @param wechatApplicationType: portal、project、apibox、、
+ */
 function verifyUserSaasHOC(WrapComponent, wechatApplicationType) {
     return class wrapComponent extends Component {
         constructor(props){
@@ -21,7 +24,7 @@ function verifyUserSaasHOC(WrapComponent, wechatApplicationType) {
         }
 
         componentDidMount() {
-            const query = parseSearch(window.location.search);
+            const query = urlQuery(window.location.href);
             this.getProjectAuthentication(query.tenant).then(authData => {
                 if (query.ticket) {
                     if (wechatApplicationType) {
@@ -31,9 +34,11 @@ function verifyUserSaasHOC(WrapComponent, wechatApplicationType) {
                     this.setState({
                         loading: false
                     }, () => {
-                        if (electronVersion) {
-                            this.props.history.push('/')
-                        } else {
+                        try {
+                            if (electronVersion) {
+                                this.props.history.push('/')
+                            }
+                        }catch (e) {
                             location.href = location.origin + '/' + location.hash
                         }
                     })
@@ -41,9 +46,11 @@ function verifyUserSaasHOC(WrapComponent, wechatApplicationType) {
                     if (authData.authUrl) {
                         if(!getUser().ticket) {
                             removeUser()
-                            if (electronVersion) {
-                                this.props.history.push('/login')
-                            } else {
+                            try {
+                                if (electronVersion) {
+                                    this.props.history.push('/login')
+                                }
+                            }catch (e) {
                                 location.href = `${authData.authUrl}/#/logout?redirect=${location.href}`
                             }
                         } else {

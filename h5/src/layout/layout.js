@@ -13,10 +13,10 @@ import {urlQuery, saveUser} from "doublekit-core-ui"
 import {LOGIN_STATUS} from '../../components'
 
 const Layout = (props) => {
-    const {TabBarComponent, redirect = '/login', location,  portalLoginStore} = props;
+    const {TabBarComponent, redirect = '/login',  portalLoginStore} = props;
     const { isLogin } = portalLoginStore;
 
-    const query = urlQuery(location.search);
+    const query = urlQuery(window.location.href);
     if (query.ticket && query.userId && query.name && query.phone && query.email) {
         saveUser(query)
         window.location.href =  window.location.origin

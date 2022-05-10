@@ -9,10 +9,10 @@ import React from 'react';
 import {urlQuery, saveUser, setCookie} from "doublekit-core-h5"
 
 const SassPortal = (props) => {
-    const {redirect = '/login', location,  portalLoginStore, history, accUrl, wechatApplicationType=undefined} = props;
+    const {redirect = '/login',  portalLoginStore, history, accUrl, wechatApplicationType=undefined} = props;
     const { isLogin } = portalLoginStore;
 
-    const query = urlQuery(location.search);
+    const query = urlQuery(window.location.href);
     if (wechatApplicationType) {
         setCookie("applicationType", wechatApplicationType)
     }
