@@ -10,7 +10,7 @@ import InternalWechatService from './service/workService';
 import Api from "../../login/api";
 
 const ProjectWechat = props => {
-    const query = urlQuery(window.location.href);
+    const query = urlQuery(window.location.search || window.location.href);
     const {history, corpid, corpsecret} = props;
     useEffect(() => {
         getProjectAuthentication().then(authData=>{

@@ -24,7 +24,7 @@ function verifyUserSaasHOC(WrapComponent, wechatApplicationType) {
         }
 
         componentDidMount() {
-            const query = urlQuery(window.location.href);
+            const query = urlQuery(window.location.search || window.location.href);
             this.getProjectAuthentication(query.tenant).then(authData => {
                 if (query.ticket) {
                     if (wechatApplicationType) {
