@@ -8,8 +8,7 @@
 import Login from './Login/Login';
 import Logout from './Logout/logout';
 import SassPortal from './Portal/portal';
-import Wechat from "./SassWechat/wechat";
-import ProjectWechatSaas from "./SassWechat/project";
+import SassWechatEntry from "./SassWechat/sassWechatEntry";
 import ProjectWechatCE from './QYWechatCe/ProjectWechat'
 
 import {LOGIN_STATUS, LoginStore} from './store'
@@ -21,8 +20,7 @@ export {
     Login,
     Logout,
     SassPortal,
-    Wechat,
-    ProjectWechatSaas,
+    SassWechatEntry,
     LOGIN_STATUS,
     LoginStore,
     loginOutSaas,
