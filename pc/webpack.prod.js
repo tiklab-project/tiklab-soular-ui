@@ -40,7 +40,7 @@ module.exports = merge(baseWebpackConfig, {
             title:'组织中心',
             template: path.resolve(__dirname, '../public/index.template.html'),
             hash: false,
-            filename: 'portal.html',
+            filename: 'index.html',
             inject: 'body',
             minify: {
                 collapseWhitespace: true,

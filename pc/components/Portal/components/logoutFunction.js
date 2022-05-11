@@ -19,10 +19,14 @@ const loginOutAcc = (accUrl, history, state) => {
 
         let url =`${window.location.origin}/#/login?redirect=${accUrl}`
         if (authConfig.authType === 'acc') {
-            if (state && state.preRoute) {
-                url =`${accUrl}/#/login?redirect=${location.origin}/#${state.preRoute}`
+            if (accUrl !== "null") {
+                if (state && state.preRoute) {
+                    url =`${accUrl}/#/login?redirect=${location.origin}/#${state.preRoute}`
+                } else {
+                    url=`${accUrl}/#/login?redirect=${location.origin}`
+                }
             } else {
-                url=`${accUrl}/#/login?redirect=${location.origin}`
+                url=`${location.origin}/#/login?redirect=${location.origin}`
             }
         } else {
             if (state && state.preRoute) {

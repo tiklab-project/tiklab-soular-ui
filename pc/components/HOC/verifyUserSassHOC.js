@@ -51,7 +51,11 @@ function verifyUserSaasHOC(WrapComponent, wechatApplicationType) {
                                     this.props.history.push('/login')
                                 }
                             }catch (e) {
-                                location.href = `${authData.authUrl}/#/logout?redirect=${location.href}`
+                                if (authData.authUrl !== "null") {
+                                    location.href = `${authData.authUrl}/#/logout?redirect=${location.href}`
+                                } else {
+                                    location.href = `${window.location.origin}/#/logout?redirect=${location.href}`
+                                }
                             }
                         } else {
                             this.setState({

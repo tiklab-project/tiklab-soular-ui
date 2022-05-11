@@ -48,7 +48,11 @@ function verifyUserHOC (WrapComponent){
                                 history.push('/logout')
                             }
                         } catch (e) {
-                            window.location.href = `${authData.authUrl}/#/logout?redirect=${window.location.origin}`
+                            if (authData.authUrl !== "null") {
+                                location.href = `${authData.authUrl}/#/logout?redirect=${location.href}`
+                            } else {
+                                location.href = `${window.location.origin}/#/logout?redirect=${location.href}`
+                            }
                         }
                     } else {
                         this.setState({

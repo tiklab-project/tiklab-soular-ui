@@ -8,6 +8,7 @@ import React, {useEffect} from 'react';
 import {saveUser, urlQuery, setCookie, LOCALSTORAGE_KEY} from 'doublekit-core-ui';
 import InternalWechatService from './service/workService';
 import Api from "../../login/api";
+import {message} from "antd";
 
 const ProjectWechat = props => {
     const query = urlQuery(window.location.search || window.location.href);
@@ -26,6 +27,8 @@ const ProjectWechat = props => {
                             saveUser(res.data)
                             setCookie('loginType',query.state)
                             history.push('/')
+                        } else {
+                            return message.error(res.msg)
                         }
                     })
                 }
@@ -47,7 +50,8 @@ const ProjectWechat = props => {
                         //         }
                         //     }
                         // }
-
+                    } else {
+                        return message.error(res.msg)
                     }
                 })
             }
