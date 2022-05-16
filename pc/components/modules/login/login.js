@@ -6,18 +6,16 @@
  * @update: 2021-05-24 10:52
  */
 import React from 'react';
-import {Login as PortalLogin} from "../../login";
+import {Login} from "doublekit-eam-ui";
 
 
-const Login  = props => {
+const PortalLogin  = props => {
     return (
-        <div>
-            <PortalLogin
-                {...props}
-                loginGo={'/work'}
-            />
-        </div>
+        <Login
+            {...props}
+            title={'portal'}
+        />
     )
 }
 
-export default Login
+export default PortalLogin

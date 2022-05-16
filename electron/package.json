@@ -29,7 +29,8 @@
         "electron": ">=17.0.0"
     },
     "dependencies": {
-
+        "doublekit-eam-ui": "^1.0.0",
+        "doublekit-core-ui": "^1.0.0"
     },
     "browserslist": [
         "defaults",

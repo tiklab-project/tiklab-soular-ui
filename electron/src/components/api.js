@@ -1,35 +1,48 @@
 /**
- * @Author: mahai
- * @Description: api 类
- * create: $2022/1/25
+ * @name: api
+ * @author mahai
+ * @date 2022/5/12 11:20 AM
+ * @description api
  */
-import {Axios} from 'doublekit-core-ui'
 
+import {Axios} from 'doublekit-core-ui';
 
+// 钉钉内部应用登录
 const DINGDING_LOGIN = '/dingding/passport/login';
+// 钉钉内部应用配置项
 const DINGDING_CONFIG = '/dingdingcfg/findId';
-const DINGDING_LOGOUT = '/dingding/passport/logout'
-const LOGIN = 'passport/login';
-const LOGOUT = 'passport/logout';
+// 钉钉内部应用退出
+const DINGDING_LOGOUT = '/dingding/passport/logout';
 
+// 企业微信内部应用退出
 const WECHAT_LOGOUT = '/wechat/passport/logout';
+// 企业微信内部应用登录
 const WECHAT_LOGIN = '/wechat/passport/login';
+// 企业微信内部应用配置项
 const WECHAT_CONFIG = '/wechatcfg/findWechatById';
 
+// 登录
+const LOGIN = 'passport/login';
+// 退出
+const LOGOUT = 'passport/logout';
+
+// ldap登录
 const LDAP_LOGIN = '/ldap/passport/login';
+// ldap退出
 const LDAP_LOGOUT = '/ldap/passport/logout'
 
 const VALID_TICKET_API = '/passport/valid';
 
-
+// 获取认证配置信息
 const AUTH_CONFIG = '/authConfig/getAuthConfig';
 
+// 获取社区版的版本信息
 const GET_VERSION = '/version/getVersion';
+// 获取saas的版本信息
 const GET_SASS_VERSION = '/version/sass/getVersion';
 
 
-class Api {
-
+class EmaSever {
     getConfByRelDirectoryId = async relDirectoryId => {
         const formData = new FormData();
         formData.append('relDirectory', relDirectoryId)
@@ -157,8 +170,8 @@ class Api {
      * 获取登录配置方式
      * @returns {Promise<*>}
      */
-    authConfig = async (axiosHeader) => {
-        return await Axios.post(AUTH_CONFIG, {}, axiosHeader)
+    authConfig = async () => {
+        return await Axios.post(AUTH_CONFIG, {})
     }
 
 
@@ -181,7 +194,6 @@ class Api {
         return res;
     }
 
-
 }
 
-export default new Api();
+export default new EmaSever();

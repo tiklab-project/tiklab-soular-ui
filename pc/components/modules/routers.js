@@ -1,11 +1,12 @@
 import React from 'react';
 import { Redirect } from 'react-router';
 import {Directory} from 'doublekit-user-ui'
+import {InternalWechat, Logout, AuthResult} from 'doublekit-eam-ui'
 
 import SyncComponent from '../lazy/SyncComponent';
+import ElectronLoginPage from "./login/electornLogin";
 const layout = SyncComponent(() => import('./layout/layout'));
 
-const LogOut = SyncComponent(() => import('./logOut/logOut'));
 
 
 
@@ -43,28 +44,30 @@ const MessageSendType = SyncComponent(() => import('./system/sendType/sendType')
 const MessageTemplate = SyncComponent(() => import('./system/template/template'));
 
 
-const ProjectWechat = SyncComponent(() => import('./QYWechat/ProjectWechat'));
-
-
 const routes = [
 
     {
         path: "/logout",
         exact: true,
-        component: LogOut
+        component: Logout
     },
     {
         component: Login,
         exact:true,
         path: '/login'
     },
-    // {
-    //     component: DirectoryWrap,
-    //     exact:true,
-    //     path: '/directory'
-    // },
     {
-        component:ProjectWechat,
+        component: ElectronLoginPage,
+        exact:true,
+        path: '/account'
+    },
+    {
+        component: AuthResult,
+        exact:true,
+        path: '/auth_result'
+    },
+    {
+        component:InternalWechat,
         exact:true,
         path: '/project'
     },

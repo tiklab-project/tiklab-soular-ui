@@ -6,10 +6,8 @@
  * @update: 2021-10-08 13:25
  */
 import React, { useEffect } from 'react'
-// import {ipcRenderer} from 'electron';
-import {observer, inject} from "mobx-react";
 import {setCookie, saveUser} from 'doublekit-core-ui'
-import {ProjectElectronLogin, LOGIN_STATUS, } from 'doublekit-portal-ui';
+import {ElectronLogin, } from 'doublekit-eam-ui';
 import thirdApi from './thirdApi';
 
 const { ipcRenderer } = window.require('electron')
@@ -93,11 +91,11 @@ const LoginPage = (props) => {
         })
     }
     return (
-        <ProjectElectronLogin
+        <ElectronLogin
             {...props}
             electronDingDingQR={electronDingDingQR}
             electronWeChatQR={electronWeChatQR}
         />
     )
 }
-export default inject(LOGIN_STATUS)(observer(LoginPage))
+export default LoginPage

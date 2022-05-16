@@ -51,7 +51,7 @@ module.exports = merge(baseWebpackConfig, {
         new webpack.DefinePlugin({ENV:JSON.stringify(customEnv), ...webpackGlobal}),
 
         new MiniCssExtractPlugin({
-            filename: 'css/[name].css',
+            filename: 'css/[name].[contenthash:8].css',
             ignoreOrder: true
         }),
         new CssMinimizerPlugin(),

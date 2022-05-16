@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import {inject, observer} from "mobx-react";
 import {PLUGIN_STORE, loadLanguage} from "doublekit-plugin-manage";
+import {useVersion} from "doublekit-eam-ui";
 import {renderRoutes} from "react-router-config";
-import useVersion from "../components/hooks/useVersion";
 import {toJS} from "mobx";
 import {I18nextProvider, useTranslation} from "react-i18next";
 import resources from "../components/modules/common/language/resources";
+
 
 const App = (props) => {
     const {pluginsStore} = props;

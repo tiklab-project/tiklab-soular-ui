@@ -5,6 +5,10 @@
  * @description index
  */
 import LoginPage from "./login/login";
+import LoginSassPage from './login/loginSass';
+import verifyElectronUserHOC from './hoc/verifyElectronUserHOC';
 export {
-    LoginPage
+    LoginPage,
+    LoginSassPage,
+    verifyElectronUserHOC
 }

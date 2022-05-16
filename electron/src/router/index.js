@@ -8,7 +8,7 @@
 import React, { lazy } from 'react'
 import { Redirect } from 'react-router-dom';
 
-import LayoutPage from '../components/layout'
+// import LayoutPage from '../components/layout'
 const HomePage = lazy(() => import('../pages/home'))
 const OrgaPage = lazy(() => import('../pages/orga'))
 const LoginPage = lazy(() => import('../pages/login'))

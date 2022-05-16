@@ -11,24 +11,24 @@ import {observer, inject} from "mobx-react";
 import {setCookie, saveUser} from 'doublekit-core-ui'
 import {ProjectElectronLogin, LOGIN_STATUS, } from 'doublekit-portal-ui';
 import thirdApi from './thirdApi';
-
+import {verifyElectronUserHOC} from "../../components";
 
 
 const LoginPage = (props) => {
 
-    useEffect(() => {
-        ipcRenderer.on("thirdLoginParams", (event, fileContents) => {
-            if (fileContents.code && params.state === "dingDingScan"){
-                authDingDingLogin(fileContents.code)
-            }
-            if (fileContents.code && params.state === "wechatScan"){
-                authWechatLogin(fileContents.code)
-            }
-        });
-        return () => {
-            ipcRenderer.removeAllListeners("thirdLoginParams")
-        }
-    }, []);
+    // useEffect(() => {
+    //     ipcRenderer.on("thirdLoginParams", (event, fileContents) => {
+    //         if (fileContents.code && params.state === "dingDingScan"){
+    //             authDingDingLogin(fileContents.code)
+    //         }
+    //         if (fileContents.code && params.state === "wechatScan"){
+    //             authWechatLogin(fileContents.code)
+    //         }
+    //     });
+    //     return () => {
+    //         ipcRenderer.removeAllListeners("thirdLoginParams")
+    //     }
+    // }, []);
 
 
     const electronDingDingQR = (url) => {
@@ -92,11 +92,14 @@ const LoginPage = (props) => {
         })
     }
     return (
-        <ProjectElectronLogin
-            {...props}
-            electronDingDingQR={electronDingDingQR}
-            electronWeChatQR={electronWeChatQR}
-        />
+        // <ProjectElectronLogin
+        //     {...props}
+        //     electronDingDingQR={electronDingDingQR}
+        //     electronWeChatQR={electronWeChatQR}
+        // />
+
+        <div>demo</div>
     )
 }
-export default inject(LOGIN_STATUS)(observer(LoginPage))
+// export default inject(LOGIN_STATUS)(observer(LoginPage))
+export default verifyElectronUserHOC(LoginPage)

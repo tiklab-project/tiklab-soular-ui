@@ -5,12 +5,11 @@
  */
 import React, {useState} from 'react';
 import {getVersionInfo} from 'doublekit-core-ui';
-import {inject, observer} from "mobx-react";
-import { LOGIN_STATUS, verifyUserHOC} from '../../../index';
-import logo from '../../assets/images/logo.jpeg'
-
-import './layout.scss'
+import {verifyUserHOC} from 'doublekit-eam-ui'
 import {Button} from "antd";
+import logo from '../../assets/images/logo.jpeg'
+import styles from './layout.module.scss'
+
 
 
 const Portal = props => {
@@ -77,32 +76,32 @@ const Portal = props => {
         }
     }
     return(
-        <main className={'layout'}>
-            <header className={'layout_header'}>
-                <div className={'layout_header_left'}>
-                    <div className={'layout_header_left_logo'}>
+        <main className={styles.layout}>
+            <header className={styles.layout_header}>
+                <div className={styles.layout_header_left}>
+                    <div className={styles.layout_header_left_logo}>
                         <img alt={'...'} src={logo}/>
                     </div>
-                    <div className={'portal-header-link'}>
+                    <div className={styles.layout_header_left_link}>
                         {
                             homeRouter.map(item => {
-                                return <div key={item.key} onClick={ () => changeCurrentLink(item)} className={currentLink === item.to ? 'portal-header-link-active' : null}> {item.title}</div>
+                                return <span key={item.key} onClick={ () => changeCurrentLink(item)} className={currentLink === item.to ? styles.layout_header_left_link_active : null} style={{padding:'0 8px'}}> {item.title}</span>
                             })
                         }
                     </div>
                 </div>
 
-                <div className={'layout_header_right'}>
+                <div className={styles.layout_header_right}>
                     <Button type={'link'} disabled = {showVersion().disable}>{showVersion().title}</Button>
                     <span onClick={Logout}>退出</span>
                 </div>
             </header>
-            <section className={'layout_content'}>
+            <section className={styles.layout_content}>
                 <div style={{width:'100%'}}>
                     {props.children}
                 </div>
             </section>
-            <footer className='layout-footer'>
+            <footer className={styles.layoutFooter}>
                 <div>
                     DARTHCLOUD
                 </div>
@@ -111,4 +110,4 @@ const Portal = props => {
     )
 };
 const verifyPortal = verifyUserHOC(Portal)
-export default inject(LOGIN_STATUS)(observer(verifyPortal))
+export default verifyPortal

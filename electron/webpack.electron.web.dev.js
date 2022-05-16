@@ -10,7 +10,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const customEnv = process.env.CUSTOM_ENV;
-const {webpackGlobal} = require('./environment/environment-' + customEnv)
+const {webpackGlobal} = require('../environment/environment-' + customEnv)
 
 module.exports = merge(baseWebpackConfig,{
     // 指定构建环境

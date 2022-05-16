@@ -51,13 +51,5 @@ module.exports = merge(baseWebpackConfig,{
         host: '0.0.0.0',
         historyApiFallback: true,
         disableHostCheck: true,
-        proxy:{
-            '/':{
-                target: 'http://192.168.2.12:8090/',
-                changeOrigin: true,
-                secure: false,
-            }
-
-        }
     }
 });

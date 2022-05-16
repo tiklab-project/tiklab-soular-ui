@@ -7,7 +7,7 @@ const {queryUrl} = require('./utils')
 const isDev = process.env.NODE_ENV === 'development';
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 let win
-
+let authWin
 function createWindow() {
     win = new BrowserWindow({
         width: 380,
@@ -63,6 +63,25 @@ ipcMain.on("min", function () {
 ipcMain.on("max", function () {
     win.maximize();
 });
+
+ipcMain.on('authEvent',function (ipcMainEvent, data) {
+    authWin = new BrowserWindow({
+        width: 750,
+        height: 450,
+        minimizable: false,
+        maximizable: false
+    });
+    authWin.loadURL(data.url).then(r => {
+        authWin.webContents.openDevTools()
+    });
+
+})
+
+ipcMain.on("closeAuthEvent", function (ipcMainEvent, data) {
+    authWin.close();
+
+})
+
 ipcMain.on("login-window", function (ipcMainEvent, data) {
     const loginWindow = new BrowserWindow({
         width: 750,
@@ -95,6 +114,11 @@ ipcMain.on("login-window", function (ipcMainEvent, data) {
             loginWindow.close()
         }
         if (params.state && params.state === "wechatScan" && !params.redirect_uri) {
+            ipcMainEvent.reply('thirdLoginParams',params)
+            loginWindow.close()
+        }
+        // 企业微信服务商扫码登录
+        if (params.auth_code && params.appid && params.state === "portal_wechat_scan"){
             ipcMainEvent.reply('thirdLoginParams',params)
             loginWindow.close()
         }

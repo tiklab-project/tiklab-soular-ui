@@ -9,9 +9,6 @@ import React from 'react';
 import {renderRoutes} from 'react-router-config'
 import Portal from "./baseLayout/Portal";
 
-import {inject, observer} from "mobx-react";
-import {LOGIN_STATUS} from "../../login";
-import verifyUserHOC from "../../HOC/VaildUserHOC";
 
 const Layout = props => {
 
@@ -21,5 +18,4 @@ const Layout = props => {
         </Portal>
     )
 };
-const MobxLayout = verifyUserHOC(Layout)
-export default inject(LOGIN_STATUS)(observer(MobxLayout));
+export default Layout

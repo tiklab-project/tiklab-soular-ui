@@ -6,10 +6,10 @@
  * @update: 2021-10-09 10:14
  */
 
-import { LoginStore, LOGIN_STATUS } from 'doublekit-portal-ui';
+import { EamStore, EAM_STORE } from 'doublekit-eam-ui';
 function createStores() {
     return {
-        [LOGIN_STATUS]: new LoginStore(),
+        [EAM_STORE]: new EamStore(),
     };
 }
 const stores = createStores();

@@ -29,6 +29,7 @@
     "dependencies": {
         "antd": "^4.8.4",
         "doublekit-core-ui": "^1.0.0",
+        "doublekit-eam-ui": "^1.0.0",
         "doublekit-licence-ui": "^1.0.1",
         "doublekit-message-ui": "^1.0.0",
         "doublekit-plugin-manage": "^1.0.0",
@@ -39,7 +40,8 @@
         "is-class": "^0.0.9",
         "js-cookie": "^2.2.1",
         "mobx": "^5.15.4",
-        "mobx-react": "^6.2.2"
+        "mobx-react": "^6.2.2",
+        "socket.io-client": "^4.5.0"
     },
     "browserslist": [
         "defaults",
