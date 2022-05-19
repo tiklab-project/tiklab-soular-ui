@@ -35,19 +35,27 @@ function verifyElectronUserHOC(WrapComponent) {
                             let url
                             if (res.data.authType === "local") {
                                 try {
-                                    if (base_url.match(/https/)){
-                                        url = base_url.replace("https", "wss")
-                                    } else {
-                                        url = base_url.replace("http", "ws")
-                                    }
+                                    url = ws_url
                                 } catch (e) {
-                                    url = `ws://${window.location.host}`
+                                    try {
+                                        if (base_url.match(/https/)){
+                                            url = base_url.replace("https", "wss")
+                                        } else {
+                                            url = base_url.replace("http", "ws")
+                                        }
+                                    } catch (e) {
+                                        url = `ws://${window.location.host}`
+                                    }
                                 }
                             } else {
-                                if (res.data.authUrl.match(/https/)){
-                                    url = res.data.authUrl.replace("https", "wss")
-                                } else {
-                                    url = res.data.authUrl.replace("http", "ws")
+                                try {
+                                    url = ws_url
+                                } catch (e) {
+                                    if (res.data.authUrl.match(/https/)){
+                                        url = res.data.authUrl.replace("https", "wss")
+                                    } else {
+                                        url = res.data.authUrl.replace("http", "ws")
+                                    }
                                 }
                             }
 
