@@ -19,6 +19,12 @@ const WORK_NAME = {
     project: {
         label: '项目管理',
     },
+    jtest: {
+        label: 'Jtest',
+    },
+    wiki: {
+        label: '知识库',
+    },
 };
 
 const Work = (props) => {

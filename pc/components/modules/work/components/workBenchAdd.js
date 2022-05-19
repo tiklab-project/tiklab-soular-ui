@@ -11,7 +11,7 @@ import { Modal, Form, Input, Select, message } from 'antd';
 import WorkService from '../service/workService'
 
 const AddWorkBench = props => {
-    const {visible,setVisible, callBack, edit} = props;
+    const {visible,setVisible, callBack, edit, applicationList=[]} = props;
     const [form] = Form.useForm();
     const layout = {
         labelCol: { span: 6 },
@@ -67,10 +67,22 @@ const AddWorkBench = props => {
         {
             label: '项目管理',
             value: 'project',
+            disabled: applicationList.includes('project')
         },
         {
             label: 'API BOX',
             value: 'apibox',
+            disabled: applicationList.includes('apibox')
+        },
+        {
+            label: 'Jtest',
+            value: 'jtest',
+            disabled: applicationList.includes('jtest')
+        },
+        {
+            label: '知识库',
+            value: 'wiki',
+            disabled: applicationList.includes('wiki')
         },
     ];
     return(
@@ -94,14 +106,12 @@ const AddWorkBench = props => {
                     rules={[{ required: true, message: '用户名不能包含非法字符，如&,%，&，#……等' }]}
                 >
                     <Select options={WORK_APP_LINK}/>
-
-
                 </Form.Item>
 
                 <Form.Item
                     label= "应用链接地址"
                     name="appUrl"
-                    rules={[{ required: true, message: "请填写地址"}]}
+                    rules={[{ required: true, message: "请填写地址"},{ type: 'url', message: "应用链接地址无效" }]}
                 >
                     <Input />
                 </Form.Item>

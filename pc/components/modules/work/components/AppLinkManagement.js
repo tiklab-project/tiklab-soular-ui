@@ -18,14 +18,17 @@ const WORK_NAME = {
     project: {
         label: '项目管理',
     },
+    jtest: {
+        label: 'Jtest',
+    },
+    wiki: {
+        label: '知识库',
+    },
 };
 const AppLinkManagement = props => {
     const {visibleManagement,setVisibleManagement, workList, requestWorkList} = props;
     const [visible, setVisible] = useState(false);
     const [edit, setEdit] = useState(null)
-
-
-
 
 
 
@@ -102,6 +105,7 @@ const AppLinkManagement = props => {
                 edit={edit}
                 visible = {visible}
                 setVisible = {setVisible}
+                applicationList={workList.map(item => item.appType)}
                 callBack={callBack}
             />
         </Modal>
