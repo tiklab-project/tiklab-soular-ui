@@ -149,8 +149,7 @@ const routes = [
                     },
                     {
                         path: '/system/message',
-                        // component: MessageManagement,
-                        component:Directory
+                        component: MessageManagement,
                     },{
                         path: '/system/messagetype',
                         component: MessageType,
