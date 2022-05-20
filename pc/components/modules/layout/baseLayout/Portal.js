@@ -5,7 +5,7 @@
  */
 import React, {useState} from 'react';
 import {getVersionInfo} from 'doublekit-core-ui';
-import {verifyUserHOC} from 'doublekit-eam-ui'
+import {verifyUserHOC, useWorkAppConfig} from 'doublekit-eam-ui'
 import {Button} from "antd";
 import logo from '../../assets/images/logo.jpeg'
 import styles from './layout.module.scss'
@@ -16,6 +16,8 @@ const Portal = props => {
 
     const {history} = props;
     const [currentLink, setCurrentLink] = useState(props.location.pathname);
+
+    const [component, ModalComponent, editOrAddModal] = useWorkAppConfig(false);
 
     const homeRouter = [
         {
@@ -82,6 +84,7 @@ const Portal = props => {
                     <div className={styles.layout_header_left_logo}>
                         <img alt={'...'} src={logo}/>
                     </div>
+                    {component}
                     <div className={styles.layout_header_left_link}>
                         {
                             homeRouter.map(item => {
@@ -106,6 +109,8 @@ const Portal = props => {
                     DARTHCLOUD
                 </div>
             </footer>
+            {ModalComponent}
+            {editOrAddModal}
         </main>
     )
 };

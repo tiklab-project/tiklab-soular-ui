@@ -5,7 +5,6 @@
  * @description 社区版的页面级组件到处
  */
 import Work from './work/work';
-import WorkBench from './work/workBench';
 
 import System from './system/contains';
 import DomainProjectRole from './system/domainProjectRole/domainProjectRole';
@@ -25,15 +24,12 @@ import OrgaManagement from './orga/orgaManagement/orgaManagement';
 import ProjectPeopleManagement from './orga/projectPeopleManagement/projectPeopleManagement';
 import UserManagement from './orga/userManagement/userManagement';
 
-import LogOut from './logOut/logOut';
 import Login from './login/login';
 
 import DirectoryWrap from './directory/directory';
 
-import ProjectWechat from './QYWechat/ProjectWechat'
 export {
     Work,
-    WorkBench,
 
     System,
     DomainProjectRole,
@@ -53,9 +49,7 @@ export {
     ProjectPeopleManagement,
     UserManagement,
 
-    LogOut,
     Login,
 
     DirectoryWrap,
-    ProjectWechat
 }
