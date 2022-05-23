@@ -20,7 +20,7 @@ module.exports = merge(baseWebpackConfig,{
     plugins:[
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
-            title:'SASS',
+            title:'社区版',
             template: path.resolve(__dirname, '../public/index.template.html'),
             hash: false,
             filename: 'index.html',
@@ -38,7 +38,7 @@ module.exports = merge(baseWebpackConfig,{
         hot:true,
         compress:true,
         port:8000,
-        host: '192.168.10.7',
+        host: '192.168.10.6',
         historyApiFallback: true,
         disableHostCheck: true,
         headers:{

@@ -5,17 +5,15 @@ const layout = SyncComponent(() => import('./layout/Layout'));
 const LogOut = SyncComponent(() => import('../components/Logout/logout'));
 
 const Work = SyncComponent(() => import('./view/work/work'))
-const Login = SyncComponent(() => import('../components/Login/Login'))
-const Wechat = SyncComponent(() => import('../components/wechat/wechat'))
+const AddWork = SyncComponent(() => import('./view/addWork/addWork'))
+const EditWork = SyncComponent(() => import('./view/editWork/editWork'))
 
-const Project = SyncComponent(() => import('../components/wechat/project'))
+const Login = SyncComponent(() => import('../components/Login/Login'))
+// const Wechat = SyncComponent(() => import('../components/wechat/wechat'))
+//
+// const Project = SyncComponent(() => import('../components/wechat/project'))
 
 const routes = [
-    // {
-    //     path:"/",
-    //     exact:true,
-    //     render:()=><Redirect to="/work"/>
-    // },
     {
         path: "/logout",
         exact: true,
@@ -26,16 +24,16 @@ const routes = [
         exact:true,
         path: '/login'
     },
-    {
-        component: Wechat,
-        exact:true,
-        path: '/wechat'
-    },
-    {
-        component: Project,
-        exact:true,
-        path: '/project'
-    },
+    // {
+    //     component: Wechat,
+    //     exact:true,
+    //     path: '/wechat'
+    // },
+    // {
+    //     component: Project,
+    //     exact:true,
+    //     path: '/project'
+    // },
     {
         component: layout,
         key:'layout',
@@ -45,9 +43,18 @@ const routes = [
                 path:"/",
                 exact:true,
             },
+            {
+                component: AddWork,
+                path:"/work/add",
+                exact:true,
+            },
+            {
+                component: EditWork,
+                path:"/work/:id/edit",
+                exact:true,
+            }
         ]
     },
-
 ];
 
 export default routes

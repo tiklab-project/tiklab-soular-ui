@@ -6,90 +6,68 @@
  * @update: 2021-05-24 09:38
  */
 import React, {useState, useEffect}  from 'react';
-import {getUser} from 'doublekit-core-ui'
-import WorkService from './service/workService'
-import { Col, Row } from 'antd';
-import "./components/workBench.scss"
-import AppLinkManagement from './components/AppLinkManagement';
+import {getUser} from 'doublekit-core-ui';
+import {Link} from 'react-router-dom';
 
-const WORK_NAME = {
-    apibox: {
-        label: 'API BOX',
-    },
-    project: {
-        label: '项目管理',
-    },
-};
+
+import {List} from "antd-mobile";
+import {AddOutline, EditSOutline} from "antd-mobile-icons";
+import WorkService from "../../service/workService";
+
+import {WORK_NAME} from '../../constant';
+import "./work.scss";
+
+
+
 
 const Work = (props) => {
     const [urls, setUrls] = useState([]);
-    const [visibleManagement, setVisibleManagement] = useState(false);
 
-    debugger
     const user = getUser();
     useEffect(() => {
-        getWorkList().then(r => {})
+        WorkService.getWorkList().then(res =>{
+            setUrls(res)
+        })
     }, [])
 
-    const showManage = id => {
-        setVisibleManagement(true)
-    }
 
-    const requestWorkList = () =>{
-        getWorkList().then(r => {})
-    }
 
-    const getWorkList = async () => {
-        const data = await WorkService.getWorkList();
-        setUrls(data)
+
+    const ListHeader = (
+        <div className='workList'>
+            <span>产品列表</span>
+            <Link to={'/work/add'}><AddOutline/></Link>
+
+        </div>
+    );
+
+
+    const openProjectLink = (url) => {
+        const uri = user.ticket ? `${url}?email=${user.email}&name=${user.name}&expireTime=${user.expireTime}&ticket=${user.ticket}&phone=${user.phone}&userId=${user.userId}`: url
+        window.open(uri)
     }
 
     return (
-        <>
-            <Row justify={'center'} style={{width:'100%',}}>
-                <Col xl={{span:24}} xxl={{span:16}}>
-                    <div className="title">
-                        default
-                        <span className={'head-action'} onClick={()=> showManage() }>管理</span>
-                    </div>
-                    <div className="box-gather">
-                        {
-                            urls.map(item => {
-                                const url = user.ticket ? `${item.appUrl}?email=${user.email}&name=${user.name}&expireTime=${user.expireTime}&ticket=${user.ticket}&phone=${user.phone}&userId=${user.userId}` : item.appUrl
-                                return (
-                                    <div className="box-item" key={item.id}>
-                                        <div className="box-icon">
-                                            <a href={url} target='_blank'> {WORK_NAME[item.appType].label}</a>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-
-                </Col>
-            </Row>
+        <List header={ListHeader} mode={'card'}>
             {
-                urls.length === 0 && <Row justify={'center'} style={{width:'100%',}}>
-                    <Col xl={{span:24}} xxl={{span:16}}>
-                        <div className="title">
-                            default
-                            <span className={'head-action'} onClick={()=> showManage('') }>管理</span>
+                urls.map(res => {
+                    return <List.Item
+                        key={res.id}
+                        extra={
+                            <Link to={`/work/${res.id}/edit`}>
+                                <EditSOutline/>
+                            </Link>
+                        }
+                    >
+                        <div onClick={() => openProjectLink(res.appUrl)}>
+                            {WORK_NAME[res.appType].label}
                         </div>
-                        <div className="box-gather">
 
-                        </div>
-                    </Col>
-                </Row>
+                    </List.Item>
+                })
             }
-            <AppLinkManagement
-                {...props}
-                workList={urls}
-                requestWorkList={requestWorkList}
-                visibleManagement = {visibleManagement}
-                setVisibleManagement = {setVisibleManagement}
-            />
-        </>
+
+        </List>
     )
 }
 export default Work

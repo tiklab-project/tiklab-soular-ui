@@ -7,7 +7,7 @@
  */
 import React, {useState, useEffect} from 'react';
 import { Space, Avatar, Button, Form, Input, Checkbox } from 'antd-mobile';
-import {urlQuery} from 'doublekit-core-h5'
+import {urlQuery} from 'doublekit-core-ui'
 
 import {inject, observer} from "mobx-react";
 import {LOGIN_STATUS} from "../store";
@@ -16,7 +16,7 @@ const url =  'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib
 
 const Login  = props => {
 
-    const { portalLoginStore, isSass = false} = props;
+    const { portalLoginStore, isSass = false, history} = props;
     const { login } = portalLoginStore;
 
 
@@ -44,8 +44,8 @@ const Login  = props => {
 
             } else {
                 // react native 处理 网页向rn发送的消息
-                window.ReactNativeWebView.postMessage(JSON.stringify({user: res.data}));
-                // history.push('/')
+                // window.ReactNativeWebView.postMessage(JSON.stringify({user: res.data}));
+                history.push('/')
             }
         }
     }

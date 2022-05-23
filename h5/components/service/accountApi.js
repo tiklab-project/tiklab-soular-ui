@@ -5,7 +5,7 @@
  * @description accountApi
  */
 
-import {Axios} from "doublekit-core-h5";
+import {Axios} from "doublekit-core-ui";
 
 const LOGIN_API = '/passport/login';
 const RAM_LOGOUT_API = '/passport/logout';

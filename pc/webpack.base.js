@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin=require('copy-webpack-plugin');
 
 const DIST_PATH = path.resolve(__dirname, 'dist');
 
@@ -148,6 +149,9 @@ module.exports = {
         ]
     },
     plugins: [
-
+        new CopyWebpackPlugin([{
+            from: path.resolve(__dirname, "./static"),
+            to: path.resolve(__dirname, './dist')
+        }]),
     ]
 };

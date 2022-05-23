@@ -6,7 +6,7 @@
  * @update: 2021-07-05 14:32
  */
 import React, {useEffect} from 'react';
-import {getUser, urlQuery} from 'doublekit-core-h5'
+import {getUser, urlQuery} from 'doublekit-core-ui'
 import {inject, observer} from "mobx-react";
 import {LOGIN_STATUS} from '../store'
 
