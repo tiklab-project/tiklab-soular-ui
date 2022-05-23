@@ -3,7 +3,6 @@
 
 const api =  'http://192.168.10.6:8080';
 const base_url = JSON.stringify(api);
-const ws_url =  JSON.stringify('ws://192.168.10.6:8080');
 
 const webpackGlobal = {
     // 判断是否是用户环境， 如果是用户环境收到切换为true， 如果是内部公司手动切换为false
@@ -23,7 +22,7 @@ const webpackGlobal = {
     tenant_type: JSON.stringify('single'), // mult  参数带tenant
 
     acc_url: JSON.stringify('http://portal.local.doublekit.net'),
-    ws_url:ws_url
+    mobile: JSON.stringify('http://192.168.10.6:8000'),
 }
 
 module.exports =  {

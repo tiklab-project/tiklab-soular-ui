@@ -1,10 +1,13 @@
 
-
+const webpack = require("webpack");
 const path = require('path');
 const {merge} =require("webpack-merge")
 const baseWebpackConfig = require("./webpack.base");
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const customEnv = process.env.CUSTOM_ENV;
+const {webpackGlobal} = require('../environment/environment-' + customEnv)
 
 module.exports = merge(baseWebpackConfig,{
     // 指定构建环境
@@ -20,8 +23,9 @@ module.exports = merge(baseWebpackConfig,{
     plugins:[
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
-            title:'社区版',
+            title:'组织中心',
             template: path.resolve(__dirname, '../public/index.template.html'),
+            favicon: path.resolve('../public/favicon.png'),
             hash: false,
             filename: 'index.html',
             inject: 'body',
@@ -31,18 +35,21 @@ module.exports = merge(baseWebpackConfig,{
                 removeAttributeQuotes: true
             }
         }),
+        new webpack.DefinePlugin({ENV:JSON.stringify(customEnv), ...webpackGlobal}),
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].css',
+            ignoreOrder: true
+        }),
+        new CssMinimizerPlugin(),
     ],
     // 开发环境本地启动的服务配置
     devServer: {
-        contentBase: path.join(__dirname, './dist'),
+        contentBase: path.join(__dirname, './mobile'),
         hot:true,
         compress:true,
-        port:8000,
-        host: '192.168.10.6',
+        port:8001,
+        host: '0.0.0.0',
         historyApiFallback: true,
         disableHostCheck: true,
-        headers:{
-           'Access-Control-Allow-Origin': '*'
-        }
     }
 });

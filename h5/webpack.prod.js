@@ -3,15 +3,20 @@
 
 const { merge } = require('webpack-merge');
 const path = require('path');
-const os = require('os');
 const TerserPlugin = require('terser-webpack-plugin');
 const optimizeCss = require('optimize-css-assets-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
-
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const baseWebpackConfig = require('./webpack.base');
-
-
+const webpack = require("webpack");
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const customEnv = process.env.CUSTOM_ENV;
+const {webpackGlobal} = require('../environment/environment-' + customEnv)
+console.log(path.resolve(__dirname, './src/index.js'))
 
 module.exports = merge(baseWebpackConfig, {
     mode: 'production',
@@ -29,7 +34,29 @@ module.exports = merge(baseWebpackConfig, {
                 }
             }
         }),
-        new ProgressBarPlugin()
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            alwaysWriteToDisk: true,
+            title:'组织中心',
+            template: path.resolve(__dirname, '../public/index.template.html'),
+            hash: false,
+            filename: 'mobile.html',
+            inject: 'body',
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeAttributeQuotes: true
+            }
+        }),
+        new webpack.DefinePlugin({ENV:JSON.stringify(customEnv), ...webpackGlobal}),
+
+        new MiniCssExtractPlugin({
+            filename: 'm_css/[name].[contenthash:8].css',
+            ignoreOrder: true
+        }),
+        new CssMinimizerPlugin(),
+        new ProgressBarPlugin(),
+        // new BundleAnalyzerPlugin()
     ],
     optimization: {
         minimize: true,

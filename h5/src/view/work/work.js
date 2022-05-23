@@ -30,9 +30,6 @@ const Work = (props) => {
         })
     }, [])
 
-
-
-
     const ListHeader = (
         <div className='workList'>
             <span>产品列表</span>
@@ -44,7 +41,7 @@ const Work = (props) => {
 
     const openProjectLink = (url) => {
         const uri = user.ticket ? `${url}?email=${user.email}&name=${user.name}&expireTime=${user.expireTime}&ticket=${user.ticket}&phone=${user.phone}&userId=${user.userId}`: url
-        window.open(uri)
+        window.open(uri, '_self')
     }
 
     return (

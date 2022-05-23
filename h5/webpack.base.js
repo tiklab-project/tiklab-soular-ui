@@ -1,30 +1,55 @@
 const path = require('path');
-const webpack = require('webpack');
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');//压缩css
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const DIST_PATH = path.resolve(__dirname, 'dist');
-// const CheckVersion = require('check-package-version')
 
+const isDevelopment = process.env.NODE_ENV === 'development';
 
-
-const customEnv = process.env.CUSTOM_ENV;
-const {webpackGlobal} = require('../environment/environment-' + customEnv)
-
-
+const sassModuleRegex = /\.module\.(scss|sass)$/;
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
-const sassModuleRegex = /\.module\.(scss|sass)$/;
+const getStyleLoaders = (cssOptions, preProcessor) => {
+    const loaders = [
+        isDevelopment && 'style-loader',
+        !isDevelopment && {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+                publicPath: '../',
+            },
+        },
+        {
+            loader: 'css-loader',
+            options: cssOptions,
+        },
+        {
+            loader: 'postcss-loader',
+            options: {
+                sourceMap: !isDevelopment ,
+            },
+        },
+    ].filter(Boolean);
+
+    if (preProcessor) {
+        // 默认配置
+        let loaderOptions = {
+            sourceMap: true,
+        };
+        loaders.push(
+            {
+                loader: preProcessor,
+                options: loaderOptions,
+            },
+        );
+    }
+    return loaders;
+};
 
 
 module.exports = {
     output: {
-        filename: 'js/[name].[hash:8].js',
-        chunkFilename: 'js/[name].[hash:8].js',
+        filename: 'm_js/[name].[hash:8].js',
+        chunkFilename: 'm_js/[name].[hash:8].js',
         path: DIST_PATH,
         publicPath: '/',
     },
@@ -32,10 +57,13 @@ module.exports = {
         extensions: ['.js', '.jsx', '.json'],
         alias: {
             'react-dom': '@hot-loader/react-dom',
+            '@src': path.join(__dirname, './src'),
+            '@stores': path.join(__dirname, './src/stores'),
+            '@utils': path.join(__dirname, './src/utils'),
+            '@service': path.join(__dirname, './src/service'),
         },
-
     },
-    target: "web",
+
     module:{
         rules: [
             {
@@ -47,95 +75,52 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                oneOf: [
-                    {
-                        test: cssRegex,
-                        exclude: cssModuleRegex,
-                        use: [
-                            MiniCssExtractPlugin.loader,
-                            {
-                                loader: 'css-loader',
-                                options: {
-                                    importLoaders: 1,
-                                },
-                            },
-                            {
-                                loader: 'postcss-loader',
-                            }
-                        ],
-                        sideEffects: true,
+                test: cssRegex,
+                exclude: cssModuleRegex,
+                use: getStyleLoaders({
+                    importLoaders: 1,
+                    sourceMap: !isDevelopment ,
+                }),
+                sideEffects: true,
+            },
+            {
+                test: cssModuleRegex,
+                use: getStyleLoaders({
+                    importLoaders: 1,
+                    sourceMap: !isDevelopment ,
+                    modules: {
+                        localIdentName: '[local]--[hash:base64:5]',
                     },
+                }),
+            },
+            {
+                test: sassRegex,
+                exclude: sassModuleRegex,
+                use: getStyleLoaders(
                     {
-                        test: cssModuleRegex,
-                        use: [
-                            MiniCssExtractPlugin.loader,
-                            {
-                                loader: 'css-loader',
-                                options: {
-                                    importLoaders: 1,
-                                    modules: {
-                                        localIdentName: '[local]--[hash:base64:5]',
-                                    },
-                                },
-                            },
-                            {
-                                loader: 'postcss-loader',
-                            }
-                        ],
+                        importLoaders: 3,
+                        sourceMap: !isDevelopment ,
                     },
-
+                    'sass-loader',
+                ),
+                sideEffects: true,
+            },
+            {
+                test: sassModuleRegex,
+                use: getStyleLoaders(
                     {
-                        test: sassRegex,
-                        exclude: sassModuleRegex,
-                        use: [
-                            MiniCssExtractPlugin.loader,
-                            {
-                                loader: 'css-loader',
-                                options: {
-                                    importLoaders: 3,
-                                },
-                            },
-                            {
-                                loader: 'postcss-loader',
-                            },
-                            {
-                                loader: 'sass-loader',
-                                options: {
-                                    sourceMap: true,
-                                },
-                            }
-                        ]
+                        importLoaders: 3,
+                        sourceMap: !isDevelopment ,
+                        modules: {
+                            localIdentName: '[local]--[hash:base64:5]',
+                        },
                     },
-                    {
-                        test: sassModuleRegex,
-                        use: [
-                            MiniCssExtractPlugin.loader,
-                            {
-                                loader: 'css-loader',
-                                options: {
-                                    importLoaders: 3,
-                                    modules: {
-                                        localIdentName: '[local]--[hash:base64:5]',
-                                    },
-                                },
-                            },
-                            {
-                                loader: 'postcss-loader',
-                            },
-                            {
-                                loader: 'sass-loader',
-                                options: {
-                                    sourceMap: true,
-                                },
-                            }
-                        ],
-                    },
-
-                ]
+                    'sass-loader',
+                ),
             },
             {
                 test: /\.(png|jpg|jpeg|gif|svg)/,
-                // exclude: /node_modules/,
+                exclude: /node_modules/,
                 use: {
                     loader: 'url-loader',
                     options: {
@@ -154,7 +139,7 @@ module.exports = {
                         options: {
                             name: '[name]-[hash:5].min.[ext]',
                             limit: 5000, // fonts file portal <= 5KB, use 'base64'; else, output svg file
-                            outputPath: 'fonts/',
+                            outputPath: 'm_fonts/',
                         }
                     }
                 ]
@@ -162,13 +147,5 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(),
-        new webpack.DefinePlugin({ENV:JSON.stringify(customEnv), ...webpackGlobal}),
-
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].css',
-            ignoreOrder: true
-        }),
-        new CssMinimizerPlugin(),
     ]
 };

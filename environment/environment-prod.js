@@ -16,14 +16,6 @@ const webpackGlobal = {
     appSecret: JSON.stringify('appSecret-1'),
     version: JSON.stringify('version-1'),
     client: JSON.stringify('client-1'),
-
-    // 登录认证类型
-    // authType: JSON.stringify('acc'),
-    // authUrl: JSON.stringify('http://localhost:8000/#/login'),
-    // tenant_type: JSON.stringify('single'), // mult  参数带tenant
-
-    // cookieDomain: JSON.stringify( '.daomain.com'), // 2级域名配置根域名
-
 }
 
 module.exports = {

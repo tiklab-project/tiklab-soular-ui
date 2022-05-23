@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "start": "cross-env NODE_ENV=development CUSTOM_ENV=dev webpack-dev-server --progress --config ./webpack.dev.js ",
-    "build:dev": "rimraf lib/* && ./node_modules/.bin/babel components --copy-files  --extensions .js --out-dir lib/components"
+    "build:dev": "rimraf lib/* && ./node_modules/.bin/babel components --copy-files  --extensions .js --out-dir lib/components",
+    "dev": "cross-env NODE_ENV=production CUSTOM_ENV=dev webpack --config ./webpack.prod.js "
   },
   "keywords": [],
   "author": "",
