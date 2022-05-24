@@ -60,7 +60,8 @@ const Work = (props) => {
                     <div className="box-gather">
                         {
                             urls.map(item => {
-                                const url = user.ticket ? `${item.appUrl}?email=${user.email}&name=${user.name}&expireTime=${user.expireTime}&ticket=${user.ticket}&phone=${user.phone}&userId=${user.userId}` : item.appUrl
+                                const loginType = user.loginType;
+                                const url = user.ticket ? `${item.appUrl}?loginType=${loginType}&email=${user.email}&name=${user.name}&expireTime=${user.expireTime}&ticket=${user.ticket}&phone=${user.phone}&userId=${user.userId}` : item.appUrl
                                 return (
                                     <div className="box-item" key={item.id}>
                                         <div className="box-icon">

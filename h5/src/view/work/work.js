@@ -40,7 +40,7 @@ const Work = (props) => {
 
 
     const openProjectLink = (url) => {
-        const uri = user.ticket ? `${url}?email=${user.email}&name=${user.name}&expireTime=${user.expireTime}&ticket=${user.ticket}&phone=${user.phone}&userId=${user.userId}`: url
+        const uri = user.ticket ? `${url}?loginType=${user.loginType}&email=${user.email}&name=${user.name}&expireTime=${user.expireTime}&ticket=${user.ticket}&phone=${user.phone}&userId=${user.userId}`: url
         window.open(uri, '_self')
     }
 

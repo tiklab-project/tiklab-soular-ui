@@ -22,7 +22,7 @@ const webpackGlobal = {
     tenant_type: JSON.stringify('single'), // mult  参数带tenant
 
     acc_url: JSON.stringify('http://portal.local.doublekit.net'),
-    mobile: JSON.stringify('http://192.168.10.6:8000'),
+    mobile: JSON.stringify('http://192.168.10.6:8005'),
 }
 
 module.exports =  {

@@ -47,7 +47,7 @@ module.exports = merge(baseWebpackConfig,{
         contentBase: path.join(__dirname, './mobile'),
         hot:true,
         compress:true,
-        port:8001,
+        port:8005,
         host: '0.0.0.0',
         historyApiFallback: true,
         disableHostCheck: true,
