@@ -81,10 +81,10 @@ const Portal = props => {
         <main className={styles.layout}>
             <header className={styles.layout_header}>
                 <div className={styles.layout_header_left}>
+                    {component}
                     <div className={styles.layout_header_left_logo}>
                         <img alt={'...'} src={logo}/>
                     </div>
-                    {component}
                     <div className={styles.layout_header_left_link}>
                         {
                             homeRouter.map(item => {

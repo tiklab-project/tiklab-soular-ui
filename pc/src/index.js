@@ -11,7 +11,7 @@ import { orgStores } from 'doublekit-user-ui';
 import App from './App'
 import '../components/modules/common/language/i18n';
 import stores from "../components/modules/stores";
-
+import 'antd/dist/antd.css';
 const Index = () => {
     // 注册所有插件
     let allStore = {
