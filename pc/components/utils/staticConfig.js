@@ -111,6 +111,19 @@ const systemMenuData = [
             title: '消息类型管理',
             purviewCode:'message-service'
         }]
+    },{
+        id:'4',
+        key:'4',
+        purviewCode:'plugin',
+        title: '插件管理',
+        icon :<SettingOutlined />,
+    },
+    {
+        id:'5',
+        key:'5',
+        purviewCode:'license',
+        title: 'License管理',
+        icon :<SettingOutlined />,
     }
 ]
 
@@ -143,36 +156,20 @@ const onSystemMenu = (history, key) => {
     case '3-4':
         history.push('/system/messagetemplate')
         break;
+    case '4':
+        history.push('/system/plugin')
+        break;
+    case '5':
+        history.push('/system/license')
+        break;
     }
+
+
 }
 
-
-const settingMenuData = [
-    {
-        id:'1',
-        key:'1',
-        title: '插件管理',
-        purviewCode:'plugin',
-        icon :<SettingOutlined />,
-    },
-    {
-        id:'2',
-        key:'2',
-        title: 'License管理',
-        purviewCode:'license',
-        icon :<SettingOutlined />,
-    }
-]
-const onSettingMenu = (history, key) => {
-    switch (key) {
-
-    }
-}
 export {
     systemMenuData,
     onSelectMenuSwitch,
     onSystemMenu,
     orgaMenuData,
-    settingMenuData,
-    onSettingMenu
 }

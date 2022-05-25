@@ -12,8 +12,8 @@ const layout = SyncComponent(() => import('./layout/layout'));
 
 // 设置模块
 const Setting = SyncComponent(() => import('./setting/setting'));
-const LicensePage = SyncComponent(() => import('./setting/license/licensePage'));
-const PluginList = SyncComponent(() => import('./setting/plugin'))
+const LicensePage = SyncComponent(() => import('./system/license/licensePage'));
+const PluginList = SyncComponent(() => import('./system/plugin'))
 
 const Work = SyncComponent(() => import('./work/work'))
 const Login = SyncComponent(() => import('./login/login'))
@@ -81,28 +81,6 @@ const routes = [
                 exact:true,
             },
             {
-                component: Setting,
-                path: "/setting",
-                routes:[
-                    {
-                        path: '/setting/plugin',
-                        component: PluginList,
-                        exact: true
-                    },
-                    {
-                        path: '/setting/license',
-                        component: LicensePage,
-                        exact: true
-                    },
-
-                    {
-                        path: "/setting",
-                        exact: true,
-                        render: ()=><Redirect to="/setting/plugin"/>
-                    },
-                ]
-            },
-            {
                 component: OrgaLayout,
                 path: "/orga",
                 routes:[
@@ -163,6 +141,14 @@ const routes = [
                     {
                         path: '/system/messagetemplate',
                         component: MessageTemplate,
+                    },
+                    {
+                        path: '/system/plugin',
+                        component: PluginList,
+                    },
+                    {
+                        path: '/system/license',
+                        component: LicensePage,
                     },
                     {
                         path: "/system",

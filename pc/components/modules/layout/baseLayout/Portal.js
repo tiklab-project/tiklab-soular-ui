@@ -24,10 +24,6 @@ const Portal = props => {
             to:'/work',
             title:'工作台',
             key: '/work'
-        },{
-            to:'/setting',
-            title:'设置',
-            key: '/setting'
         },
         {
             to:'/orga',
