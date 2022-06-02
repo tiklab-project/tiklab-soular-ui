@@ -21,7 +21,7 @@ const webpackGlobal = {
 
     tenant_type: JSON.stringify('single'), // mult  参数带tenant
 
-    acc_url: JSON.stringify('http://portal.local.doublekit.net'),
+    acc_url: JSON.stringify('http://portal-ce.local.doublekit.net'),
     mobile: JSON.stringify('http://portal.mlocal.doublekit.net'),
 }
 

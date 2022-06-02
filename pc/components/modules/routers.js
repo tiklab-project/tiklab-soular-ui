@@ -11,7 +11,7 @@ const layout = SyncComponent(() => import('./layout/layout'));
 
 
 // 设置模块
-const Setting = SyncComponent(() => import('./setting/setting'));
+// const Setting = SyncComponent(() => import('./setting/setting'));
 const LicensePage = SyncComponent(() => import('./system/license/licensePage'));
 const PluginList = SyncComponent(() => import('./system/plugin'))
 
