@@ -5,20 +5,20 @@
  */
 import React, {useState} from 'react';
 import {getVersionInfo} from 'doublekit-core-ui';
+import {useTranslation} from 'react-i18next'
 import {verifyUserHOC, useWorkAppConfig} from 'doublekit-eam-ui'
-import {Button} from "antd";
+import {Button, Avatar, Menu, Dropdown, Space} from "antd";
+import {DownOutlined, LogoutOutlined, SettingOutlined} from "@ant-design/icons";
+
 import logo from '../../assets/images/logo.jpeg'
 import styles from './layout.module.scss'
-
-
 
 const Portal = props => {
 
     const {history} = props;
     const [currentLink, setCurrentLink] = useState(props.location.pathname);
-
     const [component, ModalComponent, editOrAddModal] = useWorkAppConfig(false);
-
+    const { i18n} = useTranslation();
     const homeRouter = [
         {
             to:'/work',
@@ -43,9 +43,6 @@ const Portal = props => {
     }
 
 
-    const Logout = () => {
-        history.push('/logout')
-    }
 
     const showVersion = () => {
         const info = getVersionInfo();
@@ -73,6 +70,80 @@ const Portal = props => {
                 }
         }
     }
+
+    const onMenu = ({key}) => {
+
+        if (key === '1') {
+            history.push('/logout')
+            return
+        }
+    }
+    const AvatarMenu = (
+        <Menu
+            onClick={onMenu}
+            style={{width:140}}
+            items={[
+                {
+                    label: '退出',
+                    key: '1',
+                    icon: <LogoutOutlined />,
+                }
+            ]}
+        />
+    )
+
+    const onLanguageChange = (key) => {
+        i18n.changeLanguage(key)
+    }
+
+    const renderLanguageData = () => {
+
+        return i18n.languages.map(item => {
+           switch (item) {
+               case 'zh':
+                   return {
+                       label: '中文',
+                       key: item,
+                   }
+               case 'cn':
+                   return {
+                       label: 'English',
+                       key: item,
+                   }
+               case 'jp':
+                   return {
+                       label: 'Japan',
+                       key: item,
+                   }
+               default:
+                   return {
+                       label: '中文',
+                       key: item,
+                   }
+           }
+        })
+    }
+    const showCurrentLanguage = () => {
+        switch (i18n.language) {
+            case 'zh':
+                return '中文'
+            case 'cn':
+                return 'English'
+            case 'jp':
+                return 'Japan'
+            default:
+                return '中文'
+        }
+    }
+    const LanguageMenu = () => (
+            <Menu
+                onClick={onLanguageChange}
+                style={{width:140}}
+                items={renderLanguageData()}
+            />
+    );
+
+
     return(
         <main className={styles.layout}>
             <header className={styles.layout_header}>
@@ -89,10 +160,20 @@ const Portal = props => {
                         }
                     </div>
                 </div>
-
                 <div className={styles.layout_header_right}>
                     <Button type={'link'} disabled = {showVersion().disable}>{showVersion().title}</Button>
-                    <span onClick={Logout}>退出</span>
+                    <Dropdown overlay={LanguageMenu} placement="bottom">
+                        <Button>
+                            <Space>
+                                {showCurrentLanguage()}
+                                <DownOutlined />
+                            </Space>
+                        </Button>
+
+                    </Dropdown>
+                    <Dropdown overlay={AvatarMenu} placement="bottom">
+                        <Avatar size={64} src={<img src="https://joeschmoe.io/api/v1/random" />} />
+                    </Dropdown>
                 </div>
             </header>
             <section className={styles.layout_content}>

@@ -5,7 +5,7 @@ import {UserList} from "doublekit-user-ui";
 
 const UserManagement = props => {
     return(
-        <div>
+        <div style={{height:'100%', overflow:"auto"}}>
             <UserList
                 {...props}
                 isPortal={true}

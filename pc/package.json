@@ -30,6 +30,8 @@
         "antd": "^4.8.4",
         "doublekit-core-ui": "^1.0.0",
         "doublekit-eam-ui": "^1.0.0",
+        "doublekit-flow-ui": "^1.0.0",
+        "doublekit-form-ui": "^1.0.0",
         "doublekit-licence-ui": "^1.0.1",
         "doublekit-message-ui": "^1.0.0",
         "doublekit-plugin-manage": "^1.0.0",
