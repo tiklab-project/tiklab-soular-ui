@@ -8,7 +8,7 @@ import {getVersionInfo} from 'doublekit-core-ui';
 import {useTranslation} from 'react-i18next'
 import {verifyUserHOC, useWorkAppConfig} from 'doublekit-eam-ui'
 import {Button, Avatar, Menu, Dropdown, Space} from "antd";
-import {DownOutlined, LogoutOutlined, SettingOutlined} from "@ant-design/icons";
+import {DownOutlined, LogoutOutlined} from "@ant-design/icons";
 
 import logo from '../../assets/images/logo.jpeg'
 import styles from './layout.module.scss'

@@ -81,6 +81,11 @@ const routes = [
                 exact:true,
             },
             {
+                path:"/",
+                exact:true,
+                render:()=><Redirect to="/work"/>
+            },
+            {
                 component: OrgaLayout,
                 path: "/orga",
                 routes:[
@@ -159,11 +164,7 @@ const routes = [
             },
         ],
     },
-    {
-        path:"/",
-        exact:true,
-        render:()=><Redirect to="/work"/>
-    },
+
 ];
 
 export default routes
