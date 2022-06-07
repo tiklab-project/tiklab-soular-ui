@@ -34,10 +34,12 @@ const Orga = props => {
         },{
             key:'2',
             router: '/orga/user'
-        },{
-            key:'3',
-            router: '/orga/peojectpeople'
-        },{
+        },
+        //     {
+        //     key:'3',
+        //     router: '/orga/peojectpeople'
+        // },
+            {
             key:'4',
             router: '/orga/directory'
         }].concat(PluginMenus)

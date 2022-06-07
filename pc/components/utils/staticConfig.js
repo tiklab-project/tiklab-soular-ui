@@ -16,12 +16,12 @@ const orgaMenuData = [
         purviewCode:'c',
         icon :<AppstoreOutlined />
     },
-    {
-        id:'3',
-        key:'3',
-        title: '项目成员管理',
-        purviewCode:'project-people'
-    },
+    // {
+    //     id:'3',
+    //     key:'3',
+    //     title: '项目成员管理',
+    //     purviewCode:'project-people'
+    // },
     {
         id:'4',
         key:'4',
@@ -72,25 +72,26 @@ const systemMenuData = [
             title: '角色管理',
             purviewCode:'role-custom'
         }]
-    }, {
-        id: '2',
-        title: '项目权限',
-        purviewCode: 'project',
-        children: [{
-            id: '2-1',
-            title: '功能管理',
-            purviewCode: 'privilege_feature',
-        }, {
-            id: '2-2',
-            title: '角色管理',
-            purviewCode: 'role-custom'
-        }, {
-            id: '2-3',
-            title: '项目角色管理',
-            divider: true,
-            purviewCode: 'project-role-custom'
-        }]
     },
+    // {
+    //     id: '2',
+    //     title: '项目权限',
+    //     purviewCode: 'project',
+    //     children: [{
+    //         id: '2-1',
+    //         title: '功能管理',
+    //         purviewCode: 'privilege_feature',
+    //     }, {
+    //         id: '2-2',
+    //         title: '角色管理',
+    //         purviewCode: 'role-custom'
+    //     }, {
+    //         id: '2-3',
+    //         title: '项目角色管理',
+    //         divider: true,
+    //         purviewCode: 'project-role-custom'
+    //     }]
+    // },
     {
         id:'3',
         title: '消息中心',
@@ -135,15 +136,15 @@ const onSystemMenu = (history, key) => {
     case '1-2':
         history.push('/system/role')
         break;
-    case '2-1':
-        history.push('/system/projectfeature')
-        break;
-    case '2-2':
-        history.push('/system/projectrole')
-        break;
-    case '2-3':
-        history.push('/system/projectrolecustom')
-        break;
+    // case '2-1':
+    //     history.push('/system/projectfeature')
+    //     break;
+    // case '2-2':
+    //     history.push('/system/projectrole')
+    //     break;
+    // case '2-3':
+    //     history.push('/system/projectrolecustom')
+    //     break;
     case '3-1':
         history.push('/system/message')
         break;

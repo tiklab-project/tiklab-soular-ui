@@ -95,10 +95,11 @@ const routes = [
                     },{
                         path: '/orga/user',
                         component: UserManagement,
-                    },{
-                        path: '/orga/peojectpeople',
-                        component: ProjectPeopleManagement,
                     },
+                    // {
+                    //     path: '/orga/peojectpeople',
+                    //     component: ProjectPeopleManagement,
+                    // },
                     {
                         path: '/orga/directory',
                         component:Directory
@@ -120,16 +121,17 @@ const routes = [
                     },{
                         path: '/system/role',
                         component: SystemRole,
-                    },{
-                        path: '/system/projectfeature',
-                        component: ProjectFeature,
-                    },{
-                        path: '/system/projectrole',
-                        component: ProjectSystemRole,
-                    },{
-                        path: '/system/projectrolecustom',
-                        component: DomainProjectRole,
                     },
+                    // {
+                    //     path: '/system/projectfeature',
+                    //     component: ProjectFeature,
+                    // },{
+                    //     path: '/system/projectrole',
+                    //     component: ProjectSystemRole,
+                    // },{
+                    //     path: '/system/projectrolecustom',
+                    //     component: DomainProjectRole,
+                    // },
                     {
                         path: '/system/message',
                         component: MessageManagement,
