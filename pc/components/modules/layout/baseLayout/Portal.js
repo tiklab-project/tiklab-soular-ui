@@ -8,7 +8,7 @@ import {getVersionInfo} from 'doublekit-core-ui';
 import {useTranslation} from 'react-i18next'
 import {verifyUserHOC, useWorkAppConfig} from 'doublekit-eam-ui'
 import {Button, Avatar, Menu, Dropdown, Space} from "antd";
-import {DownOutlined, LogoutOutlined} from "@ant-design/icons";
+import {DownOutlined, LogoutOutlined, SettingOutlined} from "@ant-design/icons";
 
 import logo from '../../assets/images/logo.jpeg'
 import styles from './layout.module.scss'
@@ -27,14 +27,9 @@ const Portal = props => {
         },
         {
             to:'/orga',
-            title:'组织中心',
+            title:'帐号与成员',
             key: 'org'
-        },
-        {
-            to:'/system',
-            title:'系统管理',
-            key: 'system'
-        },
+        }
     ]
 
     const changeCurrentLink = item => {
@@ -92,12 +87,11 @@ const Portal = props => {
         />
     )
 
-    const onLanguageChange = (key) => {
-        i18n.changeLanguage(key)
+    const onLanguageChange = (e) => {
+        i18n.changeLanguage(e.key)
     }
 
     const renderLanguageData = () => {
-
         return i18n.languages.map(item => {
            switch (item) {
                case 'zh':
@@ -169,10 +163,15 @@ const Portal = props => {
                                 <DownOutlined />
                             </Space>
                         </Button>
-
                     </Dropdown>
+                    <SettingOutlined
+                        onClick={
+                            () => changeCurrentLink({to:'/system',})
+                        }
+                        style={{fontSize:24}}
+                    />
                     <Dropdown overlay={AvatarMenu} placement="bottom">
-                        <Avatar size={64} src={<img src="https://joeschmoe.io/api/v1/random" />} />
+                        <Avatar size={52} src={<img src="https://joeschmoe.io/api/v1/random" />} />
                     </Dropdown>
                 </div>
             </header>
@@ -181,11 +180,6 @@ const Portal = props => {
                     {props.children}
                 </div>
             </section>
-            <footer className={styles.layoutFooter}>
-                <div>
-                    DARTHCLOUD
-                </div>
-            </footer>
             {ModalComponent}
             {editOrAddModal}
         </main>

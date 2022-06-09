@@ -35,9 +35,7 @@ const App = (props) => {
             })
         }
     }, [isInitLoadPlugin]);
-    console.log(toJS(languages))
     const newI18 = i18n.cloneInstance({ resources: resourcesLangualge });
-
     return(
         <I18nextProvider i18n={newI18}>
             {

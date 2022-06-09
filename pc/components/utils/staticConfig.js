@@ -16,17 +16,12 @@ const orgaMenuData = [
         purviewCode:'c',
         icon :<AppstoreOutlined />
     },
-    // {
-    //     id:'3',
-    //     key:'3',
-    //     title: '项目成员管理',
-    //     purviewCode:'project-people'
-    // },
     {
         id:'4',
         key:'4',
         title: '用户目录',
-        purviewCode:'project-people'
+        purviewCode:'project-people',
+        icon :<AppstoreOutlined />
     }
 ]
 
@@ -63,14 +58,17 @@ const systemMenuData = [
         id:'1',
         title: '系统权限',
         purviewCode:'system',
+        icon :<AppstoreOutlined />,
         children:[{
             id:'1-1',
             title: '功能管理',
             purviewCode:'privilege_feature',
+            icon :<AppstoreOutlined />,
         },{
             id:'1-2',
             title: '角色管理',
-            purviewCode:'role-custom'
+            purviewCode:'role-custom',
+            icon :<AppstoreOutlined />,
         }]
     },
     // {
@@ -95,21 +93,26 @@ const systemMenuData = [
     {
         id:'3',
         title: '消息中心',
+        icon :<AppstoreOutlined />,
         children:[{
             id:'3-1',
             title: '消息管理',
+            icon :<AppstoreOutlined />,
             purviewCode:'message-management'
         },{
             id:'3-2',
             title: '消息模板管理',
+            icon :<AppstoreOutlined />,
             purviewCode:'message-template'
         },{
             id:'3-3',
             title: '消息发送方式',
+            icon :<AppstoreOutlined />,
             purviewCode:'message-type'
         },{
             id:'3-4',
             title: '消息类型管理',
+            icon :<AppstoreOutlined />,
             purviewCode:'message-service'
         }]
     },{

@@ -7,13 +7,14 @@
  */
 import React, {useState, useEffect}  from 'react';
 import {getUser, parseUserSearchParams} from 'doublekit-core-ui'
-import WorkService from './service/workService'
+import {projectImg, apiboxImg, jenkinsImg, knowledgeImg} from 'doublekit-eam-ui'
 import { Col, Row, Card } from 'antd';
-
-import AppLinkManagement from './components/AppLinkManagement';
 import {LinkOutlined, SettingOutlined} from "@ant-design/icons";
-import './work.scss'
+
 import AddWorkBench from "./components/workBenchAdd";
+import WorkService from './service/workService'
+import './work.scss'
+
 const { Meta } = Card;
 
 
@@ -23,7 +24,7 @@ const INIT_WORK = [
         appType: 'apibox',
         label: "API BOX",
         description: "接口自动化测试",
-        img:"https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
+        img:apiboxImg,
         appUrl:"",
         id:"1"
     },
@@ -31,7 +32,7 @@ const INIT_WORK = [
         appType: 'project',
         label: "项目管理",
         description: "项目管理系统",
-        img:"https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
+        img:projectImg,
         appUrl:"",
         id:"2"
     },
@@ -39,7 +40,7 @@ const INIT_WORK = [
         appType: 'jtest',
         label: "Jtest",
         description: "Jtest系统",
-        img:"https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png",
+        img:knowledgeImg,
         appUrl:"",
         id:"3"
     },
@@ -47,7 +48,7 @@ const INIT_WORK = [
         appType: 'wiki',
         label: "知识库",
         description: "知识库系统",
-        img:"",
+        img:knowledgeImg,
         appUrl:"",
         id:"4"
     },
@@ -55,7 +56,7 @@ const INIT_WORK = [
         appType: 'pipleine',
         label: "自动化部署",
         description: "自动化部署系统",
-        img:"",
+        img:jenkinsImg,
         appUrl:"",
         id:"5"
     },
@@ -79,11 +80,9 @@ const Work = (props) => {
             const code = item.appType;
             const index= data.findIndex(d => d.appType === code);
             if (index>-1) {
-                const url= base_url === '/' ? window.location.origin + '/file/' + data[index].iconUrl : base_url + '/file/' + data[index].iconUrl
                 return {
                     ...item,
                     appUrl:data[index].appUrl,
-                    img: url,
                     id: data[index].id,
                 }
             }
@@ -104,13 +103,13 @@ const Work = (props) => {
                     applications.map(item => {
                         const url = user.ticket ? `${item.appUrl}?${parseUserSearchParams(user)}` : item.appUrl;
                         return (
-                            <Col span={8} key={item.id} >
+                            <Col span={8} key={item.id} style={{display:"flex", justifyContent:"center"}}>
                                 <Card
                                     style={{ width: 300 }}
                                     cover={
                                         <img
                                             alt={item.label}
-                                            src={item.img || 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'}
+                                            src={item.img}
                                             height={180}
                                         />
                                     }
