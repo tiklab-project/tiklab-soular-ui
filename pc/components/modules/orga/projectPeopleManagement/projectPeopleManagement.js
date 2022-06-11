@@ -6,9 +6,7 @@ import {inject, observer} from "mobx-react";
 
 const ProjectPeopleManagement = props => {
     return(
-        <div>
-            <DomainUserList {...props} domainId={'111'} isPortal={true}/>
-        </div>
+        <DomainUserList {...props} domainId={'111'} isPortal={true}/>
     )
 };
 

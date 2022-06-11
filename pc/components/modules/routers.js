@@ -1,10 +1,13 @@
 import React from 'react';
 import { Redirect } from 'react-router';
 import {Directory} from 'doublekit-user-ui'
+import {FormList, PreliminaryList, PreliminaryTypeList, ProjectFormList} from 'doublekit-form-ui'
 import {InternalWechat, Logout, AuthResult} from 'doublekit-eam-ui'
 
 import SyncComponent from '../lazy/SyncComponent';
 import ElectronLoginPage from "./login/electornLogin";
+import {FlowStatusList, ProjectFlowList, SystemFlowList} from "doublekit-flow-ui";
+import {PluginDetail} from "doublekit-plugin-ui";
 const layout = SyncComponent(() => import('./layout/layout'));
 
 
@@ -122,16 +125,22 @@ const routes = [
                         path: '/system/role',
                         component: SystemRole,
                     },
-                    // {
-                    //     path: '/system/projectfeature',
-                    //     component: ProjectFeature,
-                    // },{
-                    //     path: '/system/projectrole',
-                    //     component: ProjectSystemRole,
-                    // },{
-                    //     path: '/system/projectrolecustom',
-                    //     component: DomainProjectRole,
-                    // },
+                    {
+                        path: '/system/projectfeature',
+                        component: ProjectFeature,
+                    },{
+                        path: '/system/projectrole',
+                        component: ProjectSystemRole,
+                    },
+                    {
+                        path: '/system/DomainProjectRole',
+                        component: DomainProjectRole,
+
+                    },
+                    {
+                        path: '/system/projectrolecustom',
+                        component: FlowStatusList,
+                    },
                     {
                         path: '/system/message',
                         component: MessageManagement,
@@ -152,6 +161,12 @@ const routes = [
                     {
                         path: '/system/plugin',
                         component: PluginList,
+                    },
+
+                    {
+                        path: '/system/detail',
+                        component: PluginDetail,
+
                     },
                     {
                         path: '/system/license',

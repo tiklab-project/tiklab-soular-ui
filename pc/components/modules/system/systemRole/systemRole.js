@@ -13,9 +13,7 @@ import {RoleList, SYSTEM_ROLE_STORE} from "doublekit-privilege-ui";
 const SystemRole = props => {
 
     return(
-        <div>
-            <RoleList {...props} group={'system'} tableLink={'/privilege/role/system/'}/>
-        </div>
+        <RoleList {...props} group={'system'} tableLink={'/privilege/role/system/'}/>
     )
 }
 

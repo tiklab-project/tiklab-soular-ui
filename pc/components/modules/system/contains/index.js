@@ -19,7 +19,7 @@ const System = props => {
                 defaultSelectedKeys={['1-1']}
                 defaultOpenKeys={['1']}
             />
-            <div style={{width:'100%'}}>
+            <div style={{width:'100%', padding:"8px 0 0 8px", overflow:"auto"}}>
                 {renderRoutes(props.route.routes)}
             </div>
 

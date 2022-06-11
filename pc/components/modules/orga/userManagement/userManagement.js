@@ -5,15 +5,13 @@ import {UserList} from "doublekit-user-ui";
 
 const UserManagement = props => {
     return(
-        <div style={{height:'100%', overflow:"auto"}}>
-            <UserList
-                {...props}
-                isPortal={true}
-                domainId={'111'}
-                addUserPromiseCode={'111'}
-                exportUserPromiseCode={'222'}
-            />
-        </div>
+        <UserList
+            {...props}
+            isPortal={true}
+            domainId={'111'}
+            addUserPromiseCode={'111'}
+            exportUserPromiseCode={'222'}
+        />
     )
 };
 export default UserManagement

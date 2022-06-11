@@ -12,7 +12,7 @@ import {PluginList} from 'doublekit-plugin-ui'
 const PluginMange = (props) => {
 
     return(
-        <PluginList {...props} detailRouter={'/plugin/detail'}/>
+        <PluginList {...props} detailRouter={'/system/detail'}/>
     )
 }
 
