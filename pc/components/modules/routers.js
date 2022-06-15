@@ -30,7 +30,7 @@ const UserManagement = SyncComponent(() => import('./orga/userManagement/userMan
 const ProjectPeopleManagement = SyncComponent(() => import('./orga/projectPeopleManagement/projectPeopleManagement'));
 
 
-// 系统管理
+// 系统管理f
 const System = SyncComponent(()=>import('./system/contains'))
 // 权限模块
 const ProjectFeature = SyncComponent(() => import('./system/projectFeature/projectFeature'));
@@ -46,6 +46,9 @@ const UserMessage = SyncComponent(() => import('./system/userMessage/userMessage
 const MessageSendType = SyncComponent(() => import('./system/sendType/sendType'));
 const MessageTemplate = SyncComponent(() => import('./system/template/template'));
 
+
+// widgiet的管理
+const WidgetMangent = SyncComponent(() =>import('./widgets/widgetMangent'))
 
 const routes = [
 
@@ -99,10 +102,10 @@ const routes = [
                         path: '/orga/user',
                         component: UserManagement,
                     },
-                    // {
-                    //     path: '/orga/peojectpeople',
-                    //     component: ProjectPeopleManagement,
-                    // },
+                    {
+                        path: '/orga/peojectpeople',
+                        component: FormList,
+                    },
                     {
                         path: '/orga/directory',
                         component:Directory
@@ -171,6 +174,10 @@ const routes = [
                     {
                         path: '/system/license',
                         component: LicensePage,
+                    },
+                    {
+                        path: '/system/widgetMangent',
+                        component: WidgetMangent,
                     },
                     {
                         path: "/system",

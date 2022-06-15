@@ -5,253 +5,232 @@
  * @description：work
  * @update: 2021-05-24 09:38
  */
-import React, {useState, useEffect}  from 'react';
-import {getUser, parseUserSearchParams} from 'doublekit-core-ui'
-import {projectImg, apiboxImg, jenkinsImg, knowledgeImg} from 'doublekit-eam-ui'
-import {Col, Row, Card, Button} from 'antd';
-import {LinkOutlined, ProfileOutlined, SettingOutlined} from "@ant-design/icons";
+import React, {Component} from 'react';
+import {Button, Row, Space, Drawer} from "antd";
+import {getUser} from 'doublekit-core-ui'
+import RGL, { WidthProvider } from "react-grid-layout";
+import workService from "./service/workService";
 
-import AddWorkBench from "./components/workBenchAdd";
-import WorkService from './service/workService'
+import {widgets} from "./widgets";
 import './work.scss'
+import "react-grid-layout/css/styles.css";
+import "react-resizable/css/styles.css";
+import {MinusOutlined} from "@ant-design/icons";
+const ReactGridLayout = WidthProvider(RGL);
 
-const { Meta } = Card;
+class WorkBench extends Component{
+    static defaultProps = {
+        className: "layout",
+        cols: 12,
+        rowHeight: 30,
+        onLayoutChange: function() {}
+    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            layout:[],
+            gridConfig:{
+                isDraggable: false,
+                isResizable: false,
+            },
+            visible:false,
+            visibleWidget: false,
+            widgetList:[],
 
-const INIT_WORK = [
-    {
-        appType: 'apibox',
-        label: "API BOX",
-        description: "接口自动化测试",
-        img:apiboxImg,
-        appUrl:"",
-        id:"1"
-    },
-    {
-        appType: 'project',
-        label: "项目管理",
-        description: "项目管理系统",
-        img:projectImg,
-        appUrl:"",
-        id:"2"
-    },
-    {
-        appType: 'jtest',
-        label: "Jtest",
-        description: "Jtest系统",
-        img:knowledgeImg,
-        appUrl:"",
-        id:"3"
-    },
-    {
-        appType: 'wiki',
-        label: "知识库",
-        description: "知识库系统",
-        img:knowledgeImg,
-        appUrl:"",
-        id:"4"
-    },
-    {
-        appType: 'pipleine',
-        label: "自动化部署",
-        description: "自动化部署系统",
-        img:jenkinsImg,
-        appUrl:"",
-        id:"5"
-    },
-]
+            userLayoutId:""
+        }
 
-const Work = (props) => {
-    const [applications, setApplications] = useState([]);
-    const [visible, setVisible] = useState(false);
-    const [edit,setEdit] = useState(null);
+        this.onLayoutChange = this.onLayoutChange.bind(this);
+    }
+    componentDidMount() {
+        workService.getWidgetList({}).then(res => {
+            if (res.code === 0) {
+                this.setState({
+                    widgetList: res.data
+                })
+            }
+        })
+        this.getFindUserLayout()
+    }
 
-    const user = getUser();
-    useEffect(() => {
-        getWorkList().then(r => {})
-    }, [])
-
-
-
-    const getWorkList = async () => {
-        const data = await WorkService.getWorkList();
-        const updateData = INIT_WORK.map(item => {
-            const code = item.appType;
-            const index= data.findIndex(d => d.appType === code);
-            if (index>-1) {
-                return {
-                    ...item,
-                    appUrl:data[index].appUrl,
-                    id: data[index].id,
+    getFindUserLayout() {
+        const params = {
+            uid: getUser().userId
+        }
+        workService.findLayout(params).then(res => {
+            if (res.code === 0) {
+                if (res.data) {
+                    this.setState({
+                        layout:JSON.parse(res.data.layout),
+                        userLayoutId: res.data.id
+                    })
                 }
             }
-            return item
         })
-        setApplications(updateData)
     }
 
-    const onEdit = (item) => {
-        setEdit(item);
-        setVisible(true)
+    onLayoutChange(layout) {
+        this.setState({ layout });
+        this.props.onLayoutChange(layout);
     }
 
-    return (
-        <section className='workLayout'>
-            <section className={'workLayout-content'}>
-                <div className={'dashboard'}>
-                    <div className={'dashboard-left'}>
-                        <div className={'dashboard-card'}>
-                            <div className='dashboard-card-body'>
-                                <div className={'card'}>
-                                    <div className="card-header">
-                                        <div className="card-header-title">最近访问的用例</div>
-                                    </div>
-                                    <div className={'card-content card-contentleft'}>
+    onCancel() {
+        this.setState({
+            visible:false,
+            gridConfig:{
+                isDraggable: false,
+                isResizable: false,
+            }
+        })
+    }
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    onSaveLayout() {
+        const {layout, userLayoutId} = this.state;
+        let params = {
+            uid: getUser().userId,
+            layout:JSON.stringify(layout)
+        }
+        if (!userLayoutId) {
+            workService.createLayout(params).then(res => {
+                if (res.code === 0) {
+                    this.getFindUserLayout()
+                    this.onCancel()
+                }
+            })
+        } else {
+            workService.updateLayout({...params, id: userLayoutId}).then(res => {
+                if (res.code === 0) {
+                    this.getFindUserLayout()
+                    this.onCancel()
+                }
+            })
+        }
 
-                        <div className={'dashboard-card'}>
-                            <div className='dashboard-card-body'>
-                                <div className={'card'}>
-                                    <div className="card-header">
-                                        <div className="card-header-title">工作事项</div>
-                                    </div>
-                                    <div className={'card-content card-contentleft'}>
+    }
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    onEditWork(){
+        this.setState({
+            visible:true,
+            gridConfig:{
+                isDraggable: true,
+                isResizable: true,
+            }
+        })
+    }
 
-                        <div className={'dashboard-card'}>
-                            <div className='dashboard-card-body'>
-                                <div className={'card'}>
-                                    <div className="card-header">
-                                        <div className="card-header-title">最近访问的项目</div>
-                                    </div>
-                                    <div className={'card-content card-contentleft'}>
+    onOpenDrawer(){
+        this.setState({
+            visibleWidget:true
+        })
+    }
+    onCloseDrawer(){
+        this.setState({
+            visibleWidget:false
+        })
+    }
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
-                    <div className={'dashboard-right'}>
-                        <div className={'dashboard-card'}>
-                            <div className='dashboard-card-body'>
-                                <div className={'card'}>
-                                    <div className="card-header">
-                                        <div className="card-header-title">切换产品空间</div>
-                                    </div>
-                                    <div className={'card-content'}>
-                                        <div className={'card-content-wrap'}>
-                                            {
-                                                applications.map(item => {
-                                                    const url = user.ticket ? `${item.appUrl}?${parseUserSearchParams(user)}` : item.appUrl;
-                                                    return (
-                                                        <div key={item.id}>
-                                                            <a className={'card-item'} href={url}>
-                                                                <div className={'card-item_img'}>
-                                                                    <img src={item.img} width={44} height={44}/>
-                                                                </div>
-                                                                <div className={'card-item_title'}>{item.label}</div>
-                                                                <div className={'card-item_desc'}>{item.label}</div>
-                                                            </a>
-                                                            {/*<div className="action">*/}
-                                                            {/*    <SettingOutlined key="setting" onClick={() => onEdit(item)}/>*/}
-                                                            {/*</div>*/}
-                                                        </div>
-                                                    )
-                                                })
-                                            }
+    addWork(item){
+        const {layout} = this.state;
+        const newLayout = layout.concat({
+            i:item.code,
+            x: 4,
+            y: 0,
+            w: 12,
+            h: 8
+        })
+        this.setState({
+            layout:newLayout
+        })
+    }
+
+
+    removeLayout (i) {
+        const layout = this.state.layout.filter(item => item.i !== i);
+        this.setState({layout})
+    }
+
+
+
+    render() {
+        const {gridConfig, layout, visible, visibleWidget, widgetList} = this.state;
+        const layoutCode = layout.reduce((prev,cur) => {
+            return prev.concat(cur.i)
+        }, []);
+
+        return(
+            <section className='workLayout'>
+                <Row justify={'end'}>
+                    <Space>
+                        {
+                            visible && <Button onClick={this.onOpenDrawer.bind(this)}>添加某块</Button>
+                        }
+                        {
+                            visible && <Button onClick={this.onCancel.bind(this)}>取消</Button>
+                        }
+                        {
+                            visible && <Button type={'primary'} onClick={this.onSaveLayout.bind(this)}>保存</Button>
+                        }
+                        {
+                            !visible && <Button onClick={this.onEditWork.bind(this)}>编辑工作台</Button>
+                        }
+                    </Space>
+                </Row>
+                <ReactGridLayout
+                    layout={layout}
+
+                    {...gridConfig}
+                    {...this.props}
+                    onLayoutChange={this.onLayoutChange}
+                >
+
+                    {
+                        layout.map(item => {
+                            return (
+                                <div key={item.i} className={ visible && 'item-gird'}>
+                                    {
+                                        visible && <div className={'item-remove'} onClick={this.removeLayout.bind(this,item.i)}>
+                                            <MinusOutlined />
                                         </div>
-                                    </div>
+                                    }
+                                    {
+                                        widgets[item.i]
+                                    }
                                 </div>
-                            </div>
-                        </div>
+                            )
+                        })
+                    }
+                </ReactGridLayout>
 
-                        <div className="dashboard-card">
-                            <div className='dashboard-card-body'>
-                                <div className={'card'}>
-                                    <div className="card-header">
-                                        <div className="card-header-title">我的事项</div>
-                                        <Button>查看全部</Button>
+                <Drawer
+                    title={`添加Widget小组件`}
+                    placement="right"
+                    size={'large'}
+                    onClose={this.onCloseDrawer.bind(this)}
+                    visible={visibleWidget}
+                >
+                    {
+                        widgetList.map(item =>{
+                            return (
+                                <div className={'drawerItem'} key={item.id}>
+                                    <div>
+                                        <div className={'drawerItem-title'}>{item.name}</div>
+                                        <div className="drawerItem-desc">{item.description}</div>
                                     </div>
-                                    <div className={'card-content'}>
-                                        <div className="myproject">
-                                            <div className="myproject_create">
-                                                <img src="https://img.alicdn.com/imgextra/i4/O1CN01CuyjHZ1MdLmS5Y8vd_!!6000000001457-2-tps-486-176.png" alt=""/>
-                                                <img src="https://img.alicdn.com/imgextra/i3/O1CN01gBbRck1ygVuckHMfz_!!6000000006608-2-tps-204-176.png" alt="" />
-                                            </div>
-                                            <div className={'projectList'}>
-                                                <span className="icon">
-                                                    <img src="https://img.alicdn.com/imgextra/i4/O1CN013XKqUi1MLwhFirv1o_!!6000000001419-2-tps-96-96.png"/>
-                                                </span>
-                                                <span className="projectList_title">
-                                                    <div className="teamix-title">
-                                                        <span className="CardList--titleButton--1ZNm0Ez">敏捷研发示例项目</span>
-                                                    </div>
-                                                </span>
-                                                <span className='iconType'>
-                                                    <ProfileOutlined style={{fontSize:20}}/>
-                                                    <span className="iconNumber">10</span>
-                                                </span>
-                                                <span className='iconType'>
-                                                    <ProfileOutlined style={{fontSize:20}}/>
-                                                    <span className="iconNumber">10</span>
-                                                </span>
-                                                <span className='iconType'>
-                                                    <ProfileOutlined style={{fontSize:20}}/>
-                                                    <span className="iconNumber">10</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {
+                                        layoutCode.includes(item.code) ? <span>已添加到工作台编辑区</span>
+                                            :
+                                            <Button type={'link'} onClick={this.addWork.bind(this, item)}>添加到工作台</Button>
+
+                                    }
                                 </div>
-                            </div>
-                        </div>
-
-                        <div className="dashboard-card">
-                            <div className='dashboard-card-body'>
-                                <div className={'card'}>
-                                    <div className="card-header">
-                                        <div className="card-header-title">我的代码库</div>
-                                        <Button>查看全部</Button>
-                                    </div>
-                                    <div className={'card-content'}>
-                                        <div style={{minHeight:200}} >
-                                            <div className={'list_item'}>
-                                                <div className="list_item_name"><span>Codeup-Demo</span></div>
-                                                <div className="list_item_visibility">
-                                                    <div className="list_item_visibility_center">
-                                                        <div className="tag">
-                                                            <span className="aone-tag-body">企业可见</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="list_item_updated"><span>2022-06-10</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                            )
+                        })
+                    }
+                </Drawer>
             </section>
-            <AddWorkBench
-                visible={visible}
-                setVisible={() => {
-                    setVisible(false);
-                    getWorkList()
-                }}
-                edit={edit}
-            />
-        </section>
-    )
+        )
+    }
 }
-export default Work
+
+export default WorkBench

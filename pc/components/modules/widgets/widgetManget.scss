@@ -1,0 +1,29 @@
+.widgetMangent {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 8px 0 8px 8px;
+  display: flex;
+  .left{
+    overflow: auto;
+    width: 300px;
+    height: 100%;
+    .search{
+      margin-bottom: 16px;
+      width: 100%;
+      display: flex;
+      >input {
+        margin-right: 8px;
+      }
+    }
+    .listName{
+      width: 100%;
+      cursor: pointer;
+    }
+  }
+  .right {
+    flex: 1;
+    padding-right: 8px;
+    overflow: auto;
+  }
+}
