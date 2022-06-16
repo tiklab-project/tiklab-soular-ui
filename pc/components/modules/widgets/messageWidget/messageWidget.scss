@@ -1,0 +1,20 @@
+
+.messageWidget{
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+
+  &-card{
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 0 10px #c4c4c4;
+    border-radius: 8px;
+    width: 100%;
+    padding: 8px;
+    overflow: hidden;
+    &-body{
+      height: 100%;
+      overflow: auto;
+    }
+  }
+
+}

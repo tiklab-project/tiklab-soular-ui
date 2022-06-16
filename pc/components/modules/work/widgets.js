@@ -6,9 +6,10 @@
  */
 import React from "react";
 import Product from '../widgets/products/index'
-
+import MessageWidget from "../widgets/messageWidget/messageWidget";
 const widgets = {
-    'portal-productWorkspace':<Product/>
+    'portal-productWorkspace':<Product/>,
+    'portal-message': <MessageWidget/>
 }
 
 

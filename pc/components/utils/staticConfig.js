@@ -128,6 +128,13 @@ const systemMenuData = [
         purviewCode:'license',
         title: 'License管理',
         icon :<SettingOutlined />,
+    },
+    {
+        id:'6',
+        key:'6',
+        purviewCode:'widget',
+        title: 'Widget管理',
+        icon :<SettingOutlined />,
     }
 ]
 
@@ -166,9 +173,10 @@ const onSystemMenu = (history, key) => {
     case '5':
         history.push('/system/license')
         break;
+    case '6':
+        history.push('/system/widgetMangent')
+        break;
     }
-
-
 }
 
 export {
