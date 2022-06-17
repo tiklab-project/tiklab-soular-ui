@@ -101,9 +101,9 @@ const systemMenuData = [
             purviewCode:'message-management'
         },{
             id:'3-2',
-            title: '消息模板管理',
+            title: '消息类型管理',
             icon :<AppstoreOutlined />,
-            purviewCode:'message-template'
+            purviewCode:'message-service'
         },{
             id:'3-3',
             title: '消息发送方式',
@@ -111,9 +111,9 @@ const systemMenuData = [
             purviewCode:'message-type'
         },{
             id:'3-4',
-            title: '消息类型管理',
+            title: '消息模板管理',
             icon :<AppstoreOutlined />,
-            purviewCode:'message-service'
+            purviewCode:'message-template'
         }]
     },{
         id:'4',
