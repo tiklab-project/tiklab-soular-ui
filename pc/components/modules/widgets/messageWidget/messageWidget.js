@@ -7,7 +7,7 @@
 
 import React, { useState, useEffect } from 'react';
 import {List, Tag} from 'antd';
-import {parseUserSearchParams} from 'doublekit-core-ui';
+import {getUser, parseUserSearchParams} from 'doublekit-core-ui';
 import {withRouter} from 'react-router-dom'
 import messageServer from './api'
 import './messageWidget.scss';
@@ -48,7 +48,7 @@ const MessageWidget = ({history}) => {
         const {messageTemplate} = item;
         const reg = /(http|https):\/\/([\w.]+\/?)\S*/ig
         if (reg.test(messageTemplate.link)) {
-            window.open(messageTemplate.link+"?" + parseUserSearchParams())
+            window.open(messageTemplate.link+"?" + parseUserSearchParams(getUser()))
         } else {
             history.push(messageTemplate.link)
         }
