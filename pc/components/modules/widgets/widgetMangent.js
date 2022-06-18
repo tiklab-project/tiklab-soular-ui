@@ -9,9 +9,10 @@
 import React, {useEffect, useState} from "react";
 import {List, Select, Button, Descriptions, Empty, Divider, Modal, Form, Input} from "antd";
 import {DeleteOutlined, EditOutlined} from "@ant-design/icons";
-import './widgetManget.scss';
+
 import {useTranslation} from "react-i18next";
 import workService from "../work/service/workService";
+import './widgetManget.scss';
 
 const { Option } = Select;
 const layout = {
@@ -78,6 +79,8 @@ const WidgetMangent = () => {
             name: item.name,
             code: item.code,
             type:item.type,
+            webUrl:item.webUrl,
+            apiUrl: item.apiUrl,
             description: item.description
         })
         setEditId(item.id)
@@ -194,6 +197,14 @@ const WidgetMangent = () => {
                     }
                     {
                         JSON.stringify(detail) !== "{}" &&
+                        <Descriptions.Item label={'页面跳转url'}>{detail.webUrl}</Descriptions.Item>
+                    }
+                    {
+                        JSON.stringify(detail) !== "{}" &&
+                        <Descriptions.Item label={'接口url'}>{detail.apiUrl}</Descriptions.Item>
+                    }
+                    {
+                        JSON.stringify(detail) !== "{}" &&
                         <Descriptions.Item label={'描述'}>{detail.description}</Descriptions.Item>
                     }
                     {
@@ -276,7 +287,36 @@ const WidgetMangent = () => {
                     >
                         <Input  placeholder={"请输入Widget编码"}/>
                     </Form.Item>
-
+                    <Form.Item
+                        name="webUrl"
+                        label={"页面跳转url"}
+                        rules={
+                            [
+                                {
+                                    required: true,
+                                    message: 'url前缀'
+                                },
+                                { type: 'url', message: "无效的url" }
+                            ]
+                        }
+                    >
+                        <Input  placeholder={"页面跳转url"}/>
+                    </Form.Item>
+                    <Form.Item
+                        name="apiUrl"
+                        label={"接口url"}
+                        rules={
+                            [
+                                {
+                                    required: true,
+                                    message: 'url前缀'
+                                },
+                                { type: 'url', message: "无效的url" }
+                            ]
+                        }
+                    >
+                        <Input  placeholder={"接口url"}/>
+                    </Form.Item>
                     <Form.Item
                         name="description"
                         label={"描述"}

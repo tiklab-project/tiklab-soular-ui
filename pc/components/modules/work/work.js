@@ -151,13 +151,22 @@ class WorkBench extends Component{
     }
 
 
-
+    findWidgetConfig = (code) => {
+        const {widgetList} = this.state;
+        const data = widgetList.filter(item => item.code === code);
+        let baseUrl = '';
+        let apiUrl = ""
+        if (data.length ===1) {
+            baseUrl = data[0].webUrl;
+            apiUrl = data[0].apiUrl;
+        }
+        return widgets(baseUrl, apiUrl)[code]
+    }
     render() {
         const {gridConfig, layout, visible, visibleWidget, widgetList} = this.state;
         const layoutCode = layout.reduce((prev,cur) => {
             return prev.concat(cur.i)
         }, []);
-
         return(
             <section className='workLayout'>
                 <Row justify={'end'}>
@@ -194,7 +203,7 @@ class WorkBench extends Component{
                                         </div>
                                     }
                                     {
-                                        widgets[item.i]
+                                        this.findWidgetConfig(item.i)
                                     }
                                 </div>
                             )

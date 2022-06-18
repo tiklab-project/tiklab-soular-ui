@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "antd": "^4.8.4",
+        "doublekit-apibox-ui": "^1.0.0",
         "doublekit-core-ui": "^1.0.0",
         "doublekit-eam-ui": "^1.0.0",
         "doublekit-flow-ui": "^1.0.0",
