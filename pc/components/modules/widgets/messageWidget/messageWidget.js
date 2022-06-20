@@ -13,10 +13,10 @@ import messageServer from './api'
 import './messageWidget.scss';
 
 const { CheckableTag } = Tag;
-const tagsData = ['portal', 'project', 'apibox'];
+const tagsData = ['all','portal', 'project', 'apibox'];
+// '全部','账号中心', '项目管理', '接口管理'
 const MessageWidget = ({history}) => {
-
-    const [selectedTags, setSelectedTags] = useState(['portal']);
+    const [selectedTags, setSelectedTags] = useState(['all']);
     const [messageData,setMessageData] = useState([]);
     const [params,setParams] = useState({
         pageParam:{
@@ -54,6 +54,21 @@ const MessageWidget = ({history}) => {
         }
     }
 
+    const tagLabel = (value) => {
+        switch (value) {
+            case "all":
+                return "全部";
+            case 'portal':
+                return "账号中心";
+            case 'project':
+                return "项目管理";
+            case 'apibox':
+                return "接口管理";
+            default:
+                return "全部";
+        }
+    }
+
     return(
         <div className={'messageWidget'}>
             <div className={'messageWidget-card'}>
@@ -67,7 +82,7 @@ const MessageWidget = ({history}) => {
                                     checked={selectedTags.indexOf(tag) > -1}
                                     onChange={(checked) => handleChange(tag, checked)}
                                 >
-                                    {tag}
+                                    {tagLabel(tag)}
                                 </CheckableTag>
                             ))}
                         </div>

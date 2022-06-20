@@ -160,7 +160,9 @@ class WorkBench extends Component{
             baseUrl = data[0].webUrl;
             apiUrl = data[0].apiUrl;
         }
-        return widgets(baseUrl, apiUrl)[code]
+        if (apiUrl && baseUrl) return widgets(baseUrl, apiUrl)[code];
+        return null;
+
     }
     render() {
         const {gridConfig, layout, visible, visibleWidget, widgetList} = this.state;
