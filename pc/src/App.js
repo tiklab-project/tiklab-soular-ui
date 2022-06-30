@@ -3,14 +3,14 @@ import {inject, observer} from "mobx-react";
 import {PLUGIN_STORE, loadLanguage} from "doublekit-plugin-ui";
 import {useVersion} from "doublekit-eam-ui";
 import {renderRoutes} from "react-router-config";
-import {toJS} from "mobx";
+import {PluginContainer} from "doublekit-plugin-ui";
 import {I18nextProvider, useTranslation} from "react-i18next";
 import resources from "../components/modules/common/language/resources";
-
-
-const App = (props) => {
+const App1 = (props) => {
     const {pluginsStore} = props;
     const {routers, isInitLoadPlugin, languages} = pluginsStore;
+
+
     const [loading, setLoading] = useState(false);
 
     const [resourcesLangualge, setResources] = useState({});
@@ -45,6 +45,27 @@ const App = (props) => {
     )
 
 };
+
+const App = (props) => {
+    const { i18n, t } = useTranslation();
+    const value = PluginContainer.useSelector((state) => {
+        return state
+    });
+
+
+    console.log(value)
+
+    // const value = Container.useSelector((state) => state.value);
+    const newI18 = i18n.cloneInstance({ resources: value.languages });
+    return(
+        <I18nextProvider i18n={newI18}>
+            {
+                renderRoutes(value.routes)
+            }
+        </I18nextProvider>
+    )
+
+}
 
 export default inject(PLUGIN_STORE)(observer(App))
 

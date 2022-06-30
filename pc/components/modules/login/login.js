@@ -8,13 +8,14 @@
 import React from 'react';
 import {Login} from "doublekit-eam-ui";
 
-
 const PortalLogin  = props => {
+
     return (
         <Login
             {...props}
             title={'portal'}
         />
+
     )
 }
 

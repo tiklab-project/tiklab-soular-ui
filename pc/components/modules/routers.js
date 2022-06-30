@@ -1,20 +1,20 @@
 import React from 'react';
 import { Redirect } from 'react-router';
 import {Directory} from 'doublekit-user-ui'
-import {FormList, PreliminaryList, PreliminaryTypeList, ProjectFormList} from 'doublekit-form-ui'
+import {FormList} from 'doublekit-form-ui'
 import {InternalWechat, Logout, AuthResult} from 'doublekit-eam-ui'
 
 import SyncComponent from '../lazy/SyncComponent';
 import ElectronLoginPage from "./login/electornLogin";
-import {FlowStatusList, ProjectFlowList, SystemFlowList} from "doublekit-flow-ui";
-import {PluginDetail} from "doublekit-plugin-ui";
+import {FlowStatusList, SystemFlowList} from "doublekit-flow-ui";
+import RemoteRouterComponent from 'doublekit-plugin-ui/lib/components/v2/romoveJs/RemoteRouterComponent'
+
 const layout = SyncComponent(() => import('./layout/layout'));
 
 
 
 
 // 设置模块
-// const Setting = SyncComponent(() => import('./setting/setting'));
 const LicensePage = SyncComponent(() => import('./system/license/licensePage'));
 const PluginList = SyncComponent(() => import('./system/plugin'))
 
@@ -27,7 +27,6 @@ const Login = SyncComponent(() => import('./login/login'))
 const OrgaLayout = SyncComponent(() => import('./orga/contains'));
 const OrgaManagement = SyncComponent(() => import('./orga/orgaManagement/orgaManagement'));
 const UserManagement = SyncComponent(() => import('./orga/userManagement/userManagement'));
-const ProjectPeopleManagement = SyncComponent(() => import('./orga/projectPeopleManagement/projectPeopleManagement'));
 
 
 // 系统管理f
@@ -51,7 +50,11 @@ const MessageTemplate = SyncComponent(() => import('./system/template/template')
 const WidgetMangent = SyncComponent(() =>import('./widgets/widgetMangent'))
 
 const routes = [
-
+    // {
+    //     path: '/',
+    //     exact:true,
+    //     component: Demo
+    // },
     {
         path: "/logout",
         exact: true,
@@ -80,6 +83,7 @@ const routes = [
     {
         component: layout,
         key:'layout',
+        path: '/',
         routes: [
             {
                 component: Work,
@@ -168,7 +172,7 @@ const routes = [
 
                     {
                         path: '/system/detail',
-                        component: PluginDetail,
+                        component: SystemFlowList,
 
                     },
                     {
@@ -188,7 +192,6 @@ const routes = [
             },
         ],
     },
-
 ];
 
 export default routes

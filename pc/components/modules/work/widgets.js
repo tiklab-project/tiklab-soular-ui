@@ -5,7 +5,7 @@
  * @description widgets
  */
 import React from "react";
-import {WorkspaceWidget} from 'doublekit-apibox-ui'
+// import {WorkspaceWidget} from 'doublekit-apibox-ui'
 import Product from '../widgets/products/index'
 import MessageWidget from "../widgets/messageWidget/messageWidget";
 
@@ -14,7 +14,7 @@ const widgets = (url, apiUrl) => {
     const widgets = {
         'portal-productWorkspace':<Product webUrl={url} apiUrl={apiUrl}/>,
         'portal-message': <MessageWidget webUrl={url} apiUrl={apiUrl}/>,
-        "apibox-workspace": <WorkspaceWidget webUrl={url} apiUrl={apiUrl}/>
+        // "apibox-workspace": <WorkspaceWidget webUrl={url} apiUrl={apiUrl}/>
     }
     return widgets
 }

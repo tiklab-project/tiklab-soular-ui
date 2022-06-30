@@ -129,7 +129,6 @@ class WorkBench extends Component{
         })
     }
 
-
     addWork(item){
         const {layout} = this.state;
         const newLayout = layout.concat({
@@ -144,12 +143,10 @@ class WorkBench extends Component{
         })
     }
 
-
     removeLayout (i) {
         const layout = this.state.layout.filter(item => item.i !== i);
         this.setState({layout})
     }
-
 
     findWidgetConfig = (code) => {
         const {widgetList} = this.state;

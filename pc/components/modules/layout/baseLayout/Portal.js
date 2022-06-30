@@ -4,10 +4,13 @@
  * create: $2022/1/25
  */
 import React, {useState} from 'react';
+import {Button, Avatar, Menu, Dropdown, Space} from "antd";
 import {getVersionInfo} from 'doublekit-core-ui';
 import {useTranslation} from 'react-i18next'
 import {verifyUserHOC, useWorkAppConfig} from 'doublekit-eam-ui'
-import {Button, Avatar, Menu, Dropdown, Space} from "antd";
+import {connect} from 'doublekit-plugin-ui'
+
+
 import {DownOutlined, LogoutOutlined, SettingOutlined} from "@ant-design/icons";
 
 import logo from '../../assets/images/logo.jpeg'
@@ -36,8 +39,6 @@ const Portal = props => {
         setCurrentLink(item.to)
         props.history.push(item.to)
     }
-
-
 
     const showVersion = () => {
         const info = getVersionInfo();
@@ -171,7 +172,7 @@ const Portal = props => {
                         style={{fontSize:24}}
                     />
                     <Dropdown overlay={AvatarMenu} placement="bottom">
-                        <Avatar size={52} src={<img src="https://joeschmoe.io/api/v1/random" />} />
+                        <Avatar size={52} src={<img src="https://joeschmoe.io/api/v1/random"  alt={''}/>} />
                     </Dropdown>
                 </div>
             </header>
@@ -186,4 +187,12 @@ const Portal = props => {
     )
 };
 const verifyPortal = verifyUserHOC(Portal)
-export default verifyPortal
+
+
+function mapStateToProps(state) {
+    console.log(state, 'mapStateToProps')
+    return {
+        pluginStore: state.pluginStore
+    }
+}
+export default connect(mapStateToProps)(verifyPortal);

@@ -7,8 +7,8 @@
 
 import React from 'react';
 import {Directory} from 'doublekit-user-ui'
-
 const DirectoryWrap = (props) => {
+
     return (
         <Directory isPortal={true}/>
     );
