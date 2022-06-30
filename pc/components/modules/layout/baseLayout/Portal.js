@@ -22,6 +22,10 @@ const Portal = props => {
     const [currentLink, setCurrentLink] = useState(props.location.pathname);
     const [component, ModalComponent, editOrAddModal] = useWorkAppConfig(false);
     const { i18n} = useTranslation();
+
+    const [lng,setLng] = useState(i18n.language)
+    const [lngData] = useState(i18n.languages)
+
     const homeRouter = [
         {
             to:'/work',
@@ -68,10 +72,8 @@ const Portal = props => {
     }
 
     const onMenu = ({key}) => {
-
         if (key === '1') {
             history.push('/logout')
-            return
         }
     }
     const AvatarMenu = (
@@ -89,47 +91,40 @@ const Portal = props => {
     )
 
     const onLanguageChange = (e) => {
-        i18n.changeLanguage(e.key)
+        if (lng === e.key) return
+        i18n.changeLanguage(e.key).then(res => {
+            setLng(e.key)
+        })
+
     }
 
     const renderLanguageData = () => {
-        return i18n.languages.map(item => {
+        return lngData.map(item => {
            switch (item) {
                case 'zh':
                    return {
-                       label: '中文',
+                       label: item,
                        key: item,
                    }
-               case 'cn':
+               case 'en':
                    return {
-                       label: 'English',
+                       label: item,
                        key: item,
                    }
                case 'jp':
                    return {
-                       label: 'Japan',
+                       label: item,
                        key: item,
                    }
                default:
                    return {
-                       label: '中文',
+                       label: item,
                        key: item,
                    }
            }
         })
     }
-    const showCurrentLanguage = () => {
-        switch (i18n.language) {
-            case 'zh':
-                return '中文'
-            case 'cn':
-                return 'English'
-            case 'jp':
-                return 'Japan'
-            default:
-                return '中文'
-        }
-    }
+
     const LanguageMenu = () => (
             <Menu
                 onClick={onLanguageChange}
@@ -160,7 +155,7 @@ const Portal = props => {
                     <Dropdown overlay={LanguageMenu} placement="bottom">
                         <Button>
                             <Space>
-                                {showCurrentLanguage()}
+                                {lng}
                                 <DownOutlined />
                             </Space>
                         </Button>
@@ -190,7 +185,6 @@ const verifyPortal = verifyUserHOC(Portal)
 
 
 function mapStateToProps(state) {
-    console.log(state, 'mapStateToProps')
     return {
         pluginStore: state.pluginStore
     }
