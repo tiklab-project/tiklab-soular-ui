@@ -6,8 +6,6 @@ import {InternalWechat, Logout, AuthResult} from 'doublekit-eam-ui'
 
 import SyncComponent from '../lazy/SyncComponent';
 import ElectronLoginPage from "./login/electornLogin";
-import {FlowStatusList, SystemFlowList} from "doublekit-flow-ui";
-import RemoteRouterComponent from 'doublekit-plugin-ui/lib/components/v2/romoveJs/RemoteRouterComponent'
 
 const layout = SyncComponent(() => import('./layout/layout'));
 
@@ -144,10 +142,7 @@ const routes = [
                         component: DomainProjectRole,
 
                     },
-                    {
-                        path: '/system/projectrolecustom',
-                        component: FlowStatusList,
-                    },
+
                     {
                         path: '/system/message',
                         component: MessageManagement,
@@ -168,12 +163,6 @@ const routes = [
                     {
                         path: '/system/plugin',
                         component: PluginList,
-                    },
-
-                    {
-                        path: '/system/detail',
-                        component: SystemFlowList,
-
                     },
                     {
                         path: '/system/license',
