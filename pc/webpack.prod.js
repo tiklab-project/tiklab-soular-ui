@@ -1,6 +1,6 @@
 
 
-
+const webpack = require("webpack");
 const { merge } = require('webpack-merge');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -11,12 +11,12 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const baseWebpackConfig = require('./webpack.base');
-const webpack = require("webpack");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin")
+
+const baseWebpackConfig = require('./webpack.base');
 const customEnv = process.env.CUSTOM_ENV;
 const {webpackGlobal} = require('../environment/environment-' + customEnv)
-console.log(path.resolve(__dirname, './src/index.js'))
 
 module.exports = merge(baseWebpackConfig, {
     mode: 'production',
@@ -48,6 +48,14 @@ module.exports = merge(baseWebpackConfig, {
                 removeAttributeQuotes: true
             }
         }),
+        // new CompressionPlugin({
+        //     test:/\.(js|jsx|css|scss|less)$/,
+        //     filename: '[path].gz[query]',
+        //     algorithm: 'gzip',
+        //     threshold: 0,
+        //     minRatio: 0.8,
+        //     deleteOriginalAssets: true
+        // }),
         new webpack.DefinePlugin({ENV:JSON.stringify(customEnv), ...webpackGlobal}),
 
         new MiniCssExtractPlugin({
@@ -70,18 +78,75 @@ module.exports = merge(baseWebpackConfig, {
             automaticNameDelimiter: '--', // 分包打包生成文件的名称的连接符
             name:true,
             cacheGroups: { //  cacheGroups 缓存组，如：将某个特定的库打包
-                /* 抽离node_modules下的第三方库 可视需要打开会生成两个文件  vender: node-module下的文件*/
-                vendor: {
-                    chunks:'all',
-                    name:'vender',
-                    test: (module, chunks) => {
-                        if (/node_modules/.test(module.context)) {
-                            return true
-                        }
-                    },
-                    minChunks: 2,//  提取公共部分最少的文件数
-                    priority: 10,
-                    enforce: true
+                antdUI: {
+                    name: 'chunk-antdUI',
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]antd[\\/]/,
+                    priority: 0,
+                    reuseExistingChunk: true
+                },
+                antIcon: {
+                    name: 'chunk-antIcon',
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]@ant-design[\\/]/,
+                    priority: 0,
+                    reuseExistingChunk: true
+                },
+                doublekitFormUI: {
+                    name: 'chunk-doublekit-form-ui',
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]doublekit-form-ui[\\/]/,
+                    priority: 0,
+                    reuseExistingChunk: true
+                },
+                doublekitPluginUI: {
+                    name: 'chunk-doublekit-plugin-ui',
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]doublekit-plugin-ui[\\/]/,
+                    priority: 0,
+                    reuseExistingChunk: true
+                },
+                doublekitUserUI: {
+                    name: 'chunk-doublekit-user-ui',
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]doublekit-user-ui[\\/]/,
+                    priority: 0,
+                    reuseExistingChunk: true
+                },
+                doublekitCoreUI: {
+                    name: 'chunk-doublekit-core-ui',
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]doublekit-core-ui[\\/]/,
+                    priority: 0,
+                    reuseExistingChunk: true
+                },
+                doublekitMessageUI: {
+                    name: 'chunk-doublekit-message-ui',
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]doublekit-message-ui[\\/]/,
+                    priority: 0,
+                    reuseExistingChunk: true
+                },
+                doublekitEamUI: {
+                    name: 'chunk-doublekit-eam-ui',
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]doublekit-eam-ui[\\/]/,
+                    priority: 0,
+                    reuseExistingChunk: true
+                },
+                doublekitPrivilegeUI: {
+                    name: 'chunk-doublekit-privilege-ui',
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]doublekit-privilege-ui[\\/]/,
+                    priority: 0,
+                    reuseExistingChunk: true
+                },
+                mobx: {
+                    name: 'chunk-mobx',
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]mobx[\\/]/,
+                    priority: 0,
+                    reuseExistingChunk: true
                 },
                 /* 提取共用部分，一下提取的部分会议commons 命名 */
                 commons: {
@@ -101,6 +166,11 @@ module.exports = merge(baseWebpackConfig, {
                     minChunks: 2, //  提取公共部分最少的文件数
                     // minportal: 0 // 提取公共部分最小的大小
                     // enforce: true
+                },
+                default: {
+                    minChunks: 2,
+                    priority: -20,
+                    reuseExistingChunk: true
                 }
             }
         },

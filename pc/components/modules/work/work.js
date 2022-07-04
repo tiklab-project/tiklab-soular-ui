@@ -6,7 +6,7 @@
  * @update: 2021-05-24 09:38
  */
 import React, {Component} from 'react';
-import {Button, Row, Space, Drawer} from "antd";
+import {Button, Row, Space, Drawer, Empty} from "antd";
 import {getUser} from 'doublekit-core-ui'
 import RGL, { WidthProvider } from "react-grid-layout";
 import workService from "./service/workService";
@@ -118,6 +118,17 @@ class WorkBench extends Component{
         })
     }
 
+    onQuickEditWork(){
+        this.setState({
+            visible:true,
+            gridConfig:{
+                isDraggable: true,
+                isResizable: true,
+            },
+            visibleWidget:true
+        })
+    }
+
     onOpenDrawer(){
         this.setState({
             visibleWidget:true
@@ -166,6 +177,8 @@ class WorkBench extends Component{
         const layoutCode = layout.reduce((prev,cur) => {
             return prev.concat(cur.i)
         }, []);
+
+        console.log(layout)
         return(
             <section className='workLayout'>
                 <Row justify={'end'}>
@@ -208,8 +221,15 @@ class WorkBench extends Component{
                             )
                         })
                     }
-                </ReactGridLayout>
 
+                </ReactGridLayout>
+                {
+                    layout.length === 0 && !visible && <Empty
+                        description={
+                            <span>你的工作台没有配置<br/><Button type="link" onClick={this.onQuickEditWork.bind(this)}>快捷编辑</Button></span>
+                        }
+                    />
+                }
                 <Drawer
                     title={`添加Widget小组件`}
                     placement="right"

@@ -71,7 +71,6 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 use: [{
-                    // loader: "happypack/loader?id=portal"
                     loader: 'babel-loader'
                 }],
                 exclude: /node_modules/

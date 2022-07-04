@@ -1,7 +1,5 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import {Directory} from 'doublekit-user-ui'
-import {FormList} from 'doublekit-form-ui'
 import {InternalWechat, Logout, AuthResult} from 'doublekit-eam-ui'
 
 import SyncComponent from '../lazy/SyncComponent';
@@ -26,6 +24,7 @@ const OrgaLayout = SyncComponent(() => import('./orga/contains'));
 const OrgaManagement = SyncComponent(() => import('./orga/orgaManagement/orgaManagement'));
 const UserManagement = SyncComponent(() => import('./orga/userManagement/userManagement'));
 
+const PortalDirectory = SyncComponent(() => import('./orga/directory/portalDirectory'));
 
 // 系统管理f
 const System = SyncComponent(()=>import('./system/contains'))
@@ -104,13 +103,10 @@ const routes = [
                         path: '/orga/user',
                         component: UserManagement,
                     },
-                    {
-                        path: '/orga/peojectpeople',
-                        component: FormList,
-                    },
+
                     {
                         path: '/orga/directory',
-                        component:Directory
+                        component:PortalDirectory
                     },
                     {
                         path: "/orga",
