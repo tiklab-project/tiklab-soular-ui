@@ -25,6 +25,14 @@ const PROJECT_NAME = {
     "project":"项目管理",
     "apibox":"ApiBox"
 }
+
+
+const DASHBOARD_NAME = {
+    "normal":"通用",
+    "left":"左侧",
+    "right":"右侧"
+}
+
 const WidgetMangent = () => {
     const { t } = useTranslation();
     const [form] = Form.useForm();
@@ -78,6 +86,7 @@ const WidgetMangent = () => {
         form.setFieldsValue({
             name: item.name,
             code: item.code,
+            dashboardType:item.dashboardType,
             type:item.type,
             webUrl:item.webUrl,
             apiUrl: item.apiUrl,
@@ -197,6 +206,10 @@ const WidgetMangent = () => {
                     }
                     {
                         JSON.stringify(detail) !== "{}" &&
+                        <Descriptions.Item label={'布局类型'}>{DASHBOARD_NAME[detail.dashboardType]}</Descriptions.Item>
+                    }
+                    {
+                        JSON.stringify(detail) !== "{}" &&
                         <Descriptions.Item label={'页面跳转url'}>{detail.webUrl}</Descriptions.Item>
                     }
                     {
@@ -273,6 +286,30 @@ const WidgetMangent = () => {
                             <Option value="apibox">ApiBox</Option>
                         </Select>
                     </Form.Item>
+
+                    <Form.Item
+                        name="dashboardType"
+                        label={"布局类型"}
+                        rules={
+                            [
+                                {
+                                    required: true,
+                                    message: '请选择布局类型'
+                                }
+                            ]
+                        }
+                    >
+                        <Select
+                            placeholder={"请选择布局类型"}
+                            style={{width:'100%'}}
+                        >
+                            <Option value="normal">通用</Option>
+                            <Option value="left">左侧</Option>
+                            <Option value="right">右侧</Option>
+                        </Select>
+                    </Form.Item>
+
+
                     <Form.Item
                         name="code"
                         label={"Widget编码"}

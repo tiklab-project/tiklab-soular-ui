@@ -26,7 +26,8 @@
   padding: 16px 24px;
   &-content{
     flex: 1 1;
-    margin: 0 24px;
+    //margin-left: -40px;
+    padding: 8px 24px 24px;
   }
 }
 
@@ -41,7 +42,25 @@
   top:4px;
   right:4px
 }
+.dashboard-area{
+  display: flex;
+  font-size: 14px;
+}
+.dashboard_left{
+  display: flex;
+  flex-direction: column;
+  width: calc(66% - 7px);
+  &:first-of-type {
+    margin-right: 14px;
+  }
+}
 
+.dashboard_right{
+  display: flex;
+  flex-direction: column;
+  width: calc(34% - 7px);
+  min-width: 390px;
+}
 .drawerItem {
   padding: 16px;
   display: flex;

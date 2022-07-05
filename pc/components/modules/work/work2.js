@@ -8,13 +8,23 @@
 import React, {Component} from 'react';
 import {Button, Row, Space, Drawer, Empty} from "antd";
 import {getUser} from 'doublekit-core-ui'
+import RGL, { WidthProvider } from "react-grid-layout";
 import workService from "./service/workService";
+
 import {widgets} from "./widgets";
 import './work.scss'
-import ReactBeautifulDnd from "./components/Drop";
+import "react-grid-layout/css/styles.css";
+import "react-resizable/css/styles.css";
+import {MinusOutlined} from "@ant-design/icons";
+const ReactGridLayout = WidthProvider(RGL);
 
 class WorkBench extends Component{
-
+    static defaultProps = {
+        className: "layout",
+        cols: 12,
+        rowHeight: 30,
+        onLayoutChange: function() {}
+    };
     constructor(props) {
         super(props);
         this.state = {
@@ -26,14 +36,11 @@ class WorkBench extends Component{
             visible:false,
             visibleWidget: false,
             widgetList:[],
-            userLayoutId:"",
-            leftList:[],
-            rightList:[]
+
+            userLayoutId:""
         }
 
         this.onLayoutChange = this.onLayoutChange.bind(this);
-        this.savaRightDndData = this.savaRightDndData.bind(this);
-        this.savaLeftDndData = this.savaLeftDndData.bind(this);
     }
     componentDidMount() {
         workService.getWidgetList({}).then(res => {
@@ -54,8 +61,7 @@ class WorkBench extends Component{
             if (res.code === 0) {
                 if (res.data) {
                     this.setState({
-                        leftList:res.data.leftDashboard ? JSON.parse(res.data.leftDashboard) : [],
-                        rightList:res.data.rightDashboard ? JSON.parse(res.data.rightDashboard) : [],
+                        layout:JSON.parse(res.data.layout),
                         userLayoutId: res.data.id
                     })
                 }
@@ -79,11 +85,10 @@ class WorkBench extends Component{
     }
 
     onSaveLayout() {
-        const {leftList,rightList, userLayoutId} = this.state;
+        const {layout, userLayoutId} = this.state;
         let params = {
             uid: getUser().userId,
-            leftDashboard:JSON.stringify(leftList),
-            rightDashboard: JSON.stringify(rightList),
+            layout:JSON.stringify(layout)
         }
         if (!userLayoutId) {
             workService.createLayout(params).then(res => {
@@ -136,37 +141,44 @@ class WorkBench extends Component{
     }
 
     addWork(item){
-        const {rightList, leftList} = this.state;
-        if (item.dashboardType === 'right') {
-            this.setState({
-                rightList: rightList.concat(item)
-            })
-        } else {
-            this.setState({
-                leftList: leftList.concat(item)
-            })
+        const {layout} = this.state;
+        const newLayout = layout.concat({
+            i:item.code,
+            x: 4,
+            y: 0,
+            w: 12,
+            h: 8
+        })
+        this.setState({
+            layout:newLayout
+        })
+    }
+
+    removeLayout (i) {
+        const layout = this.state.layout.filter(item => item.i !== i);
+        this.setState({layout})
+    }
+
+    findWidgetConfig = (code) => {
+        const {widgetList} = this.state;
+        const data = widgetList.filter(item => item.code === code);
+        let baseUrl = '';
+        let apiUrl = ""
+        if (data.length ===1) {
+            baseUrl = data[0].webUrl;
+            apiUrl = data[0].apiUrl;
         }
+        if (apiUrl && baseUrl) return widgets(baseUrl, apiUrl)[code];
+        return null;
+
     }
-
-
-    savaLeftDndData(afterData){
-        this.setState({
-            leftList:afterData
-        })
-    }
-    savaRightDndData(afterData){
-        this.setState({
-            rightList:afterData
-        })
-    }
-
-
-
     render() {
-        const {leftList, rightList, visible, visibleWidget, widgetList} = this.state;
-        const layoutCode =leftList.concat(rightList).reduce((prev,cur) => {
-            return prev.concat(cur.code)
+        const {gridConfig, layout, visible, visibleWidget, widgetList} = this.state;
+        const layoutCode = layout.reduce((prev,cur) => {
+            return prev.concat(cur.i)
         }, []);
+
+        console.log(layout)
         return(
             <section className='workLayout'>
                 <Row justify={'end'}>
@@ -185,47 +197,34 @@ class WorkBench extends Component{
                         }
                     </Space>
                 </Row>
+                <ReactGridLayout
+                    layout={layout}
 
-                <section className='workLayout-content'>
-                    <div className="dashboard-area">
-                        <div className="dashboard_left">
-                            {
-                                visible ? <ReactBeautifulDnd data={leftList} dropEnd={this.savaLeftDndData}/> :
+                    {...gridConfig}
+                    {...this.props}
+                    onLayoutChange={this.onLayoutChange}
+                >
 
-                                    <>
-                                        {
-                                            leftList.map(item => {
-                                                const webUrl = item.webUrl;
-                                                const apiUrl = item.apiUrl;
-                                                return widgets(webUrl, apiUrl)[item.code]
-                                            })
-                                        }
-                                    </>
+                    {
+                        layout.map(item => {
+                            return (
+                                <div key={item.i} className={ visible && 'item-gird'}>
+                                    {
+                                        visible && <div className={'item-remove'} onClick={this.removeLayout.bind(this,item.i)}>
+                                            <MinusOutlined />
+                                        </div>
+                                    }
+                                    {
+                                        this.findWidgetConfig(item.i)
+                                    }
+                                </div>
+                            )
+                        })
+                    }
 
-                            }
-                        </div>
-                        <div className="dashboard_right">
-                            {
-                                visible ?
-                                    <ReactBeautifulDnd data={rightList} dropEnd={ this.savaRightDndData}/>
-                                    :
-                                    <>
-                                        {
-                                            rightList.map(item => {
-                                                const webUrl = item.webUrl;
-                                                const apiUrl = item.apiUrl;
-                                                return widgets(webUrl, apiUrl)[item.code]
-                                            })
-                                        }
-                                    </>
-                            }
-
-                        </div>
-                    </div>
-                </section>
-
+                </ReactGridLayout>
                 {
-                    [...leftList, ...rightList].length === 0 && !visible && <Empty
+                    layout.length === 0 && !visible && <Empty
                         description={
                             <span>你的工作台没有配置<br/><Button type="link" onClick={this.onQuickEditWork.bind(this)}>快捷编辑</Button></span>
                         }

@@ -32,6 +32,7 @@
 
       &-content {
         height: calc(100% - 28px - 40px);
+        max-height: 300px;
         width: 100%;
         overflow: auto;
         padding: 0 8px;
