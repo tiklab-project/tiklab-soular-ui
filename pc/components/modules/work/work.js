@@ -197,7 +197,11 @@ class WorkBench extends Component{
                                             leftList.map(item => {
                                                 const webUrl = item.webUrl;
                                                 const apiUrl = item.apiUrl;
-                                                return widgets(webUrl, apiUrl)[item.code]
+                                                return (
+                                                    <div key={item.id}>
+                                                        {widgets(webUrl, apiUrl)[item.code]}
+                                                    </div>
+                                                )
                                             })
                                         }
                                     </>
@@ -214,7 +218,11 @@ class WorkBench extends Component{
                                             rightList.map(item => {
                                                 const webUrl = item.webUrl;
                                                 const apiUrl = item.apiUrl;
-                                                return widgets(webUrl, apiUrl)[item.code]
+                                                return (
+                                                    <div key={item.id}>
+                                                        {widgets(webUrl, apiUrl)[item.code]}
+                                                    </div>
+                                                )
                                             })
                                         }
                                     </>
