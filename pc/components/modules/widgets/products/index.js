@@ -7,7 +7,7 @@
 import React, {useState, useEffect} from "react";
 import {getUser, parseUserSearchParams} from "doublekit-core-ui";
 import ProductWidgetsServer from "../products/api";
-import {apiboxImg, jenkinsImg, knowledgeImg, projectImg} from "doublekit-eam-ui";
+import {apiboxImg, jenkinsImg, knowledgeImg, projectImg} from "doublekit-eam-ui/es/_utils";
 import './Widget.scss'
 
 const INIT_WORK = [

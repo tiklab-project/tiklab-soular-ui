@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import {InternalWechat, Logout, AuthResult} from 'doublekit-eam-ui'
+import {InternalWechatEntry, Logout, AuthResult} from 'doublekit-eam-ui'
 
 import SyncComponent from '../lazy/SyncComponent';
 import ElectronLoginPage from "./login/electornLogin";
@@ -73,7 +73,7 @@ const routes = [
         path: '/auth_result'
     },
     {
-        component:InternalWechat,
+        component:InternalWechatEntry,
         exact:true,
         path: '/project'
     },

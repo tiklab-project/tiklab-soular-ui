@@ -12,7 +12,6 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
-const CompressionPlugin = require("compression-webpack-plugin")
 
 const baseWebpackConfig = require('./webpack.base');
 const customEnv = process.env.CUSTOM_ENV;
@@ -37,7 +36,7 @@ module.exports = merge(baseWebpackConfig, {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
-            title:'组织中心',
+            title:'门户中心SAAS',
             template: path.resolve(__dirname, '../public/index.template.html'),
             hash: false,
             filename: 'index.html',
@@ -48,14 +47,7 @@ module.exports = merge(baseWebpackConfig, {
                 removeAttributeQuotes: true
             }
         }),
-        // new CompressionPlugin({
-        //     test:/\.(js|jsx|css|scss|less)$/,
-        //     filename: '[path].gz[query]',
-        //     algorithm: 'gzip',
-        //     threshold: 0,
-        //     minRatio: 0.8,
-        //     deleteOriginalAssets: true
-        // }),
+
         new webpack.DefinePlugin({ENV:JSON.stringify(customEnv), ...webpackGlobal}),
 
         new MiniCssExtractPlugin({
@@ -89,13 +81,6 @@ module.exports = merge(baseWebpackConfig, {
                     name: 'chunk-antIcon',
                     chunks: 'all',
                     test: /[\\/]node_modules[\\/]@ant-design[\\/]/,
-                    priority: 0,
-                    reuseExistingChunk: true
-                },
-                doublekitFormUI: {
-                    name: 'chunk-doublekit-form-ui',
-                    chunks: 'all',
-                    test: /[\\/]node_modules[\\/]doublekit-form-ui[\\/]/,
                     priority: 0,
                     reuseExistingChunk: true
                 },

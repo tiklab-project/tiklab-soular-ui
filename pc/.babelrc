@@ -29,6 +29,47 @@
             "libraryDirectory": "es",
             "style": "css"
         }],
+        [      "import",
+            {
+                "libraryName": "@ant-design/icons",
+                "libraryDirectory": "es/icons",
+                "camel2DashComponentName": false
+            },
+            "@ant-design/icons"
+        ],
+
+        ["import", {
+            "libraryName": "doublekit-eam-ui",
+            "libraryDirectory": "es",
+            "style": true
+        }, "doublekit-eam-ui"],
+        ["import", {
+            "libraryName": "doublekit-licence-ui",
+            "libraryDirectory": "es",
+            "style": true
+        }, "doublekit-licence-ui"],
+        ["import", {
+            "libraryName": "doublekit-message-ui",
+            "libraryDirectory": "es",
+            "style": true
+        }, "doublekit-message-ui"],
+        ["import", {
+            "libraryName": "doublekit-plugin-ui",
+            "libraryDirectory": "es",
+            "style": true
+        }, "doublekit-plugin-ui"],
+        ["import", {
+            "libraryName": "doublekit-privilege-ui",
+            "libraryDirectory": "es",
+            "style": true
+        }, "doublekit-privilege-ui"],
+
+        ["import", {
+            "libraryName": "doublekit-user-ui",
+            "libraryDirectory": "es",
+            "style": true
+        }, "doublekit-user-ui"],
+
         "@babel/plugin-transform-regenerator",
         "react-hot-loader/babel"
     ]

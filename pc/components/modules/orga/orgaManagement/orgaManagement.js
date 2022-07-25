@@ -1,11 +1,11 @@
 import React from 'react';
-import {OrgList} from "doublekit-user-ui";
+import {OrgaList} from "doublekit-user-ui";
 
 
 const OrgaManagement = (props) => {
 
     return(
-        <OrgList
+        <OrgaList
             {...props}
             isPortal={true}
         />

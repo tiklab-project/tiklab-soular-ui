@@ -7,16 +7,15 @@
  */
 
 import React from 'react';
-import {inject, observer} from "mobx-react";
-import {RoleList, SYSTEM_ROLE_STORE} from "doublekit-privilege-ui";
+import {SystemRoleList} from "doublekit-privilege-ui";
 
 const SystemRole = props => {
 
     return(
-        <RoleList {...props} group={'system'} tableLink={'/privilege/role/system/'}/>
+        <SystemRoleList {...props} group={'system'} tableLink={'/privilege/role/system/'}/>
     )
 }
 
-export default inject(SYSTEM_ROLE_STORE)(observer(SystemRole))
+export default SystemRole
 
 

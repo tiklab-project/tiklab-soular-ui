@@ -7,8 +7,9 @@ import React, {useState} from 'react';
 import {Button, Avatar, Menu, Dropdown, Space} from "antd";
 import {getVersionInfo} from 'doublekit-core-ui';
 import {useTranslation} from 'react-i18next'
-import {verifyUserHOC, useWorkAppConfig} from 'doublekit-eam-ui'
-import {connect} from 'doublekit-plugin-ui'
+import {verifyUserHoc, useWorkAppConfig} from 'doublekit-eam-ui'
+
+import {connect} from 'doublekit-plugin-ui/es/_utils'
 
 
 import {DownOutlined, LogoutOutlined, SettingOutlined} from "@ant-design/icons";
@@ -181,7 +182,7 @@ const Portal = props => {
         </main>
     )
 };
-const verifyPortal = verifyUserHOC(Portal)
+const verifyPortal = verifyUserHoc(Portal)
 
 
 function mapStateToProps(state) {

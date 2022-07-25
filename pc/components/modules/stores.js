@@ -1,9 +1,7 @@
-import {EAM_STORE, EamStore} from 'doublekit-eam-ui'
-import {PLUGIN_STORE, PluginStore} from "doublekit-plugin-ui"
+import {EAM_STORE, EamStore} from 'doublekit-eam-ui/es/store'
 function createStores() {
     return {
-        [EAM_STORE]: new EamStore(),
-        [PLUGIN_STORE]: new PluginStore()
+        [EAM_STORE]: new EamStore()
     };
 }
 

@@ -7,8 +7,7 @@
  */
 
 import React from 'react';
-import {inject, observer} from "mobx-react";
-import {ProjectFeatureList, SYSTEM_ROLE_STORE, PRIVILEGE_PROJECT_FEATURE_STORE} from "doublekit-privilege-ui";
+import {ProjectFeatureList} from "doublekit-privilege-ui";
 
 
 const ProjectFeature = props => {
@@ -19,4 +18,4 @@ const ProjectFeature = props => {
     )
 }
 
-export default inject(PRIVILEGE_PROJECT_FEATURE_STORE, SYSTEM_ROLE_STORE)(observer(ProjectFeature))
+export default ProjectFeature

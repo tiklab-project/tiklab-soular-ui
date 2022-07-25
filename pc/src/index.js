@@ -5,16 +5,17 @@ import {renderRoutes} from "react-router-config";
 import { HashRouter } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import {useTranslation} from 'react-i18next'
-import { privilegeStores } from 'doublekit-privilege-ui';
-import { messageModuleStores } from 'doublekit-message-ui';
-import { orgStores } from 'doublekit-user-ui';
-import {initFetch, PluginProvider} from "doublekit-plugin-ui";
+import { privilegeStores } from 'doublekit-privilege-ui/es/store';
+import { messageModuleStores } from 'doublekit-message-ui/es/store';
+import { orgStores } from 'doublekit-user-ui/es/store';
+import {PluginProvider} from "doublekit-plugin-ui";
+import {initFetch} from "doublekit-plugin-ui/es/_utils";
 import stores from "../components/modules/stores";
 import resources from "../components/modules/common/language/resources";
 import routes from '../components/modules/routers';
 import '../components/modules/common/language/i18n';
 
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 
 
 const Index = () => {
