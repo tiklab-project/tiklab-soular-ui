@@ -15,8 +15,6 @@ import resources from "../components/modules/common/language/resources";
 import routes from '../components/modules/routers';
 import '../components/modules/common/language/i18n';
 
-// import 'antd/dist/antd.css';
-
 
 const Index = () => {
     // 注册所有插件
@@ -41,6 +39,7 @@ const Index = () => {
             setPluginData(res)
             setViable(false)
         })
+
     }, []);
 
     if (viable) {

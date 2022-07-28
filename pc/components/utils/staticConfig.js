@@ -57,17 +57,17 @@ const systemMenuData = [
     {
         id:'1',
         title: '系统权限',
-        purviewCode:'system',
+        purviewCode:'sys_permission',
         icon :<AppstoreOutlined />,
         children:[{
             id:'1-1',
             title: '功能管理',
-            purviewCode:'privilege_feature',
+            purviewCode:'sys_feature',
             icon :<AppstoreOutlined />,
         },{
             id:'1-2',
             title: '角色管理',
-            purviewCode:'role-custom',
+            purviewCode:'sys_role',
             icon :<AppstoreOutlined />,
         }]
     },
@@ -93,27 +93,28 @@ const systemMenuData = [
     {
         id:'3',
         title: '消息中心',
+        purviewCode:'sys_message_center',
         icon :<AppstoreOutlined />,
         children:[{
             id:'3-1',
             title: '消息管理',
             icon :<AppstoreOutlined />,
-            purviewCode:'message-management'
+            purviewCode:'sys_message_management'
         },{
             id:'3-2',
             title: '消息类型管理',
             icon :<AppstoreOutlined />,
-            purviewCode:'message-service'
+            purviewCode:'sys_message_type_management'
         },{
             id:'3-3',
             title: '消息发送方式',
             icon :<AppstoreOutlined />,
-            purviewCode:'message-type'
+            purviewCode:'sys_message_type'
         },{
             id:'3-4',
             title: '消息模板管理',
             icon :<AppstoreOutlined />,
-            purviewCode:'message-template'
+            purviewCode:'sys_message_template'
         }]
     },{
         id:'4',
