@@ -7,7 +7,11 @@
 import React, {useState, useEffect} from "react";
 import {getUser, parseUserSearchParams} from "doublekit-core-ui";
 import ProductWidgetsServer from "../products/api";
-import {apiboxImg, jenkinsImg, knowledgeImg, projectImg} from "doublekit-eam-ui/es/_utils";
+import apiboxImg from 'doublekit-eam-ui/es/assests/img/apibox.png';
+import jenkinsImg from 'doublekit-eam-ui/es/assests/img/jenkins.png';
+import knowledgeImg from 'doublekit-eam-ui/es/assests/img/apibox.png';
+import projectImg from 'doublekit-eam-ui/es/assests/img/project.png';
+
 import './Widget.scss'
 
 const INIT_WORK = [
@@ -95,7 +99,7 @@ const Products = () => {
                                             <div key={item.id}>
                                                 <a className={'card-item'} href={url}>
                                                     <div className={'card-item_img'}>
-                                                        <img src={item.img} width={44} height={44}/>
+                                                        <img src={item.img} width={44} height={44} alt={item.label}/>
                                                     </div>
                                                     <div className={'card-item_title'}>{item.label}</div>
                                                     <div className={'card-item_desc'}>{item.label}</div>

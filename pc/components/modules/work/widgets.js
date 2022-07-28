@@ -12,8 +12,8 @@ import MessageWidget from "../widgets/messageWidget/messageWidget";
 
 const widgets = (url, apiUrl) => {
     const widgets = {
-        'portal-productWorkspace':<Product webUrl={url} apiUrl={apiUrl}/>,
-        'portal-message': <MessageWidget webUrl={url} apiUrl={apiUrl}/>,
+        'portal_application':<Product webUrl={url} apiUrl={apiUrl}/>,
+        'portal_message': <MessageWidget webUrl={url} apiUrl={apiUrl}/>,
         // "apibox-workspace": <WorkspaceWidget webUrl={url} apiUrl={apiUrl}/>
     }
     return widgets
