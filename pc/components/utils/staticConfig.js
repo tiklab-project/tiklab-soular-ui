@@ -7,20 +7,20 @@ const orgaMenuData = [
         id:'1',
         key:'1',
         title: '组织管理',
-        purviewCode:'s',
+        purviewCode:'sys_orga',
         icon :<SettingOutlined />,
     },{
         id:'2',
         key:'2',
         title: '用户管理',
-        purviewCode:'c',
+        purviewCode:'sys_user',
         icon :<AppstoreOutlined />
     },
     {
         id:'4',
         key:'4',
         title: '用户目录',
-        purviewCode:'project-people',
+        purviewCode:'sys_directory',
         icon :<AppstoreOutlined />
     }
 ]
