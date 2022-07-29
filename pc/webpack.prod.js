@@ -84,18 +84,26 @@ module.exports = merge(baseWebpackConfig, {
                     priority: 0,
                     reuseExistingChunk: true
                 },
-                doublekitPluginUI: {
-                    name: 'chunk-doublekit-plugin-ui',
-                    chunks: 'all',
-                    test: /[\\/]node_modules[\\/]doublekit-plugin-ui[\\/]/,
-                    priority: 0,
-                    reuseExistingChunk: true
-                },
                 doublekitUserUI: {
                     name: 'chunk-doublekit-user-ui',
                     chunks: 'all',
                     test: /[\\/]node_modules[\\/]doublekit-user-ui[\\/]/,
-                    priority: 0,
+                    priority: 30,
+                    reuseExistingChunk: true
+                },
+
+                doublekitPluginUI: {
+                    name: 'chunk-doublekit-plugin-ui',
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]doublekit-plugin-ui[\\/]/,
+                    priority: 30,
+                    reuseExistingChunk: true
+                },
+                doublekitEamUI: {
+                    name: 'chunk-doublekit-eam-ui',
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]doublekit-eam-ui[\\/]/,
+                    priority: 30,
                     reuseExistingChunk: true
                 },
                 doublekitCoreUI: {
@@ -109,20 +117,6 @@ module.exports = merge(baseWebpackConfig, {
                     name: 'chunk-doublekit-message-ui',
                     chunks: 'all',
                     test: /[\\/]node_modules[\\/]doublekit-message-ui[\\/]/,
-                    priority: 0,
-                    reuseExistingChunk: true
-                },
-                doublekitEamUI: {
-                    name: 'chunk-doublekit-eam-ui',
-                    chunks: 'all',
-                    test: /[\\/]node_modules[\\/]doublekit-eam-ui[\\/]/,
-                    priority: 0,
-                    reuseExistingChunk: true
-                },
-                doublekitPrivilegeUI: {
-                    name: 'chunk-doublekit-privilege-ui',
-                    chunks: 'all',
-                    test: /[\\/]node_modules[\\/]doublekit-privilege-ui[\\/]/,
                     priority: 0,
                     reuseExistingChunk: true
                 },
