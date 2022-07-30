@@ -108,7 +108,7 @@
         "@babel/polyfill": "^7.12.1",
         "antd": "^4.15.0",
         "tiklab-core-ui": "^1.0.0",
-        "tiklab-portal-ui": "^1.0.0",
+        "tiklab-eam-ui": "^1.0.0",
         "i18next": "^19.8.4",
         "i18next-browser-languagedetector": "^6.0.1",
         "is-class": "^0.0.9",

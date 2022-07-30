@@ -91,17 +91,15 @@ const Portal = props => {
         <Menu
             onClick={onMenu}
             style={{width:140}}
-            items={[
-                {
-                    label: '退出',
-                    key: '1',
-                    icon: <LogoutOutlined />,
-                }
-            ]}
-        />
+        >
+            <Menu.Item icon={<LogoutOutlined />} key={"1"}>
+                退出
+            </Menu.Item>
+        </Menu>
     )
 
     const onLanguageChange = (e) => {
+        debugger
         if (lng === e.key) return
         i18n.changeLanguage(e.key).then(res => {
             setLng(e.key)
@@ -109,41 +107,22 @@ const Portal = props => {
 
     }
 
-    const renderLanguageData = () => {
-        return lngData.map(item => {
-           switch (item) {
-               case 'zh':
-                   return {
-                       label: item,
-                       key: item,
-                   }
-               case 'en':
-                   return {
-                       label: item,
-                       key: item,
-                   }
-               case 'jp':
-                   return {
-                       label: item,
-                       key: item,
-                   }
-               default:
-                   return {
-                       label: item,
-                       key: item,
-                   }
-           }
-        })
-    }
 
-    const LanguageMenu = () => (
-            <Menu
-                onClick={onLanguageChange}
-                style={{width:140}}
-                items={renderLanguageData()}
-            />
+
+
+    const menu = (
+        <Menu
+            onClick={onLanguageChange}
+            style={{width:140}}
+        >
+            {
+                lngData.map(item => {
+                    return <Menu.Item key={item}>{item}</Menu.Item>
+                })
+            }
+        </Menu>
+
     );
-
 
     return(
         <main className={styles.layout}>
@@ -163,7 +142,7 @@ const Portal = props => {
                 </div>
                 <div className={styles.layout_header_right}>
                     <Button type={'link'} disabled = {showVersion().disable}>{showVersion().title}</Button>
-                    <Dropdown overlay={LanguageMenu} placement="bottom">
+                    <Dropdown overlay={menu}>
                         <Button>
                             <Space>
                                 {lng}
@@ -177,7 +156,7 @@ const Portal = props => {
                         }
                         style={{fontSize:24}}
                     />
-                    <Dropdown overlay={AvatarMenu} placement="bottom">
+                    <Dropdown overlay={AvatarMenu}>
                         <Avatar size={52} src={<img src="https://joeschmoe.io/api/v1/random"  alt={''}/>} />
                     </Dropdown>
                 </div>

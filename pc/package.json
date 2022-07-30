@@ -1,5 +1,5 @@
 {
-    "name": "tiklab-portal-ui",
+    "name": "tiklab-eas-ui",
     "version": "1.0.0",
     "description": "",
     "main": "lib/components/index.js",
@@ -27,7 +27,8 @@
         "react-dom": ">=16.8.0"
     },
     "dependencies": {
-        "antd": "^4.21.5",
+        "antd": "4.15.2",
+        "@ant-design/icons": "^4.3.0",
         "i18next": "^19.8.4",
         "i18next-browser-languagedetector": "^6.0.1",
         "i18next-http-backend": "^1.0.21",
