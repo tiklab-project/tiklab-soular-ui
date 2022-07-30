@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import {SystemRoleList} from "doublekit-privilege-ui";
+import {SystemRoleList} from "tiklab-privilege-ui";
 
 const SystemRole = props => {
 

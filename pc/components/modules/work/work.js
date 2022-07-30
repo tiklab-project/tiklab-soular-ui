@@ -7,7 +7,7 @@
  */
 import React, {Component} from 'react';
 import {Button, Row, Space, Drawer, Empty} from "antd";
-import {getUser} from 'doublekit-core-ui'
+import {getUser} from 'tiklab-core-ui'
 import workService from "./service/workService";
 import {widgets} from "./widgets";
 import './work.scss'

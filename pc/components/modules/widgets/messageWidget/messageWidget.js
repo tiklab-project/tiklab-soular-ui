@@ -7,7 +7,7 @@
 
 import React, { useState, useEffect } from 'react';
 import {List, Tag} from 'antd';
-import {getUser, parseUserSearchParams} from 'doublekit-core-ui';
+import {getUser, parseUserSearchParams} from 'tiklab-core-ui';
 import {withRouter} from 'react-router-dom'
 import messageServer from './api'
 import './messageWidget.scss';

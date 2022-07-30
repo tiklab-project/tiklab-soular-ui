@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import { Modal, Form, Input, Select, message, Upload } from 'antd';
 import WorkService from '../service/workService'
 import {LoadingOutlined, PlusOutlined} from "@ant-design/icons";
-import {getUser} from "doublekit-core-ui";
+import {getUser} from "tiklab-core-ui";
 
 const WORK_APP_SELECT = [
     {

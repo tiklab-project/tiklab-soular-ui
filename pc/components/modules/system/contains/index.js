@@ -1,8 +1,8 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
 import {renderRoutes} from 'react-router-config';
-import {MenuList} from 'doublekit-privilege-ui';
-import {SYSTEM_ROLE_STORE} from 'doublekit-privilege-ui/es/store';
+import {MenuList} from 'tiklab-privilege-ui';
+import {SYSTEM_ROLE_STORE} from 'tiklab-privilege-ui/es/store';
 
 import {onSystemMenu, systemMenuData} from "../../../utils/staticConfig";
 

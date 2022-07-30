@@ -5,11 +5,11 @@ import {renderRoutes} from "react-router-config";
 import { HashRouter } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import {useTranslation} from 'react-i18next'
-import { privilegeStores } from 'doublekit-privilege-ui/es/store';
-import { messageModuleStores } from 'doublekit-message-ui/es/store';
-import { orgStores } from 'doublekit-user-ui/es/store';
-import {PluginProvider} from "doublekit-plugin-ui";
-import {initFetch} from "doublekit-plugin-ui/es/_utils";
+import { privilegeStores } from 'tiklab-privilege-ui/es/store';
+import { messageModuleStores } from 'tiklab-message-ui/es/store';
+import { orgStores } from 'tiklab-user-ui/es/store';
+import {PluginProvider} from "tiklab-plugin-ui";
+import {initFetch} from "tiklab-plugin-ui/es/_utils";
 import stores from "../components/modules/stores";
 import resources from "../components/modules/common/language/resources";
 import routes from '../components/modules/routers';

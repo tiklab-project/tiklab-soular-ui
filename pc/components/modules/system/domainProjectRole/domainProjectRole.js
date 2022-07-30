@@ -6,7 +6,7 @@
  * @update: 2021-05-06 15:19
  */
 import React from 'react';
-import { DomainRoleList} from "doublekit-privilege-ui";
+import { DomainRoleList} from "tiklab-privilege-ui";
 
 const DomainProjectRole = props => {
     return(

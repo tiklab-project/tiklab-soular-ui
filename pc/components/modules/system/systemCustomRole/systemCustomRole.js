@@ -7,7 +7,7 @@
  */
 import React from 'react';
 import {inject, observer} from "mobx-react";
-import {PrivilegeSystemRole, SYSTEM_ROLE_STORE} from "doublekit-privilege-ui";
+import {PrivilegeSystemRole, SYSTEM_ROLE_STORE} from "tiklab-privilege-ui";
 
 const SystemCustomRole = props => {
 

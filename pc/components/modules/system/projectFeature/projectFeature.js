@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import {ProjectFeatureList} from "doublekit-privilege-ui";
+import {ProjectFeatureList} from "tiklab-privilege-ui";
 
 
 const ProjectFeature = props => {

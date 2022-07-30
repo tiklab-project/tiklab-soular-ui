@@ -5,15 +5,15 @@
  */
 import React, {useState} from 'react';
 import {Button, Avatar, Menu, Dropdown, Space} from "antd";
-import {getVersionInfo} from 'doublekit-core-ui';
+import {getVersionInfo} from 'tiklab-core-ui';
 import {useTranslation} from 'react-i18next'
-import {verifyUserHoc, useWorkAppConfig} from 'doublekit-eam-ui'
-import apiboxImg from 'doublekit-eam-ui/es/assests/img/apibox.png';
-import jenkinsImg from 'doublekit-eam-ui/es/assests/img/jenkins.png';
-import knowledgeImg from 'doublekit-eam-ui/es/assests/img/apibox.png';
-import projectImg from 'doublekit-eam-ui/es/assests/img/project.png';
+import {verifyUserHoc, useWorkAppConfig} from 'tiklab-eam-ui'
+import apiboxImg from 'tiklab-eam-ui/es/assests/img/apibox.png';
+import jenkinsImg from 'tiklab-eam-ui/es/assests/img/jenkins.png';
+import knowledgeImg from 'tiklab-eam-ui/es/assests/img/apibox.png';
+import projectImg from 'tiklab-eam-ui/es/assests/img/project.png';
 
-import {connect} from 'doublekit-plugin-ui/es/_utils'
+import {connect} from 'tiklab-plugin-ui/es/_utils'
 
 
 import {DownOutlined, LogoutOutlined, SettingOutlined} from "@ant-design/icons";
@@ -22,10 +22,10 @@ import logo from '../../assets/images/logo.jpeg'
 import styles from './layout.module.scss'
 
 const productIcons = {
-    apibox:apiboxImg,
-    project:projectImg,
-    jtest:jenkinsImg,
-    wiki:knowledgeImg
+    postin:apiboxImg,
+    teamwire:projectImg,
+    teston:jenkinsImg,
+    kanass:knowledgeImg
 }
 const Portal = props => {
 

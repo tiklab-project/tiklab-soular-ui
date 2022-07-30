@@ -6,7 +6,7 @@
  * @update: 2021-05-24 10:52
  */
 import React from 'react';
-import {Login} from "doublekit-eam-ui";
+import {Login} from "tiklab-eam-ui";
 
 const PortalLogin  = props => {
 

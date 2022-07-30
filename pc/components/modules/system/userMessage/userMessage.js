@@ -6,7 +6,7 @@
  * @update: 2021-05-06 15:56
  */
 import React from 'react';
-import {UserMessage as DarthUserMessage} from "doublekit-message-ui";
+import {UserMessage as DarthUserMessage} from "tiklab-message-ui";
 
 
 const UserMessage = props => {

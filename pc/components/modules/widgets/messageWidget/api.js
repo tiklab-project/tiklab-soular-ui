@@ -4,7 +4,7 @@
  * @date 2022/6/14 2:20 PM
  * @description api
  */
-import {Axios} from 'doublekit-core-ui';
+import {Axios} from 'tiklab-core-ui';
 
 
 class MessageServer  {

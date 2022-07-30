@@ -6,7 +6,7 @@
  * @update: 2021-05-06 15:52
  */
 import React from 'react';
-import {MessageTemplate} from "doublekit-message-ui";
+import {MessageTemplate} from "tiklab-message-ui";
 
 
 const Template = props => {

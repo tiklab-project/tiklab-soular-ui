@@ -239,8 +239,8 @@ const WidgetMangent = () => {
                 closable={false}
                 title={"Widget"}
                 destroyOnClose={true}
-                okText={t("doublekit-actions.save")}
-                cancelText={t("doublekit-actions.close")}
+                okText={t("tiklab-actions.save")}
+                cancelText={t("tiklab-actions.close")}
                 onOk={handleOk}
                 onCancel={handleCancel}
                 width={600}

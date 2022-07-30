@@ -6,7 +6,7 @@
  * @update: 2021-12-27 15:21
  */
 import React from "react";
-import {PluginList} from 'doublekit-plugin-ui'
+import {PluginList} from 'tiklab-plugin-ui'
 
 
 const PluginMange = (props) => {

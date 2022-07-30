@@ -7,7 +7,7 @@
  */
 import React, {Component} from 'react';
 import {Button, Row, Space, Drawer, Empty} from "antd";
-import {getUser} from 'doublekit-core-ui'
+import {getUser} from 'tiklab-core-ui'
 import RGL, { WidthProvider } from "react-grid-layout";
 import workService from "./service/workService";
 

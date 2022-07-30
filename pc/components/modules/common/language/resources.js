@@ -1,9 +1,9 @@
 
-import {eam_cn} from 'doublekit-eam-ui/es/_utils'
-import {privilege_cn,} from 'doublekit-privilege-ui/es/_utils';
-import {message_cn} from 'doublekit-message-ui/es/_utils';
-import {orga_cn,} from 'doublekit-user-ui/es/_utils';
-import {pluginManage_cn} from 'doublekit-plugin-ui/es/_utils'
+import {eam_cn} from 'tiklab-eam-ui/es/_utils'
+import {privilege_cn,} from 'tiklab-privilege-ui/es/_utils';
+import {message_cn} from 'tiklab-message-ui/es/_utils';
+import {orga_cn,} from 'tiklab-user-ui/es/_utils';
+import {pluginManage_cn} from 'tiklab-plugin-ui/es/_utils'
 
 const resources = {
     zh: {

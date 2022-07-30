@@ -6,8 +6,8 @@
  * @update: 2021-05-24 09:38
  */
 import React, {useState, useEffect}  from 'react';
-import {getUser, parseUserSearchParams} from 'doublekit-core-ui'
-import {projectImg, apiboxImg, jenkinsImg, knowledgeImg} from 'doublekit-eam-ui'
+import {getUser, parseUserSearchParams} from 'tiklab-core-ui'
+import {projectImg, apiboxImg, jenkinsImg, knowledgeImg} from 'tiklab-eam-ui'
 import { Col, Row, Card } from 'antd';
 import {LinkOutlined, SettingOutlined} from "@ant-design/icons";
 

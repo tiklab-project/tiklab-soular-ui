@@ -1,9 +1,9 @@
 import React from 'react';
 import {renderRoutes} from 'react-router-config';
-import {MenuList} from 'doublekit-privilege-ui';
+import {MenuList} from 'tiklab-privilege-ui';
 import {orgaMenuData} from "../../../utils/staticConfig";
 import {inject, observer} from "mobx-react";
-import {SYSTEM_ROLE_STORE} from "doublekit-privilege-ui/lib/store";
+import {SYSTEM_ROLE_STORE} from "tiklab-privilege-ui/lib/store";
 
 
 const Orga = ({history, route, systemRoleStore}) => {

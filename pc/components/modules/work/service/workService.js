@@ -5,7 +5,7 @@
  * @description：workService
  * @update: 2021-06-28 15:31
  */
-import { Axios } from 'doublekit-core-ui';
+import { Axios } from 'tiklab-core-ui';
 
 const GET_WIDGET_LIST = '/widget/findWorkWidgetList';
 const CREATE_WIDGET = '/widget/createWorkWidget';

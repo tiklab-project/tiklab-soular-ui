@@ -6,7 +6,7 @@
  * @update: 2021-05-06 15:53
  */
 import React from 'react';
-import {MessageSendType} from "doublekit-message-ui";
+import {MessageSendType} from "tiklab-message-ui";
 
 
 const SendType = props => {

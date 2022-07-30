@@ -5,7 +5,7 @@
  * @description widgets
  */
 import React from "react";
-// import {WorkspaceWidget} from 'doublekit-apibox-ui'
+// import {WorkspaceWidget} from 'tiklab-apibox-ui'
 import Product from '../widgets/products/index'
 import MessageWidget from "../widgets/messageWidget/messageWidget";
 

@@ -5,7 +5,7 @@
  * @description licensePage
  */
 import React from 'react'
-import {Licence} from 'doublekit-licence-ui';
+import {Licence} from 'tiklab-licence-ui';
 
 const LicensePage = () => {
 

@@ -5,12 +5,12 @@
  * @description 产品空间
  */
 import React, {useState, useEffect} from "react";
-import {getUser, parseUserSearchParams} from "doublekit-core-ui";
+import {getUser, parseUserSearchParams} from "tiklab-core-ui";
 import ProductWidgetsServer from "../products/api";
-import apiboxImg from 'doublekit-eam-ui/es/assests/img/apibox.png';
-import jenkinsImg from 'doublekit-eam-ui/es/assests/img/jenkins.png';
-import knowledgeImg from 'doublekit-eam-ui/es/assests/img/apibox.png';
-import projectImg from 'doublekit-eam-ui/es/assests/img/project.png';
+import apiboxImg from 'tiklab-eam-ui/es/assests/img/apibox.png';
+import jenkinsImg from 'tiklab-eam-ui/es/assests/img/jenkins.png';
+import knowledgeImg from 'tiklab-eam-ui/es/assests/img/apibox.png';
+import projectImg from 'tiklab-eam-ui/es/assests/img/project.png';
 
 import './Widget.scss'
 

@@ -6,7 +6,7 @@
 
 
 import React from 'react';
-import {Directory} from 'doublekit-user-ui'
+import {Directory} from 'tiklab-user-ui'
 const DirectoryWrap = (props) => {
 
     return (

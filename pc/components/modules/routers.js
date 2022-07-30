@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import {InternalWechatEntry, Logout, AuthResult} from 'doublekit-eam-ui'
+import {InternalWechatEntry, Logout, AuthResult} from 'tiklab-eam-ui'
 
 import SyncComponent from '../lazy/SyncComponent';
 import ElectronLoginPage from "./login/electornLogin";

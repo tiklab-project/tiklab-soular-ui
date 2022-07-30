@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {UserList} from "doublekit-user-ui";
+import {UserList} from "tiklab-user-ui";
 const UserManagement = props => {
     return(
         <UserList

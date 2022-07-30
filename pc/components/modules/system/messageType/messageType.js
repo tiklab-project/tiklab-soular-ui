@@ -6,7 +6,7 @@
  * @update: 2021-05-06 15:55
  */
 import React from 'react';
-import {MessageType as DarthMessageType} from "doublekit-message-ui";
+import {MessageType as DarthMessageType} from "tiklab-message-ui";
 
 const MessageType = props => {
 
