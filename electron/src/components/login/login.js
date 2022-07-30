@@ -6,8 +6,8 @@
  * @update: 2021-10-08 13:25
  */
 import React, { useEffect } from 'react'
-import {setCookie, saveUser} from 'doublekit-core-ui'
-import {ElectronLogin, } from 'doublekit-eam-ui';
+import {setCookie, saveUser} from 'tiklab-core-ui'
+import {ElectronLogin, } from 'tiklab-eam-ui';
 import thirdApi from './thirdApi';
 
 const { ipcRenderer } = window.require('electron')

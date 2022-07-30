@@ -6,8 +6,8 @@
  * @update: 2021-10-08 13:25
  */
 import React, { useEffect } from 'react'
-import {setCookie, saveUser} from 'doublekit-core-ui'
-import {ElectronSassLogin, } from 'doublekit-eam-ui';
+import {setCookie, saveUser} from 'tiklab-core-ui'
+import {ElectronSassLogin, } from 'tiklab-eam-ui';
 import thirdApi from './thirdApi';
 import {message} from "antd";
 
@@ -18,7 +18,7 @@ const LoginSassPage = (props) => {
 
     useEffect( () => {
         ipcRenderer.on("thirdLoginParams", (event, fileContents) => {
-            if (fileContents.auth_code && fileContents.appid && fileContents.state === "portal_wechat_scan"){
+            if (fileContents.auth_code && fileContents.appid && fileContents.state === "eas_wechat_scan"){
                 qyWechatScan(fileContents)
             }
         });
@@ -30,7 +30,7 @@ const LoginSassPage = (props) => {
 
     const electronWeChatQR = (url) => {
         if (url){
-            ipcRenderer.send('login-window', {url:url, type: "portal_sass_wechat"})
+            ipcRenderer.send('login-window', {url:url, type: "eas_sass_wechat"})
         }
     }
 

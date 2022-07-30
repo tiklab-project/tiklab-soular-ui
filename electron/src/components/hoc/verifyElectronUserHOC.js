@@ -5,10 +5,7 @@
  * @description verifyElectronUserHOC
  */
 import React, {Component} from "react";
-import {message} from "antd";
-const { ipcRenderer } = window.require('electron')
 
-import Api from '../api';
 
 function verifyElectronUserHOC(WrapComponent) {
     return class wrapComponent extends Component {
@@ -58,9 +55,6 @@ function verifyElectronUserHOC(WrapComponent) {
         //     ipcRenderer.removeAllListeners("authEvent")
         //     ipcRenderer.removeAllListeners("closeAuthEvent")
         // }
-
-
-
 
         render() {
             return this.state.loading ? "加载中" : <WrapComponent { ...this.props }/>

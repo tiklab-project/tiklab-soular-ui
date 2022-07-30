@@ -4,7 +4,7 @@
  * @date 2022/5/7 8:57 PM
  * @description thirdApi
  */
-import {Axios} from 'doublekit-core-ui';
+import {Axios} from 'tiklab-core-ui';
 /****************** 社区版 接口**********************/
 const DINGDING_LOGIN = '/dingding/passport/login';
 const DINGDING_CONFIG = '/dingdingcfg/findId';

@@ -5,7 +5,7 @@
  * @description api
  */
 
-import {Axios} from 'doublekit-core-ui';
+import {Axios} from 'tiklab-core-ui';
 
 // 钉钉内部应用登录
 const DINGDING_LOGIN = '/dingding/passport/login';
