@@ -242,7 +242,7 @@ class WorkBench extends Component{
                 <Drawer
                     title={`添加Widget小组件`}
                     placement="right"
-                    size={'large'}
+                    width={500}
                     onClose={this.onCloseDrawer.bind(this)}
                     visible={visibleWidget}
                 >

@@ -99,7 +99,6 @@ const Portal = props => {
     )
 
     const onLanguageChange = (e) => {
-        debugger
         if (lng === e.key) return
         i18n.changeLanguage(e.key).then(res => {
             setLng(e.key)
