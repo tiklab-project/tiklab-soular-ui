@@ -69,7 +69,11 @@
             "libraryDirectory": "es",
             "style": true
         }, "tiklab-user-ui"],
-
+        ["import", {
+            "libraryName": "tiklab-widget-ui",
+            "libraryDirectory": "es",
+            "style": true
+        }, "tiklab-widget-ui"],
         "@babel/plugin-transform-regenerator",
         "react-hot-loader/babel"
     ]

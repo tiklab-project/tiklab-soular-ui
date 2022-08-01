@@ -22,6 +22,23 @@ class ProductWidgetsServer  {
     };
 
 
+    deleteWorkByID = async id => {
+        const formData = new FormData();
+        formData.append('id', id);
+
+        const appData = await Axios.post('/workAppLink/deleteWorkAppLink', formData);
+        return appData;
+    };
+
+    updateWork = async data => {
+        const updateData = await Axios.post('/workAppLink/updateWorkAppLink', data);
+        return updateData;
+    };
+
+    createWorkAppLink = async data => {
+        const appData = await Axios.post('/workAppLink/createWorkAppLink', data);
+        return appData;
+    };
 }
 
 export default new ProductWidgetsServer()

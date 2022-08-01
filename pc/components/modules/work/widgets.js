@@ -7,16 +7,13 @@
 import React from "react";
 // import {WorkspaceWidget} from 'tiklab-apibox-ui'
 import Product from '../widgets/products/index'
-import MessageWidget from "../widgets/messageWidget/messageWidget";
+import {MessageWidget} from 'tiklab-widget-ui'
 
 
-const widgets = (url, apiUrl) => {
-    const widgets = {
-        'portal_application':<Product webUrl={url} apiUrl={apiUrl}/>,
-        'portal_message': <MessageWidget webUrl={url} apiUrl={apiUrl}/>,
-        // "apibox-workspace": <WorkspaceWidget webUrl={url} apiUrl={apiUrl}/>
-    }
-    return widgets
+
+const Widgets = {
+    'eas_application':Product,
+    'eas_message': MessageWidget,
 }
 
-export {widgets}
+export {Widgets}

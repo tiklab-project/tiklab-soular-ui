@@ -15,13 +15,18 @@
   padding-right: 20px;
 }
 .box-gather {
-  display: flex;
-  flex-direction: row;
-  //justify-content: space-between;
-  justify-items: center;
-  align-items: center;
-  height: 200px;
-  flex-wrap: wrap;
+  //display: flex;
+  //flex-direction: row;
+  //justify-items: center;
+  //align-items: center;
+  //height: 200px;
+  //flex-wrap: wrap;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0;
+  grid-row-gap: 0;
   .box-item {
     display: flex;
     justify-content: space-between;

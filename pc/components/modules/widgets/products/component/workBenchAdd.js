@@ -1,32 +1,9 @@
 
-import React, {useEffect, useState} from 'react';
-import { Modal, Form, Input, Select, message, Upload } from 'antd';
-import WorkService from '../service/workService'
-import {LoadingOutlined, PlusOutlined} from "@ant-design/icons";
-import {getUser} from "tiklab-core-ui";
+import React, {useEffect} from 'react';
+import { Modal, Form, Input, Select, message } from 'antd';
+import WorkService from '../api';
+import {WORK_APP_SELECT} from 'tiklab-widget-ui/es/_utils/constant'
 
-const WORK_APP_SELECT = [
-    {
-        label: '项目管理',
-        value: 'project',
-    },
-    {
-        label: 'API BOX',
-        value: 'apibox',
-    },
-    {
-        label: 'Jtest',
-        value: 'jtest',
-    },
-    {
-        label: '知识库',
-        value: 'wiki',
-    },
-    {
-        label: '自动化部署',
-        value: 'pipleine',
-    },
-];
 const AddWorkBench = props => {
     const {visible,setVisible, edit} = props;
 

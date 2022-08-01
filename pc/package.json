@@ -27,8 +27,8 @@
         "react-dom": ">=16.8.0"
     },
     "dependencies": {
-        "antd": "4.15.2",
         "@ant-design/icons": "^4.3.0",
+        "antd": "4.15.2",
         "i18next": "^19.8.4",
         "i18next-browser-languagedetector": "^6.0.1",
         "i18next-http-backend": "^1.0.21",
@@ -50,7 +50,8 @@
         "tiklab-message-ui": "^1.0.0",
         "tiklab-plugin-ui": "^1.0.0",
         "tiklab-privilege-ui": "^1.0.0",
-        "tiklab-user-ui": "^1.0.0"
+        "tiklab-user-ui": "^1.0.0",
+        "tiklab-widget-ui": "^1.0.0"
     },
     "browserslist": [
         "defaults",

@@ -12,44 +12,46 @@ import jenkinsImg from 'tiklab-eam-ui/es/assests/img/jenkins.png';
 import knowledgeImg from 'tiklab-eam-ui/es/assests/img/apibox.png';
 import projectImg from 'tiklab-eam-ui/es/assests/img/project.png';
 
+import AppLinkManagement from './component/AppLinkManagement'
 import './Widget.scss'
+import {Button} from "antd";
 
 const INIT_WORK = [
     {
-        appType: 'apibox',
-        label: "API BOX",
+        appType: 'postin',
+        label: "PostIn",
         description: "接口自动化测试",
         img:apiboxImg,
         appUrl:"",
         id:"1"
     },
     {
-        appType: 'project',
-        label: "项目管理",
+        appType: 'teamwire',
+        label: "TeamWire",
         description: "项目管理系统",
         img:projectImg,
         appUrl:"",
         id:"2"
     },
     {
-        appType: 'jtest',
-        label: "Jtest",
+        appType: 'teston',
+        label: "TestOn",
         description: "Jtest系统",
         img:knowledgeImg,
         appUrl:"",
         id:"3"
     },
     {
-        appType: 'wiki',
-        label: "知识库",
+        appType: 'kanass',
+        label: "Kanass",
         description: "知识库系统",
         img:knowledgeImg,
         appUrl:"",
         id:"4"
     },
     {
-        appType: 'pipleine',
-        label: "自动化部署",
+        appType: 'matflow',
+        label: "MatFlow",
         description: "自动化部署系统",
         img:jenkinsImg,
         appUrl:"",
@@ -59,6 +61,8 @@ const INIT_WORK = [
 
 const Products = () => {
     const [applications, setApplications] = useState([]);
+
+    const [visibleManagement,setVisibleManagement] = useState(false)
 
     const user = getUser();
     useEffect(() => {
@@ -89,6 +93,7 @@ const Products = () => {
                     <div className={'card'}>
                         <div className="card-header">
                             <div className="card-header-title">切换产品空间</div>
+                            <Button type={'link'} onClick={()=>setVisibleManagement(true)}>编辑配置</Button>
                         </div>
                         <div className={'card-content'}>
                             <div className={'card-content-wrap'}>
@@ -113,6 +118,12 @@ const Products = () => {
                     </div>
                 </div>
             </div>
+            <AppLinkManagement
+                visibleManagement={visibleManagement}
+                setVisibleManagement={setVisibleManagement}
+                applications={applications}
+                requestWorkList={getWorkList}
+            />
         </div>
     )
 }
