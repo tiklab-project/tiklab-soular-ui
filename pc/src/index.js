@@ -5,6 +5,7 @@ import {renderRoutes} from "react-router-config";
 import { HashRouter } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import {useTranslation} from 'react-i18next'
+import enableAxiosCE from 'tiklab-enable-axios-ce'
 import { privilegeStores } from 'tiklab-privilege-ui/es/store';
 import { messageModuleStores } from 'tiklab-message-ui/es/store';
 import { orgStores } from 'tiklab-user-ui/es/store';
@@ -15,6 +16,7 @@ import resources from "../components/modules/common/language/resources";
 import routes from '../components/modules/routers';
 import '../components/modules/common/language/i18n';
 
+enableAxiosCE();
 
 const Index = () => {
     // 注册所有插件
