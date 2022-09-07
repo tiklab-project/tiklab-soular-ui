@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {inject, observer} from "mobx-react";
 import {PLUGIN_STORE, loadLanguage} from "doublekit-plugin-ui";
-import {useVersion} from "doublekit-eam-ui";
 import {renderRoutes} from "react-router-config";
 import {PluginContainer} from "doublekit-plugin-ui";
 import {I18nextProvider, useTranslation} from "react-i18next";
@@ -16,7 +15,6 @@ const App1 = (props) => {
     const [resourcesLangualge, setResources] = useState({});
 
     const { i18n, t } = useTranslation();
-    useVersion();
 
     useEffect(() => {
         if (isInitLoadPlugin) {

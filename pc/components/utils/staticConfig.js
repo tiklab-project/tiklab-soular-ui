@@ -71,25 +71,6 @@ const systemMenuData = [
             icon :<AppstoreOutlined />,
         }]
     },
-    // {
-    //     id: '2',
-    //     title: '项目权限',
-    //     purviewCode: 'project',
-    //     children: [{
-    //         id: '2-1',
-    //         title: '功能管理',
-    //         purviewCode: 'privilege_feature',
-    //     }, {
-    //         id: '2-2',
-    //         title: '角色管理',
-    //         purviewCode: 'role-custom'
-    //     }, {
-    //         id: '2-3',
-    //         title: '项目角色管理',
-    //         divider: true,
-    //         purviewCode: 'project-role-custom'
-    //     }]
-    // },
     {
         id:'3',
         title: '消息中心',
@@ -123,13 +104,13 @@ const systemMenuData = [
         title: '插件管理',
         icon :<SettingOutlined />,
     },
-    {
-        id:'5',
-        key:'5',
-        purviewCode:'license',
-        title: 'License管理',
-        icon :<SettingOutlined />,
-    },
+    // {
+    //     id:'5',
+    //     key:'5',
+    //     purviewCode:'license',
+    //     title: 'License管理',
+    //     icon :<SettingOutlined />,
+    // },
     {
         id:'6',
         key:'6',
@@ -147,15 +128,6 @@ const onSystemMenu = (history, key) => {
     case '1-2':
         history.push('/system/role')
         break;
-    // case '2-1':
-    //     history.push('/system/projectfeature')
-    //     break;
-    // case '2-2':
-    //     history.push('/system/projectrole')
-    //     break;
-    // case '2-3':
-    //     history.push('/system/projectrolecustom')
-    //     break;
     case '3-1':
         history.push('/system/message')
         break;
@@ -171,9 +143,9 @@ const onSystemMenu = (history, key) => {
     case '4':
         history.push('/system/plugin')
         break;
-    case '5':
-        history.push('/system/license')
-        break;
+    // case '5':
+    //     history.push('/system/license')
+    //     break;
     case '6':
         history.push('/system/widgetMangent')
         break;

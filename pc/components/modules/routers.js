@@ -11,7 +11,7 @@ const layout = SyncComponent(() => import('./layout/layout'));
 
 
 // 设置模块
-const LicensePage = SyncComponent(() => import('./system/license/licensePage'));
+
 const PluginList = SyncComponent(() => import('./system/plugin'))
 
 const Work = SyncComponent(() => import('./work/work'))
@@ -159,10 +159,6 @@ const routes = [
                     {
                         path: '/system/plugin',
                         component: PluginList,
-                    },
-                    {
-                        path: '/system/license',
-                        component: LicensePage,
                     },
                     {
                         path: '/system/widgetMangent',

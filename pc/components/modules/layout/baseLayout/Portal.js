@@ -5,7 +5,6 @@
  */
 import React, {useState} from 'react';
 import {Button, Avatar, Menu, Dropdown, Space} from "antd";
-import {getVersionInfo} from 'tiklab-core-ui';
 import {useTranslation} from 'react-i18next'
 import {verifyUserHoc, useWorkAppConfig} from 'tiklab-eam-ui'
 import apiboxImg from 'tiklab-eam-ui/es/assests/img/apibox.png';
@@ -53,33 +52,6 @@ const Portal = props => {
     const changeCurrentLink = item => {
         setCurrentLink(item.to)
         props.history.push(item.to)
-    }
-
-    const showVersion = () => {
-        const info = getVersionInfo();
-        switch (info.release) {
-            case 1:
-                return {
-                    title:"社区版",
-                    disable: false
-                }
-            case 2:
-                return {
-                    title:"企业版",
-                    disable: !info.expired
-                }
-
-            case 3:
-                return {
-                    title:"SASS版",
-                    disable: !info.expired
-                }
-            default:
-                return {
-                    title:"社区版",
-                    disable: false
-                }
-        }
     }
 
     const onMenu = ({key}) => {
@@ -140,7 +112,7 @@ const Portal = props => {
                     </div>
                 </div>
                 <div className={styles.layout_header_right}>
-                    <Button type={'link'} disabled = {showVersion().disable}>{showVersion().title}</Button>
+                    <span>社区版</span>
                     <Dropdown overlay={menu}>
                         <Button>
                             <Space>
