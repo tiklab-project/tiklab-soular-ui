@@ -6,6 +6,7 @@ import { HashRouter } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import {useTranslation} from 'react-i18next'
 import enableAxiosCE from 'tiklab-enable-axios-ce'
+import { useAccountConfig } from 'tiklab-eam-ui/es/_utils';
 import { privilegeStores } from 'tiklab-privilege-ui/es/store';
 import { messageModuleStores } from 'tiklab-message-ui/es/store';
 import { orgStores } from 'tiklab-user-ui/es/store';
@@ -35,6 +36,8 @@ const Index = () => {
         pluginStore:[],
         languageStore:[]
     });
+
+    useAccountConfig()
 
     useEffect(() => {
         initFetch('post', routes, resources, i18n).then(res => {

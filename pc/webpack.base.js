@@ -46,13 +46,13 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
     return loaders;
 };
 
-
+const publicPath = process.env.BUILD_TYPE === 'eas'?"/eas/" : "/";
 module.exports = {
     output: {
         filename: 'js/[name].[hash:8].js',
         chunkFilename: 'js/[name].[hash:8].js',
         path: DIST_PATH,
-        publicPath: '/',
+        publicPath: "/",
     },
     resolve: {
         extensions: ['.js', '.jsx', '.json'],
@@ -148,9 +148,9 @@ module.exports = {
         ]
     },
     plugins: [
-        new CopyWebpackPlugin([{
-            from: path.resolve(__dirname, "./static"),
-            to: path.resolve(__dirname, './dist')
-        }]),
+        // new CopyWebpackPlugin([{
+        //     from: path.resolve(__dirname, "./static"),
+        //     to: path.resolve(__dirname, './dist')
+        // }]),
     ]
 };

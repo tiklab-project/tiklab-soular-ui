@@ -11,6 +11,7 @@
         "build:dev": "cross-env NODE_ENV=production CUSTOM_ENV=dev webpack --config ./webpack.prod.js ",
         "build:prod": "cross-env NODE_ENV=production CUSTOM_ENV=prod webpack --config ./webpack.prod.js ",
         "build:test": "cross-env NODE_ENV=production CUSTOM_ENV=test webpack --config ./webpack.prod.js ",
+        "build:eas": "cross-env NODE_ENV=production CUSTOM_ENV=prod BUILD_TYPE=eas webpack --config ./webpack.prod.js ",
         "es:src": "rimraf dist/* && ./node_modules/.bin/babel src/ --copy-files  --extensions .js --out-dir dist/ && ncp src/dist.js dist/dist.js",
         "es:dev": "rimraf lib/* && ./node_modules/.bin/babel components --copy-files  --extensions .js --out-dir lib/components --source-maps",
         "es:prod": "rimraf lib/* && ./node_modules/.bin/babel components --copy-files  --extensions .js --out-dir lib/components",

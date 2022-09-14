@@ -36,10 +36,10 @@ module.exports = merge(baseWebpackConfig, {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
-            title:'门户中心SAAS',
+            title:'门户中心',
             template: path.resolve(__dirname, '../public/index.template.html'),
             hash: false,
-            filename: 'index.html',
+            filename: 'eas.html',
             inject: 'body',
             minify: {
                 collapseWhitespace: true,
