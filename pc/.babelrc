@@ -74,6 +74,16 @@
             "libraryDirectory": "es",
             "style": true
         }, "tiklab-widget-ui"],
+        ["import", {
+            "libraryName": "tiklab-todotask-ui",
+            "libraryDirectory": "es",
+            "style": true
+        }, "tiklab-todotask-ui"],
+        ["import", {
+            "libraryName": "tiklab-oplog-ui",
+            "libraryDirectory": "es",
+            "style": true
+        }, "tiklab-oplog-ui"],
         "@babel/plugin-transform-regenerator",
         "react-hot-loader/babel"
     ]

@@ -41,17 +41,25 @@ const links = [
         key:'4',
         router:`/system/plugin`,
     },
-    // {
-    //     key:'5',
-    //     router:`/system/license`,
-    // },
+    {
+        key:'5',
+        router:`/system/todotask`,
+    },
     {
         key:'6',
-        router:`/setting/widgetMangent`,
+        router:`/system/widgetMangent`,
+    },
+    {
+        key:'7',
+        router:`/system/mytodotask`,
+    },
+    {
+        key:'8',
+        router: "/system/logs"
     },
     {
         key:'9',
-        router:`/setting/productsUsers`,
+        router: "/system/mylog"
     },
 ];
 

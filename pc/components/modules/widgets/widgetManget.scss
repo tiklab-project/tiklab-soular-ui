@@ -1,29 +1,98 @@
-.widgetMangent {
-  width: 100%;
+
+.widget{
+  display: flex;
   height: 100%;
   overflow: hidden;
-  padding: 8px 0 8px 8px;
-  display: flex;
-  .left{
-    overflow: auto;
-    width: 300px;
-    height: 100%;
-    .search{
-      margin-bottom: 16px;
-      width: 100%;
-      display: flex;
-      >input {
-        margin-right: 8px;
-      }
-    }
-    .listName{
-      width: 100%;
-      cursor: pointer;
+  padding: 8px 0;
+  &-card{
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    width: 100%;
+
+    padding: 8px;
+    overflow: hidden;
+    &-body{
+
+      height: 100%;
+      overflow: auto;
     }
   }
-  .right {
-    flex: 1;
-    padding-right: 8px;
+}
+
+.card {
+  height: 100%;
+  overflow: hidden;
+  transition: all .3s ease;
+  position: relative;
+  &-header{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    overflow: hidden;
+    &-title{
+      color: #444444;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 28px;
+    }
+  }
+  &-content {
+    height: calc(100% - 28px);
+    width: 100%;
     overflow: auto;
+    padding-top: 16px;
+    color: #6e6e6e;
+    &-wrap{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      &:after{
+        width: 25%;
+        height: 0;
+        content: '';
+      }
+    }
+  }
+  &-contentleft{
+    min-height: 420px;
+  }
+  &-item{
+    width: 98px;
+    display: inline-block;
+    cursor: pointer;
+    overflow: visible;
+    margin: 20px 0;
+    &:hover{
+      .card-item_img{
+        top: -4px
+      }
+    }
+    &_img{
+      position: relative;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+      margin: 0 auto;
+    }
+
+    &_title{
+      height: 20px;
+      font-size: 14px;
+      color: #3a3c41;
+      text-align: center;
+      line-height: 20px;
+      margin: 8px auto 0;
+    }
+    &_desc{
+      height: 16px;
+      font-size: 12px;
+      color: #ccc;
+      text-align: center;
+      line-height: 16px;
+      margin: 8px auto 0;
+    }
   }
 }

@@ -8,11 +8,12 @@ import React from "react";
 // import {WorkspaceWidget} from 'tiklab-apibox-ui'
 import Product from '../widgets/products/index'
 import {MessageWidget} from 'tiklab-widget-ui'
-
+import TodoWidget from '../widgets/todoWidget'
 
 
 const Widgets = {
     'eas_application':Product,
+    'eas_todo': TodoWidget,
     'eas_message': MessageWidget,
 }
 

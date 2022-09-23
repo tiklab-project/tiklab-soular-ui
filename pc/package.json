@@ -49,8 +49,10 @@
         "tiklab-eam-ui": "^1.0.0",
         "tiklab-enable-axios-ce": "^1.0.0",
         "tiklab-message-ui": "^1.0.0",
+        "tiklab-oplog-ui": "^1.0.0",
         "tiklab-plugin-ui": "^1.0.0",
         "tiklab-privilege-ui": "^1.0.0",
+        "tiklab-todotask-ui": "^1.0.0",
         "tiklab-user-ui": "^1.0.0",
         "tiklab-widget-ui": "^1.0.0"
     },
@@ -118,7 +120,6 @@
         "runtime-import": "^1.0.12",
         "sass-loader": "^10.1.0",
         "style-loader": "^2.0.0",
-        "tailwindcss": "^2.2.7",
         "terser-webpack-plugin": "^1.4.1",
         "uglifyjs-webpack-plugin": "^2.2.0",
         "url-loader": "^4.1.1",

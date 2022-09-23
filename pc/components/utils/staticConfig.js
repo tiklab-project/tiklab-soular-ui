@@ -104,18 +104,39 @@ const systemMenuData = [
         title: '插件管理',
         icon :<SettingOutlined />,
     },
-    // {
-    //     id:'5',
-    //     key:'5',
-    //     purviewCode:'license',
-    //     title: 'License管理',
-    //     icon :<SettingOutlined />,
-    // },
+    {
+        id:'5',
+        key:'5',
+        purviewCode:'widget',
+        title: '任务待办',
+        icon :<SettingOutlined />,
+    },
     {
         id:'6',
         key:'6',
         purviewCode:'widget',
         title: 'Widget管理',
+        icon :<SettingOutlined />,
+    },
+    {
+        id:'7',
+        key:'7',
+        purviewCode:'widget',
+        title: '我的任务待办',
+        icon :<SettingOutlined />,
+    },
+    {
+        id:'8',
+        key:'8',
+        purviewCode:'widget',
+        title: '日志列表',
+        icon :<SettingOutlined />,
+    },
+    {
+        id:'9',
+        key:'9',
+        purviewCode:'widget',
+        title: '我的日志',
         icon :<SettingOutlined />,
     }
 ]
@@ -143,13 +164,23 @@ const onSystemMenu = (history, key) => {
     case '4':
         history.push('/system/plugin')
         break;
-    // case '5':
-    //     history.push('/system/license')
-    //     break;
+    case '5':
+        history.push('/system/todotask')
+        break;
     case '6':
         history.push('/system/widgetMangent')
         break;
+    case '7':
+        history.push('/system/mytodotask')
+        break;
+    case '8':
+        history.push('/system/logs')
+        break;
+    case '9':
+        history.push('/system/mylog')
+        break;
     }
+
 }
 
 export {

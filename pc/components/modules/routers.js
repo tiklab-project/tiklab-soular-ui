@@ -4,6 +4,7 @@ import {InternalWechatEntry, Logout, AuthResult} from 'tiklab-eam-ui'
 
 import SyncComponent from '../lazy/SyncComponent';
 import ElectronLoginPage from "./login/electornLogin";
+import TodoTask from "./todotask/todoTask";
 
 const layout = SyncComponent(() => import('./layout/layout'));
 
@@ -45,6 +46,14 @@ const MessageTemplate = SyncComponent(() => import('./system/template/template')
 
 // widgiet的管理
 const WidgetMangent = SyncComponent(() =>import('./widgets/widgetMangent'))
+
+// 待办
+const TodoTaskPage = SyncComponent(() =>import('./todotask/todoTask'))
+const MyTodoTaskPage = SyncComponent(() =>import('./todotask/myTodoTask'))
+
+// 日志
+const LogListPage = SyncComponent(()=> import('./oplog/logList'))
+const MyLogListPage = SyncComponent(()=> import('./oplog/mylog'))
 
 const routes = [
     // {
@@ -120,6 +129,26 @@ const routes = [
                 path: "/system",
                 routes:[
                     {
+                        component: LogListPage,
+                        path:"/system/logs",
+                        exact:true,
+                    },
+                    {
+                        component: MyLogListPage,
+                        path:"/system/mylog",
+                        exact:true,
+                    },
+                    {
+                        component: TodoTaskPage,
+                        path:"/system/todotask",
+                        exact:true,
+                    },
+                    {
+                        component: MyTodoTaskPage,
+                        path:"/system/mytodotask",
+                        exact:true,
+                    },
+                    {
                         path: '/system/feature',
                         component: Feature,
                     },{
@@ -136,9 +165,7 @@ const routes = [
                     {
                         path: '/system/DomainProjectRole',
                         component: DomainProjectRole,
-
                     },
-
                     {
                         path: '/system/message',
                         component: MessageManagement,
@@ -171,6 +198,7 @@ const routes = [
                     },
                 ]
             },
+
         ],
     },
 ];
