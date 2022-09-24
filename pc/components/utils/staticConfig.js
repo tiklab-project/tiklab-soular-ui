@@ -97,18 +97,12 @@ const systemMenuData = [
             icon :<AppstoreOutlined />,
             purviewCode:'sys_message_template'
         }]
-    },{
+    },
+    {
         id:'4',
         key:'4',
         purviewCode:'plugin',
         title: '插件管理',
-        icon :<SettingOutlined />,
-    },
-    {
-        id:'5',
-        key:'5',
-        purviewCode:'widget',
-        title: '任务待办',
         icon :<SettingOutlined />,
     },
     {
@@ -118,13 +112,7 @@ const systemMenuData = [
         title: 'Widget管理',
         icon :<SettingOutlined />,
     },
-    {
-        id:'7',
-        key:'7',
-        purviewCode:'widget',
-        title: '我的任务待办',
-        icon :<SettingOutlined />,
-    },
+
     {
         id:'8',
         key:'8',
@@ -138,7 +126,29 @@ const systemMenuData = [
         purviewCode:'widget',
         title: '我的日志',
         icon :<SettingOutlined />,
-    }
+    },
+    {
+        id:'5',
+        title: '任务',
+        purviewCode:'sys_permission',
+        icon :<AppstoreOutlined />,
+        children:[{
+            id:'5-1',
+            title: '任务待办',
+            purviewCode:'sys_feature',
+            icon :<AppstoreOutlined />,
+        },{
+            id:'5-2',
+            title: '我的任务待办',
+            purviewCode:'sys_role',
+            icon :<AppstoreOutlined />,
+        },{
+            id:'5-3',
+            title: '待办模板',
+            purviewCode:'sys_role',
+            icon :<AppstoreOutlined />,
+        }]
+    },
 ]
 
 const onSystemMenu = (history, key) => {
@@ -164,15 +174,19 @@ const onSystemMenu = (history, key) => {
     case '4':
         history.push('/system/plugin')
         break;
-    case '5':
+    case '5-1':
         history.push('/system/todotask')
+        break;
+    case '5-2':
+        history.push('/system/mytodotask')
+        break;
+    case '5-3':
+        history.push('/system/todotemp')
         break;
     case '6':
         history.push('/system/widgetMangent')
         break;
-    case '7':
-        history.push('/system/mytodotask')
-        break;
+
     case '8':
         history.push('/system/logs')
         break;

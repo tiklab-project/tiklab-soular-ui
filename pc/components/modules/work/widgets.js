@@ -10,10 +10,12 @@ import Product from '../widgets/products/index'
 import {MessageWidget} from 'tiklab-widget-ui'
 import TodoWidget from '../widgets/todoWidget'
 
+import OpLogWidget from '../widgets/opLogWidget'
 
 const Widgets = {
     'eas_application':Product,
     'eas_todo': TodoWidget,
+    'eas_oplog': OpLogWidget,
     'eas_message': MessageWidget,
 }
 

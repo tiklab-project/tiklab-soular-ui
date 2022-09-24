@@ -4,12 +4,9 @@ import {InternalWechatEntry, Logout, AuthResult} from 'tiklab-eam-ui'
 
 import SyncComponent from '../lazy/SyncComponent';
 import ElectronLoginPage from "./login/electornLogin";
-import TodoTask from "./todotask/todoTask";
+import {TodoTempList} from "tiklab-todotask-ui";
 
 const layout = SyncComponent(() => import('./layout/layout'));
-
-
-
 
 // 设置模块
 
@@ -146,6 +143,11 @@ const routes = [
                     {
                         component: MyTodoTaskPage,
                         path:"/system/mytodotask",
+                        exact:true,
+                    },
+                    {
+                        component: TodoTempList,
+                        path:"/system/todotemp",
                         exact:true,
                     },
                     {
