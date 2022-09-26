@@ -58,12 +58,16 @@ const links = [
         router:`/system/widgetMangent`,
     },
     {
-        key:'8',
+        key:'8-1',
         router: "/system/logs"
     },
     {
-        key:'9',
+        key:'8-2',
         router: "/system/mylog"
+    },
+    {
+        key:'8-3',
+        router: "/system/logtemplate"
     },
 ];
 

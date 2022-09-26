@@ -5,6 +5,7 @@ import {InternalWechatEntry, Logout, AuthResult} from 'tiklab-eam-ui'
 import SyncComponent from '../lazy/SyncComponent';
 import ElectronLoginPage from "./login/electornLogin";
 import {TodoTempList} from "tiklab-todotask-ui";
+import {LogTemplateList} from "tiklab-oplog-ui";
 
 const layout = SyncComponent(() => import('./layout/layout'));
 
@@ -133,6 +134,11 @@ const routes = [
                     {
                         component: MyLogListPage,
                         path:"/system/mylog",
+                        exact:true,
+                    },
+                    {
+                        component: LogTemplateList,
+                        path:"/system/logtemplate",
                         exact:true,
                     },
                     {

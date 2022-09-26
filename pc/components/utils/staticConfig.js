@@ -117,15 +117,24 @@ const systemMenuData = [
         id:'8',
         key:'8',
         purviewCode:'widget',
-        title: '日志列表',
+        title: '日志',
         icon :<SettingOutlined />,
-    },
-    {
-        id:'9',
-        key:'9',
-        purviewCode:'widget',
-        title: '我的日志',
-        icon :<SettingOutlined />,
+        children:[{
+            id:'8-1',
+            title: '日志列表',
+            purviewCode:'sys_feature',
+            icon :<AppstoreOutlined />,
+        },{
+            id:'8-2',
+            title: '我的日志',
+            purviewCode:'sys_role',
+            icon :<AppstoreOutlined />,
+        },{
+            id:'8-3',
+            title: '日志模板',
+            purviewCode:'sys_role',
+            icon :<AppstoreOutlined />,
+        }]
     },
     {
         id:'5',
@@ -187,11 +196,14 @@ const onSystemMenu = (history, key) => {
         history.push('/system/widgetMangent')
         break;
 
-    case '8':
+    case '8-1':
         history.push('/system/logs')
         break;
-    case '9':
+    case '8-2':
         history.push('/system/mylog')
+        break;
+    case '8-3':
+        history.push('/system/logtemplate')
         break;
     }
 
