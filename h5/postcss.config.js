@@ -1,9 +1,6 @@
-const tailwindcss = require('tailwindcss');
-
 
 module.exports = {
     plugins: [
-        tailwindcss('./tailwind.js'),
         require('autoprefixer')({
             // overrideBrowserslist: ['> 0.15% in CN']
             overrideBrowserslist: [

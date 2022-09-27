@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import {urlQuery, saveUser, setCookie} from "doublekit-core-ui"
+import {urlQuery, saveUser, setCookie} from "tiklab-core-ui"
 
 const SassPortal = (props) => {
     const {redirect = '/login',  portalLoginStore, history, accUrl, wechatApplicationType=undefined} = props;

@@ -7,7 +7,7 @@
 
 
 import React from 'react';
-import { urlQuery} from 'doublekit-core-ui'
+import { urlQuery} from 'tiklab-core-ui'
 import useWechatConfig from "./useWechatConfig";
 const SassWechatEntry = ({ history, location, appType}) =>  {
     const query = urlQuery(window.location.href);

@@ -5,7 +5,7 @@
  * @description 企业微信内部应用中的项目管理
  */
 import React, {useEffect} from 'react';
-import {saveUser, urlQuery, setCookie, LOCALSTORAGE_KEY} from 'doublekit-core-ui';
+import {saveUser, urlQuery, setCookie, LOCALSTORAGE_KEY} from 'tiklab-core-ui';
 import InternalWechatService from './service/workService';
 import AccountApi from "../service/accountApi";
 

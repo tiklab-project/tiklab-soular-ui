@@ -7,7 +7,7 @@
  */
 import React, {useState, useEffect} from 'react';
 import { Space, Avatar, Button, Form, Input, Checkbox } from 'antd-mobile';
-import {urlQuery} from 'doublekit-core-ui'
+import {urlQuery} from 'tiklab-core-ui'
 
 import {inject, observer} from "mobx-react";
 import {LOGIN_STATUS} from "../store";

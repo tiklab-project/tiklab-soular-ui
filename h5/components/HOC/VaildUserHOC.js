@@ -5,7 +5,7 @@
  * @description VaildUserHOC
  */
 import React, {Component} from "react";
-import {getUser, LOCALSTORAGE_KEY, saveUser, urlQuery} from 'doublekit-core-ui'
+import {getUser, LOCALSTORAGE_KEY, saveUser, urlQuery} from 'tiklab-core-ui'
 import AccountApi from "../service/accountApi";
 
 function verifyUserHOC (WrapComponent){

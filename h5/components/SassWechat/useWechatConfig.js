@@ -5,9 +5,9 @@
  * @description 企业微信服务商不同系统的hook
  */
 import React, {useEffect, useState} from 'react';
-import {Axios, removeUser, saveUser} from "doublekit-core-ui";
+import {Axios, removeUser, saveUser} from "tiklab-core-ui";
 import weChatServiceApi from "./wechat.service";
-import {message} from "antd";
+// import {message} from "antd";
 
 const useWechatConfig = (history, type, query) => {
 
@@ -103,7 +103,7 @@ const useWechatConfig = (history, type, query) => {
                                         if (url) {
                                             return window.location.href = url + "?corpid=" + `${CorpId}&tenant=${tenantResponse.data.id}&userId=${ticketResponse.data.userId}&name=${ticketResponse.data.name}&email=${ticketResponse.data.email}&phone=${ticketResponse.data.phone}&ticket=${ticketResponse.data.ticket}&isRam=1`
                                         } else {
-                                            return message.error('配置参数中没有跳转项目的url')
+                                            // return message.error('配置参数中没有跳转项目的url')
                                         }
                                     }
                                 } else {

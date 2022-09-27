@@ -5,13 +5,13 @@
  * @description accountApi
  */
 
-import {Axios} from "doublekit-core-ui";
+import {Axios} from "tiklab-core-ui";
 
-const LOGIN_API = '/passport/login';
-const RAM_LOGOUT_API = '/passport/logout';
+const LOGIN_API = '/eam/auth/login';
+const RAM_LOGOUT_API = '/eam/auth/logout';
 
 const LDAP_LOGOUT = '/ldap/passport/logout';
-const LDAP_LOGIN = '/ldap/passport/login';
+const LDAP_LOGIN = '/eam/ldap/passport/login';
 
 
 const DINGDING_LOGOUT = '/dingding/passport/logout'

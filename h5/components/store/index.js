@@ -7,7 +7,7 @@
 import { action, observable } from 'mobx';
 import accountApi from '../service/accountApi';
 
-import {getUser, removeUser, saveUser} from 'doublekit-core-ui'
+import {getUser, removeUser, saveUser} from 'tiklab-core-ui'
 
 export class LoginStore {
     @observable user = getUser() || {};

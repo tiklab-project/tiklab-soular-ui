@@ -12,7 +12,7 @@ import {
     saveUser,
     setCookie,
     urlQuery
-} from 'doublekit-core-ui'
+} from 'tiklab-core-ui'
 import {Toast} from "antd-mobile";
 import AccountApi from "../service/accountApi";
 

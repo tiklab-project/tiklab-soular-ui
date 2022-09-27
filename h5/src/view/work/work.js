@@ -6,7 +6,7 @@
  * @update: 2021-05-24 09:38
  */
 import React, {useState, useEffect}  from 'react';
-import {getUser} from 'doublekit-core-ui';
+import {getUser} from 'tiklab-core-ui';
 import {Link} from 'react-router-dom';
 
 
@@ -21,48 +21,11 @@ import "./work.scss";
 
 
 const Work = (props) => {
-    const [urls, setUrls] = useState([]);
 
-    const user = getUser();
-    useEffect(() => {
-        WorkService.getWorkList().then(res =>{
-            setUrls(res)
-        })
-    }, [])
-
-    const ListHeader = (
-        <div className='workList'>
-            <span>产品列表</span>
-            <Link to={'/work/add'}><AddOutline/></Link>
-
-        </div>
-    );
-
-
-    const openProjectLink = (url) => {
-        const uri = user.ticket ? `${url}?loginType=${user.loginType}&email=${user.email}&name=${user.name}&expireTime=${user.expireTime}&ticket=${user.ticket}&phone=${user.phone}&userId=${user.userId}`: url
-        window.open(uri, '_self')
-    }
 
     return (
-        <List header={ListHeader} mode={'card'}>
-            {
-                urls.map(res => {
-                    return <List.Item
-                        key={res.id}
-                        extra={
-                            <Link to={`/work/${res.id}/edit`}>
-                                <EditSOutline/>
-                            </Link>
-                        }
-                    >
-                        <div onClick={() => openProjectLink(res.appUrl)}>
-                            {WORK_NAME[res.appType].label}
-                        </div>
-
-                    </List.Item>
-                })
-            }
+        <List  mode={'card'}>
+           dsds
 
         </List>
     )

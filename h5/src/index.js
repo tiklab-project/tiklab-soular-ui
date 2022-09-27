@@ -3,12 +3,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
 import {renderRoutes} from 'react-router-config'
+import enableAxiosCE from 'tiklab-enable-axios-ce'
 import routes from './routers';
 import { Provider } from 'mobx-react';
 import { stores } from './stores';
 
 import './common/language/i18n';
 
+enableAxiosCE()
 const Index = () => {
     // 注册所有插件
     let allStore = {

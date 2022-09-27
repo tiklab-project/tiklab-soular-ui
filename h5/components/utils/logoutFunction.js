@@ -5,7 +5,7 @@
  * create: $2022/1/24
  */
 
-import {getUser, removeUser} from "doublekit-core-ui";
+import {getUser, removeUser} from "tiklab-core-ui";
 
 
 // Sass 项目

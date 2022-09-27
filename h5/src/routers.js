@@ -1,5 +1,6 @@
 import React from 'react';
 import SyncComponent from './lazy/SyncComponent';
+import {Redirect} from "react-router";
 const layout = SyncComponent(() => import('./layout/Layout'));
 
 const LogOut = SyncComponent(() => import('../components/Logout/logout'));
@@ -12,6 +13,7 @@ const Login = SyncComponent(() => import('../components/Login/Login'))
 // const Wechat = SyncComponent(() => import('../components/wechat/wechat'))
 //
 // const Project = SyncComponent(() => import('../components/wechat/project'))
+const Project = SyncComponent(() => import('./view/project/list'))
 
 const routes = [
     {
@@ -40,19 +42,29 @@ const routes = [
         routes: [
             {
                 component: Work,
-                path:"/",
+                path:"/work",
+                exact:true,
+            },
+            {
+                component: Project,
+                path:"/project",
                 exact:true,
             },
             {
                 component: AddWork,
-                path:"/work/add",
+                path:"/project/add",
                 exact:true,
             },
             {
                 component: EditWork,
-                path:"/work/:id/edit",
+                path:"/project/:id/edit",
                 exact:true,
-            }
+            },
+            {
+                path: "/",
+                exact: true,
+                render: ()=><Redirect to="/work"/>
+            },
         ]
     },
 ];
