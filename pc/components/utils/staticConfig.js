@@ -116,45 +116,45 @@ const systemMenuData = [
     {
         id:'8',
         key:'8',
-        purviewCode:'widget',
+        purviewCode:'oplog',
         title: '日志',
         icon :<SettingOutlined />,
         children:[{
             id:'8-1',
             title: '日志列表',
-            purviewCode:'sys_feature',
+            purviewCode:'oplog_list',
             icon :<AppstoreOutlined />,
         },{
             id:'8-2',
             title: '我的日志',
-            purviewCode:'sys_role',
+            purviewCode:'my_oplog',
             icon :<AppstoreOutlined />,
         },{
             id:'8-3',
             title: '日志模板',
-            purviewCode:'sys_role',
+            purviewCode:'oplog_template',
             icon :<AppstoreOutlined />,
         }]
     },
     {
         id:'5',
         title: '任务',
-        purviewCode:'sys_permission',
+        purviewCode:'todo',
         icon :<AppstoreOutlined />,
         children:[{
             id:'5-1',
             title: '任务待办',
-            purviewCode:'sys_feature',
+            purviewCode:'todo_list',
             icon :<AppstoreOutlined />,
         },{
             id:'5-2',
             title: '我的任务待办',
-            purviewCode:'sys_role',
+            purviewCode:'my_todo',
             icon :<AppstoreOutlined />,
         },{
             id:'5-3',
             title: '待办模板',
-            purviewCode:'sys_role',
+            purviewCode:'todo_template',
             icon :<AppstoreOutlined />,
         }]
     },
