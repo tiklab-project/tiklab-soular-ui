@@ -1,33 +1,41 @@
 /**
  * @name: work
- * @author: mahai
- * @date: 2021-05-24 09:38
- * @description：work
- * @update: 2021-05-24 09:38
+ * @author mahai
+ * @date 2022/9/28 9:35 AM
+ * @description work
  */
-import React, {useState, useEffect}  from 'react';
-import {getUser} from 'tiklab-core-ui';
-import {Link} from 'react-router-dom';
+import React from "react";
 
+import {List, NavBar} from 'antd-mobile'
+import {
+    UnorderedListOutline,
+    PayCircleOutline,
+    SetOutline,
+} from 'antd-mobile-icons';
+import './work.scss';
 
-import {List} from "antd-mobile";
-import {AddOutline, EditSOutline} from "antd-mobile-icons";
-import WorkService from "../../service/workService";
+const Work = ({history}) => {
 
-import {WORK_NAME} from '../../constant';
-import "./work.scss";
+    return(
+        <div className={'dashboard'}>
+            <NavBar
+                backArrow={false}
+            >
+                工作台
+            </NavBar>
+            <List >
+                <List.Item prefix={<UnorderedListOutline />} onClick={() => {history.push('/todolist')}}>
+                    待办任务
+                </List.Item>
+                <List.Item prefix={<PayCircleOutline />} onClick={() => {history.push('/messagelist')}}>
+                    消息列表
+                </List.Item>
+                <List.Item prefix={<SetOutline />} onClick={() => {history.push('/oploglist')}}>
+                    日志列表
+                </List.Item>
+            </List>
+        </div>
 
-
-
-
-const Work = (props) => {
-
-
-    return (
-        <List  mode={'card'}>
-           dsds
-
-        </List>
     )
 }
-export default Work
+export default Work;

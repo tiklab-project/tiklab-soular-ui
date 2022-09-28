@@ -10,7 +10,7 @@ import {getUser} from 'tiklab-core-ui';
 import {Link} from 'react-router-dom';
 
 
-import {List} from "antd-mobile";
+import {List, NavBar} from "antd-mobile";
 import {AddOutline, EditSOutline} from "antd-mobile-icons";
 import WorkService from "../../service/workService";
 
@@ -34,7 +34,6 @@ const ProjectList = (props) => {
         <div className='workList'>
             <span>产品列表</span>
             <Link to={'/project/add'}><AddOutline/></Link>
-
         </div>
     );
 
@@ -45,26 +44,28 @@ const ProjectList = (props) => {
     }
 
     return (
-        <List header={ListHeader} mode={'card'}>
-            {
-                urls.map(res => {
-                    return <List.Item
-                        key={res.id}
-                        extra={
-                            <Link to={`/project/${res.id}/edit`}>
-                                <EditSOutline/>
-                            </Link>
-                        }
-                    >
-                        <div onClick={() => openProjectLink(res.appUrl)}>
-                            {WORK_NAME[res.appType].label}
-                        </div>
+        <div className={'project'}>
+            <NavBar backArrow={false}>产品空间</NavBar>
+            <List header={ListHeader} mode={'card'}>
+                {
+                    urls.map(res => {
+                        return <List.Item
+                            key={res.id}
+                            extra={
+                                <Link to={`/project/${res.id}/edit`}>
+                                    <EditSOutline/>
+                                </Link>
+                            }
+                        >
+                            <div onClick={() => openProjectLink(res.appUrl)}>
+                                {WORK_NAME[res.appType].label}
+                            </div>
 
-                    </List.Item>
-                })
-            }
-
-        </List>
+                        </List.Item>
+                    })
+                }
+            </List>
+        </div>
     )
 }
 export default ProjectList

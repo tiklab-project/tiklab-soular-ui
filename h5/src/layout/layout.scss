@@ -3,10 +3,14 @@ body{
 }
 .layout {
     height: 100vh;
+    width: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     &_body{
         flex: 1;
         display: flex;
+        height: calc(100% - 50px);
+        width: 100%;
     }
 }

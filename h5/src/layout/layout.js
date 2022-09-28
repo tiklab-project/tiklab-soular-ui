@@ -73,12 +73,12 @@ const Layout = (props) => {
             <div style={{ background: '#ffcfac' }}>
                 <SafeArea position='top' />
             </div>
-            <NavBar
-                // right={right}
-                backArrow={!tabRouters.includes(location.pathname)}
-                left={tabRouters.includes(location.pathname)?'portal' : null}
-                onBack={onGoBack}
-            />
+            {/*<NavBar*/}
+            {/*    // right={right}*/}
+            {/*    backArrow={!tabRouters.includes(location.pathname)}*/}
+            {/*    left={tabRouters.includes(location.pathname)?'portal' : null}*/}
+            {/*    onBack={onGoBack}*/}
+            {/*/>*/}
             <div className={'layout_body'}>
                 {renderRoutes(props.route.routes)}
             </div>
