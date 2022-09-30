@@ -7,11 +7,12 @@
 import React, {useEffect, useState} from "react";
 import {NavBar, Empty} from 'antd-mobile'
 import {RightOutline,} from 'antd-mobile-icons';
-import {getUser} from "tiklab-core-ui";
-import './work.scss';
+import {getUser, parseUserSearchParams} from "tiklab-core-ui";
 import todoServer from "../../service/todoServer";
 import opLogServer from "../../service/opLogServer";
 import messageServer from "../../service/messageServer";
+import './work.scss';
+
 
 const Work = ({history}) => {
 
@@ -61,6 +62,14 @@ const Work = ({history}) => {
             setOpLogList(response.data.dataList)
         }
     }
+
+    const logOplogRouter = (item) => {
+        const {opLogTemplate} = item;
+        if (opLogTemplate.link) {
+            window.open(opLogTemplate.link+"?" + parseUserSearchParams(getUser()))
+        }
+    }
+
     return(
         <div className={'dashboard'}>
             <NavBar
@@ -132,7 +141,7 @@ const Work = ({history}) => {
                         {
                             oplogList.map(item => {
                                 return(
-                                    <div key={item.id} className={'card_content_item'}>
+                                    <div key={item.id} className={'card_content_item'} onClick={() => logOplogRouter(item)}>
                                         <div dangerouslySetInnerHTML={{__html: item.opLogTemplate.content}}/>
                                     </div>
                                 )
