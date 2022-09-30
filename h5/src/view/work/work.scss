@@ -8,4 +8,35 @@
 
 .dashboard {
     width: 100%;
+    height: 100%;
+    &_body {
+        overflow: auto;
+        height: calc(100% - 45px);
+    }
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 12px;
+    }
+    &_content {
+        margin: 0 16px;
+        border-bottom: 1px solid #eeeeee;
+        &_item {
+            padding: 16px 0;
+            border-bottom: 1px solid #eeeeee;
+        }
+        > div:last-child {
+            border-bottom:transparent;
+        }
+    }
 }

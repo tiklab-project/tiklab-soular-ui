@@ -37,9 +37,11 @@ const GetPullToRefreshlData = (props) => {
             }
         }
         if (itemKey !== 'all' && classFix !== 'message') {
-            params['bgroup'] = itemKey
+            params['bgroup'] = itemKey;
+            params['userId'] = getUser().userId;
         } else {
-            params['application'] = itemKey
+            params['application'] = itemKey;
+            params['receiver'] = getUser().userId;
         }
         let response;
         switch (classFix) {
