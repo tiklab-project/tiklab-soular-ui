@@ -29,7 +29,7 @@ const Layout = (props) => {
         },
         {
             key: '/project',
-            title: '项目设置',
+            title: '设置',
             icon: <UnorderedListOutline />,
         },
     ]

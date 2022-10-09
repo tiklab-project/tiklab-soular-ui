@@ -14,7 +14,12 @@
         height: calc(100% - 45px);
     }
 }
-
+.project{
+    padding: 8px 0;
+    &_item{
+        text-align: center;
+    }
+}
 .card{
     display: flex;
     flex-direction: column;

@@ -6,36 +6,43 @@
  */
 
 const WORK_NAME = {
-    apibox: {
-        label: 'API BOX',
+    teamwire: {
+        label: 'TeamWire',
     },
-    project: {
-        label: '项目管理',
+    postin: {
+        label: 'PostIn',
     },
-    jtest: {
-        label: 'Jtest',
+    kanass: {
+        label: 'Kanass',
     },
-    wiki: {
-        label: '知识库',
+    teston: {
+        label: 'TestOn',
+    },
+    matflow: {
+        label: 'MatFlow',
     },
 };
 
 const WORK_LIST = [
     {
-        label: '项目管理',
-        value: 'project',
+        label: 'TeamWire',
+        value: 'teamwire',
     },
     {
-        label: 'API BOX',
-        value: 'apibox',
+        label: 'PostIn',
+        value: 'postin',
     },
     {
-        label: 'Jtest',
-        value: 'jtest',
+        label: 'Kanass',
+        value: 'kanass',
     },
     {
-        label: '知识库',
-        value: 'wiki',
+        label: 'TestOn',
+        value: 'teston',
+    },
+    {
+        label: 'MatFlow',
+        value: 'matflow',
     },
 ]
 const WORK_APP_LINK = (applicationTypes) => {

@@ -6,7 +6,7 @@
  * @update: 2021-05-06 15:15
  */
 import React from 'react';
-import {SystemFeatureList} from "tiklab-privilege-ui";
+import {SystemFeatureList, ProjectFeatureList} from "tiklab-privilege-ui";
 
 
 const Feature = props => {

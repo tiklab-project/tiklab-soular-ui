@@ -23,12 +23,6 @@
         "antd-mobile-icons": "^0.2.2",
         "axios": "^0.21.0",
         "cross-env": "^7.0.3",
-        "tiklab-core-ui": "^1.0.0",
-        "tiklab-enable-axios-ce": "^1.0.0",
-        "tiklab-message-ui": "^1.0.0",
-        "tiklab-plugin-ui": "^1.0.0",
-        "tiklab-privilege-ui": "^1.0.0",
-        "tiklab-user-ui": "^1.0.0",
         "i18next": "^19.8.4",
         "i18next-browser-languagedetector": "^6.0.1",
         "is-class": "^0.0.9",
@@ -40,7 +34,14 @@
         "react-router": "^5.2.0",
         "react-router-config": "^5.1.1",
         "react-router-dom": "^5.2.0",
-        "runtime-import": "^1.0.12"
+        "runtime-import": "^1.0.12",
+        "tiklab-core-ui": "^1.0.0",
+        "tiklab-eam-ui": "^1.0.0",
+        "tiklab-enable-axios-ce": "^1.0.0",
+        "tiklab-message-ui": "^1.0.0",
+        "tiklab-plugin-ui": "^1.0.0",
+        "tiklab-privilege-ui": "^1.0.0",
+        "tiklab-user-ui": "^1.0.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.12.1",

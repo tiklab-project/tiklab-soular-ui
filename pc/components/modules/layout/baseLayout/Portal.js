@@ -11,6 +11,7 @@ import apiboxImg from 'tiklab-eam-ui/es/assests/img/apibox.png';
 import jenkinsImg from 'tiklab-eam-ui/es/assests/img/jenkins.png';
 import knowledgeImg from 'tiklab-eam-ui/es/assests/img/apibox.png';
 import projectImg from 'tiklab-eam-ui/es/assests/img/project.png';
+import vipImg from '../../assets/images/vip.jpg';
 
 import {connect} from 'tiklab-plugin-ui/es/_utils'
 
@@ -112,24 +113,26 @@ const Portal = props => {
                     </div>
                 </div>
                 <div className={styles.layout_header_right}>
-                    <span>社区版</span>
-                    <Dropdown overlay={menu}>
-                        <Button>
-                            <Space>
-                                {lng}
-                                <DownOutlined />
-                            </Space>
-                        </Button>
-                    </Dropdown>
-                    <SettingOutlined
-                        onClick={
-                            () => changeCurrentLink({to:'/system',})
-                        }
-                        style={{fontSize:24}}
-                    />
-                    <Dropdown overlay={AvatarMenu}>
-                        <Avatar size={52} src={<img src="https://joeschmoe.io/api/v1/random"  alt={''}/>} />
-                    </Dropdown>
+                    <Space>
+                        <img src={vipImg} height={30} width={30} alt={'vip'}/>
+                        <Dropdown overlay={menu}>
+                            <Button>
+                                <Space>
+                                    {lng}
+                                    <DownOutlined />
+                                </Space>
+                            </Button>
+                        </Dropdown>
+                        <SettingOutlined
+                            onClick={
+                                () => changeCurrentLink({to:'/system',})
+                            }
+                            style={{fontSize:24}}
+                        />
+                        <Dropdown overlay={AvatarMenu}>
+                            <Avatar size={52} src={<img src="https://joeschmoe.io/api/v1/random"  alt={''}/>} />
+                        </Dropdown>
+                    </Space>
                 </div>
             </header>
             <section className={styles.layout_content}>
