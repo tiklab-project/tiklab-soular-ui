@@ -7,13 +7,12 @@
  */
 import React, {Component} from 'react';
 import {WidgetWork} from 'tiklab-widget-ui'
-import {Widgets} from "./widgets";
 
 class WorkBench extends Component{
 
     render() {
         return(
-            <WidgetWork Widgets={Widgets}/>
+            <WidgetWork />
         )
     }
 }
