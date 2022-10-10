@@ -57,7 +57,14 @@ const Portal = props => {
 
     const onMenu = ({key}) => {
         if (key === '1') {
-            history.push('/logout')
+            // history.push('/logout')
+            history.push({
+                pathname:'/logout',
+                state: {
+                    preRoute: props.location.pathname
+                }
+            })
+
         }
     }
     const AvatarMenu = (
