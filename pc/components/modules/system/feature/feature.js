@@ -7,7 +7,7 @@
  */
 import React from 'react';
 import {SystemFeatureList, ProjectFeatureList} from "tiklab-privilege-ui";
-
+// import SystemFeatureList from '../../system-feature-list/index'
 
 const Feature = props => {
     return(

@@ -7,7 +7,8 @@
     justify-content: space-between;
     padding: 0 16px;
     height: 100%;
-    box-shadow: 0 0 10px #c4c4c4;
+    //box-shadow: 0 0 10px #c4c4c4;
+    border-bottom: 1px solid #f0f0f0;
     &_left {
       display: flex;
       align-items: center;

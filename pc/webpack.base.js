@@ -120,7 +120,7 @@ module.exports = {
                 ),
             },
             {
-                test: /\.(png|jpg|jpeg|gif|svg)/,
+                test: /\.(png|jpg|jpeg|gif)/,
                 // exclude: /node_modules/,
                 use: {
                     loader: 'url-loader',
@@ -132,8 +132,9 @@ module.exports = {
                     }
                 }
             },
+
             {
-                test: /\.(eot|woff2?|ttf|svg)$/,
+                test: /\.(eot|woff2?|ttf)$/,
                 use: [
                     {
                         loader: 'url-loader',
@@ -145,12 +146,18 @@ module.exports = {
                     }
                 ]
             },
+            {
+                test: /\.svg/,
+                // exclude: /node_modules/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        // publicPath: 'images',
+                        outputPath: 'images/',
+                        name: '[name].[ext]', // 图片输出的路径
+                    }
+                }
+            },
         ]
     },
-    plugins: [
-        // new CopyWebpackPlugin([{
-        //     from: path.resolve(__dirname, "./static"),
-        //     to: path.resolve(__dirname, './dist')
-        // }]),
-    ]
 };
