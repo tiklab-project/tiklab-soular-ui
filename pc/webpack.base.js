@@ -132,7 +132,6 @@ module.exports = {
                     }
                 }
             },
-
             {
                 test: /\.(eot|woff2?|ttf)$/,
                 use: [
