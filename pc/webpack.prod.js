@@ -39,7 +39,7 @@ module.exports = merge(baseWebpackConfig, {
             title:'门户中心',
             template: path.resolve(__dirname, '../public/index.template.html'),
             hash: false,
-            filename: 'eas.html',
+            filename: 'index.html',
             inject: 'body',
             minify: {
                 collapseWhitespace: true,

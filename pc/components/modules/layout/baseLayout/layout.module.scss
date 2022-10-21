@@ -1,59 +1,171 @@
+//.layout {
+//  //height: 74px;
+//  width: 100%;
+//  &_header {
+//    display: flex;
+//    align-items: center;
+//    justify-content: space-between;
+//    padding: 0 16px;
+//    height: 100%;
+//    //box-shadow: 0 0 10px #c4c4c4;
+//    border-bottom: 1px solid #f0f0f0;
+//    &_left {
+//      display: flex;
+//      align-items: center;
+//      flex-direction: row;
+//      &_logo {
+//        width: 120px;
+//        height: 100%;
+//        padding: 8px;
+//        img {
+//          width: 100%;
+//          height: 100%;
+//        }
+//      }
+//
+//      &_link {
+//        display: flex;
+//        margin-left: 16px;
+//        cursor: pointer;
+//        color: #444;
+//        &_active{
+//          color: #0063ff;
+//        }
+//      }
+//    }
+//    &_right{
+//      display: flex;
+//      flex-direction: row;
+//      justify-content: flex-end;
+//      align-items: center;
+//      height: 100%;
+//      padding-right: 20px;
+//    }
+//  }
+//
+//  &_content {
+//    height: calc(100vh - 74px);
+//    width: 100%;
+//    display: flex;
+//  }
+//  &-footer {
+//    background: #C4C4C4;
+//    color: white;
+//    min-height: 64px;
+//    display: flex;
+//    justify-content: center;
+//    align-items: center;
+//  }
+//}
+
+
+
 .layout {
-  height: 74px;
   width: 100%;
+  height: 100%;
   &_header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 16px;
-    height: 100%;
-    //box-shadow: 0 0 10px #c4c4c4;
-    border-bottom: 1px solid #f0f0f0;
-    &_left {
+    height: 64px;
+    border-bottom: 1px solid #D9D9D9;
+    &_link {
+      font-weight: bold;
+      height: 100%;
       display: flex;
       align-items: center;
-      flex-direction: row;
-      &_logo {
-        width: 120px;
-        height: 100%;
-        padding: 8px;
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
-
-      &_link {
-        display: flex;
-        margin-left: 16px;
+      >span{
         cursor: pointer;
-        color: #444;
-        &_active{
-          color: #0063ff;
+        color: #585858;
+        &:hover{
+          color: #1990FE;
         }
       }
     }
+    &_link_active {
+      position: relative;
+      >span{
+        color: #1990FE;
+      }
+      &:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        content: "";
+        height: 3px;
+        background-color: rgb(0, 82, 204);
+        border-top-left-radius: 1px;
+        border-top-right-radius: 1px;
+      }
+    }
+
     &_right{
       display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-      height: 100%;
-      padding-right: 20px;
-    }
-  }
+      padding-right: 16px;
 
-  &_content {
-    height: calc(100vh - 74px);
-    width: 100%;
-    display: flex;
-  }
-  &-footer {
-    background: #C4C4C4;
-    color: white;
-    min-height: 64px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+      &_block {
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        justify-content: center;
+      }
+      &_item {
+        cursor: pointer;
+        padding: 4px;
+        display: inline-block;
+        &:hover{
+          display: inline-block;
+          border-radius: 50%;
+          color: rgb(0, 82, 204);
+          background-color: rgba(222, 235, 255, 0.9);
+        }
+      }
+      &_icon {
+        font-size: 24px;
+      }
+      &_profile{
+        cursor: pointer;
+        padding: 4px;
+        display: inline-block;
+        &:hover{
+          display: inline-block;
+          border-radius: 50%;
+          color: rgb(0, 82, 204);
+          background-color: rgba(222, 235, 255, 0.9);
+        }
+      }
+
+      &_portal_tittle {
+        padding: 0 20px;
+        color: #5E6C84;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1.5;
+        text-transform: uppercase;
+        margin-top: 14px;
+        margin-bottom: 6px;
+      }
+      &_portal_item {
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 40px;
+        padding: 8px 20px;
+        border: 0;
+        font-size: 14px;
+        outline: 0;
+        text-decoration: none;
+        user-select: none;
+        background-color: transparent;
+        color: currentcolor;
+        cursor: pointer;
+        &:hover {
+          background-color: #F4F5F7;
+          color: currentcolor;
+        }
+      }
+    }
   }
 }

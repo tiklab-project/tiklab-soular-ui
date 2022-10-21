@@ -4,22 +4,21 @@
  * create: $2022/1/25
  */
 import React, {useState} from 'react';
-import {Button, Avatar, Menu, Dropdown, Space} from "antd";
-import {useTranslation} from 'react-i18next'
+import {Avatar, Menu, Space} from "antd";
+import {GlobalOutlined, LogoutOutlined, SettingOutlined} from "@ant-design/icons";
+import {useTranslation} from 'react-i18next';
+import {getUser} from 'tiklab-core-ui';
 import {verifyUserHoc, useWorkAppConfig} from 'tiklab-eam-ui'
 import apiboxImg from 'tiklab-eam-ui/es/assests/img/apibox.png';
 import jenkinsImg from 'tiklab-eam-ui/es/assests/img/jenkins.png';
 import knowledgeImg from 'tiklab-eam-ui/es/assests/img/apibox.png';
 import projectImg from 'tiklab-eam-ui/es/assests/img/project.png';
 import vipImg from '../../assets/images/vip.jpg';
-
+import easLogo from '../../assets/eas.png'
 import {connect} from 'tiklab-plugin-ui/es/_utils'
-
-
-import {DownOutlined, LogoutOutlined, SettingOutlined} from "@ant-design/icons";
-
-import logo from '../../assets/images/logo.jpeg'
 import styles from './layout.module.scss'
+
+import PortalMenu from '../../../../src/portal-menu'
 
 const productIcons = {
     postin:apiboxImg,
@@ -36,6 +35,10 @@ const Portal = props => {
 
     const [lng,setLng] = useState(i18n.language)
     const [lngData] = useState(i18n.languages)
+
+    const [visibility,setVisibility] = useState(false);
+    const [settingVisibility,setSettingVisibility] = useState(false);
+    const [profileVisibility,setProfileVisibility] = useState(false);
 
     const homeRouter = [
         {
@@ -78,69 +81,99 @@ const Portal = props => {
         </Menu>
     )
 
-    const onLanguageChange = (e) => {
-        if (lng === e.key) return
-        i18n.changeLanguage(e.key).then(res => {
-            setLng(e.key)
+    const onLanguageChange = (key) => {
+        setVisibility(!visibility);
+        if (lng === key) return
+        i18n.changeLanguage(key).then(res => {
+            setLng(key)
         })
 
     }
 
+    const goSetting = () => {
+        setSettingVisibility(!settingVisibility);
+        history.push({
+            pathname:'/system',
+        })
+    }
 
-
-
-    const menu = (
-        <Menu
-            onClick={onLanguageChange}
-            style={{width:140}}
-        >
-            {
-                lngData.map(item => {
-                    return <Menu.Item key={item}>{item}</Menu.Item>
-                })
-            }
-        </Menu>
-
-    );
-
+    const goLogout = () => {
+        setProfileVisibility(!profileVisibility)
+        history.push({
+            pathname:'/logout',
+        })
+    }
     return(
         <main className={styles.layout}>
             <header className={styles.layout_header}>
-                <div className={styles.layout_header_left}>
+                <Space size={'large'}>
                     {component}
-                    <div className={styles.layout_header_left_logo}>
-                        <img alt={'...'} src={logo}/>
-                    </div>
-                    <div className={styles.layout_header_left_link}>
-                        {
-                            homeRouter.map(item => {
-                                return <span key={item.key} onClick={ () => changeCurrentLink(item)} className={currentLink === item.to ? styles.layout_header_left_link_active : null} style={{padding:'0 8px'}}> {item.title}</span>
-                            })
-                        }
-                    </div>
-                </div>
+                    <img alt={'门户中心'} src={easLogo} height={'50%'}/>
+                    {
+                        homeRouter.map(item => {
+                            return(
+                                <div key={item.key} className={currentLink === item.to ? `${styles.layout_header_link} ${styles.layout_header_link_active}`  : styles.layout_header_link} onClick={ () => changeCurrentLink(item)}>
+                                    <span>{item.title}</span>
+                                </div>
+                            )
+                        })
+                    }
+                </Space>
                 <div className={styles.layout_header_right}>
-                    <Space>
+                    <Space size={'large'}>
                         <img src={vipImg} height={30} width={30} alt={'vip'}/>
-                        <Dropdown overlay={menu}>
-                            <Button>
-                                <Space>
-                                    {lng}
-                                    <DownOutlined />
-                                </Space>
-                            </Button>
-                        </Dropdown>
-                        <SettingOutlined
-                            onClick={
-                                () => changeCurrentLink({to:'/system',})
+                        <PortalMenu
+                            tooltip={'国际化'}
+                            visibility={visibility}
+                            Icon={<GlobalOutlined/>}
+                        >
+                            <>
+                                <div className={styles.layout_header_right_portal_tittle}>
+                                    <span>语言</span>
+                                </div>
+                                {
+                                    lngData.map(item => {
+                                        return <div className={styles.layout_header_right_portal_item} key={item} onClick={() => onLanguageChange(item)}>{item}</div>
+                                    })
+                                }
+                            </>
+                        </PortalMenu>
+
+
+                        <PortalMenu
+                            tooltip={'设置'}
+                            visibility={settingVisibility}
+                            Icon={<SettingOutlined/>}
+                        >
+                            <>
+                                <div className={styles.layout_header_right_portal_tittle}>
+                                    <span>设置</span>
+                                </div>
+                                <div className={styles.layout_header_right_portal_item} onClick={goSetting}>系统设置</div>
+                            </>
+                        </PortalMenu>
+
+                        <PortalMenu
+                            tooltip={'profile'}
+                            visibility={profileVisibility}
+                            Icon={
+                                <Avatar size={32} src={<img src="https://joeschmoe.io/api/v1/random"  alt={''}/>} />
                             }
-                            style={{fontSize:24}}
-                        />
-                        <Dropdown overlay={AvatarMenu}>
-                            <Avatar size={52} src={<img src="https://joeschmoe.io/api/v1/random"  alt={''}/>} />
-                        </Dropdown>
+                            width={300}
+                        >
+                            <>
+                                <div className={styles.layout_header_right_portal_tittle}>
+                                    <span>{getUser().nickname || getUser().name || "用户"}</span>
+                                </div>
+                                <div className={styles.layout_header_right_portal_item} >账户设置</div>
+
+                                <div className={styles.layout_header_right_portal_item} onClick={goLogout}>退出</div>
+
+                            </>
+                        </PortalMenu>
                     </Space>
                 </div>
+
             </header>
             <section className={styles.layout_content}>
                 <div style={{width:'100%'}}>
