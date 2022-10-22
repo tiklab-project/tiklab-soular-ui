@@ -4,7 +4,7 @@
  * create: $2022/1/25
  */
 import React, {useState} from 'react';
-import {Avatar, Menu, Space} from "antd";
+import {Avatar, Menu, Space, Tooltip} from "antd";
 import {GlobalOutlined, LogoutOutlined, SettingOutlined} from "@ant-design/icons";
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
@@ -16,10 +16,10 @@ import projectImg from 'tiklab-eam-ui/es/assests/img/project.png';
 import vipImg from '../../assets/images/vip.jpg';
 import easLogo from '../../assets/eas.png'
 import {connect} from 'tiklab-plugin-ui/es/_utils'
-import styles from './layout.module.scss'
+
 
 import PortalMenu from '../../../../src/portal-menu'
-
+import styles from './layout.module.scss'
 const productIcons = {
     postin:apiboxImg,
     teamwire:projectImg,
@@ -138,20 +138,29 @@ const Portal = props => {
                                 }
                             </>
                         </PortalMenu>
+                        <Tooltip title={"设置"} mouseEnterDelay={0.3}>
+                            <span className={styles.layout_header_right_icon}>
+                                <SettingOutlined
+                                    onClick={
+                                        () => changeCurrentLink({to:'/system',})
+                                    }
+                                />
+                            </span>
+                        </Tooltip>
 
 
-                        <PortalMenu
-                            tooltip={'设置'}
-                            visibility={settingVisibility}
-                            Icon={<SettingOutlined/>}
-                        >
-                            <>
-                                <div className={styles.layout_header_right_portal_tittle}>
-                                    <span>设置</span>
-                                </div>
-                                <div className={styles.layout_header_right_portal_item} onClick={goSetting}>系统设置</div>
-                            </>
-                        </PortalMenu>
+                        {/*<PortalMenu*/}
+                        {/*    tooltip={'设置'}*/}
+                        {/*    visibility={settingVisibility}*/}
+                        {/*    Icon={<SettingOutlined/>}*/}
+                        {/*>*/}
+                        {/*    <>*/}
+                        {/*        <div className={styles.layout_header_right_portal_tittle}>*/}
+                        {/*            <span>设置</span>*/}
+                        {/*        </div>*/}
+                        {/*        <div className={styles.layout_header_right_portal_item} onClick={goSetting}>系统设置</div>*/}
+                        {/*    </>*/}
+                        {/*</PortalMenu>*/}
 
                         <PortalMenu
                             tooltip={'profile'}
@@ -166,9 +175,7 @@ const Portal = props => {
                                     <span>{getUser().nickname || getUser().name || "用户"}</span>
                                 </div>
                                 <div className={styles.layout_header_right_portal_item} >账户设置</div>
-
                                 <div className={styles.layout_header_right_portal_item} onClick={goLogout}>退出</div>
-
                             </>
                         </PortalMenu>
                     </Space>
