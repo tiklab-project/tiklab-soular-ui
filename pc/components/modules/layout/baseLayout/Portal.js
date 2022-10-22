@@ -5,14 +5,10 @@
  */
 import React, {useState} from 'react';
 import {Avatar, Menu, Space, Tooltip} from "antd";
-import {GlobalOutlined, LogoutOutlined, SettingOutlined} from "@ant-design/icons";
+import {GlobalOutlined, LogoutOutlined, SettingOutlined, UserOutlined} from "@ant-design/icons";
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
-import {verifyUserHoc, useWorkAppConfig} from 'tiklab-eam-ui'
-import apiboxImg from 'tiklab-eam-ui/es/assests/img/apibox.png';
-import jenkinsImg from 'tiklab-eam-ui/es/assests/img/jenkins.png';
-import knowledgeImg from 'tiklab-eam-ui/es/assests/img/apibox.png';
-import projectImg from 'tiklab-eam-ui/es/assests/img/project.png';
+import {verifyUserHoc, WorkAppConfig} from 'tiklab-eam-ui'
 import vipImg from '../../assets/images/vip.jpg';
 import easLogo from '../../assets/eas.png'
 import {connect} from 'tiklab-plugin-ui/es/_utils'
@@ -20,17 +16,11 @@ import {connect} from 'tiklab-plugin-ui/es/_utils'
 
 import PortalMenu from '../../../../src/portal-menu'
 import styles from './layout.module.scss'
-const productIcons = {
-    postin:apiboxImg,
-    teamwire:projectImg,
-    teston:jenkinsImg,
-    kanass:knowledgeImg
-}
+
 const Portal = props => {
 
     const {history} = props;
     const [currentLink, setCurrentLink] = useState(props.location.pathname);
-    const [component, ModalComponent, editOrAddModal] = useWorkAppConfig(false, productIcons);
     const { i18n} = useTranslation();
 
     const [lng,setLng] = useState(i18n.language)
@@ -107,8 +97,8 @@ const Portal = props => {
         <main className={styles.layout}>
             <header className={styles.layout_header}>
                 <Space size={'large'}>
-                    {component}
-                    <img alt={'门户中心'} src={easLogo} height={'50%'}/>
+                    <WorkAppConfig isSSO={false}/>
+                    <img alt={'门户中心'} src={easLogo} height={'50%'} />
                     {
                         homeRouter.map(item => {
                             return(
@@ -121,7 +111,7 @@ const Portal = props => {
                 </Space>
                 <div className={styles.layout_header_right}>
                     <Space size={'large'}>
-                        <img src={vipImg} height={30} width={30} alt={'vip'}/>
+                        <img src={vipImg} height={30} width={30} alt={'vip'} style={{borderRadius:"50%"}}/>
                         <PortalMenu
                             tooltip={'国际化'}
                             visibility={visibility}
@@ -147,26 +137,11 @@ const Portal = props => {
                                 />
                             </span>
                         </Tooltip>
-
-
-                        {/*<PortalMenu*/}
-                        {/*    tooltip={'设置'}*/}
-                        {/*    visibility={settingVisibility}*/}
-                        {/*    Icon={<SettingOutlined/>}*/}
-                        {/*>*/}
-                        {/*    <>*/}
-                        {/*        <div className={styles.layout_header_right_portal_tittle}>*/}
-                        {/*            <span>设置</span>*/}
-                        {/*        </div>*/}
-                        {/*        <div className={styles.layout_header_right_portal_item} onClick={goSetting}>系统设置</div>*/}
-                        {/*    </>*/}
-                        {/*</PortalMenu>*/}
-
                         <PortalMenu
                             tooltip={'profile'}
                             visibility={profileVisibility}
                             Icon={
-                                <Avatar size={32} src={<img src="https://joeschmoe.io/api/v1/random"  alt={''}/>} />
+                                <Avatar size={32} icon={<UserOutlined />} />
                             }
                             width={300}
                         >
@@ -187,8 +162,6 @@ const Portal = props => {
                     {props.children}
                 </div>
             </section>
-            {ModalComponent}
-            {editOrAddModal}
         </main>
     )
 };
