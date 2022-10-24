@@ -8,7 +8,7 @@ import {Avatar, Menu, Space, Tooltip} from "antd";
 import {GlobalOutlined, LogoutOutlined, SettingOutlined, UserOutlined} from "@ant-design/icons";
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
-import {verifyUserHoc, WorkAppConfig} from 'tiklab-eam-ui'
+import {verifyUserHoc, WorkAppConfig, Profile} from 'tiklab-eam-ui'
 import vipImg from '../../assets/images/vip.jpg';
 import easLogo from '../../assets/eas.png'
 import {connect} from 'tiklab-plugin-ui/es/_utils'
@@ -140,9 +140,7 @@ const Portal = props => {
                         <PortalMenu
                             tooltip={'profile'}
                             visibility={profileVisibility}
-                            Icon={
-                                <Avatar size={32} icon={<UserOutlined />} />
-                            }
+                            Icon={<Profile/>}
                             width={300}
                         >
                             <>
@@ -158,7 +156,7 @@ const Portal = props => {
 
             </header>
             <section className={styles.layout_content}>
-                <div style={{width:'100%'}}>
+                <div style={{width:'100%', height:'calc(100% - 64px)'}}>
                     {props.children}
                 </div>
             </section>
