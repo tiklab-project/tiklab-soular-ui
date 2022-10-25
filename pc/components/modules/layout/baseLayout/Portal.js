@@ -3,11 +3,11 @@
  * @Description: Enter feature description here
  * create: $2022/1/25
  */
-import React, {useState} from 'react';
-import {Avatar, Menu, Space, Tooltip} from "antd";
-import {GlobalOutlined, LogoutOutlined, SettingOutlined, UserOutlined} from "@ant-design/icons";
+import React, {useState, useEffect} from 'react';
+import {Space, Tooltip, Badge, Select, Drawer} from "antd";
+import {GlobalOutlined, SettingOutlined, BellOutlined} from "@ant-design/icons";
 import {useTranslation} from 'react-i18next';
-import {getUser} from 'tiklab-core-ui';
+import {getUser, Axios} from 'tiklab-core-ui';
 import {verifyUserHoc, WorkAppConfig, Profile} from 'tiklab-eam-ui'
 import vipImg from '../../assets/images/vip.jpg';
 import easLogo from '../../assets/eas.png'
@@ -17,6 +17,7 @@ import {connect} from 'tiklab-plugin-ui/es/_utils'
 import PortalMenu from '../../../../src/portal-menu'
 import styles from './layout.module.scss'
 
+const { Option } = Select;
 const Portal = props => {
 
     const {history} = props;
@@ -27,8 +28,43 @@ const Portal = props => {
     const [lngData] = useState(i18n.languages)
 
     const [visibility,setVisibility] = useState(false);
-    const [settingVisibility,setSettingVisibility] = useState(false);
     const [profileVisibility,setProfileVisibility] = useState(false);
+    const [notificationVisibility,setNotificationVisibility] = useState(false);
+
+    const [message,setMessage] = useState({
+        list:[],
+        total:0
+    })
+
+    useEffect(() => {
+        if (getUser().userId) {
+            getMySiteMessage()
+        }
+    },[]);
+
+    /**
+     * 获取我的站点类型的消息数据
+     */
+    const getMySiteMessage = () => {
+        const params = {
+            pageParam:{
+                pageSize:10,
+                currentPage:1
+            },
+            sendType: 'site',
+            receiver: getUser().userId
+        }
+        Axios.post('/message/messageDispatchItem/findMessageDispatchItemPage', params).then(res => {
+            if (res.code === 0) {
+                const messageList = res.data.dataList;
+                setMessage({
+                    list:messageList,
+                    total: res.data.totalRecord
+                })
+            }
+        })
+
+    };
 
     const homeRouter = [
         {
@@ -48,29 +84,6 @@ const Portal = props => {
         props.history.push(item.to)
     }
 
-    const onMenu = ({key}) => {
-        if (key === '1') {
-            // history.push('/logout')
-            history.push({
-                pathname:'/logout',
-                state: {
-                    preRoute: props.location.pathname
-                }
-            })
-
-        }
-    }
-    const AvatarMenu = (
-        <Menu
-            onClick={onMenu}
-            style={{width:140}}
-        >
-            <Menu.Item icon={<LogoutOutlined />} key={"1"}>
-                退出
-            </Menu.Item>
-        </Menu>
-    )
-
     const onLanguageChange = (key) => {
         setVisibility(!visibility);
         if (lng === key) return
@@ -80,19 +93,20 @@ const Portal = props => {
 
     }
 
-    const goSetting = () => {
-        setSettingVisibility(!settingVisibility);
-        history.push({
-            pathname:'/system',
-        })
-    }
-
     const goLogout = () => {
         setProfileVisibility(!profileVisibility)
         history.push({
             pathname:'/logout',
         })
     }
+
+    const showDrawer = () => {
+        setNotificationVisibility(true);
+    };
+
+    const onClose = () => {
+        setNotificationVisibility(false);
+    };
     return(
         <main className={styles.layout}>
             <header className={styles.layout_header}>
@@ -128,6 +142,52 @@ const Portal = props => {
                                 }
                             </>
                         </PortalMenu>
+                        <Tooltip title={"通知"} mouseEnterDelay={0.3}>
+                            <Badge count={message.total}><BellOutlined style={{fontSize:24}} onClick={showDrawer}/></Badge>
+                        </Tooltip>
+
+                        <Drawer
+                            placement="right"
+                            onClose={onClose}
+                            visible={notificationVisibility}
+                            width={420}
+                            title={
+                                <Select defaultValue="all" bordered={false}>
+                                    <Option value="all"><BellOutlined style={{fontSize:18}}/>全部通知</Option>
+                                    <Option value="read"><BellOutlined style={{fontSize:18}}/>未读通知</Option>
+                                </Select>
+                            }
+                            bodyStyle={{
+                                padding:0
+                            }}
+                        >
+                            <div className={styles.layout_header_right_main}>
+                                {
+                                    message.list.map(item => {
+                                        let jsonData = {
+                                            title:item.messageTemplate.title,
+                                            status:item.status,
+                                            receiveTime:item.receiveTime,
+                                            content: item.messageTemplate.content,
+                                        }
+                                        return(
+                                            <div className={styles.layout_header_right_message}>
+                                                <div className={styles.layout_header_right_message_title}>
+                                                    <span>{jsonData.title}</span>
+                                                </div>
+                                                <div className={styles.layout_header_right_message_body}>
+                                                    <p className={styles.layout_header_right_message_summary}>{jsonData.content}</p>
+                                                    <div className={styles.layout_header_right_message_time}>{jsonData.receiveTime}</div>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+
+                        </Drawer>
+
+
                         <Tooltip title={"设置"} mouseEnterDelay={0.3}>
                             <span className={styles.layout_header_right_icon}>
                                 <SettingOutlined
