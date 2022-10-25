@@ -160,6 +160,12 @@ const Portal = props => {
                             bodyStyle={{
                                 padding:0
                             }}
+                            mask={false}
+                            style={{
+                                top: 64,
+                                height: 'calc(100% - 64px)',
+                            }}
+                            className={'as'}
                         >
                             <div className={styles.layout_header_right_main}>
                                 {
