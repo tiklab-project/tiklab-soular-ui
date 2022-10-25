@@ -16,6 +16,7 @@ const webpackGlobal = {
     appSecret: JSON.stringify('appSecret-1'),
     version: JSON.stringify('version-1'),
     client: JSON.stringify('client-1'),
+    dev_production: false
 }
 
 module.exports = {

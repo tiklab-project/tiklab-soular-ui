@@ -26,16 +26,14 @@ const PortalMenu = memo(({tooltip, children, visibility, Icon, width=140}) => {
     useEffect(() => {
         window.addEventListener('click', (e) => {
             if(tiklab_portal_menu.current && tiklab_portal_menu.current.contains(e.target)) {
-                console.log('点击内部')
             } else {
-                console.log('点击外部')
                 setVisible(false)
             }
         });
         return() => window.removeEventListener('click', () => {
             setVisible(false)
         })
-    },[])
+    },[visible]);
     return(
         <div className={'tiklab_portal'} ref={tiklab_portal_menu}>
             <div className={'tiklab_portal_block'}>

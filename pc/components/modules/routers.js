@@ -53,162 +53,306 @@ const MyTodoTaskPage = SyncComponent(() =>import('./todotask/myTodoTask'))
 const LogListPage = SyncComponent(()=> import('./oplog/logList'))
 const MyLogListPage = SyncComponent(()=> import('./oplog/mylog'))
 
-const routes = [
-    // {
-    //     path: '/',
-    //     exact:true,
-    //     component: Demo
-    // },
-    {
-        path: "/logout",
-        exact: true,
-        component: Logout
-    },
-    {
-        component: Login,
-        exact:true,
-        path: '/login'
-    },
-    {
-        component: ElectronLoginPage,
-        exact:true,
-        path: '/account'
-    },
-    {
-        component: AuthResult,
-        exact:true,
-        path: '/auth_result'
-    },
-    {
-        component:InternalWechatEntry,
-        exact:true,
-        path: '/project'
-    },
-    {
-        component: layout,
-        key:'layout',
-        path: '/',
-        routes: [
-            {
-                component: Work,
-                path:"/work",
-                exact:true,
-            },
-            {
-                path:"/",
-                exact:true,
-                render:()=><Redirect to="/work"/>
-            },
-            {
-                component: OrgaLayout,
-                path: "/orga",
-                routes:[
-                    {
-                        path: '/orga/dashbord',
-                        component: OrgaManagement,
-                    },{
-                        path: '/orga/user',
-                        component: UserManagement,
-                    },
 
-                    {
-                        path: '/orga/directory',
-                        component:PortalDirectory
-                    },
-                    {
-                        path: "/orga",
-                        exact: true,
-                        render: ()=><Redirect to="/orga/dashbord"/>
-                    },
-                ]
-            },
-            {
-                component: System,
-                path: "/system",
-                routes:[
-                    {
-                        component: LogListPage,
-                        path:"/system/logs",
-                        exact:true,
-                    },
-                    {
-                        component: MyLogListPage,
-                        path:"/system/mylog",
-                        exact:true,
-                    },
-                    {
-                        component: LogTemplateList,
-                        path:"/system/logtemplate",
-                        exact:true,
-                    },
-                    {
-                        component: TodoTaskPage,
-                        path:"/system/todotask",
-                        exact:true,
-                    },
-                    {
-                        component: MyTodoTaskPage,
-                        path:"/system/mytodotask",
-                        exact:true,
-                    },
-                    {
-                        component: TodoTempList,
-                        path:"/system/todotemp",
-                        exact:true,
-                    },
-                    {
-                        path: '/system/feature',
-                        component: Feature,
-                    },{
-                        path: '/system/role',
-                        component: SystemRole,
-                    },
-                    {
-                        path: '/system/projectfeature',
-                        component: ProjectFeature,
-                    },{
-                        path: '/system/projectrole',
-                        component: ProjectSystemRole,
-                    },
-                    {
-                        path: '/system/DomainProjectRole',
-                        component: DomainProjectRole,
-                    },
-                    {
-                        path: '/system/message',
-                        component: MessageManagement,
-                    },{
-                        path: '/system/messagetype',
-                        component: MessageType,
-                    },{
-                        path: '/system/user',
-                        component: UserMessage,
-                    },{
-                        path: '/system/messagesendtype',
-                        component: MessageSendType,
-                    },
-                    {
-                        path: '/system/messagetemplate',
-                        component: MessageTemplate,
-                    },
-                    {
-                        path: '/system/plugin',
-                        component: PluginList,
-                    },
-                    {
-                        path: '/system/widgetMangent',
-                        component: WidgetMangent,
-                    },
-                    {
-                        path: "/system",
-                        exact: true,
-                        render: ()=><Redirect to="/system/feature"/>
-                    },
-                ]
-            },
 
-        ],
-    },
-];
+const selectionRouter = () => {
+    const devRouter = [
+        {
+            path: "/logout",
+            exact: true,
+            component: Logout
+        },
+        {
+            component: Login,
+            exact:true,
+            path: '/login'
+        },
+        {
+            component: ElectronLoginPage,
+            exact:true,
+            path: '/account'
+        },
+        {
+            component: AuthResult,
+            exact:true,
+            path: '/auth_result'
+        },
+        {
+            component:InternalWechatEntry,
+            exact:true,
+            path: '/project'
+        },
+        {
+            component: layout,
+            key:'layout',
+            path: '/',
+            routes: [
+                {
+                    component: Work,
+                    path:"/work",
+                    exact:true,
+                },
+                {
+                    path:"/",
+                    exact:true,
+                    render:()=><Redirect to="/work"/>
+                },
+                {
+                    component: OrgaLayout,
+                    path: "/orga",
+                    routes:[
+                        {
+                            path: '/orga/dashbord',
+                            component: OrgaManagement,
+                        },{
+                            path: '/orga/user',
+                            component: UserManagement,
+                        },
 
-export default routes
+                        {
+                            path: '/orga/directory',
+                            component:PortalDirectory
+                        },
+                        {
+                            path: "/orga",
+                            exact: true,
+                            render: ()=><Redirect to="/orga/dashbord"/>
+                        },
+                    ]
+                },
+                {
+                    component: System,
+                    path: "/system",
+                    routes:[
+                        {
+                            component: LogListPage,
+                            path:"/system/logs",
+                            exact:true,
+                        },
+                        {
+                            component: MyLogListPage,
+                            path:"/system/mylog",
+                            exact:true,
+                        },
+                        {
+                            component: LogTemplateList,
+                            path:"/system/logtemplate",
+                            exact:true,
+                        },
+                        {
+                            component: TodoTaskPage,
+                            path:"/system/todotask",
+                            exact:true,
+                        },
+                        {
+                            component: MyTodoTaskPage,
+                            path:"/system/mytodotask",
+                            exact:true,
+                        },
+                        {
+                            component: TodoTempList,
+                            path:"/system/todotemp",
+                            exact:true,
+                        },
+
+                        {
+                            path: '/system/feature',
+                            component: Feature,
+                        },{
+                            path: '/system/role',
+                            component: SystemRole,
+                        },
+                        {
+                            path: '/system/project_feature',
+                            component: ProjectFeature,
+                        },{
+                            path: '/system/project_role',
+                            component: ProjectSystemRole,
+                        },
+                        {
+                            path: '/system/DomainProjectRole',
+                            component: DomainProjectRole,
+                        },
+                        {
+                            path: '/system/message',
+                            component: MessageManagement,
+                        },{
+                            path: '/system/messagetype',
+                            component: MessageType,
+                        },{
+                            path: '/system/user',
+                            component: UserMessage,
+                        },{
+                            path: '/system/messagesendtype',
+                            component: MessageSendType,
+                        },
+                        {
+                            path: '/system/messagetemplate',
+                            component: MessageTemplate,
+                        },
+                        {
+                            path: '/system/plugin',
+                            component: PluginList,
+                        },
+                        {
+                            path: '/system/widgetMangent',
+                            component: WidgetMangent,
+                        },
+                        {
+                            path: "/system",
+                            exact: true,
+                            render: ()=><Redirect to="/system/feature"/>
+                        },
+                    ]
+                },
+            ],
+        },
+    ];
+    const routes = [
+        {
+            path: "/logout",
+            exact: true,
+            component: Logout
+        },
+        {
+            component: Login,
+            exact:true,
+            path: '/login'
+        },
+        {
+            component: ElectronLoginPage,
+            exact:true,
+            path: '/account'
+        },
+        {
+            component: AuthResult,
+            exact:true,
+            path: '/auth_result'
+        },
+        {
+            component:InternalWechatEntry,
+            exact:true,
+            path: '/project'
+        },
+        {
+            component: layout,
+            key:'layout',
+            path: '/',
+            routes: [
+                {
+                    component: Work,
+                    path:"/work",
+                    exact:true,
+                },
+                {
+                    path:"/",
+                    exact:true,
+                    render:()=><Redirect to="/work"/>
+                },
+                {
+                    component: OrgaLayout,
+                    path: "/orga",
+                    routes:[
+                        {
+                            path: '/orga/dashbord',
+                            component: OrgaManagement,
+                        },{
+                            path: '/orga/user',
+                            component: UserManagement,
+                        },
+
+                        {
+                            path: '/orga/directory',
+                            component:PortalDirectory
+                        },
+                        {
+                            path: "/orga",
+                            exact: true,
+                            render: ()=><Redirect to="/orga/dashbord"/>
+                        },
+                    ]
+                },
+                {
+                    component: System,
+                    path: "/system",
+                    routes:[
+                        {
+                            component: LogListPage,
+                            path:"/system/logs",
+                            exact:true,
+                        },
+                        {
+                            component: MyLogListPage,
+                            path:"/system/mylog",
+                            exact:true,
+                        },
+                        {
+                            component: LogTemplateList,
+                            path:"/system/logtemplate",
+                            exact:true,
+                        },
+                        {
+                            component: TodoTaskPage,
+                            path:"/system/todotask",
+                            exact:true,
+                        },
+                        {
+                            component: MyTodoTaskPage,
+                            path:"/system/mytodotask",
+                            exact:true,
+                        },
+                        {
+                            component: TodoTempList,
+                            path:"/system/todotemp",
+                            exact:true,
+                        },
+                        {
+                            path: '/system/project_feature',
+                            component: ProjectFeature,
+                        },{
+                            path: '/system/project_role',
+                            component: ProjectSystemRole,
+                        },
+                        {
+                            path: '/system/DomainProjectRole',
+                            component: DomainProjectRole,
+                        },
+                        {
+                            path: '/system/message',
+                            component: MessageManagement,
+                        },{
+                            path: '/system/messagetype',
+                            component: MessageType,
+                        },{
+                            path: '/system/user',
+                            component: UserMessage,
+                        },{
+                            path: '/system/messagesendtype',
+                            component: MessageSendType,
+                        },
+                        {
+                            path: '/system/messagetemplate',
+                            component: MessageTemplate,
+                        },
+                        {
+                            path: '/system/plugin',
+                            component: PluginList,
+                        },
+                        {
+                            path: '/system/widgetMangent',
+                            component: WidgetMangent,
+                        },
+                        {
+                            path: "/system",
+                            exact: true,
+                            render: ()=><Redirect to="/system/project_feature"/>
+                        },
+                    ]
+                },
+            ],
+        },
+    ];
+
+    return dev_production ? devRouter : routes
+}
+export default selectionRouter()

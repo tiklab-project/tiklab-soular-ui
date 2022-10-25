@@ -8,7 +8,6 @@ import {onSystemMenu, systemMenuData} from "../../../utils/staticConfig";
 
 
 const links = [
-
     {
         key:'1-1',
         router:`/system/feature`,
@@ -16,6 +15,14 @@ const links = [
     {
         key:'1-2',
         router:`/system/role`,
+    },
+    {
+        key:'1-3',
+        router:`/system/project_feature`,
+    },
+    {
+        key:'1-4',
+        router:`/system/project_role`,
     },
     {
         key:'2',

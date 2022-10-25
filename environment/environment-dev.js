@@ -22,6 +22,7 @@ const webpackGlobal = {
 
     acc_url: JSON.stringify('http://portal-ce.local.doublekit.net'),
     mobile: JSON.stringify('http://portal.mlocal.doublekit.net'),
+    dev_production: true
 }
 
 module.exports =  {
