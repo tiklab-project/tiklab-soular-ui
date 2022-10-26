@@ -175,50 +175,6 @@
         }
       }
 
-      &_main {
-        margin-bottom: 4px;
-      }
-      &_message {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding: 16px 16px 15px;
-        border-bottom: 1px solid #e5e5e5;
-        cursor: pointer;
-        &:hover{
-          background: #f7f7f7;
-        }
-        &_title {
-          color: #a6a6a6;
-          font-size: 14px;
-          margin-left: 10px;
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          line-height: 20px;
-        }
-
-        &_body{
-          margin-left: 10px;
-        }
-        &_summary{
-          color: #a6a6a6;
-          font-size: 14px;
-          max-height: 100px;
-          overflow: hidden;
-          line-height: 20px;
-          word-break: break-word;
-          margin-bottom: 0;
-        }
-        &_time{
-          display: block;
-          margin-top: 4px;
-          color: #a6a6a6;
-          font-size: 12px;
-          height: 20px;
-          line-height: 20px;
-        }
-      }
     }
   }
 }
