@@ -4,81 +4,73 @@ import {renderRoutes} from 'react-router-config';
 import {MenuList} from 'tiklab-privilege-ui';
 import {SYSTEM_ROLE_STORE} from 'tiklab-privilege-ui/es/store';
 
-import {onSystemMenu, systemMenuData} from "../../../utils/staticConfig";
+import {onSettingMenu, settingMenuData} from "../../../utils/staticConfig";
 
 
 const links = [
     {
         key:'1-1',
-        router:`/system/feature`,
+        router:`/setting/orga`,
     },
     {
         key:'1-2',
-        router:`/system/role`,
+        router:`/setting/user`,
     },
     {
         key:'1-3',
-        router:`/system/project_feature`,
-    },
-    {
-        key:'1-4',
-        router:`/system/project_role`,
+        router:`/setting/dir`,
     },
     {
         key:'2',
-        router:`/setting/subscribe`,
+        router:`/setting/permission`,
     },
     {
-        key:'3-1',
-        router:`/system/message`,
-    },
-    {
-        key:'3-2',
-        router:`/system/messagetype`,
-    },
-    {
-        key:'3-3',
-        router:`/system/messagesendtype`,
-    },
-    {
-        key:'3-4',
-        router:`/system/messagetemplate`,
+        key:'3',
+        router:`/setting/message`,
     },
     {
         key:'4',
-        router:`/system/plugin`,
+        router:`/setting/todotask`,
     },
     {
-        key:'5-1',
-        router:`/system/todotask`,
+        key:'5',
+        router:`/setting/plugin`,
     },
     {
-        key:'5-2',
-        router:`/system/mytodotask`,
+        key:'6-1',
+        router:`/setting/log`,
     },
     {
-        key:'5-3',
-        router:`/system/todotemp`,
-    },
-    {
-        key:'6',
-        router:`/system/widgetMangent`,
+        key:'7',
+        router:`/setting/version`,
     },
     {
         key:'8-1',
-        router: "/system/logs"
+        router:`/setting/todotemplate`,
     },
     {
         key:'8-2',
-        router: "/system/mylog"
+        router:`/setting/oplogtemplate`,
     },
     {
         key:'8-3',
-        router: "/system/logtemplate"
+        router:`/setting/systemfeature`,
+    },
+    {
+        key:'8-4',
+        router:`/setting/projectfeature`,
+    },
+    {
+        key:'8-5',
+        router:`/setting/messagesendtype`,
+    },
+    {
+        key:'8-6',
+        router: "/setting/messagetype"
     },
 ];
 
-const System = ({history, route, systemRoleStore}) => {
+const SettingLayout = ({history, route, systemRoleStore}) => {
     const [menuKeys,setMenuKeys] = useState({selectedKeys:['1-1'], openKeys:['1']});
 
     useEffect(() => {
@@ -97,19 +89,18 @@ const System = ({history, route, systemRoleStore}) => {
 
     const onSelectMenu = e => {
         const key = e.key;
-        onSystemMenu(history, key)
+        onSettingMenu(history, key)
     }
 
     return (
         <div style={{    display: 'flex',height: '100%'}}>
             <MenuList
-                data={systemMenuData}
+                data={settingMenuData}
                 onSelectMenu={onSelectMenu}
                 defaultSelectedKeys={menuKeys.selectedKeys}
                 defaultOpenKeys={menuKeys.openKeys}
                 selectedKeys={menuKeys.selectedKeys}
                 openKeys={menuKeys.openKeys}
-
                 allPromise={systemRoleStore.systemPermissions}
             />
             <div style={{width:'100%'}}>
@@ -119,4 +110,4 @@ const System = ({history, route, systemRoleStore}) => {
         </div>
     )
 }
-export default inject(SYSTEM_ROLE_STORE)(observer(System));
+export default inject(SYSTEM_ROLE_STORE)(observer(SettingLayout));

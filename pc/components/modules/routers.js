@@ -9,50 +9,47 @@ import {LogTemplateList} from "tiklab-oplog-ui";
 
 const layout = SyncComponent(() => import('./layout/layout'));
 
-// 设置模块
+// 设置layout
+const SettingLayout = SyncComponent(()=> import('./setting/contains'));
+//部门
+const OrgaManagement = SyncComponent(() => import('./setting/orga/orgaManagement/orgaManagement'));
+// 用户
+const UserManagement = SyncComponent(() => import('./setting/orga/userManagement/userManagement'));
+// 用户目录
+const PortalDirectory = SyncComponent(() => import('./setting/orga/directory/portalDirectory'));
+// 权限
+const SystemRole = SyncComponent(() => import('./setting/systemRole/systemRole'));
+// 消息通知
+const MessageManagement = SyncComponent(() => import('./setting/message/management'));
+// 待办任务
+const TodoTaskPage = SyncComponent(() =>import('./setting/todotask/todoTask'))
+// 插件
+const PluginList = SyncComponent(() => import('./setting/plugin'))
+// 操作日志
+const LogListPage = SyncComponent(()=> import('./setting/oplog/logList'))
+// 版本与许可证
+const Version = SyncComponent(()=> import('./setting/oplog/logList'))
 
-const PluginList = SyncComponent(() => import('./system/plugin'))
+// 基础数据
+// 待办模板
+const TodoTemplate = SyncComponent(()=> import('./setting/todotask/todoTemp'));
+//系统功能点
+const SystemFeature = SyncComponent(() => import('./setting/feature/feature'));
+//项目功能点
+const ProjectFeature = SyncComponent(() => import('./setting/projectFeature/projectFeature'));
+// 消息模板
+const MessageTemplatePage = SyncComponent(() => import('./setting/message/messageTemplate'));
+// 消息发送方式
+const MessageSendType = SyncComponent(() => import('./setting/message/messageSendType'));
+// 消息类型
+const MessageType = SyncComponent(() => import('./setting/message/messageType'));
+
 
 const Work = SyncComponent(() => import('./work/work'))
 const Login = SyncComponent(() => import('./login/login'))
 
-
-
-// 组织模块
-const OrgaLayout = SyncComponent(() => import('./orga/contains'));
-const OrgaManagement = SyncComponent(() => import('./orga/orgaManagement/orgaManagement'));
-const UserManagement = SyncComponent(() => import('./orga/userManagement/userManagement'));
-
-const PortalDirectory = SyncComponent(() => import('./orga/directory/portalDirectory'));
-
-// 系统管理f
-const System = SyncComponent(()=>import('./system/contains'))
-// 权限模块
-const ProjectFeature = SyncComponent(() => import('./system/projectFeature/projectFeature'));
-const Feature = SyncComponent(() => import('./system/feature/feature'));
-const DomainProjectRole = SyncComponent(() => import('./system/domainProjectRole/domainProjectRole'));
-const ProjectSystemRole = SyncComponent(() => import('./system/projectSystemRole/projectSystemRole'));
-const SystemRole = SyncComponent(() => import('./system/systemRole/systemRole'));
-
-//消息模块
-const MessageManagement = SyncComponent(() => import('./system/management/management'));
-const MessageType = SyncComponent(() => import('./system/messageType/messageType'));
-const UserMessage = SyncComponent(() => import('./system/userMessage/userMessage'));
-const MessageSendType = SyncComponent(() => import('./system/sendType/sendType'));
-const MessageTemplate = SyncComponent(() => import('./system/template/template'));
-
-
 // widgiet的管理
 const WidgetMangent = SyncComponent(() =>import('./widgets/widgetMangent'))
-
-// 待办
-const TodoTaskPage = SyncComponent(() =>import('./todotask/todoTask'))
-const MyTodoTaskPage = SyncComponent(() =>import('./todotask/myTodoTask'))
-
-// 日志
-const LogListPage = SyncComponent(()=> import('./oplog/logList'))
-const MyLogListPage = SyncComponent(()=> import('./oplog/mylog'))
-
 
 
 const selectionRouter = () => {
@@ -98,110 +95,93 @@ const selectionRouter = () => {
                     render:()=><Redirect to="/work"/>
                 },
                 {
-                    component: OrgaLayout,
-                    path: "/orga",
+                    component: SettingLayout,
+                    path: "/setting",
                     routes:[
                         {
-                            path: '/orga/dashbord',
                             component: OrgaManagement,
-                        },{
-                            path: '/orga/user',
+                            path:"/setting/orga",
+                            exact:true,
+                        },
+                        {
                             component: UserManagement,
-                        },
-
-                        {
-                            path: '/orga/directory',
-                            component:PortalDirectory
-                        },
-                        {
-                            path: "/orga",
-                            exact: true,
-                            render: ()=><Redirect to="/orga/dashbord"/>
-                        },
-                    ]
-                },
-                {
-                    component: System,
-                    path: "/system",
-                    routes:[
-                        {
-                            component: LogListPage,
-                            path:"/system/logs",
+                            path:"/setting/user",
                             exact:true,
                         },
                         {
-                            component: MyLogListPage,
-                            path:"/system/mylog",
+                            component: PortalDirectory,
+                            path:"/setting/dir",
                             exact:true,
                         },
                         {
-                            component: LogTemplateList,
-                            path:"/system/logtemplate",
+                            component: SystemRole,
+                            path:"/setting/permission",
+                            exact:true,
+                        },
+                        {
+                            component: MessageManagement,
+                            path:"/setting/message",
                             exact:true,
                         },
                         {
                             component: TodoTaskPage,
-                            path:"/system/todotask",
+                            path:"/setting/todotask",
                             exact:true,
                         },
                         {
-                            component: MyTodoTaskPage,
-                            path:"/system/mytodotask",
-                            exact:true,
-                        },
-                        {
-                            component: TodoTempList,
-                            path:"/system/todotemp",
-                            exact:true,
-                        },
-
-                        {
-                            path: '/system/feature',
-                            component: Feature,
-                        },{
-                            path: '/system/role',
-                            component: SystemRole,
-                        },
-                        {
-                            path: '/system/project_feature',
-                            component: ProjectFeature,
-                        },{
-                            path: '/system/project_role',
-                            component: ProjectSystemRole,
-                        },
-                        {
-                            path: '/system/DomainProjectRole',
-                            component: DomainProjectRole,
-                        },
-                        {
-                            path: '/system/message',
-                            component: MessageManagement,
-                        },{
-                            path: '/system/messagetype',
-                            component: MessageType,
-                        },{
-                            path: '/system/user',
-                            component: UserMessage,
-                        },{
-                            path: '/system/messagesendtype',
-                            component: MessageSendType,
-                        },
-                        {
-                            path: '/system/messagetemplate',
-                            component: MessageTemplate,
-                        },
-                        {
-                            path: '/system/plugin',
                             component: PluginList,
+                            path:"/setting/plugin",
+                            exact:true,
                         },
                         {
-                            path: '/system/widgetMangent',
-                            component: WidgetMangent,
+                            component: LogListPage,
+                            path:"/setting/log",
+                            exact:true,
                         },
                         {
-                            path: "/system",
+                            component: Version,
+                            path:"/setting/version",
+                            exact:true,
+                        },
+                        {
+                            component: TodoTemplate,
+                            path:"/setting/todotemplate",
+                            exact:true,
+                        },
+                        {
+                            component: LogTemplateList,
+                            path:"/setting/oplogtemplate",
+                            exact:true,
+                        },
+                        {
+                            component: SystemFeature,
+                            path:"/setting/systemfeature",
+                            exact:true,
+                        },
+                        {
+                            component: ProjectFeature,
+                            path:"/setting/projectfeature",
+                            exact:true,
+                        },
+                        {
+                            component: MessageTemplatePage,
+                            path:"/setting/messagetemplate",
+                            exact:true,
+                        },
+                        {
+                            component: MessageSendType,
+                            path:"/setting/messagesendtype",
+                            exact:true,
+                        },
+                        {
+                            component: MessageType,
+                            path:"/setting/messagetype",
+                            exact:true,
+                        },
+                        {
+                            path: "/setting",
                             exact: true,
-                            render: ()=><Redirect to="/system/feature"/>
+                            render: ()=><Redirect to="/setting/orga"/>
                         },
                     ]
                 },
@@ -250,102 +230,59 @@ const selectionRouter = () => {
                     render:()=><Redirect to="/work"/>
                 },
                 {
-                    component: OrgaLayout,
-                    path: "/orga",
+                    component: SettingLayout,
+                    path: "/setting",
                     routes:[
                         {
-                            path: '/orga/dashbord',
                             component: OrgaManagement,
-                        },{
-                            path: '/orga/user',
+                            path:"/setting/orga",
+                            exact:true,
+                        },
+                        {
                             component: UserManagement,
-                        },
-
-                        {
-                            path: '/orga/directory',
-                            component:PortalDirectory
-                        },
-                        {
-                            path: "/orga",
-                            exact: true,
-                            render: ()=><Redirect to="/orga/dashbord"/>
-                        },
-                    ]
-                },
-                {
-                    component: System,
-                    path: "/system",
-                    routes:[
-                        {
-                            component: LogListPage,
-                            path:"/system/logs",
+                            path:"/setting/user",
                             exact:true,
                         },
                         {
-                            component: MyLogListPage,
-                            path:"/system/mylog",
+                            component: PortalDirectory,
+                            path:"/setting/dir",
                             exact:true,
                         },
                         {
-                            component: LogTemplateList,
-                            path:"/system/logtemplate",
+                            component: SystemRole,
+                            path:"/setting/permission",
+                            exact:true,
+                        },
+                        {
+                            component: MessageManagement,
+                            path:"/setting/message",
                             exact:true,
                         },
                         {
                             component: TodoTaskPage,
-                            path:"/system/todotask",
+                            path:"/setting/todotask",
                             exact:true,
                         },
                         {
-                            component: MyTodoTaskPage,
-                            path:"/system/mytodotask",
-                            exact:true,
-                        },
-                        {
-                            component: TodoTempList,
-                            path:"/system/todotemp",
-                            exact:true,
-                        },
-                        {
-                            path: '/system/project_feature',
-                            component: ProjectFeature,
-                        },{
-                            path: '/system/project_role',
-                            component: ProjectSystemRole,
-                        },
-                        {
-                            path: '/system/DomainProjectRole',
-                            component: DomainProjectRole,
-                        },
-                        {
-                            path: '/system/message',
-                            component: MessageManagement,
-                        },{
-                            path: '/system/messagetype',
-                            component: MessageType,
-                        },{
-                            path: '/system/user',
-                            component: UserMessage,
-                        },{
-                            path: '/system/messagesendtype',
-                            component: MessageSendType,
-                        },
-                        {
-                            path: '/system/messagetemplate',
-                            component: MessageTemplate,
-                        },
-                        {
-                            path: '/system/plugin',
                             component: PluginList,
+                            path:"/setting/plugin",
+                            exact:true,
                         },
                         {
-                            path: '/system/widgetMangent',
-                            component: WidgetMangent,
+                            component: LogListPage,
+                            path:"/setting/log",
+                            exact:true,
                         },
                         {
-                            path: "/system",
+                            component: Version,
+                            path:"/setting/version",
+                            exact:true,
+                        },
+
+                        {
+                            path: "/setting",
                             exact: true,
-                            render: ()=><Redirect to="/system/project_feature"/>
+                            render: ()=><Redirect to="/setting/orga"/>
                         },
                     ]
                 },

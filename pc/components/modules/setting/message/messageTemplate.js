@@ -9,9 +9,9 @@ import React from 'react';
 import {MessageTemplate} from "tiklab-message-ui";
 
 
-const Template = props => {
+const MessageTemplatePage = props => {
     return(
         <MessageTemplate {...props} />
     )
 }
-export default Template
+export default MessageTemplatePage

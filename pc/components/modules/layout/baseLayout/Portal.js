@@ -5,7 +5,7 @@
  */
 import React, {useState} from 'react';
 import {Space, Tooltip} from "antd";
-import {GlobalOutlined, SettingOutlined} from "@ant-design/icons";
+import {GlobalOutlined, SettingOutlined, QuestionCircleOutlined} from "@ant-design/icons";
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
 import {verifyUserHoc, WorkAppConfig, Profile} from 'tiklab-eam-ui'
@@ -30,17 +30,18 @@ const Portal = props => {
     const [visibility,setVisibility] = useState(false);
     const [profileVisibility,setProfileVisibility] = useState(false);
 
+    const [helpVisibility,setHelpVisibility] = useState(false)
     const homeRouter = [
         {
             to:'/work',
             title:'工作台',
             key: '/work'
         },
-        {
-            to:'/orga',
-            title:'帐号与成员',
-            key: 'org'
-        }
+        // {
+        //     to:'/orga',
+        //     title:'帐号与成员',
+        //     key: 'org'
+        // }
     ]
 
     const changeCurrentLink = item => {
@@ -82,7 +83,34 @@ const Portal = props => {
                 </Space>
                 <div className={styles.layout_header_right}>
                     <Space size={'large'}>
-                        <img src={vipImg} height={30} width={30} alt={'vip'} style={{borderRadius:"50%"}}/>
+                        {/*<img src={vipImg} height={30} width={30} alt={'vip'} style={{borderRadius:"50%"}}/>*/}
+                        <Tooltip title={"设置"} mouseEnterDelay={0.3}>
+                            <span className={styles.layout_header_right_icon}>
+                                <SettingOutlined
+                                    onClick={
+                                        () => changeCurrentLink({to:'/setting',})
+                                    }
+                                />
+                            </span>
+                        </Tooltip>
+
+                        <Notification/>
+
+
+                        <PortalMenu
+                            tooltip={'帮助与支持'}
+                            visibility={helpVisibility}
+                            Icon={<QuestionCircleOutlined />}
+                            width={240}
+                        >
+                            <>
+                                <div className={styles.layout_header_right_portal_item} >文档</div>
+                                <div className={styles.layout_header_right_portal_item} >社区支持</div>
+                                <div className={styles.layout_header_right_portal_item} >在线工单</div>
+                                <div className={styles.layout_header_right_portal_item} >在线客服</div>
+                            </>
+                        </PortalMenu>
+
                         <PortalMenu
                             tooltip={'国际化'}
                             visibility={visibility}
@@ -100,17 +128,6 @@ const Portal = props => {
                             </>
                         </PortalMenu>
 
-                        <Notification/>
-
-                        <Tooltip title={"设置"} mouseEnterDelay={0.3}>
-                            <span className={styles.layout_header_right_icon}>
-                                <SettingOutlined
-                                    onClick={
-                                        () => changeCurrentLink({to:'/system',})
-                                    }
-                                />
-                            </span>
-                        </Tooltip>
                         <PortalMenu
                             tooltip={'profile'}
                             visibility={profileVisibility}

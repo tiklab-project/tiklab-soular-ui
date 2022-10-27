@@ -9,10 +9,10 @@ import React from 'react';
 import {MessageSendType} from "tiklab-message-ui";
 
 
-const SendType = props => {
+const MessageSendTypePage = props => {
 
     return(
         <MessageSendType {...props} />
     )
 }
-export default SendType
+export default MessageSendTypePage
