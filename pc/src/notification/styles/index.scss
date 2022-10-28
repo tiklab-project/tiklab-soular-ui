@@ -5,17 +5,23 @@
     //margin-bottom: 4px;
     overflow: auto;
     height: 100%;
+    padding-bottom: 24px;
+
+    .ant-list-item{
+      padding: 0;
+    }
   }
   &_message {
     display: flex;
     flex-direction: column;
     width: 100%;
     padding: 16px 16px 15px;
-    border-bottom: 1px solid #e5e5e5;
+    //border-bottom: 1px solid #e5e5e5;
     cursor: pointer;
     &:hover{
       background: #f7f7f7;
     }
+
     &_title {
       color: #a6a6a6;
       font-size: 14px;

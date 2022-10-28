@@ -5,23 +5,20 @@
  * @description index
  */
 import React, {useState, memo, useEffect} from "react";
-import {Badge, Drawer, Select, Tooltip,Divider, Skeleton} from "antd";
+import {Badge, Drawer, Select, Tooltip, Divider, Skeleton, List, Button} from "antd";
 import {Axios, getUser} from "tiklab-core-ui";
 
-import InfiniteScroll from 'react-infinite-scroll-component';
 import {BellOutlined} from "@ant-design/icons";
 import './styles/index';
 
 const { Option } = Select;
 const Notification = memo(({}) => {
-    const [message,setMessage] = useState({
-        list:[],
-        total:0
-    })
+    const [message,setMessage] = useState([]);
     const [notificationVisibility,setNotificationVisibility] = useState(false);
     const [pageSize,] = useState(30);
     const [page,setPage] = useState(1);
     const [loading, setLoading] = useState(false);
+    const [total,setTotal] = useState(0);
 
     useEffect(() => {
         if (getUser().userId) {
@@ -47,11 +44,9 @@ const Notification = memo(({}) => {
         setLoading(true);
         Axios.post('/message/messageDispatchItem/findMessageDispatchItemPage', params).then(res => {
             if (res.code === 0) {
-                const messageList = [...message.list, ...res.data.dataList];
-                setMessage({
-                    list:messageList,
-                    total: res.data.totalRecord
-                });
+                const messageList = [...message, ...res.data.dataList];
+                setMessage(messageList);
+                setTotal(res.data.totalRecord)
                 setLoading(false);
                 setPage(current);
             } else {
@@ -67,10 +62,43 @@ const Notification = memo(({}) => {
     const onClose = () => {
         setNotificationVisibility(false);
     };
+
+
+    const onLoadMore = async () => {
+        setLoading(true);
+        const dataParams = {
+            sendType: 'site',
+            receiver: getUser().userId,
+            pageParam:{
+                pageSize:pageSize,
+                currentPage:page +1
+            }
+        }
+        const res =  await Axios.post('/message/messageDispatchItem/findMessageDispatchItemPage', dataParams);
+        if (res.code === 0 ) {
+            const data = [...message,...res.data.dataList];
+            setMessage(data)
+            setPage(page +1);
+            setLoading(false)
+        }
+    }
+    const loadMore =
+        total > message.length && !loading ? (
+            <div
+                style={{
+                    textAlign: 'center',
+                    marginTop: 12,
+                    height: 32,
+                    lineHeight: '32px',
+                }}
+            >
+                <Button onClick={onLoadMore}>加载更多</Button>
+            </div>
+        ) : null;
     return(
         <>
             <Tooltip title={"通知"} mouseEnterDelay={0.3}>
-                <Badge count={message.total}><BellOutlined style={{fontSize:24}} onClick={showDrawer}/></Badge>
+                <Badge count={total}><BellOutlined style={{fontSize:24}} onClick={showDrawer}/></Badge>
             </Tooltip>
             <Drawer
                 placement="right"
@@ -94,36 +122,31 @@ const Notification = memo(({}) => {
                 className={'as'}
             >
                 <div className={'tiklab_notification_main'} id="NotificationDiv">
-                    <InfiniteScroll
-                        dataLength={message.list.length}
-                        next={()=>getMySiteMessage(page+1)}
-                        hasMore={message.list.length < message.total}
-                        loader={<Skeleton paragraph={{ rows: 2 }} active />}
-                        endMessage={<Divider plain>没有数据 🤐</Divider>}
-                        scrollableTarget="NotificationDiv"
-                    >
-                        {
-                            message.list.map(item => {
-                                let jsonData = {
-                                    title:item.messageTemplate.title,
-                                    status:item.status,
-                                    receiveTime:item.receiveTime,
-                                    content: item.messageTemplate.content,
-                                }
-                                return(
-                                    <div className={'tiklab_notification_message'} key={item.id}>
-                                        <div className={'tiklab_notification_message_title'}>
-                                            <span>{jsonData.title}</span>
-                                        </div>
-                                        <div className={'tiklab_notification_message_body'}>
-                                            <p className={'tiklab_notification_message_summary'}>{jsonData.content}</p>
-                                            <div className={'tiklab_notification_message_time'}>{jsonData.receiveTime}</div>
-                                        </div>
+                    <List
+                        loadMore={loadMore}
+                        dataSource={message}
+                        renderItem={(item => {
+                            let jsonData = {
+                                title:item.messageTemplate.title,
+                                status:item.status,
+                                receiveTime:item.receiveTime,
+                                content: item.messageTemplate.content,
+                            }
+
+                            return <List.Item
+                            >
+                                <div className={'tiklab_notification_message'} key={item.id}>
+                                    <div className={'tiklab_notification_message_title'}>
+                                        <span>{jsonData.title}</span>
                                     </div>
-                                )
-                            })
-                        }
-                    </InfiniteScroll>
+                                    <div className={'tiklab_notification_message_body'}>
+                                        <p className={'tiklab_notification_message_summary'}>{jsonData.content}</p>
+                                        <div className={'tiklab_notification_message_time'}>{jsonData.receiveTime}</div>
+                                    </div>
+                                </div>
+                            </List.Item>
+                        })}
+                    />
                 </div>
             </Drawer>
         </>
