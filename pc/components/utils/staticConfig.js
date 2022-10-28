@@ -30,73 +30,88 @@ const selectionSettingMenuData = () => {
         },
         {
             id:'3',
-            title: '消息通知',
+            title: '项目权限',
             icon :<AppstoreOutlined />,
         },
         {
             id:'4',
-            title: '待办任务',
+            title: '消息通知',
             icon :<AppstoreOutlined />,
         },
         {
             id:'5',
-            key:'5',
-            title: '插件',
-            icon :<SettingOutlined />,
+            title: '待办任务',
+            icon :<AppstoreOutlined />,
         },
         {
             id:'6',
             key:'6',
+            title: '插件',
+            icon :<SettingOutlined />,
+        },
+        {
+            id:'7',
+            key:'7',
             title: '安全',
             icon :<SettingOutlined />,
             children:[{
-                id:'6-1',
+                id:'7-1',
                 title: '操作日志',
                 purviewCode:'oplog_list',
                 icon :<AppstoreOutlined />,
             }]
         },
         {
-            id:'7',
-            key:'7',
+            id:'8',
+            key:'8',
             title: '版本与许可证',
             icon :<SettingOutlined />,
         },
         {
-            id:'8',
+            id:'9',
             title: '基础数据',
             icon :<AppstoreOutlined />,
             children:[{
-                id:'8-1',
+                id:'9-1',
                 title: '待办模板',
                 icon :<AppstoreOutlined />,
             },{
-                id:'8-2',
+                id:'9-2',
                 title: '日志模板',
                 icon :<AppstoreOutlined />,
             },
             {
-                id:'8-3',
-                title: '系统功能点',
+                id:'9-3',
+                title: '系统功能',
                 icon :<AppstoreOutlined />,
             },
             {
-                id:'8-4',
-                title: '项目功能点',
+                id:'9-4',
+                title: '系统权限',
                 icon :<AppstoreOutlined />,
             },
             {
-                id:'8-5',
+                id:'9-5',
+                title: '项目功能',
+                icon :<AppstoreOutlined />,
+            },
+            {
+                id:'9-6',
+                title: '项目权限',
+                icon :<AppstoreOutlined />,
+            },
+            {
+                id:'9-7',
                 title: '消息模板',
                 icon :<AppstoreOutlined />,
             },
             {
-                id:'8-6',
+                id:'9-8',
                 title: '消息发送方式',
                 icon :<AppstoreOutlined />,
             },
             {
-                id:'8-8',
+                id:'9-9',
                 title: '消息类型',
                 icon :<AppstoreOutlined />,
             }
@@ -107,7 +122,6 @@ const selectionSettingMenuData = () => {
         {
             id:'1',
             title: '成员与部门',
-            purviewCode:'sys_permission',
             icon :<AppstoreOutlined />,
             children:[{
                 id:'1-1',
@@ -117,61 +131,58 @@ const selectionSettingMenuData = () => {
             },{
                 id:'1-2',
                 title: '用户',
-                purviewCode:'sys_user',
                 icon :<AppstoreOutlined />,
             },
                 {
                     id:'1-3',
                     title: '用户目录',
-                    purviewCode:'sys_directory',
                     icon :<AppstoreOutlined />,
                 }]
         },
         {
             id:'2',
             title: '权限',
-            purviewCode:'sys_permission',
             icon :<AppstoreOutlined />,
         },
         {
             id:'3',
-            title: '消息通知',
-            purviewCode:'sys_message_center',
+            title: '项目权限',
             icon :<AppstoreOutlined />,
         },
         {
             id:'4',
-            title: '待办任务',
-            purviewCode:'todo_list',
+            title: '消息通知',
             icon :<AppstoreOutlined />,
         },
         {
             id:'5',
-            key:'5',
-            purviewCode:'plugin',
-            title: '插件',
-            icon :<SettingOutlined />,
+            title: '待办任务',
+            icon :<AppstoreOutlined />,
         },
         {
             id:'6',
             key:'6',
-            purviewCode:'widget',
+            title: '插件',
+            icon :<SettingOutlined />,
+        },
+        {
+            id:'7',
+            key:'7',
             title: '安全',
             icon :<SettingOutlined />,
             children:[{
-                id:'8-1',
+                id:'7-1',
                 title: '操作日志',
                 purviewCode:'oplog_list',
                 icon :<AppstoreOutlined />,
             }]
         },
         {
-            id:'7',
-            key:'7',
-            purviewCode:'licence',
+            id:'8',
+            key:'8',
             title: '版本与许可证',
             icon :<SettingOutlined />,
-        },
+        }
     ];
     return dev_production ? devMenu : prodMenu
 }
@@ -194,37 +205,49 @@ const onSettingMenu = (history, key) => {
                 history.push('/setting/permission')
                 break;
             case '3':
-                history.push('/setting/message')
+                history.push('/setting/project/permission')
                 break;
             case '4':
-                history.push('/setting/todotask')
+                history.push('/setting/message')
                 break;
             case '5':
+                history.push('/setting/todotask')
+                break;
+            case '6':
                 history.push('/setting/plugin')
                 break;
-            case '6-1':
+            case '7-1':
                 history.push('/setting/log')
                 break;
-            case '7':
+            case '8':
                 history.push('/setting/version')
                 break;
-            case '8-1':
-                history.push('/setting/todotemplate')
+            case '9-1':
+                history.push('/setting/base/todotemplate')
                 break;
-            case '8-2':
-                history.push('/setting/oplogtemplate')
+            case '9-2':
+                history.push('/setting/base/oplogtemplate')
                 break;
-            case '8-3':
-                history.push('/setting/systemfeature')
+            case '9-3':
+                history.push('/setting/base/systemfeature')
                 break;
-            case '8-4':
-                history.push('/setting/projectfeature')
+            case '9-4':
+                history.push('/setting/base/systemrole')
                 break;
-            case '8-5':
-                history.push('/setting/messagesendtype')
+            case '9-5':
+                history.push('/setting/base/projectfeature')
                 break;
-            case '8-6':
-                history.push('/setting/messagetype')
+            case '9-6':
+                history.push('/setting/base/projectrole')
+                break;
+            case '9-7':
+                history.push('/setting/base/messagetemplate')
+                break;
+            case '9-8':
+                history.push('/setting/base/messagesendtype')
+                break;
+            case '9-9':
+                history.push('/setting/base/messagetype')
                 break;
         }
     } else {
@@ -242,18 +265,21 @@ const onSettingMenu = (history, key) => {
                 history.push('/setting/permission')
                 break;
             case '3':
-                history.push('/setting/message')
+                history.push('/setting/project/permission')
                 break;
             case '4':
-                history.push('/setting/todotask')
+                history.push('/setting/message')
                 break;
             case '5':
+                history.push('/setting/todotask')
+                break;
+            case '6':
                 history.push('/setting/plugin')
                 break;
-            case '6-1':
+            case '7-1':
                 history.push('/setting/log')
                 break;
-            case '7':
+            case '8':
                 history.push('/setting/version')
                 break;
         }

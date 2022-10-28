@@ -4,8 +4,8 @@ import {InternalWechatEntry, Logout, AuthResult} from 'tiklab-eam-ui'
 
 import SyncComponent from '../lazy/SyncComponent';
 import ElectronLoginPage from "./login/electornLogin";
-import {TodoTempList} from "tiklab-todotask-ui";
 import {LogTemplateList} from "tiklab-oplog-ui";
+import {Version} from 'tiklab-licence-ui'
 
 const layout = SyncComponent(() => import('./layout/layout'));
 
@@ -19,6 +19,8 @@ const UserManagement = SyncComponent(() => import('./setting/orga/userManagement
 const PortalDirectory = SyncComponent(() => import('./setting/orga/directory/portalDirectory'));
 // 权限
 const SystemRole = SyncComponent(() => import('./setting/systemRole/systemRole'));
+// 项目权限
+const ProjectRole = SyncComponent(() => import('./setting/projectSystemRole/projectSystemRole'));
 // 消息通知
 const MessageManagement = SyncComponent(() => import('./setting/message/management'));
 // 待办任务
@@ -28,15 +30,18 @@ const PluginList = SyncComponent(() => import('./setting/plugin'))
 // 操作日志
 const LogListPage = SyncComponent(()=> import('./setting/oplog/logList'))
 // 版本与许可证
-const Version = SyncComponent(()=> import('./setting/oplog/logList'))
+// const Version = SyncComponent(()=> import('./setting/oplog/logList'))
 
 // 基础数据
 // 待办模板
 const TodoTemplate = SyncComponent(()=> import('./setting/todotask/todoTemp'));
-//系统功能点
-const SystemFeature = SyncComponent(() => import('./setting/feature/feature'));
+//系统功能
+const BaseSystemFeature = SyncComponent(() => import('./setting/base/privilege/baseSystemFeature'));
+const BaseSystemRole = SyncComponent(() => import('./setting/base/privilege/baseSystemRole'));
 //项目功能点
-const ProjectFeature = SyncComponent(() => import('./setting/projectFeature/projectFeature'));
+const BaseProjectFeature = SyncComponent(() => import('./setting/base/privilege/baseProjectFeature'));
+const BaseProjectRole = SyncComponent(() => import('./setting/base/privilege/baseProjectRole'));
+
 // 消息模板
 const MessageTemplatePage = SyncComponent(() => import('./setting/message/messageTemplate'));
 // 消息发送方式
@@ -119,6 +124,11 @@ const selectionRouter = () => {
                             exact:true,
                         },
                         {
+                            component: ProjectRole,
+                            path:"/setting/project/permission",
+                            exact:true,
+                        },
+                        {
                             component: MessageManagement,
                             path:"/setting/message",
                             exact:true,
@@ -145,37 +155,47 @@ const selectionRouter = () => {
                         },
                         {
                             component: TodoTemplate,
-                            path:"/setting/todotemplate",
+                            path:"/setting/base/todotemplate",
                             exact:true,
                         },
                         {
                             component: LogTemplateList,
-                            path:"/setting/oplogtemplate",
+                            path:"/setting/base/oplogtemplate",
                             exact:true,
                         },
                         {
-                            component: SystemFeature,
-                            path:"/setting/systemfeature",
+                            component: BaseSystemFeature,
+                            path:"/setting/base/systemfeature",
                             exact:true,
                         },
                         {
-                            component: ProjectFeature,
-                            path:"/setting/projectfeature",
+                            component: BaseSystemRole,
+                            path:"/setting/base/systemrole",
+                            exact:true,
+                        },
+                        {
+                            component: BaseProjectFeature,
+                            path:"/setting/base/projectfeature",
+                            exact:true,
+                        },
+                        {
+                            component: BaseProjectRole,
+                            path:"/setting/base/projectrole",
                             exact:true,
                         },
                         {
                             component: MessageTemplatePage,
-                            path:"/setting/messagetemplate",
+                            path:"/setting/base/messagetemplate",
                             exact:true,
                         },
                         {
                             component: MessageSendType,
-                            path:"/setting/messagesendtype",
+                            path:"/setting/base/messagesendtype",
                             exact:true,
                         },
                         {
                             component: MessageType,
-                            path:"/setting/messagetype",
+                            path:"/setting/base/messagetype",
                             exact:true,
                         },
                         {
