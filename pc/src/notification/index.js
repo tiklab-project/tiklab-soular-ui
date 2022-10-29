@@ -5,7 +5,7 @@
  * @description index
  */
 import React, {useState, memo, useEffect} from "react";
-import {Badge, Drawer, Select, Tooltip, Divider, Skeleton, List, Button} from "antd";
+import {Badge, Drawer, Select, Tooltip, List, Button} from "antd";
 import {Axios, getUser} from "tiklab-core-ui";
 
 import {BellOutlined} from "@ant-design/icons";

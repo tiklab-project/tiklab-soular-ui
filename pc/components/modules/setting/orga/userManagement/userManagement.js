@@ -6,9 +6,6 @@ const UserManagement = props => {
         <UserList
             {...props}
             isPortal={true}
-            domainId={'111'}
-            addUserPromiseCode={'111'}
-            exportUserPromiseCode={'222'}
         />
     )
 };
