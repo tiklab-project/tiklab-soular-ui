@@ -4,12 +4,11 @@
  * create: $2022/1/25
  */
 import React, {useState} from 'react';
-import {Space, Tooltip} from "antd";
+import {Space, Tooltip, Menu} from "antd";
 import {GlobalOutlined, SettingOutlined, QuestionCircleOutlined} from "@ant-design/icons";
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
 import {verifyUserHoc, WorkAppConfig, Profile} from 'tiklab-eam-ui'
-import vipImg from '../../assets/images/vip.jpg';
 import easLogo from '../../assets/eas.png'
 import {connect} from 'tiklab-plugin-ui/es/_utils'
 
@@ -65,6 +64,8 @@ const Portal = props => {
         })
     }
 
+
+
     return(
         <main className={styles.layout}>
             <header className={styles.layout_header}>
@@ -111,22 +112,22 @@ const Portal = props => {
                             </>
                         </PortalMenu>
 
-                        <PortalMenu
-                            tooltip={'国际化'}
-                            visibility={visibility}
-                            Icon={<GlobalOutlined/>}
-                        >
-                            <>
-                                <div className={styles.layout_header_right_portal_tittle}>
-                                    <span>语言</span>
-                                </div>
-                                {
-                                    lngData.map(item => {
-                                        return <div className={styles.layout_header_right_portal_item} key={item} onClick={() => onLanguageChange(item)}>{item}</div>
-                                    })
-                                }
-                            </>
-                        </PortalMenu>
+                        {/*<PortalMenu*/}
+                        {/*    tooltip={'国际化'}*/}
+                        {/*    visibility={visibility}*/}
+                        {/*    Icon={<GlobalOutlined/>}*/}
+                        {/*>*/}
+                        {/*    <>*/}
+                        {/*        <div className={styles.layout_header_right_portal_tittle}>*/}
+                        {/*            <span>语言</span>*/}
+                        {/*        </div>*/}
+                        {/*        {*/}
+                        {/*            lngData.map(item => {*/}
+                        {/*                return <div className={styles.layout_header_right_portal_item} key={item} onClick={() => onLanguageChange(item)}>{item}</div>*/}
+                        {/*            })*/}
+                        {/*        }*/}
+                        {/*    </>*/}
+                        {/*</PortalMenu>*/}
 
                         <PortalMenu
                             tooltip={'profile'}
@@ -138,6 +139,20 @@ const Portal = props => {
                                 <div className={styles.layout_header_right_portal_tittle}>
                                     <span>{getUser().nickname || getUser().name || "用户"}</span>
                                 </div>
+
+                                <Menu mode="vertical">
+                                    <Menu.SubMenu
+                                        key="sub4"
+                                        title={<Space><GlobalOutlined/>切换语言</Space>}
+                                    >
+                                        {
+                                            lngData.map(lng => {
+                                                return <Menu.Item key={lng}>{lng}</Menu.Item>
+                                            })
+                                        }
+
+                                    </Menu.SubMenu>
+                                </Menu>
                                 <div className={styles.layout_header_right_portal_item} >账户设置</div>
                                 <div className={styles.layout_header_right_portal_item} onClick={goLogout}>退出</div>
                             </>
