@@ -8,12 +8,11 @@ import {Space, Tooltip, Menu} from "antd";
 import {GlobalOutlined, SettingOutlined, QuestionCircleOutlined} from "@ant-design/icons";
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
-import {verifyUserHoc, WorkAppConfig, Profile} from 'tiklab-eam-ui'
+import {verifyUserHoc, Profile, WorkAppConfig} from 'tiklab-eam-ui';
 import easLogo from '../../assets/eas.png'
 import {connect} from 'tiklab-plugin-ui/es/_utils'
 
 import Notification from "../../../../src/notification";
-
 import PortalMenu from '../../../../src/portal-menu'
 import styles from './layout.module.scss'
 
@@ -84,7 +83,6 @@ const Portal = props => {
                 </Space>
                 <div className={styles.layout_header_right}>
                     <Space size={'large'}>
-                        {/*<img src={vipImg} height={30} width={30} alt={'vip'} style={{borderRadius:"50%"}}/>*/}
                         <Tooltip title={"设置"} mouseEnterDelay={0.3}>
                             <span className={styles.layout_header_right_icon}>
                                 <SettingOutlined
@@ -111,23 +109,6 @@ const Portal = props => {
                                 <div className={styles.layout_header_right_portal_item} >在线客服</div>
                             </>
                         </PortalMenu>
-
-                        {/*<PortalMenu*/}
-                        {/*    tooltip={'国际化'}*/}
-                        {/*    visibility={visibility}*/}
-                        {/*    Icon={<GlobalOutlined/>}*/}
-                        {/*>*/}
-                        {/*    <>*/}
-                        {/*        <div className={styles.layout_header_right_portal_tittle}>*/}
-                        {/*            <span>语言</span>*/}
-                        {/*        </div>*/}
-                        {/*        {*/}
-                        {/*            lngData.map(item => {*/}
-                        {/*                return <div className={styles.layout_header_right_portal_item} key={item} onClick={() => onLanguageChange(item)}>{item}</div>*/}
-                        {/*            })*/}
-                        {/*        }*/}
-                        {/*    </>*/}
-                        {/*</PortalMenu>*/}
 
                         <PortalMenu
                             tooltip={'profile'}
