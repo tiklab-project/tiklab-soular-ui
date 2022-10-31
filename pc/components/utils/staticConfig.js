@@ -10,43 +10,49 @@ const selectionSettingMenuData = () => {
             children:[{
                 id:'1-1',
                 title: '部门',
-                purviewCode:'sys_orga',
+                purviewCode:'orga',
                 icon :<AppstoreOutlined />,
             },{
                 id:'1-2',
                 title: '用户',
+                purviewCode:'user',
                 icon :<AppstoreOutlined />,
             },
             {
                 id:'1-3',
                 title: '用户目录',
+                purviewCode:'user_dir',
                 icon :<AppstoreOutlined />,
             }]
         },
         {
             id:'2',
             title: '权限',
+            purviewCode:'permission',
             icon :<AppstoreOutlined />,
         },
-        {
-            id:'3',
-            title: '项目权限',
-            icon :<AppstoreOutlined />,
-        },
+        // {
+        //     id:'3',
+        //     title: '项目权限',
+        //     icon :<AppstoreOutlined />,
+        // },
         {
             id:'4',
             title: '消息通知',
+            purviewCode:'message',
             icon :<AppstoreOutlined />,
         },
         {
             id:'5',
             title: '待办任务',
+            purviewCode:'todotask',
             icon :<AppstoreOutlined />,
         },
         {
             id:'6',
             key:'6',
             title: '插件',
+            purviewCode:'plugin',
             icon :<SettingOutlined />,
         },
         {
@@ -57,7 +63,7 @@ const selectionSettingMenuData = () => {
             children:[{
                 id:'7-1',
                 title: '操作日志',
-                purviewCode:'oplog_list',
+                purviewCode:'log',
                 icon :<AppstoreOutlined />,
             }]
         },
@@ -65,6 +71,7 @@ const selectionSettingMenuData = () => {
             id:'8',
             key:'8',
             title: '版本与许可证',
+            purviewCode:'version',
             icon :<SettingOutlined />,
         },
         {
@@ -90,16 +97,16 @@ const selectionSettingMenuData = () => {
                 title: '系统权限',
                 icon :<AppstoreOutlined />,
             },
-            {
-                id:'9-5',
-                title: '项目功能',
-                icon :<AppstoreOutlined />,
-            },
-            {
-                id:'9-6',
-                title: '项目权限',
-                icon :<AppstoreOutlined />,
-            },
+            // {
+            //     id:'9-5',
+            //     title: '项目功能',
+            //     icon :<AppstoreOutlined />,
+            // },
+            // {
+            //     id:'9-6',
+            //     title: '项目权限',
+            //     icon :<AppstoreOutlined />,
+            // },
             {
                 id:'9-7',
                 title: '消息模板',
@@ -144,11 +151,11 @@ const selectionSettingMenuData = () => {
             title: '权限',
             icon :<AppstoreOutlined />,
         },
-        {
-            id:'3',
-            title: '项目权限',
-            icon :<AppstoreOutlined />,
-        },
+        // {
+        //     id:'3',
+        //     title: '项目权限',
+        //     icon :<AppstoreOutlined />,
+        // },
         {
             id:'4',
             title: '消息通知',
@@ -204,8 +211,8 @@ const onSettingMenu = (history, key) => {
             case '2':
                 history.push('/setting/permission')
                 break;
-            case '3':
-                history.push('/setting/project/permission')
+            // case '3':
+            //     history.push('/setting/project/permission')
                 break;
             case '4':
                 history.push('/setting/message')
@@ -234,11 +241,11 @@ const onSettingMenu = (history, key) => {
             case '9-4':
                 history.push('/setting/base/systemrole')
                 break;
-            case '9-5':
-                history.push('/setting/base/projectfeature')
-                break;
-            case '9-6':
-                history.push('/setting/base/projectrole')
+            // case '9-5':
+            //     history.push('/setting/base/projectfeature')
+            //     break;
+            // case '9-6':
+            //     history.push('/setting/base/projectrole')
                 break;
             case '9-7':
                 history.push('/setting/base/messagetemplate')

@@ -24,10 +24,10 @@ const links = [
         key:'2',
         router:`/setting/permission`,
     },
-    {
-        key:'3',
-        router:`/setting/project/permission`,
-    },
+    // {
+    //     key:'3',
+    //     router:`/setting/project/permission`,
+    // },
     {
         key:'4',
         router:`/setting/message`,
@@ -64,14 +64,14 @@ const links = [
         key:'9-4',
         router:`/setting/base/systemrole`,
     },
-    {
-        key:'9-5',
-        router:`/setting/base/projectfeature`,
-    },
-    {
-        key:'9-6',
-        router: "/setting/base/projectrole"
-    },
+    // {
+    //     key:'9-5',
+    //     router:`/setting/base/projectfeature`,
+    // },
+    // {
+    //     key:'9-6',
+    //     router: "/setting/base/projectrole"
+    // },
     {
         key:'9-7',
         router: "/setting/base/messagetemplate"
@@ -107,7 +107,6 @@ const SettingLayout = ({history, route, systemRoleStore}) => {
         const key = e.key;
         onSettingMenu(history, key)
     }
-
     return (
         <div style={{    display: 'flex',height: '100%'}}>
             <MenuList

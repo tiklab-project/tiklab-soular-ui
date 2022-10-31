@@ -16,7 +16,7 @@ import stores from "../components/modules/stores";
 import resources from "../components/modules/common/language/resources";
 import routes from '../components/modules/routers';
 import '../components/modules/common/language/i18n';
-import './index.scss';
+
 
 enableAxiosCE();
 
