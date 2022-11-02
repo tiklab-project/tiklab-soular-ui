@@ -5,11 +5,11 @@
  * @description todoTask
  */
 import React from 'react';
-import {TaskList} from 'tiklab-todotask-ui'
+import {MyTodoTask} from 'tiklab-todotask-ui'
 
 
 const TodoTask = (props) => {
 
-    return <TaskList {...props}/>
+    return <MyTodoTask {...props}/>
 }
 export default TodoTask;

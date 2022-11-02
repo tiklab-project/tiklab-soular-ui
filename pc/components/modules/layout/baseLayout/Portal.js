@@ -5,7 +5,7 @@
  */
 import React, {useState} from 'react';
 import {Space, Tooltip, Menu} from "antd";
-import {GlobalOutlined, SettingOutlined, QuestionCircleOutlined} from "@ant-design/icons";
+import {GlobalOutlined, SettingOutlined, QuestionCircleOutlined,SnippetsOutlined, CustomerServiceOutlined, CommentOutlined, UserOutlined, LogoutOutlined } from "@ant-design/icons";
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
 import {verifyUserHoc, Profile, WorkAppConfig} from 'tiklab-eam-ui';
@@ -14,7 +14,7 @@ import {connect} from 'tiklab-plugin-ui/es/_utils'
 
 import Notification from "../../../../src/notification";
 import PortalMenu from '../../../../src/portal-menu'
-import styles from './layout.module.scss'
+import './layout.scss'
 
 const Portal = props => {
 
@@ -66,25 +66,25 @@ const Portal = props => {
 
 
     return(
-        <main className={styles.layout}>
-            <header className={styles.layout_header}>
+        <main className={'layout'}>
+            <header className={'layout_header'}>
                 <Space size={'large'}>
                     <WorkAppConfig isSSO={false}/>
                     <img alt={'门户中心'} src={easLogo} height={'50%'} />
                     {
                         homeRouter.map(item => {
                             return(
-                                <div key={item.key} className={currentLink === item.to ? `${styles.layout_header_link} ${styles.layout_header_link_active}`  : styles.layout_header_link} onClick={ () => changeCurrentLink(item)}>
+                                <div key={item.key} className={currentLink === item.to ? `layout_header_link layout_header_link_active`  : 'layout_header_link'} onClick={ () => changeCurrentLink(item)}>
                                     <span>{item.title}</span>
                                 </div>
                             )
                         })
                     }
                 </Space>
-                <div className={styles.layout_header_right}>
+                <div className={'layout_header_right'}>
                     <Space size={'large'}>
                         <Tooltip title={"设置"} mouseEnterDelay={0.3}>
-                            <span className={styles.layout_header_right_icon}>
+                            <span className={'layout_header_right_icon'}>
                                 <SettingOutlined
                                     onClick={
                                         () => changeCurrentLink({to:'/setting',})
@@ -103,10 +103,31 @@ const Portal = props => {
                             width={240}
                         >
                             <>
-                                <div className={styles.layout_header_right_portal_item} >文档</div>
-                                <div className={styles.layout_header_right_portal_item} >社区支持</div>
-                                <div className={styles.layout_header_right_portal_item} >在线工单</div>
-                                <div className={styles.layout_header_right_portal_item} >在线客服</div>
+                                <div className={'layout_header_right_portal_item'} >
+                                    <Space>
+                                        <SnippetsOutlined />
+                                        文档
+                                    </Space>
+
+                                </div>
+                                <div className={'layout_header_right_portal_item'} >
+                                    <Space>
+                                        <GlobalOutlined/>
+                                        社区支持
+                                    </Space>
+                                </div>
+                                <div className={'layout_header_right_portal_item'} >
+                                    <Space>
+                                        <CustomerServiceOutlined />
+                                        在线工单
+                                    </Space>
+                                </div>
+                                <div className={'layout_header_right_portal_item'} >
+                                    <Space>
+                                        <CommentOutlined />
+                                        在线客服
+                                    </Space>
+                                </div>
                             </>
                         </PortalMenu>
 
@@ -117,8 +138,14 @@ const Portal = props => {
                             width={300}
                         >
                             <>
-                                <div className={styles.layout_header_right_portal_tittle}>
-                                    <span>{getUser().nickname || getUser().name || "用户"}</span>
+                                <div className={'layout_header_right_portal_tittle'}>
+                                    <Space>
+                                        <Profile/>
+                                        <div className={'layout_header_right_user'}>
+                                            <span>{getUser().nickname || getUser().name || "用户"}</span>
+                                            <span>{getUser().phone || getUser().eamil || "无"}</span>
+                                        </div>
+                                    </Space>
                                 </div>
 
                                 <Menu mode="vertical">
@@ -134,15 +161,26 @@ const Portal = props => {
 
                                     </Menu.SubMenu>
                                 </Menu>
-                                <div className={styles.layout_header_right_portal_item} >账户设置</div>
-                                <div className={styles.layout_header_right_portal_item} onClick={goLogout}>退出</div>
+                                <div className={'layout_header_right_portal_item'} >
+                                    <Space>
+                                        <UserOutlined />
+                                        账户设置
+                                    </Space>
+
+                                </div>
+                                <div className={'layout_header_right_portal_item'} onClick={goLogout}>
+                                    <Space>
+                                        <LogoutOutlined />
+                                        退出
+                                    </Space>
+                                </div>
                             </>
                         </PortalMenu>
                     </Space>
                 </div>
 
             </header>
-            <section className={styles.layout_content}>
+            <section className={'layout_content'}>
                 <div style={{width:'100%', height:'calc(100% - 64px)'}}>
                     {props.children}
                 </div>

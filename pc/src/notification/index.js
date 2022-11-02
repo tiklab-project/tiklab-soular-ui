@@ -140,7 +140,7 @@ const Notification = memo(({}) => {
                                         <span>{jsonData.title}</span>
                                     </div>
                                     <div className={'tiklab_notification_message_body'}>
-                                        <p className={'tiklab_notification_message_summary'}>{jsonData.content}</p>
+                                        <p className={'tiklab_notification_message_summary'} dangerouslySetInnerHTML={{__html:jsonData.content}}/>
                                         <div className={'tiklab_notification_message_time'}>{jsonData.receiveTime}</div>
                                     </div>
                                 </div>

@@ -99,11 +99,11 @@
         border-top-right-radius: 1px;
       }
     }
-
+    
     &_right{
       display: flex;
       padding-right: 16px;
-
+      
       &_block {
         height: 100%;
         position: relative;
@@ -144,16 +144,18 @@
           background-color: rgba(222, 235, 255, 0.9);
         }
       }
-
+      
       &_portal_tittle {
         padding: 0 20px;
         color: #5E6C84;
-        font-size: 11px;
+        font-size: 14px;
         font-weight: 700;
         line-height: 1.5;
         text-transform: uppercase;
         margin-top: 14px;
         margin-bottom: 6px;
+        
+        
       }
       &_portal_item {
         display: flex;
@@ -174,7 +176,33 @@
           color: currentcolor;
         }
       }
-
+      &_user {
+        display: flex;
+        flex-direction: column;
+        
+        span:last-child {
+          font-weight: 400;
+          color: #e0dede;
+          font-size: 12px;
+        }
+      }
     }
   }
+  
+  .ant-menu-item:hover, .ant-menu-item-active, .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-submenu-active, .ant-menu-submenu-title:hover {
+    color: #000000 !important;
+  }
+  .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-expand-icon, .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow {
+    color: #000000 !important;
+  }
+  .ant-menu-vertical .ant-menu-submenu-selected, .ant-menu-vertical-left .ant-menu-submenu-selected, .ant-menu-vertical-right .ant-menu-submenu-selected {
+    color: #000000 !important;
+  }
+  
+  
 }
+// 语言切换的zh item
+//.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+//  background-color: #F4F5F7 !important;
+//}
+
