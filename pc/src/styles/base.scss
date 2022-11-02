@@ -1,0 +1,234 @@
+
+:root {
+    --white: #fff;
+    --gray-100: #FAFAFA;
+    --gray-200: #F8F8F8;
+    --gray-300: #F4F4F4;
+    --gray-400: #EAEAEA;
+    --gray-500: #DCDCDC;
+    --gray-700 :#707070;
+    
+    --black: #000;
+    --blue: #0063FF;
+    --gray: --gray-600;
+    
+    --margin: 0;
+    --margin-base: 2px;
+    --margin-4: 4px;
+    --margin-6: 6px;
+    --margin-8: 8px;
+    --margin-10: 10px;
+    --margin-12: 12px;
+    --margin-14: 14px;
+    --margin-16: 16px;
+    
+    --padding: 0;
+    --padding-base: 2px;
+    --padding-4: 4px;
+    --padding-6: 6px;
+    --padding-8: 8px;
+    --padding-10: 10px;
+    --padding-12: 12px;
+    --padding-14: 14px;
+    --padding-16: 16px;
+    
+    --font-sm: 12px;
+    --font-base: 16px;
+    --font-lg: 20px;
+    
+    --font-weight-base: 400;
+    --font-weight-bold: 500;
+    --font-weight-600: 600;
+    
+    --line-height: 1;
+}
+
+// 捷轩
+:root {
+    --width: 13px;
+    --height: 13px;
+    --blue-main: #0053ca;
+    --side-color: #F7F8FA;
+    --side-select: #e3e8f0;
+    --font-13: 13px;
+    --color: #C4C4C4;
+}
+
+// 现成
+:root{
+    --pi-base-color:var(--blue-50);
+    --pi-error-color: var(--red-50);
+    --pi-warning-color: var(--orange-50);
+    --pi-success-color: var(--green-50);
+    --pi-delete-color: var(--red-30);
+    --pi-head-color: var(--green-30);
+    --pi-put-color: var(--pink-30);
+    --pi-option-color: var(--purple-30);
+    --pi-patch-color: var(--teal-30);
+    --pi-grey-color: var(--grey-30);
+    --pi-white-color: var(--grey-00);
+    
+    --pi-greyf9-color: #f8f8f8;
+    --pi-hover-action-color:#e8e8e8;
+    
+    --pi-border-color:#f0f0f0;
+    
+    --pi-box-shadow: 0 3px 6px rgb(140 149 159 / 15%);
+    
+    --pi-border-radius:5px;
+    
+    --pi-page-padding:0 5px;
+    
+    --pi-first-lable: var(--text-font-size-l);
+    --pi-text-title: var(--text-font-size-l);
+    --pi-font-weight-title: var(--text-font-weight-bold);
+    
+    --pi-font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI, Roboto,Oxygen,
+    Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica,Arial,sans-serif;
+    
+    
+    --line-height-xs: 12px;
+    --line-height-s: 16px;
+    --line-height-m: 20px;
+    --line-height-l: 24px;
+    --line-height-xl: 28px;
+    --line-height-xxl: 32px;
+    --line-height-xxxl: 40px;
+    --text-weight-regular: 400;
+    --text-weight-medium: 600;
+    --text-weight-bold: 600;
+    --text-font-size-xs: 10px;
+    --text-font-size-s: 11px;
+    --text-font-size-m: 12px;
+    --text-font-size-l: 14px;
+    --text-font-size-xl: 16px;
+    --text-font-size-xxl: 18px;
+    --text-font-size-xxxl: 24px;
+    --text-line-height-xs: 12px;
+    --text-line-height-s: 16px;
+    --text-line-height-m: 20px;
+    --text-line-height-l: 24px;
+    --text-line-height-xl: 28px;
+    --text-line-height-xxl: 32px;
+    --text-line-height-xxxl: 40px;
+    --text-font-weight-regular: 400;
+    --text-font-weight-medium: 600;
+    --text-font-weight-bold: 600;
+    --grey-00: #fff;
+    --grey-05: #f9f9f9;
+    --grey-10: #f2f2f2;
+    --grey-20: #ededed;
+    --grey-30: #e6e6e6;
+    --grey-40: #a6a6a6;
+    --grey-50: #6b6b6b;
+    --grey-60: #3b3b3b;
+    --grey-70: #303030;
+    --grey-80: #2b2b2b;
+    --grey-85: #262626;
+    --grey-90: #212121;
+    --orange-10: #fff1eb;
+    --orange-20: #ffd1be;
+    --orange-30: #ffb091;
+    --orange-40: #ff8e64;
+    --orange-50: #ff6c37;
+    --orange-60: #e05320;
+    --orange-70: #d23f0e;
+    --orange-80: #a12700;
+    --orange-90: #553326;
+    --blue-10: #e7f0ff;
+    --blue-20: #adcdfb;
+    --blue-30: #74aef6;
+    --blue-40: #3e92f2;
+    --blue-50: #097bed;
+    --blue-60: #0265d2;
+    --blue-70: #0053b8;
+    --blue-80: #00439d;
+    --blue-90: #002d70;
+    --red-10: #ffebe7;
+    --red-20: #fbc3ba;
+    --red-30: #f79a8e;
+    --red-40: #f37264;
+    --red-50: #eb2013;
+    --red-60: #d10d03;
+    --red-70: #b70700;
+    --red-80: #9c0400;
+    --red-90: #591b08;
+    --green-10: #e5fff1;
+    --green-20: #a4eec4;
+    --green-30: #6bdd9a;
+    --green-40: #38cc74;
+    --green-50: #0cbb52;
+    --green-60: #049d40;
+    --green-70: #007f31;
+    --green-80: #006024;
+    --green-90: #013614;
+    --yellow-10: #fff9e0;
+    --yellow-20: #fff4be;
+    --yellow-30: #ffe47e;
+    --yellow-40: #ffcf3f;
+    --yellow-50: #ffb400;
+    --yellow-60: #de9c00;
+    --yellow-70: #ad7a03;
+    --yellow-80: #886000;
+    --yellow-90: #523a03;
+    --pink-10: #fff2f9;
+    --pink-20: #ffd8ed;
+    --pink-30: #fda4d4;
+    --pink-40: #f15eb0;
+    --pink-50: #ca2583;
+    --pink-60: #a61468;
+    --pink-70: #7b0a4b;
+    --pink-80: #63073b;
+    --pink-90: #47042a;
+    --purple-10: #f7f2ff;
+    --purple-20: #e4d8f6;
+    --purple-30: #c0a8e1;
+    --purple-40: #926cc2;
+    --purple-50: #784fa9;
+    --purple-60: #623497;
+    --purple-70: #4c207d;
+    --purple-80: #35115c;
+    --purple-90: #250447;
+    --teal-10: #f2feff;
+    --teal-20: #d0f9fd;
+    --teal-30: #8eeef7;
+    --teal-40: #3fd6e6;
+    --teal-50: #0ca4b6;
+    --teal-60: #048192;
+    --teal-70: #015965;
+    --teal-80: #02444d;
+    --teal-90: #032f36;
+}
+
+// 梦圆
+:root{
+    --mf-second-level-navigation-color: #f8f8f8;
+    --mf-three-level-navigation:#fbfbfb;
+    --mf-dominant-color:#1890ff;
+    --mf-danger-color:#ff0000;
+    --mf-auxiliary-color:#00000073;
+    --mf-navigation-color:#e3e8f0;
+    --mf-hover-color:#f4f4f4;
+    --mf-border-color:#d9d9d9;
+    
+    --mf-view-ban-color:#c4c4c4;
+    --mf-view-ban1-color:#eaeaea;
+    
+    --mf-homePage-color:#f7f8fa;
+    --mf-homePage1-color: #87d068;
+    
+    --mf-number-color:#f6c659;
+    --mf-successNumber-color:#77b3eb;
+    --mf-errorNumber-color:#f06f6f;
+    --mf-removeNumber-color:#928484;
+    --mf-time-color:#6852e0cf;
+    
+    --mf-icon1-color:#cad2f3;
+    --mf-icon2-color:#cad2f3;
+    --mf-icon3-color:#e8eaf6;
+    --mf-icon4-color:#ffebee;
+    --mf-icon5-color:#e0f2f1;
+    --mf-icon6-color:#eee;
+}
+
+
