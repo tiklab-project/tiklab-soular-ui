@@ -5,37 +5,24 @@
     --tiklab-black: #000;  // 主色调黑
     --tiklab-blue: #0063FF;  // 主色调蓝
     --tiklab-gray-300: #E4E4E4;  // hover颜色
-    --tiklab-gray-400: #D9D9D9;  // 选中颜色
-    --tiklab-gray: #F9F9F9; // 主色调灰
+    --tiklab-gray-400: #D9D9D9;  // 左侧导航 选中颜色
+    --tiklab-gray: #F9F9F9; // 主色调灰 左侧导航
     
     // 外边距
     --tiklab-margin: 0;
-    --tiklab-margin-base: 4px;
-    --tiklab-margin-8: 8px;
-    --tiklab-margin-10: 10px;
-    --tiklab-margin-14: 14px;
-    --tiklab-margin-16: 16px;
-    --tiklab-margin-20: 20px;
+    --tiklab-margin-10: 10px; //  页面内容边距
     
     // 内边距
     --tiklab-padding: 0;
-    --tiklab-padding-base: 4px;
-    --tiklab-padding-8: 8px;
-    --tiklab-padding-10: 10px;
-    --tiklab-padding-12: 12px;
-    --tiklab-padding-16: 16px;
-    --tiklab-padding-20: 20px;
+    --tiklab-padding-10: 10px; //  页面内容边距
     
     // 标题
-    --tiklab-font-sm: 12px;  // 描述文字
-    --tiklab-font-base: 16px; // 正文
-    --tiklab-font-lg: 20px; // 标题
+    --tiklab-font-sm: 13px;  // 描述文字
+    --tiklab-font-base: 14px; // 正文
+    --tiklab-font-lg: 16px; // 标题
     
     // 字重
-    --tiklab-font-weight-base: 400; // 正文字重
     --tiklab-font-weight-bold: bold; // 标题字重
-    
-    --line-height: 1;
 }
 
 
