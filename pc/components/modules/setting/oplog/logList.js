@@ -5,10 +5,10 @@
  * @description logList
  */
 import React from 'react';
-import {LogList as List} from 'tiklab-oplog-ui'
+import {LogList as List, MyLogList} from 'tiklab-oplog-ui'
 
 const LogList = (props) => {
-    return <List {...props}/>
+    return <MyLogList {...props}/>
 }
 
 export default LogList;
