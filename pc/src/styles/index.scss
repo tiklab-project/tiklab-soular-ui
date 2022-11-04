@@ -1,4 +1,8 @@
 @import "base";
+
+.ant-form-item{
+    margin-bottom: 8px;
+}
 .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional):after {
     display: inline-block;
     margin-right: 4px;

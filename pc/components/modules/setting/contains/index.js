@@ -118,7 +118,7 @@ const SettingLayout = ({history, route, systemRoleStore}) => {
                 openKeys={menuKeys.openKeys}
                 allPromise={systemRoleStore.systemPermissions}
             />
-            <div style={{width:'100%'}}>
+            <div style={{width:'100%', overflow:'auto'}}>
                 {renderRoutes(route.routes)}
             </div>
 
