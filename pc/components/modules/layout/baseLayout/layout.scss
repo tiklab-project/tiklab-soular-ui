@@ -11,13 +11,11 @@
     border-bottom: 1px solid var(--tiklab-gray-300);
     padding: 0 24px;
     &_link {
-      font-weight: var(--tiklab-font-weight-bold);
       height: 100%;
       display: flex;
       align-items: center;
       >span{
         cursor: pointer;
-        
         color: var(--tiklab-black);
         &:hover{
           color: var(--tiklab-blue);
@@ -41,11 +39,9 @@
         border-top-right-radius: 1px;
       }
     }
-    
     &_right{
       display: flex;
       padding-right: 16px;
-      
       &_block {
         height: 100%;
         position: relative;
@@ -87,7 +83,7 @@
         }
       }
       
-      &_portal_tittle {
+      &_portal_title {
         padding: 0 20px;
         color: var(--tiklab-black);
         font-size: 14px;
@@ -96,8 +92,8 @@
         text-transform: uppercase;
         margin-top: 14px;
         margin-bottom: 6px;
-        
-        
+        padding-bottom: var(--tiklab-padding-item);
+        border-bottom: 1px solid var(--tiklab-gray-200);
       }
       &_portal_item {
         display: flex;
@@ -124,7 +120,7 @@
         
         span:last-child {
           font-weight: 400;
-          color: var(--tiklab-gray-400);
+          color: var(--tiklab-gray-500);
           font-size: var(--tiklab-font-12);
         }
       }
@@ -140,7 +136,14 @@
   .ant-menu-vertical .ant-menu-submenu-selected, .ant-menu-vertical-left .ant-menu-submenu-selected, .ant-menu-vertical-right .ant-menu-submenu-selected {
     color: var(--tiklab-black) !important;
   }
+  
+  .ant-menu-vertical .ant-menu-submenu-title {
+    padding: 0 20px;
+  }
 }
+
+
+
 // 语言切换的zh item
 //.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
 //  background-color: #F4F5F7 !important;

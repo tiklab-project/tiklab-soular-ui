@@ -55,7 +55,6 @@ const Index = () => {
         <PluginProvider store={pluginData}>
             <Provider {...allStore}>
                 <HashRouter>
-
                     {
                         renderRoutes(pluginData.routes)
                     }

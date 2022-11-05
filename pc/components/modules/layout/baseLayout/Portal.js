@@ -84,17 +84,20 @@ const Portal = props => {
                 <div className={'layout_header_right'}>
                     <Space size={'large'}>
                         <Tooltip title={"设置"} mouseEnterDelay={0.3}>
-                            <span className={'layout_header_right_icon'}>
-                                <SettingOutlined
-                                    onClick={
-                                        () => changeCurrentLink({to:'/setting',})
-                                    }
-                                />
-                            </span>
+                            <div className={'tiklab_portal_block_item'}>
+                                 <span className={'layout_header_right_icon'}>
+                                    <SettingOutlined
+                                        onClick={
+                                            () => changeCurrentLink({to:'/setting',})
+                                        }
+                                    />
+                                 </span>
+                            </div>
                         </Tooltip>
 
-                        <Notification/>
-
+                        <div className={'tiklab_portal_block_item'}>
+                            <Notification/>
+                        </div>
 
                         <PortalMenu
                             tooltip={'帮助与支持'}
@@ -138,7 +141,7 @@ const Portal = props => {
                             width={300}
                         >
                             <>
-                                <div className={'layout_header_right_portal_tittle'}>
+                                <div className={'layout_header_right_portal_title'}>
                                     <Space>
                                         <Profile/>
                                         <div className={'layout_header_right_user'}>
@@ -151,7 +154,7 @@ const Portal = props => {
                                 <Menu mode="vertical">
                                     <Menu.SubMenu
                                         key="sub4"
-                                        title={<Space><GlobalOutlined/>切换语言</Space>}
+                                        title={<div><GlobalOutlined/>切换语言</div>}
                                     >
                                         {
                                             lngData.map(lng => {
@@ -166,7 +169,6 @@ const Portal = props => {
                                         <UserOutlined />
                                         账户设置
                                     </Space>
-
                                 </div>
                                 <div className={'layout_header_right_portal_item'} onClick={goLogout}>
                                     <Space>
