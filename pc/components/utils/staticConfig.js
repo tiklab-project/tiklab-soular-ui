@@ -31,11 +31,11 @@ const selectionSettingMenuData = () => {
             purviewCode:'permission',
             icon :<AppstoreOutlined />,
         },
-        // {
-        //     id:'3',
-        //     title: '项目权限',
-        //     icon :<AppstoreOutlined />,
-        // },
+        {
+            id:'3',
+            title: '消息发送方式',
+            icon :<AppstoreOutlined />,
+        },
         {
             id:'4',
             title: '消息通知',
@@ -151,11 +151,11 @@ const selectionSettingMenuData = () => {
             title: '权限',
             icon :<AppstoreOutlined />,
         },
-        // {
-        //     id:'3',
-        //     title: '项目权限',
-        //     icon :<AppstoreOutlined />,
-        // },
+        {
+            id:'3',
+            title: '消息发送方式',
+            icon :<AppstoreOutlined />,
+        },
         {
             id:'4',
             title: '消息通知',
@@ -211,8 +211,8 @@ const onSettingMenu = (history, key) => {
             case '2':
                 history.push('/setting/permission')
                 break;
-            // case '3':
-            //     history.push('/setting/project/permission')
+            case '3':
+                history.push('/setting/messagesendtype')
                 break;
             case '4':
                 history.push('/setting/message')
@@ -272,7 +272,7 @@ const onSettingMenu = (history, key) => {
                 history.push('/setting/permission')
                 break;
             case '3':
-                history.push('/setting/project/permission')
+                history.push('/setting/messagesendtype')
                 break;
             case '4':
                 history.push('/setting/message')

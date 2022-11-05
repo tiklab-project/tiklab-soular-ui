@@ -19,8 +19,8 @@ const UserManagement = SyncComponent(() => import('./setting/orga/userManagement
 const PortalDirectory = SyncComponent(() => import('./setting/orga/directory/portalDirectory'));
 // 权限
 const SystemRole = SyncComponent(() => import('./setting/systemRole/systemRole'));
-// 项目权限
-const ProjectRole = SyncComponent(() => import('./setting/projectSystemRole/projectSystemRole'));
+// 消息发送方式
+const MessageSendType = SyncComponent(() => import('./setting/message/messageSendType'));
 // 消息通知
 const MessageManagement = SyncComponent(() => import('./setting/message/management'));
 // 待办任务
@@ -43,11 +43,11 @@ const BaseProjectFeature = SyncComponent(() => import('./setting/base/privilege/
 const BaseProjectRole = SyncComponent(() => import('./setting/base/privilege/baseProjectRole'));
 
 // 消息模板
-const MessageTemplatePage = SyncComponent(() => import('./setting/message/messageTemplate'));
+const MessageTemplatePage = SyncComponent(() => import('./setting/base/messageTemplate'));
 // 消息发送方式
-const MessageSendType = SyncComponent(() => import('./setting/message/messageSendType'));
+const MessageSendTypeBase = SyncComponent(() => import('./setting/base/messageSendType'));
 // 消息类型
-const MessageType = SyncComponent(() => import('./setting/message/messageType'));
+const MessageType = SyncComponent(() => import('./setting/base/messageType'));
 
 
 const Work = SyncComponent(() => import('./work/work'))
@@ -124,8 +124,8 @@ const selectionRouter = () => {
                             exact:true,
                         },
                         {
-                            component: ProjectRole,
-                            path:"/setting/project/permission",
+                            component: MessageSendType,
+                            path:"/setting/messagesendtype",
                             exact:true,
                         },
                         {
@@ -189,7 +189,7 @@ const selectionRouter = () => {
                             exact:true,
                         },
                         {
-                            component: MessageSendType,
+                            component: MessageSendTypeBase,
                             path:"/setting/base/messagesendtype",
                             exact:true,
                         },

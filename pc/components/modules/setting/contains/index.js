@@ -24,10 +24,10 @@ const links = [
         key:'2',
         router:`/setting/permission`,
     },
-    // {
-    //     key:'3',
-    //     router:`/setting/project/permission`,
-    // },
+    {
+        key:'3',
+        router:`/setting/messagesendtype`,
+    },
     {
         key:'4',
         router:`/setting/message`,
