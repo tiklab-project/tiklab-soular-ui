@@ -5,7 +5,8 @@ import {InternalWechatEntry, Logout, AuthResult} from 'tiklab-eam-ui'
 import SyncComponent from '../lazy/SyncComponent';
 import ElectronLoginPage from "./login/electornLogin";
 import {LogTemplateList} from "tiklab-oplog-ui";
-import {Version} from 'tiklab-licence-ui'
+import {Version} from 'tiklab-licence-ui';
+// import Version from '../../src/version'
 
 const layout = SyncComponent(() => import('./layout/layout'));
 

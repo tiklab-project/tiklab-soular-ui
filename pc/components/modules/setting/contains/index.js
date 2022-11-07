@@ -25,63 +25,55 @@ const links = [
         router:`/setting/permission`,
     },
     {
-        key:'3',
-        router:`/setting/messagesendtype`,
+        key:'3-1',
+        router:`/setting/messageconfig`,
     },
     {
-        key:'4',
+        key:'3-2',
         router:`/setting/message`,
     },
     {
-        key:'5',
+        key:'4',
         router:`/setting/todotask`,
     },
     {
-        key:'6',
+        key:'5',
         router:`/setting/plugin`,
     },
     {
-        key:'7-1',
+        key:'6-1',
         router:`/setting/log`,
     },
     {
-        key:'8',
+        key:'7',
         router:`/setting/version`,
     },
     {
-        key:'9-1',
+        key:'8-1',
         router:`/setting/base/todotemplate`,
     },
     {
-        key:'9-2',
+        key:'8-2',
         router:`/setting/base/oplogtemplate`,
     },
     {
-        key:'9-3',
+        key:'8-3',
         router:`/setting/base/systemfeature`,
     },
     {
-        key:'9-4',
+        key:'8-4',
         router:`/setting/base/systemrole`,
     },
-    // {
-    //     key:'9-5',
-    //     router:`/setting/base/projectfeature`,
-    // },
-    // {
-    //     key:'9-6',
-    //     router: "/setting/base/projectrole"
-    // },
     {
-        key:'9-7',
+        key:'8-7',
         router: "/setting/base/messagetemplate"
     },
     {
-        key:'9-8',
+        key:'8-8',
         router: "/setting/base/messagesendtype"
     },
     {
-        key:'9-9',
+        key:'8-9',
         router: "/setting/base/messagetype"
     },
 ];

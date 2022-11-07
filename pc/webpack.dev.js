@@ -48,7 +48,7 @@ module.exports = merge(baseWebpackConfig,{
         hot:true,
         compress:true,
         port:3001,
-        host: '0.0.0.0',
+        host: '192.168.10.14',
         historyApiFallback: true,
         disableHostCheck: true,
     }

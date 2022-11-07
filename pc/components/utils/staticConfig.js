@@ -33,92 +33,92 @@ const selectionSettingMenuData = () => {
         },
         {
             id:'3',
-            title: '消息发送方式',
+            key:'3',
+            title: '消息',
             icon :<AppstoreOutlined />,
+            children: [
+                {
+                    id:'3-1',
+                    key:'3-1',
+                    title: '消息配置',
+                    icon :<AppstoreOutlined />,
+                },
+                {
+                    id:'3-2',
+                    key:'3-2',
+                    title: '消息通知',
+                    icon :<AppstoreOutlined />,
+                },
+            ]
         },
         {
             id:'4',
-            title: '消息通知',
-            purviewCode:'message',
-            icon :<AppstoreOutlined />,
-        },
-        {
-            id:'5',
+            key:'4',
             title: '待办任务',
             purviewCode:'todotask',
             icon :<AppstoreOutlined />,
         },
         {
-            id:'6',
-            key:'6',
+            id:'5',
+            key:'5',
             title: '插件',
             purviewCode:'plugin',
             icon :<SettingOutlined />,
         },
         {
-            id:'7',
-            key:'7',
+            id:'6',
+            key:'6',
             title: '安全',
             icon :<SettingOutlined />,
             children:[{
-                id:'7-1',
+                id:'6-1',
                 title: '操作日志',
                 purviewCode:'log',
                 icon :<AppstoreOutlined />,
             }]
         },
         {
-            id:'8',
-            key:'8',
+            id:'7',
+            key:'7',
             title: '版本与许可证',
             purviewCode:'version',
             icon :<SettingOutlined />,
         },
         {
-            id:'9',
+            id:'8',
             title: '基础数据',
             icon :<AppstoreOutlined />,
             children:[{
-                id:'9-1',
+                id:'8-1',
                 title: '待办模板',
                 icon :<AppstoreOutlined />,
             },{
-                id:'9-2',
+                id:'8-2',
                 title: '日志模板',
                 icon :<AppstoreOutlined />,
             },
             {
-                id:'9-3',
+                id:'8-3',
                 title: '系统功能',
                 icon :<AppstoreOutlined />,
             },
             {
-                id:'9-4',
+                id:'8-4',
                 title: '系统权限',
                 icon :<AppstoreOutlined />,
             },
-            // {
-            //     id:'9-5',
-            //     title: '项目功能',
-            //     icon :<AppstoreOutlined />,
-            // },
-            // {
-            //     id:'9-6',
-            //     title: '项目权限',
-            //     icon :<AppstoreOutlined />,
-            // },
             {
-                id:'9-7',
+                id:'8-7',
                 title: '消息模板',
                 icon :<AppstoreOutlined />,
             },
             {
-                id:'9-8',
+                id:'8-8',
                 title: '消息发送方式',
                 icon :<AppstoreOutlined />,
             },
             {
-                id:'9-9',
+                id:'8-9',
                 title: '消息类型',
                 icon :<AppstoreOutlined />,
             }
@@ -153,28 +153,36 @@ const selectionSettingMenuData = () => {
         },
         {
             id:'3',
-            title: '消息发送方式',
+            title: '消息',
             icon :<AppstoreOutlined />,
+            children: [
+                {
+                    id:'3-1',
+                    title: '消息配置',
+                    icon :<AppstoreOutlined />,
+                },
+                {
+                    id:'3-2',
+                    title: '消息通知',
+                    icon :<AppstoreOutlined />,
+                },
+            ]
         },
+
         {
             id:'4',
-            title: '消息通知',
-            icon :<AppstoreOutlined />,
-        },
-        {
-            id:'5',
             title: '待办任务',
             icon :<AppstoreOutlined />,
         },
         {
-            id:'6',
-            key:'6',
+            id:'5',
+            key:'5',
             title: '插件',
             icon :<SettingOutlined />,
         },
         {
-            id:'7',
-            key:'7',
+            id:'6',
+            key:'6',
             title: '安全',
             icon :<SettingOutlined />,
             children:[{
@@ -185,8 +193,8 @@ const selectionSettingMenuData = () => {
             }]
         },
         {
-            id:'8',
-            key:'8',
+            id:'7',
+            key:'7',
             title: '版本与许可证',
             icon :<SettingOutlined />,
         }
@@ -211,49 +219,43 @@ const onSettingMenu = (history, key) => {
             case '2':
                 history.push('/setting/permission')
                 break;
-            case '3':
+            case '3-1':
                 history.push('/setting/messagesendtype')
                 break;
-            case '4':
+            case '3-2':
                 history.push('/setting/message')
                 break;
-            case '5':
+            case '4':
                 history.push('/setting/todotask')
                 break;
-            case '6':
+            case '5':
                 history.push('/setting/plugin')
                 break;
-            case '7-1':
+            case '6-1':
                 history.push('/setting/log')
                 break;
-            case '8':
+            case '7':
                 history.push('/setting/version')
                 break;
-            case '9-1':
+            case '8-1':
                 history.push('/setting/base/todotemplate')
                 break;
-            case '9-2':
+            case '8-2':
                 history.push('/setting/base/oplogtemplate')
                 break;
-            case '9-3':
+            case '8-3':
                 history.push('/setting/base/systemfeature')
                 break;
-            case '9-4':
+            case '8-4':
                 history.push('/setting/base/systemrole')
                 break;
-            // case '9-5':
-            //     history.push('/setting/base/projectfeature')
-            //     break;
-            // case '9-6':
-            //     history.push('/setting/base/projectrole')
-                break;
-            case '9-7':
+            case '8-7':
                 history.push('/setting/base/messagetemplate')
                 break;
-            case '9-8':
+            case '8-8':
                 history.push('/setting/base/messagesendtype')
                 break;
-            case '9-9':
+            case '8-9':
                 history.push('/setting/base/messagetype')
                 break;
         }
@@ -271,22 +273,22 @@ const onSettingMenu = (history, key) => {
             case '2':
                 history.push('/setting/permission')
                 break;
-            case '3':
+            case '3-1':
                 history.push('/setting/messagesendtype')
                 break;
-            case '4':
+            case '3-2':
                 history.push('/setting/message')
                 break;
-            case '5':
+            case '4':
                 history.push('/setting/todotask')
                 break;
-            case '6':
+            case '5':
                 history.push('/setting/plugin')
                 break;
-            case '7-1':
+            case '6-1':
                 history.push('/setting/log')
                 break;
-            case '8':
+            case '7':
                 history.push('/setting/version')
                 break;
         }
