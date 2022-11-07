@@ -274,6 +274,11 @@ const selectionRouter = () => {
                             exact:true,
                         },
                         {
+                            component: MessageSendType,
+                            path:"/setting/messagesendtype",
+                            exact:true,
+                        },
+                        {
                             component: MessageManagement,
                             path:"/setting/message",
                             exact:true,
