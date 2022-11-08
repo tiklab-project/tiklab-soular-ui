@@ -26,7 +26,7 @@ const links = [
     },
     {
         key:'3-1',
-        router:`/setting/messageconfig`,
+        router:`/setting/messagesendtype`,
     },
     {
         key:'3-2',

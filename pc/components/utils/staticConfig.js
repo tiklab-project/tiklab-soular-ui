@@ -186,7 +186,7 @@ const selectionSettingMenuData = () => {
             title: '安全',
             icon :<SettingOutlined />,
             children:[{
-                id:'7-1',
+                id:'6-1',
                 title: '操作日志',
                 purviewCode:'oplog_list',
                 icon :<AppstoreOutlined />,
