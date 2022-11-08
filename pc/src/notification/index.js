@@ -5,7 +5,7 @@
  * @description index
  */
 import React, {useState, memo, useEffect} from "react";
-import {Badge, Drawer, Select, Tooltip, List, Button} from "antd";
+import {Badge, Drawer, Select, Tooltip, List, Button, Space, Tag} from "antd";
 import {Axios, getUser} from "tiklab-core-ui";
 
 import {BellOutlined} from "@ant-design/icons";
@@ -178,8 +178,21 @@ const Notification = memo(({}) => {
                 // 判断 选择的未读
                 if (readStatus === 'unread') {
                    const list =  messageList.filter(f => f.id !== item.id);
+                   setMessageList(list);
+                   setTotal(list.length);
+                }
+                if (readStatus === 'all') {
+                    const list =  messageList.map(f =>{
+                        if ( f.id === item.id) {
+                            return {
+                                ...f,
+                                status:1
+                            }
+                        }
+                        return f
+                    });
                     setMessageList(list);
-                   setTotal(list.length)
+                    setTotal(list.length);
                 }
                 // 做跳转详情页
 
@@ -232,7 +245,14 @@ const Notification = memo(({}) => {
                             return <List.Item>
                                 <div className={'tiklab_notification_message'} key={item.id} onClick={() => itemClick(item)}>
                                     <div className={'tiklab_notification_message_title'}>
-                                        <span>{jsonData.title}</span>
+                                        {
+                                            readStatus === 'all' ?
+                                                <Space>
+                                                    <span>{jsonData.title}</span>
+                                                    <Tag  color={item.status === 1 ? "#108ee9" : "#f50"}>{item.status === 1 ? "已读" : "未读"}</Tag>
+                                                </Space>:
+                                                <span>{jsonData.title}</span>
+                                        }
                                     </div>
                                     <div className={'tiklab_notification_message_body'}>
                                         <p className={'tiklab_notification_message_summary'} dangerouslySetInnerHTML={{__html:jsonData.content}}/>
