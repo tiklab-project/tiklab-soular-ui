@@ -6,48 +6,48 @@ const selectionSettingMenuData = () => {
         {
             id:'1',
             title: '成员与部门',
-            icon :<AppstoreOutlined />,
+            icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             children:[{
                 id:'1-1',
                 title: '部门',
                 purviewCode:'orga',
-                icon :<AppstoreOutlined />,
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },{
                 id:'1-2',
                 title: '用户',
                 purviewCode:'user',
-                icon :<AppstoreOutlined />,
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },
             {
                 id:'1-3',
                 title: '用户目录',
                 purviewCode:'user_dir',
-                icon :<AppstoreOutlined />,
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             }]
         },
         {
             id:'2',
             title: '权限',
             purviewCode:'permission',
-            icon :<AppstoreOutlined />,
+            icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
         },
         {
             id:'3',
             key:'3',
             title: '消息',
-            icon :<AppstoreOutlined />,
+            icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             children: [
                 {
                     id:'3-1',
                     key:'3-1',
                     title: '消息配置',
-                    icon :<AppstoreOutlined />,
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },
                 {
                     id:'3-2',
                     key:'3-2',
                     title: '消息通知',
-                    icon :<AppstoreOutlined />,
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },
             ]
         },
@@ -56,25 +56,25 @@ const selectionSettingMenuData = () => {
             key:'4',
             title: '待办任务',
             purviewCode:'todotask',
-            icon :<AppstoreOutlined />,
+            icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
         },
         {
             id:'5',
             key:'5',
             title: '插件',
             purviewCode:'plugin',
-            icon :<SettingOutlined />,
+            icon :<SettingOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
         },
         {
             id:'6',
             key:'6',
             title: '安全',
-            icon :<SettingOutlined />,
+            icon :<SettingOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             children:[{
                 id:'6-1',
                 title: '操作日志',
                 purviewCode:'log',
-                icon :<AppstoreOutlined />,
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             }]
         },
         {
@@ -82,45 +82,45 @@ const selectionSettingMenuData = () => {
             key:'7',
             title: '版本与许可证',
             purviewCode:'version',
-            icon :<SettingOutlined />,
+            icon :<SettingOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
         },
         {
             id:'8',
             title: '基础数据',
-            icon :<AppstoreOutlined />,
+            icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             children:[{
                 id:'8-1',
                 title: '待办模板',
-                icon :<AppstoreOutlined />,
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },{
                 id:'8-2',
                 title: '日志模板',
-                icon :<AppstoreOutlined />,
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },
             {
                 id:'8-3',
                 title: '系统功能',
-                icon :<AppstoreOutlined />,
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },
             {
                 id:'8-4',
                 title: '系统权限',
-                icon :<AppstoreOutlined />,
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },
             {
                 id:'8-7',
                 title: '消息模板',
-                icon :<AppstoreOutlined />,
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },
             {
                 id:'8-8',
                 title: '消息发送方式',
-                icon :<AppstoreOutlined />,
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },
             {
                 id:'8-9',
                 title: '消息类型',
-                icon :<AppstoreOutlined />,
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             }
             ]
         },
@@ -129,42 +129,42 @@ const selectionSettingMenuData = () => {
         {
             id:'1',
             title: '成员与部门',
-            icon :<AppstoreOutlined />,
+            icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             children:[{
                 id:'1-1',
                 title: '部门',
                 purviewCode:'sys_orga',
-                icon :<AppstoreOutlined />,
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },{
                 id:'1-2',
                 title: '用户',
-                icon :<AppstoreOutlined />,
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },
                 {
                     id:'1-3',
                     title: '用户目录',
-                    icon :<AppstoreOutlined />,
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 }]
         },
         {
             id:'2',
             title: '权限',
-            icon :<AppstoreOutlined />,
+            icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
         },
         {
             id:'3',
             title: '消息',
-            icon :<AppstoreOutlined />,
+            icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             children: [
                 {
                     id:'3-1',
                     title: '消息配置',
-                    icon :<AppstoreOutlined />,
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },
                 {
                     id:'3-2',
                     title: '消息通知',
-                    icon :<AppstoreOutlined />,
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },
             ]
         },
@@ -172,31 +172,31 @@ const selectionSettingMenuData = () => {
         {
             id:'4',
             title: '待办任务',
-            icon :<AppstoreOutlined />,
+            icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
         },
         {
             id:'5',
             key:'5',
             title: '插件',
-            icon :<SettingOutlined />,
+            icon :<SettingOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
         },
         {
             id:'6',
             key:'6',
             title: '安全',
-            icon :<SettingOutlined />,
+            icon :<SettingOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             children:[{
                 id:'6-1',
                 title: '操作日志',
                 purviewCode:'oplog_list',
-                icon :<AppstoreOutlined />,
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             }]
         },
         {
             id:'7',
             key:'7',
             title: '版本与许可证',
-            icon :<SettingOutlined />,
+            icon :<SettingOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
         }
     ];
     return dev_production ? devMenu : prodMenu

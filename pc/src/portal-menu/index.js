@@ -5,10 +5,8 @@
  * @description index
  */
 import React, {useState, memo, useEffect, useRef} from "react";
-
-import './styles/index';
 import {Tooltip} from "antd";
-
+import './styles/index';
 const PortalMenu = memo(({tooltip, children, visibility, Icon, width=140}) => {
 
     const [visible,setVisible] = useState(false);

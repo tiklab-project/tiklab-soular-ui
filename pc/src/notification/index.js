@@ -206,7 +206,7 @@ const Notification = memo(({}) => {
     return(
         <>
             <Tooltip title={"通知"} mouseEnterDelay={0.3}>
-                <Badge count={total}><BellOutlined style={{fontSize:24}} onClick={showDrawer}/></Badge>
+                <Badge count={total}><BellOutlined style={{fontSize:"var(--tiklab-icon-size-22)"}} onClick={showDrawer}/></Badge>
             </Tooltip>
             <Drawer
                 placement="right"
@@ -215,9 +215,9 @@ const Notification = memo(({}) => {
                 width={420}
                 title={
                     <Select defaultValue="all" bordered={false} onSelect={onSelect}>
-                        <Option value="all"><BellOutlined style={{fontSize:18}}/>全部通知</Option>
-                        <Option value="unread"><BellOutlined style={{fontSize:18}}/>未读通知</Option>
-                        <Option value="read"><BellOutlined style={{fontSize:18}}/>已读通知</Option>
+                        <Option value="all"><BellOutlined style={{fontSize:"var(--tiklab-icon-size-16)"}}/>全部通知</Option>
+                        <Option value="unread"><BellOutlined style={{fontSize:"var(--tiklab-icon-size-16)"}}/>未读通知</Option>
+                        <Option value="read"><BellOutlined style={{fontSize:"var(--tiklab-icon-size-16)"}}/>已读通知</Option>
                     </Select>
                 }
                 bodyStyle={{
@@ -225,8 +225,8 @@ const Notification = memo(({}) => {
                 }}
                 mask={false}
                 style={{
-                    top: 64,
-                    height: 'calc(100% - 64px)',
+                    top: 48,
+                    height: 'calc(100% - 48px)',
                 }}
                 className={'as'}
             >

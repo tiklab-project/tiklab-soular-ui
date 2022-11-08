@@ -7,7 +7,7 @@
   &_header {
     display: flex;
     justify-content: space-between;
-    height: 64px;
+    height: 48px;
     border-bottom: 1px solid var(--tiklab-gray-300);
     padding: 0 24px;
     &_link {
@@ -63,7 +63,7 @@
       }
       &_icon {
         display: inline-block;
-        font-size: 24px;
+        font-size: var(--tiklab-icon-size-22);
         &:hover{
           display: inline-block;
           border-radius: 50%;
