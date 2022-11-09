@@ -7,7 +7,6 @@
  */
 import React from 'react';
 import {MessageType as DarthMessageType} from "tiklab-message-ui";
-
 const MessageType = props => {
 
     return(
