@@ -11,6 +11,7 @@ import {getUser} from 'tiklab-core-ui';
 import {verifyUserHoc, Profile, WorkAppConfig} from 'tiklab-eam-ui';
 import easLogo from '../../assets/eas.png'
 import {connect} from 'tiklab-plugin-ui/es/_utils'
+// import WorkAppConfig from '../../../../src/work-app-config'
 
 import Notification from "../../../../src/notification";
 import PortalMenu from '../../../../src/portal-menu'
@@ -90,44 +91,45 @@ const Portal = props => {
                                         onClick={
                                             () => changeCurrentLink({to:'/setting',})
                                         }
+                                        style={{ color: "var(--tiklab-white)"}}
                                     />
                                  </span>
                             </div>
                         </Tooltip>
 
                         <div className={'tiklab_portal_block_item'}>
-                            <Notification/>
+                            <Notification />
                         </div>
 
                         <PortalMenu
                             tooltip={'帮助与支持'}
                             visibility={helpVisibility}
-                            Icon={<QuestionCircleOutlined style={{fontSize:'var(--tiklab-icon-size-22)'}}/>}
+                            Icon={<QuestionCircleOutlined style={{fontSize:'var(--tiklab-icon-size-22)', color: "var(--tiklab-white)"}}/>}
                             width={240}
                         >
                             <>
                                 <div className={'layout_header_right_portal_item'} >
                                     <Space>
-                                        <SnippetsOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
+                                        <SnippetsOutlined style={{fontSize:'var(--tiklab-icon-size-16)', color: "var(--tiklab-white)"}}/>
                                         文档
                                     </Space>
 
                                 </div>
                                 <div className={'layout_header_right_portal_item'} >
                                     <Space>
-                                        <GlobalOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
+                                        <GlobalOutlined style={{fontSize:'var(--tiklab-icon-size-16)', color: "var(--tiklab-white)"}}/>
                                         社区支持
                                     </Space>
                                 </div>
                                 <div className={'layout_header_right_portal_item'} >
                                     <Space>
-                                        <CustomerServiceOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
+                                        <CustomerServiceOutlined style={{fontSize:'var(--tiklab-icon-size-16)', color: "var(--tiklab-white)"}}/>
                                         在线工单
                                     </Space>
                                 </div>
                                 <div className={'layout_header_right_portal_item'} >
                                     <Space>
-                                        <CommentOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
+                                        <CommentOutlined style={{fontSize:'var(--tiklab-icon-size-16)', color: "var(--tiklab-white)"}}/>
                                         在线客服
                                     </Space>
                                 </div>
@@ -154,7 +156,7 @@ const Portal = props => {
                                 <Menu mode="vertical">
                                     <Menu.SubMenu
                                         key="sub4"
-                                        title={<div><GlobalOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>切换语言</div>}
+                                        title={<div><GlobalOutlined style={{fontSize:'var(--tiklab-icon-size-16)', color: "var(--tiklab-white)"}}/>切换语言</div>}
                                     >
                                         {
                                             lngData.map(lng => {
@@ -166,13 +168,13 @@ const Portal = props => {
                                 </Menu>
                                 <div className={'layout_header_right_portal_item'} >
                                     <Space>
-                                        <UserOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
+                                        <UserOutlined style={{fontSize:'var(--tiklab-icon-size-16)', color: "var(--tiklab-white)"}}/>
                                         账户设置
                                     </Space>
                                 </div>
                                 <div className={'layout_header_right_portal_item'} onClick={goLogout}>
                                     <Space>
-                                        <LogoutOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
+                                        <LogoutOutlined style={{fontSize:'var(--tiklab-icon-size-16)', color: "var(--tiklab-white)"}}/>
                                         退出
                                     </Space>
                                 </div>

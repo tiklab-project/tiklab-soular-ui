@@ -5,7 +5,7 @@
  * @description index
  */
 import React, {useState, memo, useEffect} from "react";
-import {Badge, Drawer, Select, Tooltip, List, Button, Space, Tag} from "antd";
+import {Badge, Drawer, Select, Tooltip, List, Button, Space, Tag, Empty} from "antd";
 import {Axios, getUser} from "tiklab-core-ui";
 
 import {BellOutlined} from "@ant-design/icons";
@@ -206,7 +206,7 @@ const Notification = memo(({}) => {
     return(
         <>
             <Tooltip title={"通知"} mouseEnterDelay={0.3}>
-                <Badge count={total}><BellOutlined style={{fontSize:"var(--tiklab-icon-size-22)"}} onClick={showDrawer}/></Badge>
+                <Badge count={total}><BellOutlined style={{fontSize:"var(--tiklab-icon-size-22)" ,color: "var(--tiklab-white)"}} onClick={showDrawer}/></Badge>
             </Tooltip>
             <Drawer
                 placement="right"
@@ -234,6 +234,12 @@ const Notification = memo(({}) => {
                     <List
                         loadMore={loadMore}
                         dataSource={messageList}
+                        locale={{
+                            emptyText: <Empty
+
+                                description={<span>暂无消息</span>}
+                            />,
+                        }}
                         renderItem={(item => {
                             let jsonData = {
                                 title:item.messageTemplate.title,

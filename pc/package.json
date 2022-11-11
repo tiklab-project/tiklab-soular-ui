@@ -126,6 +126,8 @@
         "sass-loader": "^10.1.0",
         "style-loader": "^2.0.0",
         "terser-webpack-plugin": "^1.4.1",
+        "tiklab-flow-ui": "^1.0.1",
+        "tiklab-form-ui": "^1.0.1",
         "uglifyjs-webpack-plugin": "^2.2.0",
         "url-loader": "^4.1.1",
         "webpack": "^4.39.2",

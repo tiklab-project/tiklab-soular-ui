@@ -85,14 +85,15 @@ const SettingLayout = ({history, route, systemRoleStore}) => {
         const {location} = history;
         const pathname = location.pathname;
         const index = links.findIndex(item => pathname=== item.router);
-        const selected = links[index].key;
+        if (index > -1) {
+            const selected = links[index].key;
+            const openKey = selected.slice("-")[0];
+            setMenuKeys({
+                selectedKeys:[selected],
+                openKeys:[openKey]
+            })
+        }
 
-        const openKey = selected.slice("-")[0];
-
-        setMenuKeys({
-            selectedKeys:[selected],
-            openKeys:[openKey]
-        })
     },[])
 
     const onSelectMenu = e => {

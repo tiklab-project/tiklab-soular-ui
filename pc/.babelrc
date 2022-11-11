@@ -84,6 +84,19 @@
             "libraryDirectory": "es",
             "style": true
         }, "tiklab-oplog-ui"],
+
+        ["import", {
+            "libraryName": "tiklab-form-ui",
+            "libraryDirectory": "es",
+            "style": true
+        }, "tiklab-form-ui"],
+
+        ["import", {
+            "libraryName": "tiklab-flow-ui",
+            "libraryDirectory": "es",
+            "style": true
+        }, "tiklab-flow-ui"],
+
         "@babel/plugin-transform-regenerator",
         "react-hot-loader/babel"
     ]

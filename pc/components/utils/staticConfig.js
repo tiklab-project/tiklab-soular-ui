@@ -40,7 +40,7 @@ const selectionSettingMenuData = () => {
                 {
                     id:'3-1',
                     key:'3-1',
-                    title: '消息配置',
+                    title: '消息发送方式',
                     icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },
                 {
@@ -158,7 +158,7 @@ const selectionSettingMenuData = () => {
             children: [
                 {
                     id:'3-1',
-                    title: '消息配置',
+                    title: '消息发送方式',
                     icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },
                 {

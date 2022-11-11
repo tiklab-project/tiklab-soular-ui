@@ -6,12 +6,12 @@
  * @description baseSystemFeature
  */
 import React from 'react';
-import {ProjectRoleList} from "tiklab-privilege-ui";
+import {ProjectRoleList, DomainRoleList} from "tiklab-privilege-ui";
 
 const BaseProjectRole = () => {
 
     return(
-        <ProjectRoleList isBase={true}/>
+        <DomainRoleList isBase={false} domainId={'1111'}/>
     )
 }
 
