@@ -76,6 +76,19 @@ const links = [
         key:'8-9',
         router: "/setting/base/messagetype"
     },
+
+    {
+        key:'8-10',
+        router: "/setting/base/formList"
+    },
+    {
+        key:'8-11',
+        router: "/setting/base/preliminaryList"
+    },
+    {
+        key:'8-12',
+        router: "/setting/base/preliminaryTypeList"
+    },
 ];
 
 const SettingLayout = ({history, route, systemRoleStore}) => {

@@ -40,7 +40,7 @@ const selectionSettingMenuData = () => {
                 {
                     id:'3-1',
                     key:'3-1',
-                    title: '消息发送方式',
+                    title: '消息通知类型',
                     icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },
                 {
@@ -114,14 +114,27 @@ const selectionSettingMenuData = () => {
             },
             {
                 id:'8-8',
-                title: '消息发送方式',
+                title: '消息通知类型',
                 icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },
             {
                 id:'8-9',
                 title: '消息类型',
                 icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
-            }
+            },
+                {
+                    id:'8-10',
+                    title: '表单列表',
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+                },{
+                    id:'8-11',
+                    title: '字段',
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+                },{
+                    id:'8-12',
+                    title: '字体类型',
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+                },
             ]
         },
     ];
@@ -158,7 +171,7 @@ const selectionSettingMenuData = () => {
             children: [
                 {
                     id:'3-1',
-                    title: '消息发送方式',
+                    title: '消息通知类型',
                     icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },
                 {
@@ -257,6 +270,15 @@ const onSettingMenu = (history, key) => {
                 break;
             case '8-9':
                 history.push('/setting/base/messagetype')
+                break;
+            case '8-10':
+                history.push('/setting/base/formList')
+                break;
+            case '8-11':
+                history.push('/setting/base/preliminaryList')
+                break;
+            case '8-12':
+                history.push('/setting/base/preliminaryTypeList')
                 break;
         }
     } else {

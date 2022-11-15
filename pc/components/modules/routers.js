@@ -5,7 +5,6 @@ import {InternalWechatEntry, Logout, AuthResult} from 'tiklab-eam-ui'
 import SyncComponent from '../lazy/SyncComponent';
 import ElectronLoginPage from "./login/electornLogin";
 import {LogTemplateList} from "tiklab-oplog-ui";
-import {Version} from 'tiklab-licence-ui';
 
 const layout = SyncComponent(() => import('./layout/layout'));
 
@@ -49,12 +48,21 @@ const MessageSendTypeBase = SyncComponent(() => import('./setting/base/messageSe
 // 消息类型
 const MessageType = SyncComponent(() => import('./setting/base/messageType'));
 
+// 版本
+const VersionPage = SyncComponent(() => import('./setting/version/index'));
 
 const Work = SyncComponent(() => import('./work/work'))
 const Login = SyncComponent(() => import('./login/login'))
 
 // widgiet的管理
 const WidgetMangent = SyncComponent(() =>import('./widgets/widgetMangent'))
+
+
+// form
+
+const FormListPage = SyncComponent(() =>import('./setting/base/form/FormLisPage'))
+const PreliminaryListPage = SyncComponent(() =>import('./setting/base/form/PreliminaryListPage'))
+const PreliminaryTypeListPage = SyncComponent(() =>import('./setting/base/form/PreliminaryTypeListPage'))
 
 
 const selectionRouter = () => {
@@ -149,7 +157,7 @@ const selectionRouter = () => {
                             exact:true,
                         },
                         {
-                            component: Version,
+                            component: VersionPage,
                             path:"/setting/version",
                             exact:true,
                         },
@@ -196,6 +204,24 @@ const selectionRouter = () => {
                         {
                             component: MessageType,
                             path:"/setting/base/messagetype",
+                            exact:true,
+                        },
+
+                        {
+                            component: FormListPage,
+                            path:"/setting/base/formList",
+                            exact:true,
+                        },
+
+                        {
+                            component: PreliminaryListPage,
+                            path:"/setting/base/preliminaryList",
+                            exact:true,
+                        },
+
+                        {
+                            component: PreliminaryTypeListPage,
+                            path:"/setting/base/preliminaryTypeList",
                             exact:true,
                         },
                         {
@@ -299,7 +325,7 @@ const selectionRouter = () => {
                             exact:true,
                         },
                         {
-                            component: Version,
+                            component: VersionPage,
                             path:"/setting/version",
                             exact:true,
                         },
