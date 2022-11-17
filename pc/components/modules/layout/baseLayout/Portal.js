@@ -11,8 +11,6 @@ import {getUser} from 'tiklab-core-ui';
 import {verifyUserHoc, Profile, WorkAppConfig} from 'tiklab-eam-ui';
 import easLogo from '../../assets/eas.png'
 import {connect} from 'tiklab-plugin-ui/es/_utils'
-// import WorkAppConfig from '../../../../src/work-app-config'
-
 import Notification from "../../../../src/notification";
 import PortalMenu from '../../../../src/portal-menu'
 import './layout.scss'
@@ -98,7 +96,7 @@ const Portal = props => {
                         </Tooltip>
 
                         <div className={'tiklab_portal_block_item'}>
-                            <Notification />
+                            <Notification history={history}/>
                         </div>
 
                         <PortalMenu

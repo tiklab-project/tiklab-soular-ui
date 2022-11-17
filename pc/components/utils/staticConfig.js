@@ -132,7 +132,17 @@ const selectionSettingMenuData = () => {
                     icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },{
                     id:'8-12',
-                    title: '字体类型',
+                    title: '字段类型',
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+                },
+                {
+                    id:'8-13',
+                    title: '日志类型',
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+                },
+                {
+                    id:'8-14',
+                    title: '待办类型',
                     icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },
             ]
@@ -280,6 +290,13 @@ const onSettingMenu = (history, key) => {
             case '8-12':
                 history.push('/setting/base/preliminaryTypeList')
                 break;
+            case '8-13':
+                history.push('/setting/base/oplogtype')
+                break;
+            case '8-14':
+                history.push('/setting/base/todotype')
+                break;
+
         }
     } else {
         switch (key) {

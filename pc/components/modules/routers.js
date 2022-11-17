@@ -34,6 +34,8 @@ const LogListPage = SyncComponent(()=> import('./setting/oplog/logList'))
 // 基础数据
 // 待办模板
 const TodoTemplate = SyncComponent(()=> import('./setting/todotask/todoTemp'));
+
+const BaseTodoTypePage =  SyncComponent(()=> import('./setting/base/todo/todoTypePage'));
 //系统功能
 const BaseSystemFeature = SyncComponent(() => import('./setting/base/privilege/baseSystemFeature'));
 const BaseSystemRole = SyncComponent(() => import('./setting/base/privilege/baseSystemRole'));
@@ -47,6 +49,7 @@ const MessageTemplatePage = SyncComponent(() => import('./setting/base/messageTe
 const MessageSendTypeBase = SyncComponent(() => import('./setting/base/messageSendType'));
 // 消息类型
 const MessageType = SyncComponent(() => import('./setting/base/messageType'));
+const BaseOplogTypePage = SyncComponent(() => import('./setting/base/oplog/oplogTypePage'));
 
 // 版本
 const VersionPage = SyncComponent(() => import('./setting/version/index'));
@@ -59,7 +62,6 @@ const WidgetMangent = SyncComponent(() =>import('./widgets/widgetMangent'))
 
 
 // form
-
 const FormListPage = SyncComponent(() =>import('./setting/base/form/FormLisPage'))
 const PreliminaryListPage = SyncComponent(() =>import('./setting/base/form/PreliminaryListPage'))
 const PreliminaryTypeListPage = SyncComponent(() =>import('./setting/base/form/PreliminaryTypeListPage'))
@@ -167,8 +169,18 @@ const selectionRouter = () => {
                             exact:true,
                         },
                         {
+                            component: BaseTodoTypePage,
+                            path:"/setting/base/todotype",
+                            exact:true,
+                        },
+                        {
                             component: LogTemplateList,
                             path:"/setting/base/oplogtemplate",
+                            exact:true,
+                        },
+                        {
+                            component: BaseOplogTypePage,
+                            path:"/setting/base/oplogtype",
                             exact:true,
                         },
                         {

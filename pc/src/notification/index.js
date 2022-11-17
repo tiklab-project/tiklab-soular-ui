@@ -6,13 +6,13 @@
  */
 import React, {useState, memo, useEffect} from "react";
 import {Badge, Drawer, Select, Tooltip, List, Button, Space, Tag, Empty} from "antd";
-import {Axios, getUser} from "tiklab-core-ui";
+import {Axios, getUser, parseUserSearchParams} from "tiklab-core-ui";
 
 import {BellOutlined} from "@ant-design/icons";
 import './styles/index';
 
 const { Option } = Select;
-const Notification = memo(({}) => {
+const Notification = memo(({history}) => {
     const [messageList,setMessageList] = useState([]);
     const [notificationVisibility,setNotificationVisibility] = useState(false);
     const [pageSize,] = useState(30);
@@ -194,9 +194,15 @@ const Notification = memo(({}) => {
                     setMessageList(list);
                     setTotal(list.length);
                 }
-                // 做跳转详情页
 
             }
+        }
+        // 做跳转详情页
+        if (messageTemplate.link) {
+           if(/^http|https/.test(messageTemplate.link)){
+               window.open(messageTemplate.link+"?" + parseUserSearchParams(getUser()))
+           }
+           history.push(messageTemplate.link)
         }
     }
 

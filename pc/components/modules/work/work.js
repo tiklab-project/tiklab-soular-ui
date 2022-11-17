@@ -9,10 +9,13 @@ import React, {Component} from 'react';
 import {WidgetWork} from 'tiklab-widget-ui'
 class WorkBench extends Component{
 
+    constructor(props) {
+        super(props);
+    }
     render() {
         return(
             <div>
-                <WidgetWork/>
+                <WidgetWork {...this.props}/>
             </div>
 
         )
