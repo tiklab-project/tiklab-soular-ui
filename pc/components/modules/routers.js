@@ -65,6 +65,7 @@ const WidgetMangent = SyncComponent(() =>import('./widgets/widgetMangent'))
 const FormListPage = SyncComponent(() =>import('./setting/base/form/FormLisPage'))
 const PreliminaryListPage = SyncComponent(() =>import('./setting/base/form/PreliminaryListPage'))
 const PreliminaryTypeListPage = SyncComponent(() =>import('./setting/base/form/PreliminaryTypeListPage'))
+const LinkFormDesign = SyncComponent(() =>import('./setting/base/form/LinkFormDesign'))
 
 
 const selectionRouter = () => {
@@ -224,7 +225,11 @@ const selectionRouter = () => {
                             path:"/setting/base/formList",
                             exact:true,
                         },
-
+                        {
+                            component: LinkFormDesign,
+                            path:"/setting/base/formList/:id",
+                            exact:true,
+                        },
                         {
                             component: PreliminaryListPage,
                             path:"/setting/base/preliminaryList",

@@ -9,7 +9,6 @@ import {FormList} from "tiklab-form-ui";
 
 
 const FormListPage = props => {
-
     return(
         <FormList {...props} isBase={true}/>
     )
