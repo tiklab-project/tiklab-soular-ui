@@ -7,11 +7,12 @@
 import React from 'react';
 import {PreliminaryList} from "tiklab-form-ui";
 
-
 const PreliminaryListPage = props => {
 
     return(
-        <PreliminaryList {...props} isBase={true}/>
+        <>
+            <PreliminaryList {...props} isBase={false}/>
+        </>
     )
 }
 export default PreliminaryListPage
