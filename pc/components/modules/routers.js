@@ -50,6 +50,8 @@ const MessageSendTypeBase = SyncComponent(() => import('./setting/base/messageSe
 // 消息类型
 const MessageType = SyncComponent(() => import('./setting/base/messageType'));
 const BaseOplogTypePage = SyncComponent(() => import('./setting/base/oplog/oplogTypePage'));
+//消息通知方案
+const BaseMessageNoticePage = SyncComponent(() => import('./setting/base/messageNoticePage'));
 
 // 版本
 const VersionPage = SyncComponent(() => import('./setting/version/index'));
@@ -219,7 +221,11 @@ const selectionRouter = () => {
                             path:"/setting/base/messagetype",
                             exact:true,
                         },
-
+                        {
+                            component:BaseMessageNoticePage,
+                            path:"/setting/base/messageNotice",
+                            exact:true,
+                        },
                         {
                             component: FormListPage,
                             path:"/setting/base/formList",

@@ -46,7 +46,7 @@ const selectionSettingMenuData = () => {
                 {
                     id:'3-2',
                     key:'3-2',
-                    title: '消息通知',
+                    title: '通知方案',
                     icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },
             ]
@@ -122,29 +122,34 @@ const selectionSettingMenuData = () => {
                 title: '消息类型',
                 icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },
-                {
-                    id:'8-10',
-                    title: '表单列表',
-                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
-                },{
-                    id:'8-11',
-                    title: '字段',
-                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
-                },{
-                    id:'8-12',
-                    title: '字段类型',
-                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
-                },
-                {
-                    id:'8-13',
-                    title: '日志类型',
-                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
-                },
-                {
-                    id:'8-14',
-                    title: '待办类型',
-                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
-                },
+            {
+                id:'8-15',
+                title: '消息通知方案',
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+            },
+            {
+                id:'8-10',
+                title: '表单列表',
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+            },{
+                id:'8-11',
+                title: '字段',
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+            },{
+                id:'8-12',
+                title: '字段类型',
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+            },
+            {
+                id:'8-13',
+                title: '日志类型',
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+            },
+            {
+                id:'8-14',
+                title: '待办类型',
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+            },
             ]
         },
     ];
@@ -295,6 +300,9 @@ const onSettingMenu = (history, key) => {
                 break;
             case '8-14':
                 history.push('/setting/base/todotype')
+                break;
+            case '8-15':
+                history.push('/setting/base/messageNotice')
                 break;
 
         }

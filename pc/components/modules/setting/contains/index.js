@@ -76,7 +76,6 @@ const links = [
         key:'8-9',
         router: "/setting/base/messagetype"
     },
-
     {
         key:'8-10',
         router: "/setting/base/formList"
@@ -88,6 +87,18 @@ const links = [
     {
         key:'8-12',
         router: "/setting/base/preliminaryTypeList"
+    },
+    {
+        key:'8-13',
+        router: "/setting/base/oplogtype"
+    },
+    {
+        key:'8-14',
+        router: "/setting/base/todotype"
+    },
+    {
+        key:'8-15',
+        router: "/setting/base/messageNotice"
     },
 ];
 
