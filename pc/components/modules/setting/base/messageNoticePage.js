@@ -11,7 +11,7 @@ import {MessageNotice} from "tiklab-message-ui";
 const MessageNoticePage = props => {
 
     return(
-        <MessageNotice {...props} bgroup={'eas'} isBase={true}/>
+        <MessageNotice {...props} bgroup={'teamwire'} isBase={true}/>
     )
 }
 export default MessageNoticePage
