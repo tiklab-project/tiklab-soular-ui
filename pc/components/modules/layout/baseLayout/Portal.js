@@ -154,7 +154,7 @@ const Portal = props => {
                                 <Menu mode="vertical">
                                     <Menu.SubMenu
                                         key="sub4"
-                                        title={<div><GlobalOutlined style={{fontSize:'var(--tiklab-icon-size-16)', color: "var(--tiklab-white)"}}/>切换语言</div>}
+                                        title={<div><GlobalOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>切换语言</div>}
                                     >
                                         {
                                             lngData.map(lng => {
@@ -166,13 +166,13 @@ const Portal = props => {
                                 </Menu>
                                 <div className={'layout_header_right_portal_item'} >
                                     <Space>
-                                        <UserOutlined style={{fontSize:'var(--tiklab-icon-size-16)', color: "var(--tiklab-white)"}}/>
+                                        <UserOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
                                         账户设置
                                     </Space>
                                 </div>
                                 <div className={'layout_header_right_portal_item'} onClick={goLogout}>
                                     <Space>
-                                        <LogoutOutlined style={{fontSize:'var(--tiklab-icon-size-16)', color: "var(--tiklab-white)"}}/>
+                                        <LogoutOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
                                         退出
                                     </Space>
                                 </div>

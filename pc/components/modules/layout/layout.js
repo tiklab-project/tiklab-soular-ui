@@ -18,7 +18,7 @@ const Layout = ({systemRoleStore,route, ...res}) => {
     const user = getUser();
     useEffect(() => {
         if (user.userId) {
-            systemRoleStore.getSystemPermissions(user.userId, 'eas').then(res => {
+            systemRoleStore.getSystemPermissions(user.userId).then(res => {
 
             })
         }

@@ -161,15 +161,12 @@ const Notification = memo(({history}) => {
         ) : null;
 
     const itemClick = async (item) => {
-        const {message,messageTemplate,status, ...resItem } = item;
+        const {message,status, link, ...resItem } = item;
         if (item.status === 0) {
             const updateParams = {
                 ...resItem,
                 message:{
                     id: message.id
-                },
-                messageTemplate:{
-                    id: messageTemplate.id
                 },
                 status:1
             }
@@ -198,11 +195,11 @@ const Notification = memo(({history}) => {
             }
         }
         // 做跳转详情页
-        if (messageTemplate.link) {
-           if(/^http|https/.test(messageTemplate.link)){
-               window.open(messageTemplate.link+"?" + parseUserSearchParams(getUser()))
+        if (link) {
+           if(/^http|https/.test(link)){
+               window.open(link+"?" + parseUserSearchParams(getUser()))
            }
-           history.push(messageTemplate.link)
+           history.push(link)
         }
     }
 
@@ -247,12 +244,7 @@ const Notification = memo(({history}) => {
                             />,
                         }}
                         renderItem={(item => {
-                            let jsonData = {
-                                title:item.messageTemplate.title,
-                                status:item.status,
-                                receiveTime:item.receiveTime,
-                                content: item.messageTemplate.content,
-                            }
+                            const {content, link, title, receiveTime, status} = item;
 
                             return <List.Item>
                                 <div className={'tiklab_notification_message'} key={item.id} onClick={() => itemClick(item)}>
@@ -260,15 +252,15 @@ const Notification = memo(({history}) => {
                                         {
                                             readStatus === 'all' ?
                                                 <Space>
-                                                    <span>{jsonData.title}</span>
-                                                    <Tag  color={item.status === 1 ? "#108ee9" : "#f50"}>{item.status === 1 ? "已读" : "未读"}</Tag>
+                                                    <span>{title}</span>
+                                                    <Tag  color={status === 1 ? "#108ee9" : "#f50"}>{item.status === 1 ? "已读" : "未读"}</Tag>
                                                 </Space>:
-                                                <span>{jsonData.title}</span>
+                                                <span>{title}</span>
                                         }
                                     </div>
                                     <div className={'tiklab_notification_message_body'}>
-                                        <p className={'tiklab_notification_message_summary'} dangerouslySetInnerHTML={{__html:jsonData.content}}/>
-                                        <div className={'tiklab_notification_message_time'}>{jsonData.receiveTime}</div>
+                                        <p className={'tiklab_notification_message_summary'} dangerouslySetInnerHTML={{__html:content}}/>
+                                        <div className={'tiklab_notification_message_time'}>{receiveTime}</div>
                                     </div>
                                 </div>
                             </List.Item>

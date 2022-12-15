@@ -43,8 +43,6 @@ const BaseSystemRole = SyncComponent(() => import('./setting/base/privilege/base
 const BaseProjectFeature = SyncComponent(() => import('./setting/base/privilege/baseProjectFeature'));
 const BaseProjectRole = SyncComponent(() => import('./setting/base/privilege/baseProjectRole'));
 
-// 消息模板
-const MessageTemplatePage = SyncComponent(() => import('./setting/base/messageTemplate'));
 // 消息发送方式
 const MessageSendTypeBase = SyncComponent(() => import('./setting/base/messageSendType'));
 // 消息类型
@@ -204,11 +202,6 @@ const selectionRouter = () => {
                         {
                             component: BaseProjectRole,
                             path:"/setting/base/projectrole",
-                            exact:true,
-                        },
-                        {
-                            component: MessageTemplatePage,
-                            path:"/setting/base/messagetemplate",
                             exact:true,
                         },
                         {

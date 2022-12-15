@@ -108,11 +108,6 @@ const selectionSettingMenuData = () => {
                 icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },
             {
-                id:'8-7',
-                title: '消息模板',
-                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
-            },
-            {
                 id:'8-8',
                 title: '消息通知类型',
                 icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
@@ -276,9 +271,6 @@ const onSettingMenu = (history, key) => {
                 break;
             case '8-4':
                 history.push('/setting/base/systemrole')
-                break;
-            case '8-7':
-                history.push('/setting/base/messagetemplate')
                 break;
             case '8-8':
                 history.push('/setting/base/messagesendtype')
