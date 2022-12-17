@@ -22,8 +22,6 @@ const SystemRole = SyncComponent(() => import('./setting/systemRole/systemRole')
 const MessageSendType = SyncComponent(() => import('./setting/message/messageSendType'));
 // 消息通知
 const MessageManagement = SyncComponent(() => import('./setting/message/management'));
-// 待办任务
-const TodoTaskPage = SyncComponent(() =>import('./setting/todotask/todoTask'))
 // 插件
 const PluginList = SyncComponent(() => import('./setting/plugin'))
 // 操作日志
@@ -144,11 +142,7 @@ const selectionRouter = () => {
                             path:"/setting/message",
                             exact:true,
                         },
-                        {
-                            component: TodoTaskPage,
-                            path:"/setting/todotask",
-                            exact:true,
-                        },
+
                         {
                             component: PluginList,
                             path:"/setting/plugin",
@@ -325,11 +319,7 @@ const selectionRouter = () => {
                             path:"/setting/message",
                             exact:true,
                         },
-                        {
-                            component: TodoTaskPage,
-                            path:"/setting/todotask",
-                            exact:true,
-                        },
+
                         {
                             component: PluginList,
                             path:"/setting/plugin",

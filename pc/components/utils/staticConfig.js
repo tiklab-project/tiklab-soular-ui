@@ -5,7 +5,7 @@ const selectionSettingMenuData = () => {
     const devMenu =  [
         {
             id:'1',
-            title: '成员与部门',
+            title: '用户与部门',
             icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             children:[{
                 id:'1-1',
@@ -40,24 +40,18 @@ const selectionSettingMenuData = () => {
                 {
                     id:'3-1',
                     key:'3-1',
-                    title: '消息通知类型',
+                    title: '消息发送方式',
                     icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },
                 {
                     id:'3-2',
                     key:'3-2',
-                    title: '通知方案',
+                    title: '消息通知方案',
                     icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },
             ]
         },
-        {
-            id:'4',
-            key:'4',
-            title: '待办任务',
-            purviewCode:'todotask',
-            icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
-        },
+
         {
             id:'5',
             key:'5',
@@ -151,7 +145,7 @@ const selectionSettingMenuData = () => {
     const prodMenu =  [
         {
             id:'1',
-            title: '成员与部门',
+            title: '用户与部门',
             icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             children:[{
                 id:'1-1',
@@ -181,7 +175,7 @@ const selectionSettingMenuData = () => {
             children: [
                 {
                     id:'3-1',
-                    title: '消息通知类型',
+                    title: '消息发送方式',
                     icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },
                 {
@@ -190,12 +184,6 @@ const selectionSettingMenuData = () => {
                     icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
                 },
             ]
-        },
-
-        {
-            id:'4',
-            title: '待办任务',
-            icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
         },
         {
             id:'5',
@@ -247,9 +235,6 @@ const onSettingMenu = (history, key) => {
                 break;
             case '3-2':
                 history.push('/setting/message')
-                break;
-            case '4':
-                history.push('/setting/todotask')
                 break;
             case '5':
                 history.push('/setting/plugin')
@@ -317,9 +302,6 @@ const onSettingMenu = (history, key) => {
                 break;
             case '3-2':
                 history.push('/setting/message')
-                break;
-            case '4':
-                history.push('/setting/todotask')
                 break;
             case '5':
                 history.push('/setting/plugin')

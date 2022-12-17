@@ -59,7 +59,7 @@ const Notification = memo(({history}) => {
                 break;
         }
         setLoading(true);
-        Axios.post('/message/messageDispatchItem/findMessageDispatchItemPage', params).then(res => {
+        Axios.post('/message/messageItem/findMessageItemPage', params).then(res => {
             if (res.code === 0) {
                 const messageList = res.data.dataList;
                 setMessageList(messageList);
@@ -98,7 +98,7 @@ const Notification = memo(({history}) => {
                 break;
         }
         setLoading(true);
-        Axios.post('/message/messageDispatchItem/findMessageDispatchItemPage', params).then(res => {
+        Axios.post('/message/messageItem/findMessageItemPage', params).then(res => {
             if (res.code === 0) {
                 const messageList = [...message, ...res.data.dataList];
                 setMessageList(messageList);
@@ -138,7 +138,7 @@ const Notification = memo(({history}) => {
                 dataParams['status'] = 0
                 break;
         }
-        const res =  await Axios.post('/message/messageDispatchItem/findMessageDispatchItemPage', dataParams);
+        const res =  await Axios.post('/message/messageItem/findMessageItemPage', dataParams);
         if (res.code === 0 ) {
             const data = [...message,...res.data.dataList];
             setMessageList(data)
@@ -170,7 +170,7 @@ const Notification = memo(({history}) => {
                 },
                 status:1
             }
-            const res =  await Axios.post('/message/messageDispatchItem/updateMessageDispatchItem', updateParams);
+            const res =  await Axios.post('/message/messageItem/updateMessageItem', updateParams);
             if (res.code === 0) {
                 // 判断 选择的未读
                 if (readStatus === 'unread') {

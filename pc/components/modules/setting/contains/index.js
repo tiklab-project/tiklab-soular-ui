@@ -33,10 +33,6 @@ const links = [
         router:`/setting/message`,
     },
     {
-        key:'4',
-        router:`/setting/todotask`,
-    },
-    {
         key:'5',
         router:`/setting/plugin`,
     },
