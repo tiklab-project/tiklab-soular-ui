@@ -9,7 +9,7 @@ import React, {useEffect} from 'react';
 import {renderRoutes} from 'react-router-config'
 import Portal from "./baseLayout/Portal";
 import {getUser} from "tiklab-core-ui";
-import {SYSTEM_ROLE_STORE} from "tiklab-privilege-ui/lib/store";
+import {SYSTEM_ROLE_STORE} from "tiklab-privilege-ui/es/store";
 import {inject, observer} from "mobx-react";
 
 

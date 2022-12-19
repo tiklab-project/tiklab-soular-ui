@@ -125,8 +125,8 @@ const SettingLayout = ({history, route, systemRoleStore}) => {
             <MenuList
                 data={settingMenuData}
                 onSelectMenu={onSelectMenu}
-                defaultSelectedKeys={menuKeys.selectedKeys}
-                defaultOpenKeys={menuKeys.openKeys}
+                // defaultSelectedKeys={menuKeys.selectedKeys}
+                // defaultOpenKeys={menuKeys.openKeys}
                 selectedKeys={menuKeys.selectedKeys}
                 openKeys={menuKeys.openKeys}
                 allPromise={systemRoleStore.systemPermissions}
