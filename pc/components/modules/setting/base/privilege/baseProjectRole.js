@@ -11,7 +11,7 @@ import {ProjectRoleList, DomainRoleList} from "tiklab-privilege-ui";
 const BaseProjectRole = () => {
 
     return(
-        <DomainRoleList isBase={false} domainId={'1111'}/>
+        <ProjectRoleList isBase={true} domainId={'1111'}/>
     )
 }
 

@@ -23,7 +23,13 @@ const selectionSettingMenuData = () => {
                 title: '用户目录',
                 purviewCode:'user_dir',
                 icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
-            }]
+            },
+            {
+                id:'1-4',
+                title: '用户组',
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+            }
+            ]
         },
         {
             id:'2',
@@ -161,7 +167,13 @@ const selectionSettingMenuData = () => {
                     id:'1-3',
                     title: '用户目录',
                     icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
-                }]
+                },
+                {
+                    id:'1-4',
+                    title: '用户组',
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+                }
+                ]
         },
         {
             id:'2',
@@ -226,6 +238,9 @@ const onSettingMenu = (history, key) => {
                 break;
             case '1-3':
                 history.push('/setting/dir')
+                break;
+            case '1-4':
+                history.push('/setting/userGroup')
                 break;
             case '2':
                 history.push('/setting/permission')

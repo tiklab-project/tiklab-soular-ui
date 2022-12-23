@@ -16,6 +16,9 @@ const OrgaManagement = SyncComponent(() => import('./setting/orga/orgaManagement
 const UserManagement = SyncComponent(() => import('./setting/orga/userManagement/userManagement'));
 // 用户目录
 const PortalDirectory = SyncComponent(() => import('./setting/orga/directory/portalDirectory'));
+// 用户组
+const UserGroupPage = SyncComponent(() => import('./setting/orga/userGroup/userGroupPage'))
+
 // 权限
 const SystemRole = SyncComponent(() => import('./setting/systemRole/systemRole'));
 // 消息发送方式
@@ -126,6 +129,11 @@ const selectionRouter = () => {
                             component: PortalDirectory,
                             path:"/setting/dir",
                             exact:true,
+                        },
+                        {
+                            component: UserGroupPage,
+                            path: "/setting/userGroup",
+                            exact: true
                         },
                         {
                             component: SystemRole,
