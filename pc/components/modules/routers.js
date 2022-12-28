@@ -59,7 +59,7 @@ const Work = SyncComponent(() => import('./work/work'))
 const Login = SyncComponent(() => import('./login/login'))
 
 // widgiet的管理
-const WidgetMangent = SyncComponent(() =>import('./widgets/widgetMangent'))
+const ProductUserPage = SyncComponent(() =>import('./setting/productuser'))
 
 
 // form
@@ -68,6 +68,7 @@ const PreliminaryListPage = SyncComponent(() =>import('./setting/base/form/Preli
 const PreliminaryTypeListPage = SyncComponent(() =>import('./setting/base/form/PreliminaryTypeListPage'))
 const LinkFormDesign = SyncComponent(() =>import('./setting/base/form/LinkFormDesign'))
 
+const vaildProductUserPage = SyncComponent(() =>import('./vaildProductUserPage'))
 
 const selectionRouter = () => {
     const devRouter = [
@@ -75,6 +76,11 @@ const selectionRouter = () => {
             path: "/logout",
             exact: true,
             component: Logout
+        },
+        {
+            path: "/no-auth",
+            exact: true,
+            component: vaildProductUserPage
         },
         {
             component: Login,
@@ -164,6 +170,11 @@ const selectionRouter = () => {
                         {
                             component: VersionPage,
                             path:"/setting/version",
+                            exact:true,
+                        },
+                        {
+                            component:ProductUserPage,
+                            path:"/setting/productuser",
                             exact:true,
                         },
                         {

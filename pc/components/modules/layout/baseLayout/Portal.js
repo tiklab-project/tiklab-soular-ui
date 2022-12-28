@@ -9,6 +9,9 @@ import {GlobalOutlined, SettingOutlined, QuestionCircleOutlined,SnippetsOutlined
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
 import {verifyUserHoc, Profile, WorkAppConfig} from 'tiklab-eam-ui';
+
+
+
 import easLogo from '../../assets/eas.png'
 import {connect} from 'tiklab-plugin-ui/es/_utils'
 import Notification from "../../../../src/notification";
@@ -190,7 +193,7 @@ const Portal = props => {
         </main>
     )
 };
-const verifyPortal = verifyUserHoc(Portal)
+const verifyPortal = verifyUserHoc(Portal, '/no-auth')
 
 
 function mapStateToProps(state) {

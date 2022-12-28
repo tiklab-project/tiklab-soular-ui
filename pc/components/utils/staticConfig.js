@@ -85,6 +85,12 @@ const selectionSettingMenuData = () => {
             icon :<SettingOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
         },
         {
+            id:'9',
+            key:'9',
+            title: '用户授权',
+            icon :<SettingOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+        },
+        {
             id:'8',
             title: '基础数据',
             icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
@@ -220,7 +226,13 @@ const selectionSettingMenuData = () => {
             key:'7',
             title: '版本与许可证',
             icon :<SettingOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
-        }
+        },
+        {
+            id:'9',
+            key:'9',
+            title: '用户授权',
+            icon :<SettingOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+        },
     ];
     return dev_production ? devMenu : prodMenu
 }
@@ -259,6 +271,9 @@ const onSettingMenu = (history, key) => {
                 break;
             case '7':
                 history.push('/setting/version')
+                break;
+            case '9':
+                history.push('/setting/productuser')
                 break;
             case '8-1':
                 history.push('/setting/base/todotemplate')
@@ -326,6 +341,9 @@ const onSettingMenu = (history, key) => {
                 break;
             case '7':
                 history.push('/setting/version')
+                break;
+            case '9':
+                history.push('/setting/productuser')
                 break;
         }
     }
