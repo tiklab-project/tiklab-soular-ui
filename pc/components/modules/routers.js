@@ -58,9 +58,6 @@ const VersionPage = SyncComponent(() => import('./setting/version/index'));
 const Work = SyncComponent(() => import('./work/work'))
 const Login = SyncComponent(() => import('./login/login'))
 
-// widgiet的管理
-const ProductUserPage = SyncComponent(() =>import('./setting/productuser'))
-
 
 // form
 const FormListPage = SyncComponent(() =>import('./setting/base/form/FormLisPage'))
@@ -259,11 +256,6 @@ const selectionRouter = () => {
             component: Logout
         },
         {
-            path: "/no-auth",
-            exact: true,
-            component: vaildProductUserPage
-        },
-        {
             component: Login,
             exact:true,
             path: '/login'
@@ -353,11 +345,7 @@ const selectionRouter = () => {
                             path:"/setting/version",
                             exact:true,
                         },
-                        {
-                            component:ProductUserPage,
-                            path:"/setting/productuser",
-                            exact:true,
-                        },
+
                         {
                             path: "/setting",
                             exact: true,
