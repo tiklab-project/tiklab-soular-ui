@@ -68,10 +68,191 @@ const PreliminaryListPage = SyncComponent(() =>import('./setting/base/form/Preli
 const PreliminaryTypeListPage = SyncComponent(() =>import('./setting/base/form/PreliminaryTypeListPage'))
 const LinkFormDesign = SyncComponent(() =>import('./setting/base/form/LinkFormDesign'))
 
-const vaildProductUserPage = SyncComponent(() =>import('./vaildProductUserPage'))
 
 const selectionRouter = () => {
     const devRouter = [
+        {
+            path: "/logout",
+            exact: true,
+            component: Logout
+        },
+        {
+            component: Login,
+            exact:true,
+            path: '/login'
+        },
+        {
+            component: ElectronLoginPage,
+            exact:true,
+            path: '/account'
+        },
+        {
+            component: AuthResult,
+            exact:true,
+            path: '/auth_result'
+        },
+        {
+            component:InternalWechatEntry,
+            exact:true,
+            path: '/project'
+        },
+        {
+            component: layout,
+            key:'layout',
+            path: '/',
+            routes: [
+                {
+                    component: Work,
+                    path:"/work",
+                    exact:true,
+                },
+                {
+                    path:"/",
+                    exact:true,
+                    render:()=><Redirect to="/work"/>
+                },
+                {
+                    component: SettingLayout,
+                    path: "/setting",
+                    routes:[
+                        {
+                            component: OrgaManagement,
+                            path:"/setting/orga",
+                            exact:true,
+                        },
+                        {
+                            component: UserManagement,
+                            path:"/setting/user",
+                            exact:true,
+                        },
+                        {
+                            component: PortalDirectory,
+                            path:"/setting/dir",
+                            exact:true,
+                        },
+                        {
+                            component: UserGroupPage,
+                            path: "/setting/userGroup",
+                            exact: true
+                        },
+                        {
+                            component: SystemRole,
+                            path:"/setting/permission",
+                            exact:true,
+                        },
+                        {
+                            component: MessageSendType,
+                            path:"/setting/messagesendtype",
+                            exact:true,
+                        },
+                        {
+                            component: MessageManagement,
+                            path:"/setting/message",
+                            exact:true,
+                        },
+
+                        {
+                            component: PluginList,
+                            path:"/setting/plugin",
+                            exact:true,
+                        },
+                        {
+                            component: LogListPage,
+                            path:"/setting/log",
+                            exact:true,
+                        },
+                        {
+                            component: VersionPage,
+                            path:"/setting/version",
+                            exact:true,
+                        },
+                        {
+                            component: TodoTemplate,
+                            path:"/setting/base/todotemplate",
+                            exact:true,
+                        },
+                        {
+                            component: BaseTodoTypePage,
+                            path:"/setting/base/todotype",
+                            exact:true,
+                        },
+                        {
+                            component: LogTemplateList,
+                            path:"/setting/base/oplogtemplate",
+                            exact:true,
+                        },
+                        {
+                            component: BaseOplogTypePage,
+                            path:"/setting/base/oplogtype",
+                            exact:true,
+                        },
+                        {
+                            component: BaseSystemFeature,
+                            path:"/setting/base/systemfeature",
+                            exact:true,
+                        },
+                        {
+                            component: BaseSystemRole,
+                            path:"/setting/base/systemrole",
+                            exact:true,
+                        },
+                        {
+                            component: BaseProjectFeature,
+                            path:"/setting/base/projectfeature",
+                            exact:true,
+                        },
+                        {
+                            component: BaseProjectRole,
+                            path:"/setting/base/projectrole",
+                            exact:true,
+                        },
+                        {
+                            component: MessageSendTypeBase,
+                            path:"/setting/base/messagesendtype",
+                            exact:true,
+                        },
+                        {
+                            component: MessageType,
+                            path:"/setting/base/messagetype",
+                            exact:true,
+                        },
+                        {
+                            component:BaseMessageNoticePage,
+                            path:"/setting/base/messageNotice",
+                            exact:true,
+                        },
+                        {
+                            component: FormListPage,
+                            path:"/setting/base/formList",
+                            exact:true,
+                        },
+                        {
+                            component: LinkFormDesign,
+                            path:"/setting/base/formList/:id",
+                            exact:true,
+                        },
+                        {
+                            component: PreliminaryListPage,
+                            path:"/setting/base/preliminaryList",
+                            exact:true,
+                        },
+
+                        {
+                            component: PreliminaryTypeListPage,
+                            path:"/setting/base/preliminaryTypeList",
+                            exact:true,
+                        },
+                        {
+                            path: "/setting",
+                            exact: true,
+                            render: ()=><Redirect to="/setting/orga"/>
+                        },
+                    ]
+                },
+            ],
+        },
+    ];
+    const routes = [
         {
             path: "/logout",
             exact: true,
@@ -177,184 +358,6 @@ const selectionRouter = () => {
                             path:"/setting/productuser",
                             exact:true,
                         },
-                        {
-                            component: TodoTemplate,
-                            path:"/setting/base/todotemplate",
-                            exact:true,
-                        },
-                        {
-                            component: BaseTodoTypePage,
-                            path:"/setting/base/todotype",
-                            exact:true,
-                        },
-                        {
-                            component: LogTemplateList,
-                            path:"/setting/base/oplogtemplate",
-                            exact:true,
-                        },
-                        {
-                            component: BaseOplogTypePage,
-                            path:"/setting/base/oplogtype",
-                            exact:true,
-                        },
-                        {
-                            component: BaseSystemFeature,
-                            path:"/setting/base/systemfeature",
-                            exact:true,
-                        },
-                        {
-                            component: BaseSystemRole,
-                            path:"/setting/base/systemrole",
-                            exact:true,
-                        },
-                        {
-                            component: BaseProjectFeature,
-                            path:"/setting/base/projectfeature",
-                            exact:true,
-                        },
-                        {
-                            component: BaseProjectRole,
-                            path:"/setting/base/projectrole",
-                            exact:true,
-                        },
-                        {
-                            component: MessageSendTypeBase,
-                            path:"/setting/base/messagesendtype",
-                            exact:true,
-                        },
-                        {
-                            component: MessageType,
-                            path:"/setting/base/messagetype",
-                            exact:true,
-                        },
-                        {
-                            component:BaseMessageNoticePage,
-                            path:"/setting/base/messageNotice",
-                            exact:true,
-                        },
-                        {
-                            component: FormListPage,
-                            path:"/setting/base/formList",
-                            exact:true,
-                        },
-                        {
-                            component: LinkFormDesign,
-                            path:"/setting/base/formList/:id",
-                            exact:true,
-                        },
-                        {
-                            component: PreliminaryListPage,
-                            path:"/setting/base/preliminaryList",
-                            exact:true,
-                        },
-
-                        {
-                            component: PreliminaryTypeListPage,
-                            path:"/setting/base/preliminaryTypeList",
-                            exact:true,
-                        },
-                        {
-                            path: "/setting",
-                            exact: true,
-                            render: ()=><Redirect to="/setting/orga"/>
-                        },
-                    ]
-                },
-            ],
-        },
-    ];
-    const routes = [
-        {
-            path: "/logout",
-            exact: true,
-            component: Logout
-        },
-        {
-            component: Login,
-            exact:true,
-            path: '/login'
-        },
-        {
-            component: ElectronLoginPage,
-            exact:true,
-            path: '/account'
-        },
-        {
-            component: AuthResult,
-            exact:true,
-            path: '/auth_result'
-        },
-        {
-            component:InternalWechatEntry,
-            exact:true,
-            path: '/project'
-        },
-        {
-            component: layout,
-            key:'layout',
-            path: '/',
-            routes: [
-                {
-                    component: Work,
-                    path:"/work",
-                    exact:true,
-                },
-                {
-                    path:"/",
-                    exact:true,
-                    render:()=><Redirect to="/work"/>
-                },
-                {
-                    component: SettingLayout,
-                    path: "/setting",
-                    routes:[
-                        {
-                            component: OrgaManagement,
-                            path:"/setting/orga",
-                            exact:true,
-                        },
-                        {
-                            component: UserManagement,
-                            path:"/setting/user",
-                            exact:true,
-                        },
-                        {
-                            component: PortalDirectory,
-                            path:"/setting/dir",
-                            exact:true,
-                        },
-                        {
-                            component: SystemRole,
-                            path:"/setting/permission",
-                            exact:true,
-                        },
-                        {
-                            component: MessageSendType,
-                            path:"/setting/messagesendtype",
-                            exact:true,
-                        },
-                        {
-                            component: MessageManagement,
-                            path:"/setting/message",
-                            exact:true,
-                        },
-
-                        {
-                            component: PluginList,
-                            path:"/setting/plugin",
-                            exact:true,
-                        },
-                        {
-                            component: LogListPage,
-                            path:"/setting/log",
-                            exact:true,
-                        },
-                        {
-                            component: VersionPage,
-                            path:"/setting/version",
-                            exact:true,
-                        },
-
                         {
                             path: "/setting",
                             exact: true,

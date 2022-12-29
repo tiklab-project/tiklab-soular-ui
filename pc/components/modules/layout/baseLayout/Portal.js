@@ -193,7 +193,7 @@ const Portal = props => {
         </main>
     )
 };
-const verifyPortal = verifyUserHoc(Portal, '/no-auth')
+const verifyPortal = verifyUserHoc(Portal)
 
 
 function mapStateToProps(state) {
