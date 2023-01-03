@@ -14,10 +14,7 @@ class WorkBench extends Component{
     }
     render() {
         return(
-            <div>
-                <WidgetWork {...this.props}/>
-            </div>
-
+            <WidgetWork {...this.props} isCe={true}/>
         )
     }
 }

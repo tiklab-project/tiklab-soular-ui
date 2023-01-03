@@ -6,10 +6,11 @@
  */
 import React, {useState, memo, useEffect} from "react";
 import {Badge, Drawer, Select, Tooltip, List, Button, Space, Tag, Empty} from "antd";
-import {Axios, getUser, parseUserSearchParams} from "tiklab-core-ui";
+import {getUser, parseUserSearchParams} from "tiklab-core-ui";
 
 import {BellOutlined} from "@ant-design/icons";
 import './styles/index';
+import {findMessagePageService, updateMessageService} from "./api";
 
 const { Option } = Select;
 const Notification = memo(({history}) => {
@@ -48,7 +49,8 @@ const Notification = memo(({history}) => {
                 currentPage:current
             },
             sendType: 'site',
-            receiver: getUser().userId
+            receiver: getUser().userId,
+            bgroup:"eas"
         }
         switch (readStatus) {
             case "read":
@@ -59,7 +61,7 @@ const Notification = memo(({history}) => {
                 break;
         }
         setLoading(true);
-        Axios.post('/message/messageItem/findMessageItemPage', params).then(res => {
+        findMessagePageService(params).then(res => {
             if (res.code === 0) {
                 const messageList = res.data.dataList;
                 setMessageList(messageList);
@@ -87,7 +89,8 @@ const Notification = memo(({history}) => {
                 currentPage:current
             },
             sendType: 'site',
-            receiver: getUser().userId
+            receiver: getUser().userId,
+            bgroup: 'eas'
         }
         switch (readStatus) {
             case "read":
@@ -98,7 +101,7 @@ const Notification = memo(({history}) => {
                 break;
         }
         setLoading(true);
-        Axios.post('/message/messageItem/findMessageItemPage', params).then(res => {
+        findMessagePageService(params).then(res => {
             if (res.code === 0) {
                 const messageList = [...message, ...res.data.dataList];
                 setMessageList(messageList);
@@ -125,6 +128,7 @@ const Notification = memo(({history}) => {
         const dataParams = {
             sendType: 'site',
             receiver: getUser().userId,
+            bgroup:"eas",
             pageParam:{
                 pageSize:pageSize,
                 currentPage:page +1
@@ -138,7 +142,7 @@ const Notification = memo(({history}) => {
                 dataParams['status'] = 0
                 break;
         }
-        const res =  await Axios.post('/message/messageItem/findMessageItemPage', dataParams);
+        const res =  await findMessagePageService(dataParams);
         if (res.code === 0 ) {
             const data = [...message,...res.data.dataList];
             setMessageList(data)
@@ -170,7 +174,7 @@ const Notification = memo(({history}) => {
                 },
                 status:1
             }
-            const res =  await Axios.post('/message/messageItem/updateMessageItem', updateParams);
+            const res =  await updateMessageService(updateParams);
             if (res.code === 0) {
                 // 判断 选择的未读
                 if (readStatus === 'unread') {
