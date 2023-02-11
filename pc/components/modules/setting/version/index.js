@@ -8,7 +8,7 @@ import React from 'react';
 import {Table, Button} from 'antd';
 import {Version} from 'tiklab-licence-ui';
 import {CheckOutlined, CloseOutlined} from "@ant-design/icons";
-
+import {ProductAuth} from 'tiklab-privilege-ui'
 
 const VersionPage = () => {
 
@@ -128,14 +128,19 @@ const VersionPage = () => {
             },
         },
     ]
-    return <Version>
-        <Table
-            bordered
-            columns={columns}
-            dataSource={dataSource}
-            pagination={false}
-        />
-    </Version>
+    return (
+        <div>
+            <Version>
+                <Table
+                    bordered
+                    columns={columns}
+                    dataSource={dataSource}
+                    pagination={false}
+                />
+            </Version>
+        </div>
+    )
+
 }
 
 export default VersionPage

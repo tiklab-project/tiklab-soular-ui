@@ -7,12 +7,12 @@
  * @description baseSystemFeature
  */
 import React from 'react';
-import {SystemRoleList} from "tiklab-privilege-ui";
+import {DomainRoleList} from "tiklab-privilege-ui";
 
 const BaseSystemRole = () => {
 
     return(
-        <SystemRoleList isBase={true} />
+        <DomainRoleList isBase={true} domainId={"1234"}/>
     )
 }
 export default BaseSystemRole

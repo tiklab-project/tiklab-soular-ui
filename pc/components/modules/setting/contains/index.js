@@ -96,6 +96,22 @@ const links = [
         key:'8-15',
         router: "/setting/base/messageNotice"
     },
+    {
+        key:'8-16',
+        router: "/setting/base/domainUserList"
+    },
+    {
+        key:'8-17',
+        router: "/setting/base/projectfeature"
+    },
+    {
+        key:'8-18',
+        router: "/setting/base/projectrole"
+    },
+    {
+        key:'8-19',
+        router: "/setting/base/domainRole"
+    },
 ];
 
 const SettingLayout = ({history, route, systemRoleStore}) => {

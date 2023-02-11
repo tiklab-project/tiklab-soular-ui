@@ -6,7 +6,6 @@
  */
 import React from 'react';
 import {LogList as List, MyLogList} from 'tiklab-oplog-ui'
-
 const LogList = (props) => {
     return <MyLogList {...props}/>
 }

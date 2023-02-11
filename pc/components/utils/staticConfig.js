@@ -118,11 +118,6 @@ const selectionSettingMenuData = () => {
                 icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },
             {
-                id:'8-15',
-                title: '消息通知方案',
-                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
-            },
-            {
                 id:'8-10',
                 title: '表单列表',
                 icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
@@ -145,6 +140,32 @@ const selectionSettingMenuData = () => {
                 title: '待办类型',
                 icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },
+            {
+                id:'8-15',
+                title: '消息通知方案',
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+            },
+
+                {
+                    id:'8-17',
+                    title: '项目功能',
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+                },
+                {
+                    id:'8-18',
+                    title: '项目角色',
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+                },
+                {
+                    id:'8-16',
+                    title: '项目用户自定义',
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+                },
+                {
+                    id:'8-19',
+                    title: '项目角色自定义',
+                    icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+                },
             ]
         },
     ];
@@ -296,7 +317,18 @@ const onSettingMenu = (history, key) => {
             case '8-15':
                 history.push('/setting/base/messageNotice')
                 break;
-
+            case '8-16':
+                history.push('/setting/base/domainUserList')
+                break;
+            case '8-17':
+                history.push('/setting/base/projectfeature')
+                break;
+            case '8-18':
+                history.push('/setting/base/projectrole')
+                break;
+            case '8-19':
+                history.push('/setting/base/domainRole')
+                break;
         }
     } else {
         switch (key) {

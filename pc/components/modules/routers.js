@@ -5,6 +5,7 @@ import {InternalWechatEntry, Logout, AuthResult} from 'tiklab-eam-ui'
 import SyncComponent from '../lazy/SyncComponent';
 import ElectronLoginPage from "./login/electornLogin";
 import {LogTemplateList} from "tiklab-oplog-ui";
+// import {LogTemplateList} from "../../src/components";
 
 const layout = SyncComponent(() => import('./layout/layout'));
 
@@ -43,6 +44,7 @@ const BaseSystemRole = SyncComponent(() => import('./setting/base/privilege/base
 //项目功能点
 const BaseProjectFeature = SyncComponent(() => import('./setting/base/privilege/baseProjectFeature'));
 const BaseProjectRole = SyncComponent(() => import('./setting/base/privilege/baseProjectRole'));
+const BaseDomainRole = SyncComponent(() => import('./setting/base/privilege/baseDomainRole'));
 
 // 消息发送方式
 const MessageSendTypeBase = SyncComponent(() => import('./setting/base/messageSendType'));
@@ -51,6 +53,8 @@ const MessageType = SyncComponent(() => import('./setting/base/messageType'));
 const BaseOplogTypePage = SyncComponent(() => import('./setting/base/oplog/oplogTypePage'));
 //消息通知方案
 const BaseMessageNoticePage = SyncComponent(() => import('./setting/base/messageNoticePage'));
+
+const BaseDomainUserPage = SyncComponent(() => import('./setting/base/domainUserPage'));
 
 // 版本
 const VersionPage = SyncComponent(() => import('./setting/version/index'));
@@ -239,6 +243,17 @@ const selectionRouter = () => {
                             path:"/setting/base/preliminaryTypeList",
                             exact:true,
                         },
+                        {
+                            component: BaseDomainUserPage,
+                            path:"/setting/base/domainUserList",
+                            exact:true,
+                        },
+                        {
+                            component: BaseDomainRole,
+                            path:"/setting/base/domainRole",
+                            exact:true,
+                        },
+
                         {
                             path: "/setting",
                             exact: true,
