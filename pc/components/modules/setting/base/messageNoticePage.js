@@ -6,7 +6,6 @@
  */
 import React from 'react';
 import {MessageNotice} from "tiklab-message-ui";
-
 const MessageNoticePage = props => {
 
     return(
