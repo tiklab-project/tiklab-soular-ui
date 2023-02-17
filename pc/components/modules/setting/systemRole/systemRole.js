@@ -11,7 +11,7 @@ import {SystemRoleList} from "tiklab-privilege-ui";
 const SystemRole = props => {
 
     return(
-        <SystemRoleList {...props} group={'system'} tableLink={'/privilege/role/system/'}/>
+        <SystemRoleList {...props} group={'system'}/>
     )
 }
 
