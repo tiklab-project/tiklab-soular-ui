@@ -12,10 +12,10 @@ import { messageModuleStores } from 'tiklab-message-ui/es/store';
 import { orgStores } from 'tiklab-user-ui/es/store';
 import {PluginProvider} from "tiklab-plugin-ui";
 import {initFetch} from "tiklab-plugin-ui/es/_utils";
-import stores from "../components/modules/stores";
-import resources from "../components/modules/common/language/resources";
-import routes from '../components/modules/routers';
-import '../components/modules/common/language/i18n';
+import stores from "./stores";
+import resources from "./common/language/resources";
+import routes from './routers';
+import './common/language/i18n';
 import './styles/index.scss';
 
 enableAxiosCE();

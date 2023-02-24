@@ -70,20 +70,15 @@
             "style": true
         }, "tiklab-user-ui"],
         ["import", {
-            "libraryName": "tiklab-widget-ui",
-            "libraryDirectory": "es",
-            "style": true
-        }, "tiklab-widget-ui"],
-        ["import", {
             "libraryName": "tiklab-todotask-ui",
             "libraryDirectory": "es",
             "style": true
         }, "tiklab-todotask-ui"],
         ["import", {
-            "libraryName": "tiklab-oplog-ui",
+            "libraryName": "tiklab-security-ui",
             "libraryDirectory": "es",
             "style": true
-        }, "tiklab-oplog-ui"],
+        }, "tiklab-security-ui"],
 
         ["import", {
             "libraryName": "tiklab-form-ui",
