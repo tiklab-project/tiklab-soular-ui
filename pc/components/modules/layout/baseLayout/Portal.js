@@ -8,11 +8,12 @@ import {Space, Tooltip, Menu} from "antd";
 import {GlobalOutlined, SettingOutlined, QuestionCircleOutlined,SnippetsOutlined, CustomerServiceOutlined, CommentOutlined, UserOutlined, LogoutOutlined } from "@ant-design/icons";
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
-import {verifyUserHoc, Profile, WorkAppConfig} from 'tiklab-eam-ui';
+import {verifyUserHoc} from 'tiklab-eam-ui';
 
+import {WorkAppConfig} from 'tiklab-integration-ui'
 
-
-import easLogo from '../../assets/eas.png'
+import Profile from "../../common/profile";
+import easLogo from '../../../assets/eas.png'
 import {connect} from 'tiklab-plugin-ui/es/_utils'
 import Notification from "../../../../src/notification";
 import PortalMenu from '../../../../src/portal-menu'

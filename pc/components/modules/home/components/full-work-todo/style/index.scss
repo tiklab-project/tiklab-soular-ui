@@ -1,0 +1,42 @@
+.tiklab_fulltodo {
+  height: 100%;
+  background: var(--tiklab-white);
+  padding: 0 var(--tiklab-padding);
+  overflow: auto;
+  &_nav {
+    font-size: var(--tiklab-font-16);
+    font-weight: var(--tiklab-font-weight-bold);
+  }
+  .tab-content{
+    width: 100%;
+  }
+  .item-todo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    &-wrap{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &-title {
+      line-height: 28px;
+      font-size: var(--tiklab-font-16);
+    }
+    &-content {
+      color: var(--tiklab-gray-500);
+      font-size: var(--tiklab-font-14);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .ant-pagination-item-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+}

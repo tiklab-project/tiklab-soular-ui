@@ -1,0 +1,50 @@
+
+.tiklab_modal {
+    .ant-table-thead > tr > th {
+        background: var(--tiklab-white);
+    }
+    .ant-modal-content{
+        display: flex;
+        flex: 0 1 auto;
+        //height: 100%;
+        height: auto;
+        flex-direction: column;
+        max-height: inherit;
+    }
+    .ant-modal-header{
+        display: flex;
+        padding: 24px 24px 22px;
+        position: relative;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom:transparent;
+    }
+    .ant-modal-body{
+        flex-grow: 1;
+        overflow-y: auto;
+        padding-top: 0;
+    }
+    .ant-modal-footer{
+        border-top:transparent;
+    }
+    
+    
+    
+    .ant-form-item{
+        margin-bottom: 8px;
+    }
+    .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional):after {
+        display: inline-block;
+        margin-right: 4px;
+        color: #ff4d4f;
+        font-size: 14px;
+        font-family: SimSun,sans-serif;
+        line-height: 1;
+        content: "*";
+    }
+    
+    .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+        display: none;
+        content: "";
+    }
+}

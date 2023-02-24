@@ -1,0 +1,16 @@
+.privilege-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  //padding-top: var(--tiklab-padding-item);
+  padding-bottom: var(--tiklab-padding-item);
+  font-size: var(--tiklab-font-16);
+  font-weight: var(--tiklab-font-weight-bold);
+  .ant-breadcrumb svg {
+    color: var(--tiklab-blue) !important;
+  }
+  .ant-breadcrumb-link{
+    color: var(--tiklab-black);
+  }
+  
+}

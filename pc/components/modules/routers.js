@@ -3,25 +3,23 @@ import { Redirect } from 'react-router';
 import {InternalWechatEntry, Logout, AuthResult} from 'tiklab-eam-ui'
 
 import SyncComponent from '../lazy/SyncComponent';
-import ElectronLoginPage from "./login/electornLogin";
-import {LogTemplateList} from "tiklab-oplog-ui";
-// import {LogTemplateList} from "../../src/components";
+import {LogTemplateList} from "tiklab-security-ui";
 
 const layout = SyncComponent(() => import('./layout/layout'));
 
 // 设置layout
 const SettingLayout = SyncComponent(()=> import('./setting/contains'));
 //部门
-const OrgaManagement = SyncComponent(() => import('./setting/orga/orgaManagement/orgaManagement'));
+const OrgaManagement = SyncComponent(() => import('./setting/user/orgaManagement'));
 // 用户
-const UserManagement = SyncComponent(() => import('./setting/orga/userManagement/userManagement'));
+const UserManagement = SyncComponent(() => import('./setting/user/userManagement'));
 // 用户目录
-const PortalDirectory = SyncComponent(() => import('./setting/orga/directory/portalDirectory'));
+const PortalDirectory = SyncComponent(() => import('./setting/user/portalDirectory'));
 // 用户组
-const UserGroupPage = SyncComponent(() => import('./setting/orga/userGroup/userGroupPage'))
+const UserGroupPage = SyncComponent(() => import('./setting/user/userGroupPage'))
 
 // 权限
-const SystemRole = SyncComponent(() => import('./setting/systemRole/systemRole'));
+const SystemRole = SyncComponent(() => import('./setting/privilege/systemRole'));
 // 消息发送方式
 const MessageSendType = SyncComponent(() => import('./setting/message/messageSendType'));
 // 消息通知
@@ -29,13 +27,13 @@ const MessageManagement = SyncComponent(() => import('./setting/message/manageme
 // 插件
 const PluginList = SyncComponent(() => import('./setting/plugin'))
 // 操作日志
-const LogListPage = SyncComponent(()=> import('./setting/oplog/logList'))
+const LogListPage = SyncComponent(()=> import('./setting/secuity/logList'))
 // 版本与许可证
 // const Version = SyncComponent(()=> import('./setting/oplog/logList'))
 
 // 基础数据
 // 待办模板
-const TodoTemplate = SyncComponent(()=> import('./setting/todotask/todoTemp'));
+const TodoTemplate = SyncComponent(()=> import('./setting/base/todo/todoTemp'));
 
 const BaseTodoTypePage =  SyncComponent(()=> import('./setting/base/todo/todoTypePage'));
 //系统功能
@@ -47,19 +45,19 @@ const BaseProjectRole = SyncComponent(() => import('./setting/base/privilege/bas
 const BaseDomainRole = SyncComponent(() => import('./setting/base/privilege/baseDomainRole'));
 
 // 消息发送方式
-const MessageSendTypeBase = SyncComponent(() => import('./setting/base/messageSendType'));
+const MessageSendTypeBase = SyncComponent(() => import('./setting/base/message/messageSendType'));
 // 消息类型
-const MessageType = SyncComponent(() => import('./setting/base/messageType'));
-const BaseOplogTypePage = SyncComponent(() => import('./setting/base/oplog/oplogTypePage'));
+const MessageType = SyncComponent(() => import('./setting/base/message/messageType'));
+const BaseOplogTypePage = SyncComponent(() => import('./setting/base/secuity/oplogTypePage'));
 //消息通知方案
-const BaseMessageNoticePage = SyncComponent(() => import('./setting/base/messageNoticePage'));
+const BaseMessageNoticePage = SyncComponent(() => import('./setting/base/message/messageNoticePage'));
 
-const BaseDomainUserPage = SyncComponent(() => import('./setting/base/domainUserPage'));
+const BaseDomainUserPage = SyncComponent(() => import('./setting/base/user/domainUserPage'));
 
 // 版本
 const VersionPage = SyncComponent(() => import('./setting/version/index'));
 
-const Work = SyncComponent(() => import('./work/work'))
+const Home = SyncComponent(() => import('./home'))
 const Login = SyncComponent(() => import('./login/login'))
 
 
@@ -83,11 +81,6 @@ const selectionRouter = () => {
             path: '/login'
         },
         {
-            component: ElectronLoginPage,
-            exact:true,
-            path: '/account'
-        },
-        {
             component: AuthResult,
             exact:true,
             path: '/auth_result'
@@ -103,15 +96,11 @@ const selectionRouter = () => {
             path: '/',
             routes: [
                 {
-                    component: Work,
+                    component: Home,
                     path:"/work",
                     exact:true,
                 },
-                {
-                    path:"/",
-                    exact:true,
-                    render:()=><Redirect to="/work"/>
-                },
+
                 {
                     component: SettingLayout,
                     path: "/setting",
@@ -253,13 +242,18 @@ const selectionRouter = () => {
                             path:"/setting/base/domainRole",
                             exact:true,
                         },
-
                         {
                             path: "/setting",
                             exact: true,
                             render: ()=><Redirect to="/setting/orga"/>
                         },
+
                     ]
+                },
+                {
+                    path:"/",
+                    exact:true,
+                    render:()=><Redirect to="/work"/>
                 },
             ],
         },
@@ -274,11 +268,6 @@ const selectionRouter = () => {
             component: Login,
             exact:true,
             path: '/login'
-        },
-        {
-            component: ElectronLoginPage,
-            exact:true,
-            path: '/account'
         },
         {
             component: AuthResult,
@@ -296,15 +285,11 @@ const selectionRouter = () => {
             path: '/',
             routes: [
                 {
-                    component: Work,
+                    component: Home,
                     path:"/work",
                     exact:true,
                 },
-                {
-                    path:"/",
-                    exact:true,
-                    render:()=><Redirect to="/work"/>
-                },
+
                 {
                     component: SettingLayout,
                     path: "/setting",
@@ -367,6 +352,11 @@ const selectionRouter = () => {
                             render: ()=><Redirect to="/setting/orga"/>
                         },
                     ]
+                },
+                {
+                    path:"/",
+                    exact:true,
+                    render:()=><Redirect to="/work"/>
                 },
             ],
         },

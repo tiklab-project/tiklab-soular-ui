@@ -1,0 +1,57 @@
+.tiklab_fulloplog {
+  //height: 100%;
+  background: var(--tiklab-white);
+  padding: var(--tiklab-padding);
+  //overflow: auto;
+  &_nav {
+    font-size: var(--tiklab-font-16);
+    font-weight: var(--tiklab-font-weight-bold);
+  }
+  
+  .tab-content{
+    width: 100%;
+  }
+  .item-oplog{
+    display: block;
+    cursor: pointer;
+  }
+  .ant-list-pagination{
+    text-align: center;
+  }
+  .ant-pagination-item-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+}
+.ant-picker-cell-inner{
+  text-align: center;
+}
+
+
+.full_oplog_abstract{
+  display: flex;
+  align-items: center;
+  &_img {
+    flex: 0 0 50px;
+    height: 50px;
+    width: 50px;
+  }
+  &_text {
+    margin-left: 20px;
+    width: 0;
+    flex: 1;
+    h4 {
+      overflow: hidden;
+      white-space:nowrap;
+      text-overflow: ellipsis;
+      
+    }
+    p {
+      overflow: hidden;
+      white-space:nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}

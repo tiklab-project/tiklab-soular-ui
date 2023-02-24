@@ -1,0 +1,30 @@
+
+.drop-item{
+  border: 1px solid var(--tiklab-gray-200);
+  border-radius: 4px;
+}
+.drop-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 32px;
+  margin-bottom: 16px;
+  &-name{
+    display: block;
+    box-sizing: border-box;
+    cursor: grab;
+    line-height: 32px;
+    font-size: var(--tiklab-font-16);
+    color: var(--tiklab-black);
+  }
+}
+.drop-body{
+  background-clip: border-box;
+  background-color: var(--tiklab-white);
+  color: var(--tiklab-black);
+  display: block;
+  flex: 1;
+  line-height: 211px;
+  height: 211px;
+}
