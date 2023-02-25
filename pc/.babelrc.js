@@ -128,7 +128,6 @@ module.exports  = {
                 return `tiklab-privilege-ui/es/${fullName}`;
             }
         }, "tiklab-privilege-ui"],
-
         ["import", {
             "libraryName": "tiklab-user-ui",
             "libraryDirectory": "es",
@@ -201,7 +200,6 @@ module.exports  = {
                 return `tiklab-security-ui/es/${fullName}`;
             }
         }, "tiklab-security-ui"],
-
         ["import", {
             "libraryName": "tiklab-form-ui",
             "libraryDirectory": "es",
@@ -220,11 +218,23 @@ module.exports  = {
                 return `tiklab-form-ui/es/${fullName}`;
             }
         }, "tiklab-form-ui"],
-
         ["import", {
             "libraryName": "tiklab-flow-ui",
             "libraryDirectory": "es",
-            "style": true
+            "style": true,
+            "customName": (name) => {
+                let split = name.split('-');
+                const [first, ...other] = split;
+
+                let fullName = first
+                for (let i =0; i<other.length; i++) {
+                    const firstName = other[i].slice(0,1).toUpperCase();
+                    const last =  other[i].slice(1,other[i].length);
+                    const name = firstName+last
+                    fullName = fullName+name
+                }
+                return `tiklab-flow-ui/es/${fullName}`;
+            }
         }, "tiklab-flow-ui"],
 
         "@babel/plugin-transform-regenerator",
