@@ -5,12 +5,12 @@
  * @description PreliminaryListPage
  */
 import React from 'react';
-import {PreliminaryList} from "tiklab-form-ui";
+import {Preliminary} from "tiklab-form-ui";
 const PreliminaryListPage = props => {
 
     return(
         <>
-            <PreliminaryList domainId={'222'}/>
+            <Preliminary domainId={'222'}/>
             {/*<MessageNotice {...props} bgroup={"eas"}/>*/}
         </>
     )

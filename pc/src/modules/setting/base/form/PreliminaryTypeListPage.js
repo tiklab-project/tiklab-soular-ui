@@ -5,13 +5,13 @@
  * @description PreliminaryTypeListPage
  */
 import React from 'react';
-import {PreliminaryTypeList} from "tiklab-form-ui";
+import {PreliminaryType} from "tiklab-form-ui";
 
 
 const PreliminaryTypeListPage = props => {
 
     return(
-        <PreliminaryTypeList {...props} isBase={true}/>
+        <PreliminaryType {...props} isBase={true}/>
     )
 }
 export default PreliminaryTypeListPage

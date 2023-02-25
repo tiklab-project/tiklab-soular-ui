@@ -5,11 +5,11 @@
  * @description FormLisPage
  */
 import React from 'react';
-import {FormList, ProjectFormList} from "tiklab-form-ui";
+import {Form} from "tiklab-form-ui";
 const FormListPage = props => {
     return(
         <>
-            <FormList {...props} isBase={true}/>
+            <Form {...props} isBase={true}/>
         </>
 
     )
