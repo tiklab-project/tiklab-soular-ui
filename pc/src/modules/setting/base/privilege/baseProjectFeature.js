@@ -7,12 +7,12 @@
  * @description baseSystemFeature
  */
 import React from 'react';
-import {ProjectFeatureList} from "tiklab-privilege-ui";
+import {ProjectFeature} from "tiklab-privilege-ui";
 
 
 const BaseProjectFeature = () => {
     return(
-        <ProjectFeatureList/>
+        <ProjectFeature/>
     )
 }
 

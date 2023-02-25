@@ -1,11 +1,11 @@
 
-import {eam_cn} from 'tiklab-eam-ui/es/_utils'
-import {privilege_cn,} from 'tiklab-privilege-ui/es/_utils';
-import {message_cn} from 'tiklab-message-ui/es/_utils';
-import {orga_cn,} from 'tiklab-user-ui/es/_utils';
-import {pluginManage_cn} from 'tiklab-plugin-ui/es/_utils'
-import todoTask_cn from 'tiklab-todotask-ui/es/_utils/language'
-import log_cn from 'tiklab-security-ui/es/_utils/language'
+import {eam_cn} from 'tiklab-eam-ui/es/utils'
+import {privilege_cn,} from 'tiklab-privilege-ui/es/utils';
+import {message_cn} from 'tiklab-message-ui/es/utils';
+import {orga_cn,} from 'tiklab-user-ui/es/utils';
+import {pluginManage_cn} from 'tiklab-plugin-ui/es/utils'
+import todoTask_cn from 'tiklab-todotask-ui/es/utils/language'
+import log_cn from 'tiklab-security-ui/es/utils/language'
 
 import form_cn from 'tiklab-form-ui/es/_utils/language'
 const resources = {

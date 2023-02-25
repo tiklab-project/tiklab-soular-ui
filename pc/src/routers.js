@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import {InternalWechatEntry, Logout, AuthResult} from 'tiklab-eam-ui'
+import {InternalWechatEntry, Logout, Auth} from 'tiklab-eam-ui'
 
 import SyncComponent from './common/lazy/SyncComponent';
-import {LogTemplateList} from "tiklab-security-ui";
+import {LogTemplate} from "tiklab-security-ui";
 
 const layout = SyncComponent(() => import('./common/layout/layout'));
 
@@ -81,7 +81,7 @@ const selectionRouter = () => {
             path: '/login'
         },
         {
-            component: AuthResult,
+            component: Auth,
             exact:true,
             path: '/auth_result'
         },
@@ -167,7 +167,7 @@ const selectionRouter = () => {
                             exact:true,
                         },
                         {
-                            component: LogTemplateList,
+                            component: LogTemplate,
                             path:"/setting/base/oplogtemplate",
                             exact:true,
                         },
@@ -270,7 +270,7 @@ const selectionRouter = () => {
             path: '/login'
         },
         {
-            component: AuthResult,
+            component: Auth,
             exact:true,
             path: '/auth_result'
         },

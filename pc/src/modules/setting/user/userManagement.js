@@ -1,9 +1,9 @@
 
 import React from 'react';
-import {UserList} from "tiklab-user-ui";
+import {User} from "tiklab-user-ui";
 const UserManagement = props => {
     return(
-        <UserList
+        <User
             {...props}
             isPortal={true}
         />

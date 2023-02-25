@@ -6,12 +6,12 @@ import { HashRouter } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import {useTranslation} from 'react-i18next'
 import enableAxiosCE from 'tiklab-enable-axios-ce'
-import { useAccountConfig } from 'tiklab-eam-ui/es/_utils';
+import { useAccountConfig } from 'tiklab-eam-ui/es/utils';
 import { privilegeStores } from 'tiklab-privilege-ui/es/store';
 import { messageModuleStores } from 'tiklab-message-ui/es/store';
 import { orgStores } from 'tiklab-user-ui/es/store';
 import {PluginProvider} from "tiklab-plugin-ui";
-import {initFetch} from "tiklab-plugin-ui/es/_utils";
+import {initFetch} from "tiklab-plugin-ui/es/utils";
 import stores from "./stores";
 import resources from "./common/language/resources";
 import routes from './routers';

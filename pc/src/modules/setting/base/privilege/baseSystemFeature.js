@@ -8,12 +8,12 @@
  */
 
 import React from 'react';
-import {SystemFeatureList} from "tiklab-privilege-ui";
+import {SystemFeature} from "tiklab-privilege-ui";
 
 
 const BaseSystemFeature = (props) => {
     return(
-        <SystemFeatureList
+        <SystemFeature
             {...props}
         />
     )

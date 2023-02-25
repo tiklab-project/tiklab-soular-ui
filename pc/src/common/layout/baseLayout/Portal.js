@@ -8,13 +8,13 @@ import {Space, Tooltip, Menu} from "antd";
 import {GlobalOutlined, SettingOutlined, QuestionCircleOutlined,SnippetsOutlined, CustomerServiceOutlined, CommentOutlined, UserOutlined, LogoutOutlined } from "@ant-design/icons";
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
-import {verifyUserHoc} from 'tiklab-eam-ui';
+import {UserVerify} from 'tiklab-eam-ui';
 
-import {WorkAppConfig} from 'tiklab-integration-ui'
+import {AppLink} from 'tiklab-integration-ui'
 
 import Profile from "../../profile";
 import easLogo from '../../../assets/eas.png'
-import {connect} from 'tiklab-plugin-ui/es/_utils'
+import {connect} from 'tiklab-plugin-ui/es/utils'
 import Notification from "../../notification";
 import PortalMenu from '../../portal-menu'
 import './layout.scss'
@@ -72,7 +72,7 @@ const Portal = props => {
         <main className={'layout'}>
             <header className={'layout_header'}>
                 <Space size={'large'}>
-                    <WorkAppConfig isSSO={false}/>
+                    <AppLink isSSO={false}/>
                     <img alt={'门户中心'} src={easLogo} height={'50%'} />
                     {
                         homeRouter.map(item => {
@@ -194,7 +194,7 @@ const Portal = props => {
         </main>
     )
 };
-const verifyPortal = verifyUserHoc(Portal)
+const verifyPortal = UserVerify(Portal)
 
 
 function mapStateToProps(state) {

@@ -6,13 +6,13 @@
  * @update: 2021-12-27 15:21
  */
 import React from "react";
-import {PluginList} from 'tiklab-plugin-ui'
+import {Plugin} from 'tiklab-plugin-ui'
 
 
 const PluginMange = (props) => {
 
     return(
-        <PluginList {...props} detailRouter={'/system/detail'}/>
+        <Plugin {...props} detailRouter={'/system/detail'}/>
     )
 }
 

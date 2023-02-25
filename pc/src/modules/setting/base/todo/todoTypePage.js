@@ -5,12 +5,12 @@
  * @description oplogTypePage
  */
 import React from 'react';
-import {TodoTypeList} from "tiklab-todotask-ui";
+import {TodoType} from "tiklab-todotask-ui";
 
 const TodoTypePage = props => {
 
     return(
-        <TodoTypeList {...props} />
+        <TodoType {...props} />
     )
 }
 export default TodoTypePage

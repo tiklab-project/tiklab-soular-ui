@@ -5,11 +5,11 @@
  * @description index
  */
 import React from "react";
-import {NoProductAuthUser} from 'tiklab-eam-ui'
+import {ExcludeProductUser} from 'tiklab-eam-ui'
 
 const VaildProductUserPage = (props) => {
 
-    return <NoProductAuthUser {...props} />
+    return <ExcludeProductUser {...props} />
 
 };
 

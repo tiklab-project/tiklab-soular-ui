@@ -5,12 +5,12 @@
  * @description oplogTypePage
  */
 import React from 'react';
-import {LogTypeList} from "tiklab-security-ui";
+import {LogType} from "tiklab-security-ui";
 
 const OplogTypePage = props => {
 
     return(
-        <LogTypeList {...props} />
+        <LogType {...props} />
     )
 }
 export default OplogTypePage

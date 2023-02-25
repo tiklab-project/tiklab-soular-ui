@@ -7,14 +7,14 @@
  */
 
 import React from 'react';
-import {SystemRoleList} from "tiklab-privilege-ui";
-const SystemRole = props => {
+import {SystemRole} from "tiklab-privilege-ui";
+const SystemRolePage = props => {
 
     return(
-        <SystemRoleList {...props} group={'system'}/>
+        <SystemRole {...props} group={'system'}/>
     )
 }
 
-export default SystemRole
+export default SystemRolePage
 
 

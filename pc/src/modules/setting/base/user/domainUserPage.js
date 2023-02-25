@@ -5,10 +5,9 @@
  * @description domainUserPage
  */
 
-import React, {useEffect} from "react";
+import React from "react";
 import {Axios, getUser} from "tiklab-core-ui";
-import {DomainUserList} from 'tiklab-user-ui'
-import {Button} from "antd";
+import {DomainUser} from 'tiklab-user-ui'
 
 const DomainUserPage = (props) => {
 
@@ -22,7 +21,7 @@ const DomainUserPage = (props) => {
     return(
         <div>
             {/*<Button onClick={onCreateDemo}>创建一下项目demo</Button>*/}
-            <DomainUserList {...props} domainId={"1234"}/>
+            <DomainUser {...props} domainId={"1234"}/>
         </div>
 
     )

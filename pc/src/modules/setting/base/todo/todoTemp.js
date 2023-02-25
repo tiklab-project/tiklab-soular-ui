@@ -5,10 +5,10 @@
  * @description todoTemp
  */
 import React from 'react';
-import {TodoTempList} from 'tiklab-todotask-ui';
+import {TodoTemp} from 'tiklab-todotask-ui';
 
 
 const TodoTaskTemp = (props) => {
-    return <TodoTempList {...props}/>
+    return <TodoTemp {...props}/>
 }
 export default TodoTaskTemp;
