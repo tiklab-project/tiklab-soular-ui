@@ -7,7 +7,7 @@
  */
 import React, { useState} from 'react';
 import { Row, Col } from 'antd';
-import BaseModal from "../../../../common/base-modal";
+import BaseModal from "../../../../common/baseModal";
 import AddWorkBench from './workBenchAdd';
 import {deleteWorkByIDService} from '../api'
 import {WORK_NAME} from '../../../../utils/constant'

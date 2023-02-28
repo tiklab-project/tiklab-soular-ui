@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import { Form, Input, Select, message } from 'antd';
 import {createWorkAppLinkService, updateWorkService} from '../api';
 import {WORK_APP_SELECT} from '../../../../utils/constant'
-import BaseModal from "../../../../common/base-modal";
+import BaseModal from "../../../../common/baseModal";
 
 const AddWorkBench = props => {
     const {visible,setVisible, edit} = props;

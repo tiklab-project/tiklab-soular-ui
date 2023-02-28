@@ -8,8 +8,8 @@ import React, {useEffect, useState} from "react";
 import { Select, Button, Row, Col, Form, Input, Table, Space} from "antd";
 import {DeleteOutlined, EditOutlined, PlusOutlined} from "@ant-design/icons";
 import {useTranslation} from "react-i18next";
-import BreadCrumb from "../../../common/bread-crumb";
-import BaseModal from "../../../common/base-modal";
+import BreadCrumb from "../../../common/breadCrumb";
+import BaseModal from "../../../common/baseModal";
 import {
     createWidgetService,
     deleteWidgetService,

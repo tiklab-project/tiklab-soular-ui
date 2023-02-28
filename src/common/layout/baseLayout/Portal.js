@@ -16,7 +16,7 @@ import Profile from "../../profile";
 import easLogo from '../../../assets/eas.png'
 import {connect} from 'tiklab-plugin-ui/es/utils'
 import Notification from "../../notification";
-import PortalMenu from '../../portal-menu'
+import PortalMenu from '../../portalMenu'
 import './layout.scss'
 
 const Portal = props => {
