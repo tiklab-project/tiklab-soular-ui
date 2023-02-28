@@ -7,10 +7,10 @@
 import React from "react";
 import {ExcludeProductUser} from 'tiklab-eam-ui'
 
-const VaildProductUserPage = (props) => {
+const ExcludeProductUserPage = (props) => {
 
     return <ExcludeProductUser {...props} />
 
 };
 
-export default VaildProductUserPage;
+export default ExcludeProductUserPage;

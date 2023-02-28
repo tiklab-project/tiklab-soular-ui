@@ -91,7 +91,7 @@ const Portal = props => {
                                  <span className={'layout_header_right_icon'}>
                                     <SettingOutlined
                                         onClick={
-                                            () => changeCurrentLink({to:'/setting',})
+                                            () => changeCurrentLink({to:'/Setting',})
                                         }
                                         style={{ color: "var(--tiklab-white)"}}
                                     />

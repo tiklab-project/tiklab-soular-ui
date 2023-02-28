@@ -6,8 +6,8 @@
  */
 import {Axios} from "tiklab-core-ui";
 
-const FIND_MESSAGE_ITEM_PAGE = '/message/messageItem/findMessageItemPage';
-const UPDATE_MESSAGE_ITEM = '/message/messageItem/updateMessageItem';
+const FIND_MESSAGE_ITEM_PAGE = '/Message/messageItem/findMessageItemPage';
+const UPDATE_MESSAGE_ITEM = '/Message/messageItem/updateMessageItem';
 
 
 const findMessagePageService = async (data) => {

@@ -8,64 +8,64 @@ import {LogTemplate} from "tiklab-security-ui";
 const layout = SyncComponent(() => import('./common/layout/layout'));
 
 // 设置layout
-const SettingLayout = SyncComponent(()=> import('./setting/contains'));
+const SettingLayout = SyncComponent(()=> import('./Setting/contains'));
 //部门
-const OrgaManagement = SyncComponent(() => import('./setting/user/orgaManagement'));
+const OrgaManagement = SyncComponent(() => import('./Setting/User/OrgaManagement'));
 // 用户
-const UserManagement = SyncComponent(() => import('./setting/user/userManagement'));
+const UserManagement = SyncComponent(() => import('./Setting/User/UserManagement'));
 // 用户目录
-const PortalDirectory = SyncComponent(() => import('./setting/user/portalDirectory'));
+const PortalDirectory = SyncComponent(() => import('./Setting/User/Directory'));
 // 用户组
-const UserGroupPage = SyncComponent(() => import('./setting/user/userGroupPage'))
+const UserGroupPage = SyncComponent(() => import('./Setting/User/UserGroupPage'))
 
 // 权限
-const SystemRole = SyncComponent(() => import('./setting/privilege/systemRole'));
+const SystemRole = SyncComponent(() => import('./Setting/Privilege/SystemRolePage'));
 // 消息发送方式
-const MessageSendType = SyncComponent(() => import('./setting/message/messageSendType'));
+const MessageSendType = SyncComponent(() => import('./Setting/Message/MessageSendTypePage'));
 // 消息通知
-const MessageManagement = SyncComponent(() => import('./setting/message/management'));
+const MessageManagement = SyncComponent(() => import('./Setting/Message/Management'));
 // 插件
-const PluginList = SyncComponent(() => import('./setting/plugin'))
+const PluginList = SyncComponent(() => import('./Setting/Plugin'))
 // 操作日志
-const LogListPage = SyncComponent(()=> import('./setting/secuity/logList'))
+const LogListPage = SyncComponent(()=> import('./Setting/Secuity/LogList'))
 // 版本与许可证
-// const Version = SyncComponent(()=> import('./setting/oplog/logList'))
+// const Version = SyncComponent(()=> import('./Setting/oplog/logList'))
 
 // 基础数据
 // 待办模板
-const TodoTemplate = SyncComponent(()=> import('./setting/base/todo/todoTemp'));
+const TodoTemplate = SyncComponent(()=> import('./Setting/Base/Todo/todoTemp'));
 
-const BaseTodoTypePage =  SyncComponent(()=> import('./setting/base/todo/todoTypePage'));
+const BaseTodoTypePage =  SyncComponent(()=> import('./Setting/Base/Todo/todoTypePage'));
 //系统功能
-const BaseSystemFeature = SyncComponent(() => import('./setting/base/privilege/baseSystemFeature'));
-const BaseSystemRole = SyncComponent(() => import('./setting/base/privilege/baseSystemRole'));
+const BaseSystemFeature = SyncComponent(() => import('./Setting/Base/Privilege/BaseSystemFeature'));
+const BaseSystemRole = SyncComponent(() => import('./Setting/Base/Privilege/BaseSystemRole'));
 //项目功能点
-const BaseProjectFeature = SyncComponent(() => import('./setting/base/privilege/baseProjectFeature'));
-const BaseProjectRole = SyncComponent(() => import('./setting/base/privilege/baseProjectRole'));
-const BaseDomainRole = SyncComponent(() => import('./setting/base/privilege/baseDomainRole'));
+const BaseProjectFeature = SyncComponent(() => import('./Setting/Base/Privilege/BaseProjectFeature'));
+const BaseProjectRole = SyncComponent(() => import('./Setting/Base/Privilege/BaseProjectRole'));
+const BaseDomainRole = SyncComponent(() => import('./Setting/Base/Privilege/BaseDomainRole'));
 
 // 消息发送方式
-const MessageSendTypeBase = SyncComponent(() => import('./setting/base/message/messageSendType'));
+const MessageSendTypeBase = SyncComponent(() => import('./Setting/Base/Message/MessageSendType'));
 // 消息类型
-const MessageType = SyncComponent(() => import('./setting/base/message/messageType'));
-const BaseOplogTypePage = SyncComponent(() => import('./setting/base/secuity/oplogTypePage'));
+const MessageType = SyncComponent(() => import('./Setting/Base/Message/MessageType'));
+const BaseOplogTypePage = SyncComponent(() => import('./Setting/Base/Secuity/oplogTypePage'));
 //消息通知方案
-const BaseMessageNoticePage = SyncComponent(() => import('./setting/base/message/messageNoticePage'));
+const BaseMessageNoticePage = SyncComponent(() => import('./Setting/Base/Message/MessageNoticePage'));
 
-const BaseDomainUserPage = SyncComponent(() => import('./setting/base/user/domainUserPage'));
+const BaseDomainUserPage = SyncComponent(() => import('./Setting/Base/User/domainUserPage'));
 
 // 版本
-const VersionPage = SyncComponent(() => import('./setting/version'));
+const VersionPage = SyncComponent(() => import('./Setting/Version'));
 
-const Home = SyncComponent(() => import('./home'))
-const Login = SyncComponent(() => import('./login/login'))
+const Home = SyncComponent(() => import('./Home'))
+const Login = SyncComponent(() => import('./Login/Login'))
 
 
-// form
-const FormListPage = SyncComponent(() =>import('./setting/base/form/FormLisPage'))
-const PreliminaryListPage = SyncComponent(() =>import('./setting/base/form/PreliminaryListPage'))
-const PreliminaryTypeListPage = SyncComponent(() =>import('./setting/base/form/PreliminaryTypeListPage'))
-const LinkFormDesign = SyncComponent(() =>import('./setting/base/form/LinkFormDesign'))
+// Form
+const FormListPage = SyncComponent(() =>import('./Setting/Base/Form/FormLisPage'))
+const PreliminaryListPage = SyncComponent(() =>import('./Setting/Base/Form/PreliminaryListPage'))
+const PreliminaryTypeListPage = SyncComponent(() =>import('./Setting/Base/Form/PreliminaryTypeListPage'))
+const LinkFormDesign = SyncComponent(() =>import('./Setting/Base/Form/LinkFormDesign'))
 
 
 const selectionRouter = () => {
@@ -78,7 +78,7 @@ const selectionRouter = () => {
         {
             component: Login,
             exact:true,
-            path: '/login'
+            path: '/Login'
         },
         {
             component: Auth,
@@ -103,147 +103,147 @@ const selectionRouter = () => {
 
                 {
                     component: SettingLayout,
-                    path: "/setting",
+                    path: "/Setting",
                     routes:[
                         {
                             component: OrgaManagement,
-                            path:"/setting/orga",
+                            path:"/Setting/orga",
                             exact:true,
                         },
                         {
                             component: UserManagement,
-                            path:"/setting/user",
+                            path:"/Setting/User",
                             exact:true,
                         },
                         {
                             component: PortalDirectory,
-                            path:"/setting/dir",
+                            path:"/Setting/dir",
                             exact:true,
                         },
                         {
                             component: UserGroupPage,
-                            path: "/setting/userGroup",
+                            path: "/Setting/userGroup",
                             exact: true
                         },
                         {
                             component: SystemRole,
-                            path:"/setting/permission",
+                            path:"/Setting/permission",
                             exact:true,
                         },
                         {
                             component: MessageSendType,
-                            path:"/setting/messagesendtype",
+                            path:"/Setting/messagesendtype",
                             exact:true,
                         },
                         {
                             component: MessageManagement,
-                            path:"/setting/message",
+                            path:"/Setting/Message",
                             exact:true,
                         },
 
                         {
                             component: PluginList,
-                            path:"/setting/plugin",
+                            path:"/Setting/Plugin",
                             exact:true,
                         },
                         {
                             component: LogListPage,
-                            path:"/setting/log",
+                            path:"/Setting/log",
                             exact:true,
                         },
                         {
                             component: VersionPage,
-                            path:"/setting/version",
+                            path:"/Setting/Version",
                             exact:true,
                         },
                         {
                             component: TodoTemplate,
-                            path:"/setting/base/todotemplate",
+                            path:"/Setting/Base/todotemplate",
                             exact:true,
                         },
                         {
                             component: BaseTodoTypePage,
-                            path:"/setting/base/todotype",
+                            path:"/Setting/Base/todotype",
                             exact:true,
                         },
                         {
                             component: LogTemplate,
-                            path:"/setting/base/oplogtemplate",
+                            path:"/Setting/Base/oplogtemplate",
                             exact:true,
                         },
                         {
                             component: BaseOplogTypePage,
-                            path:"/setting/base/oplogtype",
+                            path:"/Setting/Base/oplogtype",
                             exact:true,
                         },
                         {
                             component: BaseSystemFeature,
-                            path:"/setting/base/systemfeature",
+                            path:"/Setting/Base/systemfeature",
                             exact:true,
                         },
                         {
                             component: BaseSystemRole,
-                            path:"/setting/base/systemrole",
+                            path:"/Setting/Base/systemrole",
                             exact:true,
                         },
                         {
                             component: BaseProjectFeature,
-                            path:"/setting/base/projectfeature",
+                            path:"/Setting/Base/projectfeature",
                             exact:true,
                         },
                         {
                             component: BaseProjectRole,
-                            path:"/setting/base/projectrole",
+                            path:"/Setting/Base/projectrole",
                             exact:true,
                         },
                         {
                             component: MessageSendTypeBase,
-                            path:"/setting/base/messagesendtype",
+                            path:"/Setting/Base/messagesendtype",
                             exact:true,
                         },
                         {
                             component: MessageType,
-                            path:"/setting/base/messagetype",
+                            path:"/Setting/Base/messagetype",
                             exact:true,
                         },
                         {
                             component:BaseMessageNoticePage,
-                            path:"/setting/base/messageNotice",
+                            path:"/Setting/Base/messageNotice",
                             exact:true,
                         },
                         {
                             component: FormListPage,
-                            path:"/setting/base/formList",
+                            path:"/Setting/Base/formList",
                             exact:true,
                         },
                         {
                             component: LinkFormDesign,
-                            path:"/setting/base/formList/:id",
+                            path:"/Setting/Base/formList/:id",
                             exact:true,
                         },
                         {
                             component: PreliminaryListPage,
-                            path:"/setting/base/preliminaryList",
+                            path:"/Setting/Base/preliminaryList",
                             exact:true,
                         },
 
                         {
                             component: PreliminaryTypeListPage,
-                            path:"/setting/base/preliminaryTypeList",
+                            path:"/Setting/Base/preliminaryTypeList",
                             exact:true,
                         },
                         {
                             component: BaseDomainUserPage,
-                            path:"/setting/base/domainUserList",
+                            path:"/Setting/Base/domainUserList",
                             exact:true,
                         },
                         {
                             component: BaseDomainRole,
-                            path:"/setting/base/domainRole",
+                            path:"/Setting/Base/domainRole",
                             exact:true,
                         },
                         {
-                            path: "/setting",
+                            path: "/Setting",
                             exact: true,
                             render: ()=><Redirect to="/setting/orga"/>
                         },
@@ -267,7 +267,7 @@ const selectionRouter = () => {
         {
             component: Login,
             exact:true,
-            path: '/login'
+            path: '/Login'
         },
         {
             component: Auth,
@@ -292,62 +292,62 @@ const selectionRouter = () => {
 
                 {
                     component: SettingLayout,
-                    path: "/setting",
+                    path: "/Setting",
                     routes:[
                         {
                             component: OrgaManagement,
-                            path:"/setting/orga",
+                            path:"/Setting/orga",
                             exact:true,
                         },
                         {
                             component: UserManagement,
-                            path:"/setting/user",
+                            path:"/Setting/User",
                             exact:true,
                         },
                         {
                             component: PortalDirectory,
-                            path:"/setting/dir",
+                            path:"/Setting/dir",
                             exact:true,
                         },
                         {
                             component: UserGroupPage,
-                            path: "/setting/userGroup",
+                            path: "/Setting/userGroup",
                             exact: true
                         },
                         {
                             component: SystemRole,
-                            path:"/setting/permission",
+                            path:"/Setting/permission",
                             exact:true,
                         },
                         {
                             component: MessageSendType,
-                            path:"/setting/messagesendtype",
+                            path:"/Setting/messagesendtype",
                             exact:true,
                         },
                         {
                             component: MessageManagement,
-                            path:"/setting/message",
+                            path:"/Setting/Message",
                             exact:true,
                         },
 
                         {
                             component: PluginList,
-                            path:"/setting/plugin",
+                            path:"/Setting/Plugin",
                             exact:true,
                         },
                         {
                             component: LogListPage,
-                            path:"/setting/log",
+                            path:"/Setting/log",
                             exact:true,
                         },
                         {
                             component: VersionPage,
-                            path:"/setting/version",
+                            path:"/Setting/Version",
                             exact:true,
                         },
 
                         {
-                            path: "/setting",
+                            path: "/Setting",
                             exact: true,
                             render: ()=><Redirect to="/setting/orga"/>
                         },

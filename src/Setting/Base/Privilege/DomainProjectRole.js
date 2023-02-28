@@ -6,11 +6,11 @@
  * @update: 2021-05-06 15:19
  */
 import React from 'react';
-import { DomainRoleList} from "tiklab-privilege-ui";
+import { DomainRole} from "tiklab-privilege-ui";
 
 const DomainProjectRole = props => {
     return(
-        <DomainRoleList {...props} domainId={'111'} />
+        <DomainRole {...props} domainId={'111'} />
     )
 }
 export default DomainProjectRole

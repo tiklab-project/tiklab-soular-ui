@@ -252,115 +252,115 @@ const onSettingMenu = (history, key) => {
     if (isDev) {
         switch (key) {
             case '1-1':
-                history.push('/setting/orga')
+                history.push('/Setting/orga')
                 break;
             case '1-2':
-                history.push('/setting/user')
+                history.push('/Setting/User')
                 break;
             case '1-3':
-                history.push('/setting/dir')
+                history.push('/Setting/dir')
                 break;
             case '1-4':
-                history.push('/setting/userGroup')
+                history.push('/Setting/userGroup')
                 break;
             case '2':
-                history.push('/setting/permission')
+                history.push('/Setting/permission')
                 break;
             case '3-1':
-                history.push('/setting/messagesendtype')
+                history.push('/Setting/messagesendtype')
                 break;
             case '3-2':
-                history.push('/setting/message')
+                history.push('/Setting/Message')
                 break;
             case '5':
-                history.push('/setting/plugin')
+                history.push('/Setting/Plugin')
                 break;
             case '6-1':
-                history.push('/setting/log')
+                history.push('/Setting/log')
                 break;
             case '7':
-                history.push('/setting/version')
+                history.push('/Setting/Version')
                 break;
             case '8-1':
-                history.push('/setting/base/todotemplate')
+                history.push('/Setting/Base/todotemplate')
                 break;
             case '8-2':
-                history.push('/setting/base/oplogtemplate')
+                history.push('/Setting/Base/oplogtemplate')
                 break;
             case '8-3':
-                history.push('/setting/base/systemfeature')
+                history.push('/Setting/Base/systemfeature')
                 break;
             case '8-4':
-                history.push('/setting/base/systemrole')
+                history.push('/Setting/Base/systemrole')
                 break;
             case '8-8':
-                history.push('/setting/base/messagesendtype')
+                history.push('/Setting/Base/messagesendtype')
                 break;
             case '8-9':
-                history.push('/setting/base/messagetype')
+                history.push('/Setting/Base/messagetype')
                 break;
             case '8-10':
-                history.push('/setting/base/formList')
+                history.push('/Setting/Base/formList')
                 break;
             case '8-11':
-                history.push('/setting/base/preliminaryList')
+                history.push('/Setting/Base/preliminaryList')
                 break;
             case '8-12':
-                history.push('/setting/base/preliminaryTypeList')
+                history.push('/Setting/Base/preliminaryTypeList')
                 break;
             case '8-13':
-                history.push('/setting/base/oplogtype')
+                history.push('/Setting/Base/oplogtype')
                 break;
             case '8-14':
-                history.push('/setting/base/todotype')
+                history.push('/Setting/Base/todotype')
                 break;
             case '8-15':
-                history.push('/setting/base/messageNotice')
+                history.push('/Setting/Base/messageNotice')
                 break;
             case '8-16':
-                history.push('/setting/base/domainUserList')
+                history.push('/Setting/Base/domainUserList')
                 break;
             case '8-17':
-                history.push('/setting/base/projectfeature')
+                history.push('/Setting/Base/projectfeature')
                 break;
             case '8-18':
-                history.push('/setting/base/projectrole')
+                history.push('/Setting/Base/projectrole')
                 break;
             case '8-19':
-                history.push('/setting/base/domainRole')
+                history.push('/Setting/Base/domainRole')
                 break;
         }
     } else {
         switch (key) {
             case '1-1':
-                history.push('/setting/orga')
+                history.push('/Setting/orga')
                 break;
             case '1-2':
-                history.push('/setting/user')
+                history.push('/Setting/User')
                 break;
             case '1-3':
-                history.push('/setting/dir')
+                history.push('/Setting/dir')
                 break;
             case '1-4':
-                history.push('/setting/userGroup')
+                history.push('/Setting/userGroup')
                 break;
             case '2':
-                history.push('/setting/permission')
+                history.push('/Setting/permission')
                 break;
             case '3-1':
-                history.push('/setting/messagesendtype')
+                history.push('/Setting/messagesendtype')
                 break;
             case '3-2':
-                history.push('/setting/message')
+                history.push('/Setting/Message')
                 break;
             case '5':
-                history.push('/setting/plugin')
+                history.push('/Setting/Plugin')
                 break;
             case '6-1':
-                history.push('/setting/log')
+                history.push('/Setting/log')
                 break;
             case '7':
-                history.push('/setting/version')
+                history.push('/Setting/Version')
                 break;
 
         }

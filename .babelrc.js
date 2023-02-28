@@ -44,15 +44,15 @@ module.exports  = {
             "style": true,
             "customName": (name) => {
                 let split = name.split('-');
-                const [first, ...other] = split;
-
-                let fullName = first
-                for (let i =0; i<other.length; i++) {
-                    const firstName = other[i].slice(0,1).toUpperCase();
-                    const last =  other[i].slice(1,other[i].length);
-                    const name = firstName+last
-                    fullName = fullName+name
-                }
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex === 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
                 return `tiklab-eam-ui/es/${fullName}`;
             }
         }, "tiklab-eam-ui"],
@@ -80,15 +80,15 @@ module.exports  = {
             "style": true,
             "customName": (name) => {
                 let split = name.split('-');
-                const [first, ...other] = split;
-
-                let fullName = first
-                for (let i =0; i<other.length; i++) {
-                    const firstName = other[i].slice(0,1).toUpperCase();
-                    const last =  other[i].slice(1,other[i].length);
-                    const name = firstName+last
-                    fullName = fullName+name
-                }
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex=== 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
                 return `tiklab-message-ui/es/${fullName}`;
             }
         }, "tiklab-message-ui"],
@@ -98,15 +98,15 @@ module.exports  = {
             "style": true,
             "customName": (name) => {
                 let split = name.split('-');
-                const [first, ...other] = split;
-
-                let fullName = first
-                for (let i =0; i<other.length; i++) {
-                    const firstName = other[i].slice(0,1).toUpperCase();
-                    const last =  other[i].slice(1,other[i].length);
-                    const name = firstName+last
-                    fullName = fullName+name
-                }
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex=== 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
                 return `tiklab-plugin-ui/es/${fullName}`;
             }
         }, "tiklab-plugin-ui"],
@@ -116,15 +116,15 @@ module.exports  = {
             "style": true,
             "customName": (name) => {
                 let split = name.split('-');
-                const [first, ...other] = split;
-
-                let fullName = first
-                for (let i =0; i<other.length; i++) {
-                    const firstName = other[i].slice(0,1).toUpperCase();
-                    const last =  other[i].slice(1,other[i].length);
-                    const name = firstName+last
-                    fullName = fullName+name
-                }
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex=== 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
                 return `tiklab-privilege-ui/es/${fullName}`;
             }
         }, "tiklab-privilege-ui"],
@@ -134,15 +134,15 @@ module.exports  = {
             "style": true,
             "customName": (name) => {
                 let split = name.split('-');
-                const [first, ...other] = split;
-
-                let fullName = first
-                for (let i =0; i<other.length; i++) {
-                    const firstName = other[i].slice(0,1).toUpperCase();
-                    const last =  other[i].slice(1,other[i].length);
-                    const name = firstName+last
-                    fullName = fullName+name
-                }
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex === 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
                 return `tiklab-user-ui/es/${fullName}`;
             }
         }, "tiklab-user-ui"],
@@ -152,15 +152,15 @@ module.exports  = {
             "style": true,
             "customName": (name) => {
                 let split = name.split('-');
-                const [first, ...other] = split;
-
-                let fullName = first
-                for (let i =0; i<other.length; i++) {
-                    const firstName = other[i].slice(0,1).toUpperCase();
-                    const last =  other[i].slice(1,other[i].length);
-                    const name = firstName+last
-                    fullName = fullName+name
-                }
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex=== 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
                 return `tiklab-integration-ui/es/${fullName}`;
             }
         }, "tiklab-integration-ui"],
@@ -170,15 +170,15 @@ module.exports  = {
             "style": true,
             "customName": (name) => {
                 let split = name.split('-');
-                const [first, ...other] = split;
-
-                let fullName = first
-                for (let i =0; i<other.length; i++) {
-                    const firstName = other[i].slice(0,1).toUpperCase();
-                    const last =  other[i].slice(1,other[i].length);
-                    const name = firstName+last
-                    fullName = fullName+name
-                }
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex === 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
                 return `tiklab-todotask-ui/es/${fullName}`;
             }
         }, "tiklab-todotask-ui"],
@@ -188,15 +188,15 @@ module.exports  = {
             "style": true,
             "customName": (name) => {
                 let split = name.split('-');
-                const [first, ...other] = split;
-
-                let fullName = first
-                for (let i =0; i<other.length; i++) {
-                    const firstName = other[i].slice(0,1).toUpperCase();
-                    const last =  other[i].slice(1,other[i].length);
-                    const name = firstName+last
-                    fullName = fullName+name
-                }
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex === 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
                 return `tiklab-security-ui/es/${fullName}`;
             }
         }, "tiklab-security-ui"],
@@ -206,15 +206,15 @@ module.exports  = {
             "style": true,
             "customName": (name) => {
                 let split = name.split('-');
-                const [first, ...other] = split;
-
-                let fullName = first
-                for (let i =0; i<other.length; i++) {
-                    const firstName = other[i].slice(0,1).toUpperCase();
-                    const last =  other[i].slice(1,other[i].length);
-                    const name = firstName+last
-                    fullName = fullName+name
-                }
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex=== 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
                 return `tiklab-form-ui/es/${fullName}`;
             }
         }, "tiklab-form-ui"],
@@ -224,15 +224,15 @@ module.exports  = {
             "style": true,
             "customName": (name) => {
                 let split = name.split('-');
-                const [first, ...other] = split;
-
-                let fullName = first
-                for (let i =0; i<other.length; i++) {
-                    const firstName = other[i].slice(0,1).toUpperCase();
-                    const last =  other[i].slice(1,other[i].length);
-                    const name = firstName+last
-                    fullName = fullName+name
-                }
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex=== 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
                 return `tiklab-flow-ui/es/${fullName}`;
             }
         }, "tiklab-flow-ui"],

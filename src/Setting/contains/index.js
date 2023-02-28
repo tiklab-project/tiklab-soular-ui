@@ -62,55 +62,55 @@ const links = [
     },
     {
         key:'8-7',
-        router: "/setting/base/messagetemplate"
+        router: "/Setting/Base/messagetemplate"
     },
     {
         key:'8-8',
-        router: "/setting/base/messagesendtype"
+        router: "/Setting/Base/messagesendtype"
     },
     {
         key:'8-9',
-        router: "/setting/base/messagetype"
+        router: "/Setting/Base/messagetype"
     },
     {
         key:'8-10',
-        router: "/setting/base/formList"
+        router: "/Setting/Base/formList"
     },
     {
         key:'8-11',
-        router: "/setting/base/preliminaryList"
+        router: "/Setting/Base/preliminaryList"
     },
     {
         key:'8-12',
-        router: "/setting/base/preliminaryTypeList"
+        router: "/Setting/Base/preliminaryTypeList"
     },
     {
         key:'8-13',
-        router: "/setting/base/oplogtype"
+        router: "/Setting/Base/oplogtype"
     },
     {
         key:'8-14',
-        router: "/setting/base/todotype"
+        router: "/Setting/Base/todotype"
     },
     {
         key:'8-15',
-        router: "/setting/base/messageNotice"
+        router: "/Setting/Base/messageNotice"
     },
     {
         key:'8-16',
-        router: "/setting/base/domainUserList"
+        router: "/Setting/Base/domainUserList"
     },
     {
         key:'8-17',
-        router: "/setting/base/projectfeature"
+        router: "/Setting/Base/projectfeature"
     },
     {
         key:'8-18',
-        router: "/setting/base/projectrole"
+        router: "/Setting/Base/projectrole"
     },
     {
         key:'8-19',
-        router: "/setting/base/domainRole"
+        router: "/Setting/Base/domainRole"
     },
 ];
 

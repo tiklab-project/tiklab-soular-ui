@@ -85,7 +85,7 @@ module.exports = merge(baseWebpackConfig, {
                     reuseExistingChunk: true
                 },
                 doublekitUserUI: {
-                    name: 'chunk-doublekit-user-ui',
+                    name: 'chunk-doublekit-User-ui',
                     chunks: 'all',
                     test: /[\\/]node_modules[\\/]doublekit-user-ui[\\/]/,
                     priority: 30,
@@ -93,7 +93,7 @@ module.exports = merge(baseWebpackConfig, {
                 },
 
                 doublekitPluginUI: {
-                    name: 'chunk-doublekit-plugin-ui',
+                    name: 'chunk-doublekit-Plugin-ui',
                     chunks: 'all',
                     test: /[\\/]node_modules[\\/]doublekit-plugin-ui[\\/]/,
                     priority: 30,
@@ -114,7 +114,7 @@ module.exports = merge(baseWebpackConfig, {
                     reuseExistingChunk: true
                 },
                 doublekitMessageUI: {
-                    name: 'chunk-doublekit-message-ui',
+                    name: 'chunk-doublekit-Message-ui',
                     chunks: 'all',
                     test: /[\\/]node_modules[\\/]doublekit-message-ui[\\/]/,
                     priority: 0,

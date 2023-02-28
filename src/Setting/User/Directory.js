@@ -8,10 +8,10 @@ import React from 'react';
 import {Directory} from 'tiklab-user-ui'
 
 
-const PortalDirectory = (props) => {
+const DirectoryPage = (props) => {
 
     return(
         <Directory {...props}/>
     )
 }
-export default PortalDirectory
+export default DirectoryPage

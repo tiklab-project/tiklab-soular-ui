@@ -6,14 +6,14 @@
  * @update: 2021-05-06 15:17
  */
 import React from 'react';
-import {ProjectRoleList, } from "tiklab-privilege-ui";
+import {ProjectRole } from "tiklab-privilege-ui";
 
 
 
 const ProjectSystemRole = props => {
 
     return(
-        <ProjectRoleList
+        <ProjectRole
             {...props}
             group={'project'}
         />
