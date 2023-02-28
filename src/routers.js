@@ -28,8 +28,6 @@ const MessageManagement = SyncComponent(() => import('./Setting/Message/Manageme
 const PluginList = SyncComponent(() => import('./Setting/Plugin'))
 // 操作日志
 const LogListPage = SyncComponent(()=> import('./Setting/Secuity/LogList'))
-// 版本与许可证
-// const Version = SyncComponent(()=> import('./Setting/oplog/logList'))
 
 // 基础数据
 // 待办模板
