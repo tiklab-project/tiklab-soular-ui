@@ -1,26 +1,60 @@
 {
     "name": "tiklab-eas-ui",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "",
-    "main": "lib/components/index.js",
+    "main": "es/index.js",
     "files": [
-        "lib"
+        "es"
     ],
+    "publishConfig": {
+        "registry": "http://172.12.1.11:8081/repository/npm-hosted"
+    },
     "scripts": {
+        "publish": "npm publish",
         "start": "cross-env NODE_ENV=development CUSTOM_ENV=dev webpack-dev-server --progress --config ./webpack.dev.js ",
         "build:dev": "cross-env NODE_ENV=production CUSTOM_ENV=dev webpack --config ./webpack.prod.js ",
         "build:prod": "cross-env NODE_ENV=production CUSTOM_ENV=prod webpack --config ./webpack.prod.js ",
-        "build:test": "cross-env NODE_ENV=production CUSTOM_ENV=test webpack --config ./webpack.prod.js "
-    },
-    "publishConfig": {
-        "registry": "http://172.12.1.11:8081/repository/npm-hosted"
+        "build:test": "cross-env NODE_ENV=production CUSTOM_ENV=test webpack --config ./webpack.prod.js ",
+        "es": "rimraf es && npm run es:utils && npm run es:common && npm run es:home && npm run es:setting && npm run es:login && npm run es:assests && npm run es:css",
+        "es:assests": "ncp src/assets es/assets",
+        "es:common": "cross-env NODE_ENV=production babel src/common --out-dir es/common && babel src/routers.js --out-file es/routers.js && babel src/stores.js --out-file es/stores.js && babel src/export.js --out-file es/index.js",
+        "es:utils": "cross-env NODE_ENV=production babel src/utils --out-dir es/utils",
+        "es:home": "cross-env NODE_ENV=production babel src/Home --out-dir es/Home",
+        "es:setting": "cross-env NODE_ENV=production babel src/Setting --out-dir es/Setting",
+        "es:login": "cross-env NODE_ENV=production babel src/Login --out-dir es/Login",
+        "es:css": "cd scripts && gulp compile"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "peerDependencies": {
         "react": ">=16.8.0",
-        "react-dom": ">=16.8.0"
+        "react-dom": ">=16.8.0",
+        "react-router-dom": "5.2.0",
+        "mobx": ">5.15.4",
+        "mobx-react": ">=6.2.2",
+        "tiklab-core-ui": ">=1.0.1",
+        "tiklab-eam-ui": ">=1.0.1",
+        "tiklab-form-ui": ">=1.0.1",
+        "tiklab-integration-ui": ">=1.0.1",
+        "tiklab-licence-ui": ">=1.0.1",
+        "tiklab-message-ui": ">=1.0.1",
+        "tiklab-plugin-ui": ">=1.0.1",
+        "tiklab-privilege-ui": ">=1.0.1",
+        "tiklab-security-ui": ">=1.0.1",
+        "tiklab-todotask-ui": ">=1.0.1",
+        "tiklab-user-ui": ">=1.0.1",
+        "antd": ">=4.15.2",
+        "@ant-design/icons": ">=4.3.0",
+        "react-beautiful-dnd": ">=13.1.0",
+        "react-dnd": ">=16.0.1",
+        "react-dnd-html5-backend": ">=16.0.1",
+        "i18next": ">=19.8.4",
+        "react-i18next": ">=11.7.3",
+        "i18next-browser-languagedetector": ">=6.0.1",
+        "i18next-http-backend": ">=1.0.21",
+        "immutability-helper": ">=3.1.1",
+        "socket.io-client": ">=4.5.0"
     },
     "dependencies": {
         "@ant-design/icons": "4.3.0",
@@ -46,7 +80,6 @@
         "socket.io-client": "4.5.0",
         "tiklab-core-ui": "1.0.1",
         "tiklab-eam-ui": "^1.0.1",
-        "tiklab-enable-axios-ce": "1.0.1",
         "tiklab-form-ui": "^1.0.1",
         "tiklab-integration-ui": "^1.0.1",
         "tiklab-licence-ui": "^1.0.1",
@@ -129,6 +162,17 @@
         "webpack-cli": "^3.3.6",
         "webpack-dev-server": "^3.11.0",
         "webpack-merge": "^5.4.0",
-        "webpack-parallel-uglify-plugin": "^1.1.2"
+        "webpack-parallel-uglify-plugin": "^1.1.2",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^8.0.0",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-filesize": "^0.0.6",
+        "gulp-postcss": "^9.0.1",
+        "gulp-rename": "^2.0.0",
+        "gulp-replace": "^1.1.3",
+        "gulp-sass": "^5.1.0",
+        "gulp-sourcemaps": "^3.0.0",
+        "postcss-preset-env": "^7.7.2"
     }
 }

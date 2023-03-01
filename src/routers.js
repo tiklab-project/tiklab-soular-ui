@@ -361,5 +361,7 @@ const selectionRouter = () => {
     ];
 
     return dev_production ? devRouter : routes
-}
-export default selectionRouter()
+};
+
+const router = selectionRouter()
+export default router;

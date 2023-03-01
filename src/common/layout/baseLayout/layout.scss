@@ -30,17 +30,6 @@
       >span{
         color: var(--tiklab-gray-400);
       }
-      //&:after {
-      //  position: absolute;
-      //  bottom: 0;
-      //  left: 0;
-      //  right: 0;
-      //  content: "";
-      //  height: 3px;
-      //  background-color: var(--tiklab-gray-400);
-      //  border-top-left-radius: 1px;
-      //  border-top-right-radius: 1px;
-      //}
     }
     &_right{
       display: flex;
@@ -144,11 +133,4 @@
     padding: 0 20px;
   }
 }
-
-
-
-// 语言切换的zh item
-//.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-//  background-color: #F4F5F7 !important;
-//}
 
