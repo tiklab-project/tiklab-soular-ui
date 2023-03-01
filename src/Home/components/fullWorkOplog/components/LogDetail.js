@@ -10,7 +10,7 @@ import {LeftOutlined} from "@ant-design/icons";
 import {getUser, parseUserSearchParams} from "tiklab-core-ui";
 import {Button, Descriptions, Space} from "antd";
 
-import TitleAction from "../../../../common/title-action";
+import TitleAction from "../../../../common/titleAction";
 
 const LogDetail = ({data, history, closeDetailPage, tagLabel}) => {
     const {link} = data;

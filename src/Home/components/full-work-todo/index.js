@@ -8,7 +8,7 @@ import React, {useState, useEffect} from "react";
 import { Select, Row, Col, Space, Empty, List, Tag} from "antd";
 import {LeftOutlined} from '@ant-design/icons';
 import {getUser, parseUserSearchParams} from 'tiklab-core-ui';
-import {getTodoPageService} from "../todo-widget/api";
+import {getTodoPageService} from "../todoWidget/api";
 import messageEmpty from "../../../assets/message.svg";
 import './style/index.scss';
 

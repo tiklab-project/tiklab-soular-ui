@@ -5,12 +5,12 @@
  * @description index
  */
 
-import WidgetMangent from './widget-mangent';
-import MessageWidget from './message-widget';
-import WidgetWork from './widget-work';
-import OpLogWidget from './op-log-widget';
-import TodoWidget from './todo-widget';
-import ProductsWidget from './products-widget';
+import WidgetMangent from './widgetMangent';
+import MessageWidget from './messageWidget';
+import WidgetWork from './widgetWork';
+import OpLogWidget from './oplogWidget';
+import TodoWidget from './todoWidget';
+import ProductsWidget from './productsWidget';
 import FullWorkTodo from './full-work-todo';
 
 export {

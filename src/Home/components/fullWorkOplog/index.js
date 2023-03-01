@@ -10,7 +10,7 @@ import {LeftOutlined} from '@ant-design/icons';
 import {getUser, parseUserSearchParams} from 'tiklab-core-ui';
 import moment from 'moment';
 
-import {getOplogPageService, getOpLogTypeListService} from "../op-log-widget/api";
+import {getOplogPageService, getOpLogTypeListService} from "../oplogWidget/api";
 import messageEmpty from "../../../assets/message.svg";
 import './style/index.scss';
 import LogDetail from "./components/LogDetail";

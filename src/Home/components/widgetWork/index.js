@@ -3,12 +3,12 @@
 import React, {Component} from 'react';
 import {getUser} from 'tiklab-core-ui';
 import {findLayoutService, getWidgetListService} from "./api/workService";
-import OpLogWidget from '../op-log-widget';
-import TodoWidget from '../todo-widget';
-import ProductsWidget from '../products-widget';
+import OpLogWidget from '../oplogWidget';
+import TodoWidget from '../todoWidget';
+import ProductsWidget from '../productsWidget';
 import FullWorkTodo from "../full-work-todo";
-import FullWorkOplog from "../full-work-oplog";
-import LogDetail from "../full-work-oplog/components/LogDetail";
+import FullWorkOplog from "../fullWorkOplog";
+import LogDetail from "../fullWorkOplog/components/LogDetail";
 import './style/index.scss';
 
 class WidgetWork extends Component{

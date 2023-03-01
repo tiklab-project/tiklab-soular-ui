@@ -1,11 +1,11 @@
 
 @import "../components/drop";
-@import "../../op-log-widget/style/index";
-@import "../../message-widget/style/index";
-@import "../../products-widget/style/index";
-@import "../../todo-widget/style/index";
+@import "../../oplogWidget/style/index";
+@import "../../messageWidget/style/index";
+@import "../../productsWidget/style/index";
+@import "../../todoWidget/style/index";
 @import '../../full-work-todo/style/index';
-@import '../../full-work-oplog/style/index';
+@import '../../fullWorkOplog/style/index';
 
 .workLayout{
   width: 100%;

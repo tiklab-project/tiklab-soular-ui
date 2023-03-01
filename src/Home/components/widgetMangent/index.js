@@ -16,7 +16,7 @@ import {
     findWorkWidgetPageService,
     getWidgetListService,
     updateWidgetService
-} from "../widget-work/api/workService";
+} from "../widgetWork/api/workService";
 import {PROJECT_NAME} from '../../../utils/constant'
 
 import deleteSuccessReturnCurrenPage from "../../../utils/tablePage";
