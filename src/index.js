@@ -28,7 +28,6 @@ const Index = () => {
         ...orgStores
     };
 
-    console.log(privilegeStores)
     const {i18n} = useTranslation();
     const [viable,setViable] = useState(true);
 
