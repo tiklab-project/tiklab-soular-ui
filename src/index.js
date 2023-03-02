@@ -4,14 +4,13 @@ import ReactDOM from 'react-dom';
 import {renderRoutes} from "react-router-config";
 import { HashRouter } from 'react-router-dom';
 import { Provider } from 'mobx-react';
-import {useTranslation} from 'react-i18next'
-import enableAxiosCE from 'tiklab-enable-axios-ce'
+import {useTranslation} from 'react-i18next';
+import {enableAxiosCE} from 'tiklab-core-ui';
 import { useAccountConfig } from 'tiklab-eam-ui/es/utils';
 import { privilegeStores } from 'tiklab-privilege-ui/es/store';
 import { messageModuleStores } from 'tiklab-message-ui/es/store';
 import { orgStores } from 'tiklab-user-ui/es/store';
-import {PluginProvider} from "tiklab-plugin-ui";
-import {initFetch} from "tiklab-plugin-ui/es/utils";
+import {PluginProvider, initPlugin} from "tiklab-plugin-core-ui";
 import stores from "./stores";
 import resources from "./common/language/resources";
 import routes from './routers';
@@ -42,7 +41,7 @@ const Index = () => {
     useAccountConfig()
 
     useEffect(() => {
-        initFetch('post', routes, resources, i18n).then(res => {
+        initPlugin('post', routes, resources, i18n).then(res => {
             setPluginData(res)
             setViable(false)
         })

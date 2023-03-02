@@ -14,7 +14,7 @@ import {AppLink} from 'tiklab-integration-ui'
 
 import Profile from "../../profile";
 import easLogo from '../../../assets/eas.png'
-import {connect} from 'tiklab-plugin-ui/es/utils'
+import {connect} from 'tiklab-plugin-core-ui'
 import Notification from "../../notification";
 import PortalMenu from '../../portalMenu'
 import './layout.scss'

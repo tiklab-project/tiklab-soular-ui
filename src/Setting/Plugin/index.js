@@ -6,7 +6,7 @@
  * @update: 2021-12-27 15:21
  */
 import React from "react";
-import {Plugin} from 'tiklab-plugin-ui'
+import {Plugin} from 'tiklab-plugin-manager-ui'
 
 
 const PluginMange = (props) => {
