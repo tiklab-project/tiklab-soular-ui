@@ -8,7 +8,7 @@ import {Axios} from 'tiklab-core-ui';
 
 
 const getMessageListService = async (params) => {
-    return await Axios.post('/Message/messageItem/findMessageDispatchItemPage', params);
+    return await Axios.post('/message/messageItem/findMessageDispatchItemPage', params);
 }
 export {
     getMessageListService
