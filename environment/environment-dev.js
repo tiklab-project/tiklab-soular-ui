@@ -1,6 +1,6 @@
 
 
-const api =  'http://192.168.10.11:8080';
+const api =  'http://192.168.10.11:8081';
 const base_url = JSON.stringify(api);
 
 const webpackGlobal = {
@@ -15,8 +15,8 @@ const webpackGlobal = {
 
     appKey: JSON.stringify('appKey-1'),
     appSecret: JSON.stringify('appSecret-1'),
-    version: JSON.stringify('Version-1'),
-    client: JSON.stringify('client-1'),
+    version: JSON.stringify('ce'),
+    client: JSON.stringify('web'),
 
     tenant_type: JSON.stringify('single'), // mult  参数带tenant
 

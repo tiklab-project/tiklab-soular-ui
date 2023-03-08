@@ -18,7 +18,6 @@ import './common/language/i18n';
 import './styles/index.scss';
 
 enableAxiosCE();
-
 const Index = () => {
     // 注册所有插件
     let allStore = {
