@@ -78,11 +78,11 @@ const selectionRouter = () => {
             exact:true,
             path: '/Login'
         },
-        {
-            component: Auth,
-            exact:true,
-            path: '/auth_result'
-        },
+        // {
+        //     component: Auth,
+        //     exact:true,
+        //     path: '/auth_result'
+        // },
         {
             component:InternalWechatEntry,
             exact:true,
@@ -267,11 +267,11 @@ const selectionRouter = () => {
             exact:true,
             path: '/Login'
         },
-        {
-            component: Auth,
-            exact:true,
-            path: '/auth_result'
-        },
+        // {
+        //     component: Auth,
+        //     exact:true,
+        //     path: '/auth_result'
+        // },
         {
             component:InternalWechatEntry,
             exact:true,
