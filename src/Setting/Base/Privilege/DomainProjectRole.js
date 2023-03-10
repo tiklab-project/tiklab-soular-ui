@@ -6,7 +6,7 @@
  * @update: 2021-05-06 15:19
  */
 import React from 'react';
-import { DomainRole} from "tiklab-privilege-ui";
+import { DomainRole} from "tiklab-user-ui";
 
 const DomainProjectRole = props => {
     return(

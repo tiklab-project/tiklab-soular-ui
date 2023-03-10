@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import {InternalWechatEntry, Logout, Auth} from 'tiklab-eam-ui'
-
-import SyncComponent from './common/lazy/SyncComponent';
+import {InternalWechatEntry, Logout} from 'tiklab-eam-ui'
 import {LogTemplate} from "tiklab-security-ui";
+import SyncComponent from './common/lazy/SyncComponent';
+
 
 const layout = SyncComponent(() => import('./common/layout/layout'));
 

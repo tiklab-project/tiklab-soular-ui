@@ -8,7 +8,7 @@ import React from 'react';
 import {Table, Button} from 'antd';
 import {Version} from 'tiklab-licence-ui';
 import {CheckOutlined, CloseOutlined} from "@ant-design/icons";
-import {ProductAuth} from 'tiklab-privilege-ui'
+import {ProductAuth} from 'tiklab-user-ui'
 
 const VersionPage = () => {
 

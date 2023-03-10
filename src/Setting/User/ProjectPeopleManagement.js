@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {SYSTEM_ROLE_STORE} from "tiklab-privilege-ui";
+import {SYSTEM_ROLE_STORE} from "tiklab-user-ui";
 import {DomainUser} from "tiklab-user-ui";
 import {inject, observer} from "mobx-react";
 

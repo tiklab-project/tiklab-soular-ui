@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {inject, observer} from 'mobx-react';
 import {renderRoutes} from 'react-router-config';
-import {MenuList} from 'tiklab-privilege-ui';
-import {SYSTEM_ROLE_STORE} from 'tiklab-privilege-ui/es/store';
+import {MenuList} from 'tiklab-user-ui';
+import {SYSTEM_ROLE_STORE} from 'tiklab-user-ui/es/store';
 
 import {onSettingMenu, settingMenuData} from "../../utils/staticConfig";
 

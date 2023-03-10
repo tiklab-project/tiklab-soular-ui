@@ -5,14 +5,13 @@
  * @description ProductAuthPage
  */
 import React from 'react';
-import {ProductAuth} from "tiklab-privilege-ui";
+import {ProductAuth} from "tiklab-licence-ui";
 
 const ProductAuthPage = () => {
 
   return(
-      <>
-        <ProductAuth/>
-      </>
+
+      <ProductAuth/>
 
   )
 }
