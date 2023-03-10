@@ -343,6 +343,9 @@ const onSettingMenu = (history, key) => {
             case '8-19':
                 history.push('/Setting/Base/domainRole')
                 break;
+            case '9':
+                history.push('/Setting/ProductAuth')
+                break;
         }
     } else {
         switch (key) {
@@ -375,6 +378,9 @@ const onSettingMenu = (history, key) => {
                 break;
             case '7':
                 history.push('/Setting/Version')
+                break;
+            case '9':
+                history.push('/Setting/ProductAuth')
                 break;
 
         }
