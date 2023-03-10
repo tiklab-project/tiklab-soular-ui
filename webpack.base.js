@@ -121,6 +121,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|jpeg|gif)/,
+                exclude: /\.(png|jpg|jpeg|gif|svg).js/,
                 // exclude: /node_modules/,
                 use: {
                     loader: 'url-loader',

@@ -54,6 +54,7 @@ const BaseDomainUserPage = SyncComponent(() => import('./Setting/Base/User/domai
 
 // 版本
 const VersionPage = SyncComponent(() => import('./Setting/Version'));
+const ProductAuthPage =  SyncComponent(() => import('./Setting/ProductAuth/ProductAuthPage'));
 
 const Home = SyncComponent(() => import('./Home'))
 const Login = SyncComponent(() => import('./Login/Login'))
@@ -154,6 +155,12 @@ const selectionRouter = () => {
                             path:"/Setting/Version",
                             exact:true,
                         },
+                        {
+                            component: ProductAuthPage,
+                            path:"/Setting/ProductAuth",
+                            exact:true,
+                        },
+
                         {
                             component: TodoTemplate,
                             path:"/Setting/Base/todotemplate",
@@ -343,7 +350,11 @@ const selectionRouter = () => {
                             path:"/Setting/Version",
                             exact:true,
                         },
-
+                        {
+                            component: ProductAuthPage,
+                            path:"/Setting/ProductAuth",
+                            exact:true,
+                        },
                         {
                             path: "/Setting",
                             exact: true,

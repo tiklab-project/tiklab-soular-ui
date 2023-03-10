@@ -112,6 +112,11 @@ const links = [
         key:'8-19',
         router: "/Setting/Base/domainRole"
     },
+
+    {
+        key:'9',
+        router: "/Setting/ProductAuth"
+    },
 ];
 
 const SettingLayout = ({history, route, systemRoleStore}) => {
