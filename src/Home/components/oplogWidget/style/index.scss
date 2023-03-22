@@ -2,8 +2,7 @@
 .oplogWidget{
   display: flex;
   overflow: hidden;
-  padding: var(--tiklab-padding);
-  margin-bottom: 24px;
+  padding: 10px;
   background: var(--tiklab-white);
   &-card{
     width: 100%;
@@ -86,7 +85,7 @@
       overflow: hidden;
       white-space:nowrap;
       text-overflow: ellipsis;
-      
+
     }
     p {
       overflow: hidden;

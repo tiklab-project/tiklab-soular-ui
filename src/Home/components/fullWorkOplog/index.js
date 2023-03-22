@@ -201,7 +201,7 @@ const FullWorkOplog = ({changeOplog, history}) => {
             <Row>
                 <Col span={24}>
                     <Space>
-                        <LeftOutlined onClick={()=> onDetail(item)} style={{fontSize: 'var(--tiklab-icon-size-16)', padding: "16px 0", cursor: 'pointer'}}/>
+                        <LeftOutlined onClick={()=> changeOplog()} style={{fontSize: 'var(--tiklab-icon-size-16)', padding: "16px 0", cursor: 'pointer'}}/>
                         <span className={'tiklab_fulloplog_nav'}>日志</span>
                     </Space>
                 </Col>

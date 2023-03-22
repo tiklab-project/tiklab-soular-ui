@@ -8,7 +8,6 @@ import React from 'react';
 import {Table, Button} from 'antd';
 import {Version} from 'tiklab-licence-ui';
 import {CheckOutlined, CloseOutlined} from "@ant-design/icons";
-import {ProductAuth} from 'tiklab-user-ui'
 
 const VersionPage = () => {
 
@@ -61,13 +60,13 @@ const VersionPage = () => {
             ee: true,
             rowSpan: 0
         },
-        {
-            key: '7',
-            title:"",
-            feature: '',
-            colSpan:4,
-            rowSpan: 1,
-        }
+        // {
+        //     key: '7',
+        //     title:"",
+        //     feature: '',
+        //     colSpan:4,
+        //     rowSpan: 1,
+        // }
     ];
 
     const columns=[

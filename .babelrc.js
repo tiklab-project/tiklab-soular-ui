@@ -110,24 +110,7 @@ module.exports  = {
                 return `tiklab-plugin-manager-ui/es/${fullName}`;
             }
         }, "tiklab-plugin-manager-ui"],
-        ["import", {
-            "libraryName": "tiklab-user-ui",
-            "libraryDirectory": "es",
-            "style": true,
-            "customName": (name) => {
-                let split = name.split('-');
-                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
-                    if(currentIndex === 0) {
-                        return total += currentValue;
-                    }
-                    const UpBit = currentValue.slice(0,1).toUpperCase();
-                    const lowBit = currentValue.slice(1,currentValue.length);
-                    const name = UpBit + lowBit
-                    return total += name;
-                },'');
-                return `tiklab-user-ui/es/${fullName}`;
-            }
-        }, "tiklab-user-ui"],
+
         ["import", {
             "libraryName": "tiklab-integration-ui",
             "libraryDirectory": "es",

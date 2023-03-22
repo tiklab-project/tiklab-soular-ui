@@ -2,8 +2,8 @@
 .todoWidget{
   display: flex;
   overflow: hidden;
-  padding: var(--tiklab-padding);
-  margin-bottom: 24px;
+  padding: 10px;
+  margin-bottom: var(--tiklab-padding-item);
   background: var(--tiklab-white);
   &-card{
     width: 100%;

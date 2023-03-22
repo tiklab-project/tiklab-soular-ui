@@ -6,10 +6,10 @@ import { HashRouter } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import {useTranslation} from 'react-i18next';
 import {enableAxiosCE} from 'tiklab-core-ui';
-import { useAccountConfig } from 'tiklab-eam-ui/es/utils';
+import {useAccountConfig} from 'tiklab-eam-ui/es/utils';
 import { messageModuleStores } from 'tiklab-message-ui/es/store';
 import { orgStores, privilegeStores } from 'tiklab-user-ui/es/store';
-import {PluginProvider, initPlugin} from "tiklab-plugin-core-ui";
+import {PluginProvider, pluginLoader} from "tiklab-plugin-core-ui";
 import stores from "./stores";
 import resources from "./common/language/resources";
 import routes from './routers';
@@ -38,11 +38,10 @@ const Index = () => {
     useAccountConfig()
 
     useEffect(() => {
-        initPlugin('post', routes, resources, i18n).then(res => {
+        pluginLoader(routes, resources, i18n).then(res => {
             setPluginData(res)
             setViable(false)
         })
-
     }, []);
 
     if (viable) {

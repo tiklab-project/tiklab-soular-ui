@@ -164,7 +164,7 @@ const TodoWidget = ({bgroup,changeTodo, history, isCe}) => {
                     <div className="todoWidget-card-body-header">
                         <div className="todoWidget-card-body-header-title">待办</div>
                         {
-                            todoData.length < total &&
+                            todoData.length < total  &&
                             <Button
                                 type={'link'}
                                 onClick={moreAction}

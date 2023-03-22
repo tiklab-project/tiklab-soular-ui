@@ -9,7 +9,6 @@ import {GlobalOutlined, SettingOutlined, QuestionCircleOutlined,SnippetsOutlined
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
 import {UserVerify} from 'tiklab-eam-ui';
-
 import {AppLink} from 'tiklab-integration-ui'
 
 import Profile from "../../profile";
@@ -194,12 +193,10 @@ const Portal = props => {
         </main>
     )
 };
-const verifyPortal = UserVerify(Portal)
-
 
 function mapStateToProps(state) {
     return {
         pluginStore: state.pluginStore
     }
 }
-export default connect(mapStateToProps)(verifyPortal);
+export default connect(mapStateToProps)(UserVerify(Portal));

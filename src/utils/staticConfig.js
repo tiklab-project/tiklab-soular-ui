@@ -19,16 +19,16 @@ const selectionSettingMenuData = () => {
                 icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },
             {
+                id:'1-4',
+                title: '用户组',
+                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
+            },
+            {
                 id:'1-3',
                 title: '用户目录',
                 purviewCode:'user_dir',
                 icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
             },
-            {
-                id:'1-4',
-                title: '用户组',
-                icon :<AppstoreOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>,
-            }
             ]
         },
         {

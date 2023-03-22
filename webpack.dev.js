@@ -23,9 +23,9 @@ module.exports = merge(baseWebpackConfig,{
     plugins:[
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
-            title:'组织中心',
+            title:'Eas',
             template: path.resolve(__dirname, './public/index.template.html'),
-            favicon: path.resolve('./public/favicon.png'),
+            favicon: path.resolve('./public/easIcon.png'),
             hash: false,
             filename: 'index.html',
             inject: 'body',
@@ -48,7 +48,7 @@ module.exports = merge(baseWebpackConfig,{
         hot:true,
         compress:true,
         port:3001,
-        host: '192.168.10.11',
+        host: '0.0.0.0',
         historyApiFallback: true,
         disableHostCheck: true,
     }
