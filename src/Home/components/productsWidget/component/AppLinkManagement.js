@@ -1,10 +1,3 @@
-/**
- * @name: AppLinkManagement
- * @author: mahai
- * @date: 2021-06-28 16:19
- * @description：工作台-应用链接管理
- * @update: 2021-06-28 16:19
- */
 import React, { useState} from 'react';
 import { Row, Col } from 'antd';
 import BaseModal from "../../../../common/baseModal";
@@ -12,13 +5,23 @@ import AddWorkBench from './workBenchAdd';
 import {deleteWorkByIDService} from '../api'
 import {WORK_NAME} from '../../../../utils/constant'
 import './applinkMenagement.scss'
+
+/**
+ * 工作台-应用链接管理
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const AppLinkManagement = props => {
     const {visibleManagement,setVisibleManagement, applications, requestWorkList} = props;
     const [visible, setVisible] = useState(false);
     const [edit, setEdit] = useState(null)
 
-
-
+    /**
+     * 删除
+     * @param id
+     * @returns {Promise<void>}
+     */
     const deleteWorkByID = async id => {
         const data = await deleteWorkByIDService(id);
         if (!data.code) {
@@ -26,14 +29,8 @@ const AppLinkManagement = props => {
         }
     }
 
-    const callBack = () => {
-        setEdit(null)
-        requestWorkList()
-    }
-
     // TODO 提交表单
     const handleOk = () => {
-        requestWorkList()
         setVisibleManagement(false)
     };
     // TODO 取消提交
@@ -46,15 +43,14 @@ const AppLinkManagement = props => {
         setVisible(true);
     }
 
-    const showModal = () => {
-        setVisible(true);
-    };
     return(
         <BaseModal
             title= "应用链接管理"
             visible={visibleManagement}
             onOk={handleOk}
             onCancel={handleCancel}
+            okText={"确定"}
+            cancelText={"取消"}
             destroyOnClose={true}
             width={720}
         >
@@ -87,8 +83,7 @@ const AppLinkManagement = props => {
                 edit={edit}
                 visible = {visible}
                 setVisible = {setVisible}
-                applicationList={applications.map(item => item.appType)}
-                callBack={callBack}
+                requestWorkList={ requestWorkList}
             />
         </BaseModal>
     )

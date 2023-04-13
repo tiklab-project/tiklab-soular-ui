@@ -6,17 +6,19 @@
  */
 import {Axios} from 'tiklab-core-ui';
 
-const OPLOG_LIST_PAGE = '/oplog/findlogpage';
-const FIND_OPLOG_TYPE_LIST = '/oplog/type/findlogtypelist';
-
-
+/**
+ * 获取日志
+ * @param params
+ * @returns {Promise<unknown>}
+ */
 const getOplogPageService = async params => {
-    return await Axios.post(OPLOG_LIST_PAGE, params);
+    return await Axios.post('/oplog/findlogpage', params);
 }
 
 const getOpLogTypeListService = async params => {
-    return await Axios.post(FIND_OPLOG_TYPE_LIST, params)
+    return await Axios.post('/oplog/type/findlogtypelist', params)
 }
+
 export {
     getOplogPageService,
     getOpLogTypeListService

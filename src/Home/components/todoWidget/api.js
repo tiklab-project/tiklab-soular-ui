@@ -6,10 +6,13 @@
  */
 import {Axios} from 'tiklab-core-ui';
 
-const TODO_LIST_PAGE = '/todo/findtodopage';
-
+/**
+ * 获取所有代办
+ * @param params
+ * @returns {Promise<unknown>}
+ */
 const getTodoPageService = async params => {
-    return await Axios.post(TODO_LIST_PAGE, params);
+    return await Axios.post('/todo/findtodopage', params);
 }
 
 export {

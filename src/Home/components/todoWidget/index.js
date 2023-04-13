@@ -1,9 +1,3 @@
-/**
- * @name: index
- * @author mahai
- * @date 2022/9/23 1:33 PM
- * @description index
- */
 import React, {useState, useEffect} from "react";
 import {List, Tabs, Tag, Empty, Button} from 'antd';
 import {getUser, parseUserSearchParams} from 'tiklab-core-ui';
@@ -13,6 +7,15 @@ import {getTodoPageService} from './api';
 import messageEmpty from "../../../assets/message.svg";
 import './style/index.scss';
 
+/**
+ * 代办
+ * @param bgroup
+ * @param changeTodo
+ * @param history
+ * @param isCe
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const TodoWidget = ({bgroup,changeTodo, history, isCe}) => {
     const tagsData = bgroup === 'eas' ? ['all','eas', 'teamwire', 'kanass', 'postin', 'teston','matflow']:[bgroup];
     const [activeKey, setActiveKey] = useState(bgroup === 'eas' ? 'all': bgroup);

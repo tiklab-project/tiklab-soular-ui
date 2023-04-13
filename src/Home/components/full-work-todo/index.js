@@ -1,9 +1,3 @@
-/**
- * @name: index
- * @author mahai
- * @date 2022/10/26 1:55 PM
- * @description index
- */
 import React, {useState, useEffect} from "react";
 import { Select, Row, Col, Space, Empty, List, Tag} from "antd";
 import {LeftOutlined} from '@ant-design/icons';
@@ -42,6 +36,14 @@ const PRODUCTS = [
         value: 'matflow',
         label: "MatFlow",
     },
+    {
+        value: 'xcode',
+        label: "XCode",
+    },
+    {
+        value: 'xpack',
+        label: "XPack",
+    }
 ];
 const statusList = [
     {
@@ -61,6 +63,15 @@ const statusList = [
         value: 3
     }
 ]
+
+/**
+ * 代办
+ * @param bgroup
+ * @param changeTodo
+ * @param history
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const FullWorkTodo = ({bgroup, changeTodo, history}) => {
 
     const [pageSize] = useState(10);

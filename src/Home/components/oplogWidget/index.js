@@ -1,10 +1,3 @@
-/**
- * @name: index
- * @author mahai
- * @date 2022/9/23 1:33 PM
- * @description index
- */
-
 import React, {useState, useEffect} from "react";
 import {List, Tabs, Space, Empty,Button} from 'antd';
 import {getUser, parseUserSearchParams} from 'tiklab-core-ui';
@@ -14,9 +7,19 @@ import {getOplogPageService} from './api';
 import messageEmpty from "../../../assets/message.svg";
 import './style/index.scss';
 
-
+/**
+ * 日志，工作台
+ * @param bgroup
+ * @param changeOplog
+ * @param showOplogDetail
+ * @param history
+ * @param isCe
+ * @param isDynamic
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const OpLogWidget = ({bgroup, changeOplog, showOplogDetail, history, isCe, isDynamic=false}) => {
-    const tagsData = bgroup === 'eas'?['all','eas', 'teamwire', 'kanass', 'postin', 'teston','matflow']:[bgroup];
+    const tagsData = bgroup === 'eas'?['all','eas', 'teamwire', 'kanass', 'postin', 'teston','matflow','xcode','xpack']:[bgroup];
     const [page,setPage] = useState(1);
     const [pageSize,] = useState(20);
     const [total,setTotal] = useState(0)
@@ -91,6 +94,10 @@ const OpLogWidget = ({bgroup, changeOplog, showOplogDetail, history, isCe, isDyn
                 return "TestOn";
             case 'matflow':
                 return "matflow";
+            case 'xcode':
+                return "XCode";
+            case 'xpack':
+                return "XPack";
             default:
                 return "全部";
         }

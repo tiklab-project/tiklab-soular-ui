@@ -8,8 +8,11 @@ import {useTranslation} from 'react-i18next';
 import {enableAxiosCE} from 'tiklab-core-ui';
 import {useAccountConfig} from 'tiklab-eam-ui/es/utils';
 import { messageModuleStores } from 'tiklab-message-ui/es/store';
+import {formStores} from 'tiklab-form-ui/es/store';
 import { orgStores, privilegeStores } from 'tiklab-user-ui/es/store';
 import {PluginProvider, pluginLoader} from "tiklab-plugin-core-ui";
+import {ConfigProvider} from "antd";
+import zhCN from "antd/es/locale/zh_CN";
 import stores from "./stores";
 import resources from "./common/language/resources";
 import routes from './routers';
@@ -23,7 +26,8 @@ const Index = () => {
         ...stores,
         ...privilegeStores,
         ...messageModuleStores,
-        ...orgStores
+        ...orgStores,
+        ...formStores
     };
 
     const {i18n} = useTranslation();
@@ -47,14 +51,17 @@ const Index = () => {
     if (viable) {
         return <div>加载中</div>
     }
+
     return (
         <PluginProvider store={pluginData}>
             <Provider {...allStore}>
-                <HashRouter>
-                    {
-                        renderRoutes(pluginData.routes)
-                    }
-                </HashRouter>
+                <ConfigProvider>
+                    <HashRouter locale={zhCN}>
+                        {
+                            renderRoutes(pluginData.routes)
+                        }
+                    </HashRouter>
+                </ConfigProvider>
             </Provider>
         </PluginProvider>
     );

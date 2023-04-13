@@ -11,7 +11,13 @@ import {DeleteOutlined} from "@ant-design/icons";
 import './drop.scss';
 const grid = 8
 
-// 重新记录数组顺序
+/**
+ * 重新记录数组顺序
+ * @param list
+ * @param startIndex
+ * @param endIndex
+ * @returns {unknown[]}
+ */
 const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
     const [removed] = result.splice(startIndex, 1);
@@ -19,7 +25,12 @@ const reorder = (list, startIndex, endIndex) => {
     return result;
 };
 
-// 设置样式
+/**
+ * 设置样式
+ * @param isDragging
+ * @param draggableStyle
+ * @returns {*&{padding: number, margin: string, background: (string), userSelect: string}}
+ */
 const getItemStyle = (isDragging, draggableStyle) => ({
     userSelect: "none",
     padding: grid * 2,
@@ -28,6 +39,7 @@ const getItemStyle = (isDragging, draggableStyle) => ({
     background: isDragging ? "lightgreen" : "#ffffff",
     ...draggableStyle
 });
+
 const getListStyle = () => ({
     // background: 'black',
     padding: grid,

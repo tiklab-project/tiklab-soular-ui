@@ -1,12 +1,17 @@
-
 import React, {useEffect} from 'react';
 import { Form, Input, Select, message } from 'antd';
 import {createWorkAppLinkService, updateWorkService} from '../api';
 import {WORK_APP_SELECT} from '../../../../utils/constant'
 import BaseModal from "../../../../common/baseModal";
 
+/**
+ * 产品应用授权管理编辑
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const AddWorkBench = props => {
-    const {visible,setVisible, edit} = props;
+    const {visible,setVisible, edit,requestWorkList} = props;
 
     const [form] = Form.useForm();
     const layout = {
@@ -36,24 +41,24 @@ const AddWorkBench = props => {
     const onFinish = values => {
         if (edit && edit.appUrl) {
             updateWorkService({ ...values, id: edit.id }).then(res => {
-                if (!res.code) {
-                    message.success('成功!');
-                    setVisible(false)
-                } else {
-                    message.error('失败!');
-                }
+                warnMess(res)
             })
         } else {
             createWorkAppLinkService(values).then(res => {
-                if (!res.code) {
-                    message.success('成功!');
-                    setVisible(false)
-                } else {
-                    message.error('失败!');
-                }
+                warnMess(res)
             })
         }
     };
+
+    const warnMess = data =>{
+        if (!data.code) {
+            message.success('成功!');
+            requestWorkList()
+            setVisible(false)
+        } else {
+            message.error('失败!');
+        }
+    }
 
     return(
         <BaseModal
@@ -61,6 +66,8 @@ const AddWorkBench = props => {
             visible={visible}
             onOk={handleOk}
             onCancel={handleCancel}
+            okText={"确定"}
+            cancelText={"取消"}
             destroyOnClose={true}
             preserve={false}
         >

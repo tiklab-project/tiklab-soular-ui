@@ -11,7 +11,7 @@
     },
     "scripts": {
         "publish": "npm publish",
-        "start": "cross-env NODE_ENV=development CUSTOM_ENV=dev webpack-dev-server --progress --config ./webpack.dev.js ",
+        "eas-ce-start": "cross-env NODE_ENV=development CUSTOM_ENV=dev webpack-dev-server --progress --config ./webpack.dev.js ",
         "build:dev": "cross-env NODE_ENV=production CUSTOM_ENV=dev webpack --config ./webpack.prod.js ",
         "build:prod": "cross-env NODE_ENV=production CUSTOM_ENV=prod webpack --config ./webpack.prod.js ",
         "build:test": "cross-env NODE_ENV=production CUSTOM_ENV=test webpack --config ./webpack.prod.js ",
@@ -84,7 +84,7 @@
         "tiklab-form-ui": "^1.0.1",
         "tiklab-integration-ui": "^1.0.1",
         "tiklab-licence-ui": "^1.0.1",
-        "tiklab-message-ui": "1.0.1",
+        "tiklab-message-ui": "^1.0.1",
         "tiklab-plugin-core-ui": "^1.0.1",
         "tiklab-plugin-manager-ui": "^1.0.1",
         "tiklab-privilege-ui": "^1.0.1",

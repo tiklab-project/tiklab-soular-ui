@@ -74,7 +74,7 @@
           background-color: rgba(222, 235, 255, 0.9);
         }
       }
-      
+
       &_portal_title {
         padding: 0 20px;
         color: var(--tiklab-black);
@@ -109,7 +109,13 @@
       &_user {
         display: flex;
         flex-direction: column;
-        
+        max-width: 228px;
+        span{
+          max-width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
         span:last-child {
           font-weight: 400;
           color: var(--tiklab-gray-500);
@@ -118,7 +124,7 @@
       }
     }
   }
-  
+
   .ant-menu-item:hover, .ant-menu-item-active, .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-submenu-active, .ant-menu-submenu-title:hover {
     color: var(--tiklab-black) !important;
   }
@@ -128,7 +134,7 @@
   .ant-menu-vertical .ant-menu-submenu-selected, .ant-menu-vertical-left .ant-menu-submenu-selected, .ant-menu-vertical-right .ant-menu-submenu-selected {
     color: var(--tiklab-black) !important;
   }
-  
+
   .ant-menu-vertical .ant-menu-submenu-title {
     padding: 0 20px;
   }

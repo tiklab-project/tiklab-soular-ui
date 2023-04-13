@@ -7,61 +7,74 @@
  */
 import {Axios} from 'tiklab-core-ui';
 
-const GET_WIDGET_PAGE = '/widget/findWorkWidgetPage';
-const GET_WIDGET_LIST = '/widget/findWorkWidgetList';
-const CREATE_WIDGET = '/widget/createWorkWidget';
-const UPDATE_WIDGET = '/widget/updateWorkWidget';
-
-const DELETE_WIDGET = '/widget/deleteWorkWidget';
-
-
-const FIND_USER_LAYOUT = '/widgetLayout/findLayout'
-const CREATE_USER_LAYOUT = '/widgetLayout/createLayout'
-const UPDATE_USER_LAYOUT = '/widgetLayout/updateLayout'
 /**
  * 获取当前可使用的 widget
+ * @param data
+ * @returns {Promise<unknown>}
  */
 const getWidgetListService = async (data) => {
-    return await Axios.post(GET_WIDGET_LIST, data);
+    return await Axios.post('/widget/findWorkWidgetList', data);
 }
 
+/**
+ * 获取所有 widget
+ * @param data
+ * @returns {Promise<unknown>}
+ */
 const findWorkWidgetPageService = async (data) => {
-    return await Axios.post(GET_WIDGET_PAGE, data);
+    return await Axios.post('/widget/findWorkWidgetPage', data);
 }
 
+/**
+ * 添加 widget
+ * @param data
+ * @returns {Promise<unknown>}
+ */
 const createWidgetService = async (data) => {
-    return await Axios.post(CREATE_WIDGET, data);
+    return await Axios.post('/widget/createWorkWidget', data);
 }
 
+/**
+ * 更新 widget
+ * @param data
+ * @returns {Promise<unknown>}
+ */
 const updateWidgetService = async (data) => {
-    return await Axios.post(UPDATE_WIDGET, data);
+    return await Axios.post('/widget/updateWorkWidget', data);
 }
 
+/**
+ * 删除 widget
+ * @param id
+ * @returns {Promise<unknown>}
+ */
 const deleteWidgetService = async (id) => {
     const formData = new FormData()
     formData.append('id', id)
-    return await Axios.post(DELETE_WIDGET, formData);
+    return await Axios.post('/widget/deleteWorkWidget', formData);
 }
 
 /**
  * 获取用户 widget 布局
  */
 const findLayoutService = async (data) => {
-    return await Axios.post(FIND_USER_LAYOUT, data);
+    return await Axios.post('/widgetLayout/findLayout', data);
 }
 
 /**
  * 创建用户 widget
  */
 const createLayoutService = async (data) => {
-    return await Axios.post(CREATE_USER_LAYOUT, data);
+    return await Axios.post('/widgetLayout/createLayout', data);
 }
+
 /**
  * 更新用户 widget
  */
 const updateLayoutService = async (data) => {
-    return await Axios.post(UPDATE_USER_LAYOUT, data);
+    return await Axios.post('/widgetLayout/updateLayout', data);
 }
+
 /**
  *
  * @param data
@@ -72,7 +85,10 @@ const createWorkAppLinkService = async data => {
     return appData;
 };
 
-// 获取所有应用数据
+/**
+ * 获取所有应用数据
+ * @returns {Promise<*[]|*>}
+ */
 const getWorkListService = async () => {
     const appData = await Axios.post('/workAppLink/findWorkAppLinkList', {});
     if (!appData.code) {
@@ -101,6 +117,7 @@ const deleteWorkByIDService = async id => {
 const updateWorkService = async data => {
     return await Axios.post('/workAppLink/updateWorkAppLink', data);
 };
+
 export {
     updateWorkService,
     deleteWorkByIDService,

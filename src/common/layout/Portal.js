@@ -1,27 +1,22 @@
-/**
- * @Author: mahai
- * @Description: Enter feature description here
- * create: $2022/1/25
- */
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {Space, Tooltip, Menu} from "antd";
 import {GlobalOutlined, SettingOutlined, QuestionCircleOutlined,SnippetsOutlined, CustomerServiceOutlined, CommentOutlined, UserOutlined, LogoutOutlined } from "@ant-design/icons";
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
-import {UserVerify} from 'tiklab-eam-ui';
-import {AppLink} from 'tiklab-integration-ui'
-
-import Profile from "../../profile";
-import easLogo from '../../../assets/eas.png'
-import {connect} from 'tiklab-plugin-core-ui'
-import Notification from "../../notification";
-import PortalMenu from '../../portalMenu'
-import './layout.scss'
+import {renderRoutes} from 'react-router-config'
+import {AppLink} from 'tiklab-integration-ui';
+import Profile from "../profile";
+import easLogo from '../../assets/eas.png'
+import Notification from "../notification";
+import PortalMenu from '../portalMenu'
+import './Layout.scss'
 
 const Portal = props => {
 
-    const {history} = props;
-    const [currentLink, setCurrentLink] = useState(props.location.pathname);
+    const {history,route} = props;
+
+    let path = props.location.pathname
+    const [currentLink, setCurrentLink] = useState(path);
     const { i18n} = useTranslation();
 
     const [lng,setLng] = useState(i18n.language)
@@ -31,6 +26,11 @@ const Portal = props => {
     const [profileVisibility,setProfileVisibility] = useState(false);
 
     const [helpVisibility,setHelpVisibility] = useState(false)
+
+    useEffect(()=>{
+        setCurrentLink(path)
+    },[path])
+
     const homeRouter = [
         {
             to:'/work',
@@ -65,13 +65,18 @@ const Portal = props => {
         })
     }
 
-
+    /**
+     * 帮助文档
+     */
+    const goHelp = path => {
+        window.open(`http://tiklab.net/${path}`)
+    }
 
     return(
         <main className={'layout'}>
             <header className={'layout_header'}>
                 <Space size={'large'}>
-                    <AppLink isSSO={false}/>
+                    {/*<AppLink isSSO={false}/>*/}
                     <img alt={'门户中心'} src={easLogo} height={'50%'} />
                     {
                         homeRouter.map(item => {
@@ -87,17 +92,14 @@ const Portal = props => {
                     <Space size={'large'}>
                         <Tooltip title={"设置"} mouseEnterDelay={0.3}>
                             <div className={'tiklab_portal_block_item'}>
-                                 <span className={'layout_header_right_icon'}>
+                                <span className={'layout_header_right_icon'}>
                                     <SettingOutlined
-                                        onClick={
-                                            () => changeCurrentLink({to:'/Setting',})
-                                        }
+                                        onClick={() => changeCurrentLink({to:'/Setting',})}
                                         style={{ color: "var(--tiklab-white)"}}
                                     />
-                                 </span>
+                                </span>
                             </div>
                         </Tooltip>
-
                         <div className={'tiklab_portal_block_item'}>
                             <Notification history={history}/>
                         </div>
@@ -109,28 +111,28 @@ const Portal = props => {
                             width={240}
                         >
                             <>
-                                <div className={'layout_header_right_portal_item'} >
+                                <div className={'layout_header_right_portal_item'} onClick={()=>goHelp("document/documentList")}>
                                     <Space>
-                                        <SnippetsOutlined style={{fontSize:'var(--tiklab-icon-size-16)', color: "var(--tiklab-white)"}}/>
+                                        <SnippetsOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
                                         文档
                                     </Space>
 
                                 </div>
-                                <div className={'layout_header_right_portal_item'} >
+                                <div className={'layout_header_right_portal_item'} onClick={()=>goHelp("question/questionList")}>
                                     <Space>
-                                        <GlobalOutlined style={{fontSize:'var(--tiklab-icon-size-16)', color: "var(--tiklab-white)"}}/>
+                                        <GlobalOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
                                         社区支持
                                     </Space>
                                 </div>
-                                <div className={'layout_header_right_portal_item'} >
+                                <div className={'layout_header_right_portal_item'} onClick={()=>goHelp("account/workOrder/workOrderList")}>
                                     <Space>
-                                        <CustomerServiceOutlined style={{fontSize:'var(--tiklab-icon-size-16)', color: "var(--tiklab-white)"}}/>
+                                        <CustomerServiceOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
                                         在线工单
                                     </Space>
                                 </div>
-                                <div className={'layout_header_right_portal_item'} >
+                                <div className={'layout_header_right_portal_item'} onClick={()=>goHelp("account/group/onlineservice")}>
                                     <Space>
-                                        <CommentOutlined style={{fontSize:'var(--tiklab-icon-size-16)', color: "var(--tiklab-white)"}}/>
+                                        <CommentOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
                                         在线客服
                                     </Space>
                                 </div>
@@ -149,7 +151,7 @@ const Portal = props => {
                                         <Profile/>
                                         <div className={'layout_header_right_user'}>
                                             <span>{getUser().nickname || getUser().name || "用户"}</span>
-                                            <span>{getUser().phone || getUser().eamil || "无"}</span>
+                                            <span>{getUser().phone || getUser().eamil || "--"}</span>
                                         </div>
                                     </Space>
                                 </div>
@@ -183,20 +185,14 @@ const Portal = props => {
                         </PortalMenu>
                     </Space>
                 </div>
-
             </header>
             <section className={'layout_content'}>
                 <div style={{width:'100%', height:'calc(100% - 48px)'}}>
-                    {props.children}
+                    {renderRoutes(route.routes)}
                 </div>
             </section>
         </main>
     )
 };
 
-function mapStateToProps(state) {
-    return {
-        pluginStore: state.pluginStore
-    }
-}
-export default connect(mapStateToProps)(UserVerify(Portal));
+export default Portal

@@ -1,13 +1,9 @@
-/**
- * @name: work
- * @author: mahai
- * @date: 2021-05-24 09:38
- * @description：work
- * @update: 2021-05-24 09:38
- */
 import React, {Component} from 'react';
 import {WidgetWork} from './components';
 
+/**
+ * 工作台
+ */
 class Home extends Component{
 
     constructor(props) {

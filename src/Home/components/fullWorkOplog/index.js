@@ -1,13 +1,7 @@
-/**
- * @name: index
- * @author mahai
- * @date 2022/10/26 1:55 PM
- * @description index
- */
 import React, {useState, useEffect} from "react";
 import { Select, Row, Col, Space, Empty, List, DatePicker} from "antd";
 import {LeftOutlined} from '@ant-design/icons';
-import {getUser, parseUserSearchParams} from 'tiklab-core-ui';
+import {getUser,} from 'tiklab-core-ui';
 import moment from 'moment';
 
 import {getOplogPageService, getOpLogTypeListService} from "../oplogWidget/api";
@@ -47,6 +41,13 @@ const PRODUCTS = [
     },
 ];
 
+/**
+ * 日志
+ * @param changeOplog
+ * @param history
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const FullWorkOplog = ({changeOplog, history}) => {
 
     const [pageSize] = useState(20);
@@ -67,17 +68,21 @@ const FullWorkOplog = ({changeOplog, history}) => {
     const [viewDetail,setViewDetail] = useState(null);
 
     useEffect(()=>{
+        // 获取日志
         getOplogPage(params)
     },[params]);
 
     useEffect(() =>{
+        // 获取日志类型
         getOplogTypeList()
     },[]);
 
+    /**
+     * 获取日志类型
+     */
     const getOplogTypeList = () => {
         getOpLogTypeListService({}).then(r =>{
             if (r.code === 0) {
-
                 const oplogTypes = r.data.map(item => {
                     return {
                         value: item.id,
@@ -89,7 +94,11 @@ const FullWorkOplog = ({changeOplog, history}) => {
         })
     }
 
-
+    /**
+     * 获取日志
+     * @param param
+     * @returns {Promise<void>}
+     */
     const getOplogPage = async (param) => {
         const res =  await getOplogPageService(param);
         if (res.code === 0 ) {
@@ -99,6 +108,10 @@ const FullWorkOplog = ({changeOplog, history}) => {
         }
     }
 
+    /**
+     * 模糊搜索日志
+     * @param value：产品
+     */
     const onChangeProduct = (value) => {
         let newParams = {}
         if (value === 'all') {
@@ -120,6 +133,11 @@ const FullWorkOplog = ({changeOplog, history}) => {
         }
         setParams(newParams)
     }
+
+    /**
+     * 模糊搜索日志
+     * @param times：时间
+     */
     const OnSelectTime = (times) => {
         let newParams = {}
         if (times) {
@@ -147,6 +165,10 @@ const FullWorkOplog = ({changeOplog, history}) => {
         setParams(newParams)
     };
 
+    /**
+     * 模糊搜索日志
+     * @param item：类型
+     */
     const onChangeOplogType = (item) => {
         setCurrentPage(1);
         const p = {

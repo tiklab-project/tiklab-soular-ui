@@ -11,6 +11,9 @@ import FullWorkOplog from "../fullWorkOplog";
 import LogDetail from "../fullWorkOplog/components/LogDetail";
 import './style/index.scss';
 
+/**
+ * 工作台
+ */
 class WidgetWork extends Component{
     constructor(props) {
         super(props);
@@ -106,9 +109,9 @@ class WidgetWork extends Component{
                 return "自动化测试";
             case 'matflow':
                 return "流水线";
-            case 'gitpro':
+            case 'xcode':
                 return "代码管理";
-            case 'hakkar':
+            case 'xpack':
                 return "制品管理";
             default:
                 return "全部";

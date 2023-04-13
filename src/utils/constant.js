@@ -12,7 +12,9 @@ const PROJECT_NAME = {
     "kanass":"Kanass",
     "postin":"PostIn",
     "teston":"TestOn",
-    "matflow":"MatFlow"
+    "matflow":"MatFlow",
+    "xcode":"XCode",
+    "xpack":"XPack",
 }
 
 const DASHBOARD_NAME = {
@@ -44,7 +46,15 @@ const WORK_APP_SELECT = [
     {
         label: PROJECT_NAME.eas,
         value: 'eas',
-    }
+    },
+    {
+        label: PROJECT_NAME.xcode,
+        value: 'eas',
+    },
+    {
+        label: PROJECT_NAME.xpack,
+        value: 'eas',
+    },
 ];
 
 const WORK_NAME = {
@@ -65,6 +75,12 @@ const WORK_NAME = {
     },
     eas: {
         label: PROJECT_NAME.eas,
+    },
+    xcode:{
+        label: PROJECT_NAME.xcode,
+    },
+    xpack:{
+        label: PROJECT_NAME.xpack,
     }
 };
 export {

@@ -1,10 +1,3 @@
-/**
- * @name: messageWidget
- * @author mahai
- * @date 2022/6/16 10:40 AM
- * @description messageWidget
- */
-
 import React, { useState, useEffect } from 'react';
 import {List, Tabs, Empty} from 'antd';
 import {getUser, parseUserSearchParams} from 'tiklab-core-ui';
@@ -13,9 +6,17 @@ import {getMessageListService} from './api';
 import messageEmpty from '../../../assets/message.svg';
 import './style/index.scss';
 
+
+/**
+ * 消息
+ * @param bgroup
+ * @param history
+ * @returns {JSX.Element}
+ * @constructor
+ */
 // '全部','账号中心', '项目管理', '接口管理'
 const MessageWidget = ({history,bgroup}) => {
-    const tagsData = bgroup === 'eas'?['all','eas', 'teamwire', 'kanass', 'postin', 'teston','matflow']:[bgroup];
+    const tagsData = bgroup === 'eas'?['all','eas', 'teamwire', 'kanass', 'postin', 'teston','matflow','xcode','xpack']:[bgroup];
 
     const [activeKey, setActiveKey] = useState(bgroup === 'eas'?'all': bgroup);
     const [messageData,setMessageData] = useState([]);
@@ -48,9 +49,9 @@ const MessageWidget = ({history,bgroup}) => {
     const tagLabel = (value) => {
         switch (value) {
             case "all":
-                return "全部";
+                return "所有应用";
             case 'eas':
-                return "EAS";
+                return "Eas";
             case 'teamwire':
                 return "TeamWire";
             case 'kanass':
@@ -62,7 +63,7 @@ const MessageWidget = ({history,bgroup}) => {
             case 'matflow':
                 return "matflow";
             default:
-                return "全部";
+                return "所有应用";
         }
     }
 

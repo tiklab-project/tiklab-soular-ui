@@ -60,6 +60,22 @@ const INIT_WORK = [
         appUrl:"",
         id:"5"
     },
+    {
+        appType: 'xcode',
+        label: "XCode",
+        description: "代码管理",
+        img:matflowImg,
+        appUrl:"",
+        id:"6"
+    },
+    {
+        appType: 'xpack',
+        label: "XPack",
+        description: "制品库管理",
+        img:matflowImg,
+        appUrl:"",
+        id:"7"
+    },
 ]
 
 const ProductsWidget = () => {
@@ -105,7 +121,7 @@ const ProductsWidget = () => {
                                         const url = user.ticket ? `${item.appUrl}?${parseUserSearchParams(user)}` : item.appUrl;
                                         return(
                                             <div key={item.id}>
-                                                <a className={'card-item'} href={url}>
+                                                <a className={'card-item'} href={url} target="_blank">
                                                     <div className={'card-item_img'}>
                                                         <img src={item.img} width={44} height={44} alt={item.label}/>
                                                     </div>

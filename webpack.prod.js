@@ -85,42 +85,6 @@ module.exports = merge(baseWebpackConfig, {
                     priority: 0,
                     reuseExistingChunk: true
                 },
-                doublekitUserUI: {
-                    name: 'chunk-doublekit-User-ui',
-                    chunks: 'all',
-                    test: /[\\/]node_modules[\\/]doublekit-user-ui[\\/]/,
-                    priority: 30,
-                    reuseExistingChunk: true
-                },
-
-                doublekitPluginUI: {
-                    name: 'chunk-doublekit-Plugin-ui',
-                    chunks: 'all',
-                    test: /[\\/]node_modules[\\/]doublekit-plugin-ui[\\/]/,
-                    priority: 30,
-                    reuseExistingChunk: true
-                },
-                doublekitEamUI: {
-                    name: 'chunk-doublekit-eam-ui',
-                    chunks: 'all',
-                    test: /[\\/]node_modules[\\/]doublekit-eam-ui[\\/]/,
-                    priority: 30,
-                    reuseExistingChunk: true
-                },
-                doublekitCoreUI: {
-                    name: 'chunk-doublekit-core-ui',
-                    chunks: 'all',
-                    test: /[\\/]node_modules[\\/]doublekit-core-ui[\\/]/,
-                    priority: 0,
-                    reuseExistingChunk: true
-                },
-                doublekitMessageUI: {
-                    name: 'chunk-doublekit-Message-ui',
-                    chunks: 'all',
-                    test: /[\\/]node_modules[\\/]doublekit-message-ui[\\/]/,
-                    priority: 0,
-                    reuseExistingChunk: true
-                },
                 mobx: {
                     name: 'chunk-mobx',
                     chunks: 'all',

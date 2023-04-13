@@ -1,13 +1,13 @@
 .tiklab_fulloplog {
   //height: 100%;
   background: var(--tiklab-white);
-  padding: var(--tiklab-padding);
+  padding: 0 var(--tiklab-padding-item);
   //overflow: auto;
   &_nav {
     font-size: var(--tiklab-font-16);
     font-weight: var(--tiklab-font-weight-bold);
   }
-  
+
   .tab-content{
     width: 100%;
   }
@@ -46,7 +46,7 @@
       overflow: hidden;
       white-space:nowrap;
       text-overflow: ellipsis;
-      
+
     }
     p {
       overflow: hidden;

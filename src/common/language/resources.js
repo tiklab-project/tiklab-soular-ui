@@ -9,8 +9,16 @@ import log_cn from 'tiklab-security-ui/es/utils/language'
 import form_cn from 'tiklab-form-ui/es/utils/language'
 const resources = {
     zh: {
-        translation: {...user_cn, ...eam_cn, ...message_cn, ...pluginManage_cn, ...todoTask_cn, ...log_cn, ...form_cn},
-    },
+        translation: {
+            ...user_cn,
+            ...eam_cn,
+            ...message_cn,
+            ...pluginManage_cn,
+            ...todoTask_cn,
+            ...log_cn,
+            ...form_cn
+        },
+    }
 }
 
 

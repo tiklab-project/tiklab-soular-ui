@@ -1,7 +1,7 @@
 
 
 // const api =  'http://192.168.10.21:8081';
-const api =  'http://eas.dev.tiklab.net/';
+const api =  'http://eas.dev.tiklab.net';
 const base_url = JSON.stringify(api);
 
 const webpackGlobal = {

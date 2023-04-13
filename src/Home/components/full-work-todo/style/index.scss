@@ -1,8 +1,8 @@
 .tiklab_fulltodo {
-  height: 100%;
+  //height: 100%;
   background: var(--tiklab-white);
-  padding: 0 var(--tiklab-padding);
-  overflow: auto;
+  padding: 0 var(--tiklab-padding-item);
+  //overflow: auto;
   &_nav {
     font-size: var(--tiklab-font-16);
     font-weight: var(--tiklab-font-weight-bold);

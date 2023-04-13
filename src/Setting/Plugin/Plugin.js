@@ -12,7 +12,7 @@ import {Plugin} from 'tiklab-plugin-manager-ui'
 const PluginMange = (props) => {
 
     return(
-        <Plugin {...props} detailRouter={'/system/detail'}/>
+        <Plugin {...props}/>
     )
 }
 
