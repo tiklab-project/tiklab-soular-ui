@@ -4,7 +4,6 @@ import {GlobalOutlined, SettingOutlined, QuestionCircleOutlined,SnippetsOutlined
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
 import {renderRoutes} from 'react-router-config'
-import {AppLink} from 'tiklab-integration-ui';
 import Profile from "../profile";
 import easLogo from '../../assets/eas.png'
 import Notification from "../notification";
@@ -37,11 +36,11 @@ const Portal = props => {
             title:'工作台',
             key: '/work'
         },
-        // {
-        //     to:'/orga',
-        //     title:'帐号与成员',
-        //     key: 'org'
-        // }
+        {
+            to:'/dynamic',
+            title:'动态',
+            key: '/dynamic'
+        }
     ]
 
     const changeCurrentLink = item => {
@@ -169,12 +168,6 @@ const Portal = props => {
 
                                     </Menu.SubMenu>
                                 </Menu>
-                                <div className={'layout_header_right_portal_item'} >
-                                    <Space>
-                                        <UserOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
-                                        账户设置
-                                    </Space>
-                                </div>
                                 <div className={'layout_header_right_portal_item'} onClick={goLogout}>
                                     <Space>
                                         <LogoutOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>

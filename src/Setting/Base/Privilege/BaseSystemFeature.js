@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import {SystemFeature} from "tiklab-user-ui";
+import {SystemFeature} from "tiklab-privilege-ui";
 
 
 const BaseSystemFeature = (props) => {

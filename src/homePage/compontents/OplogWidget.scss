@@ -1,0 +1,54 @@
+
+.oplogWidget{
+  display: flex;
+  overflow: hidden;
+  padding: 10px;
+  background: var(--tiklab-white);
+  min-height: 300px;
+  &-card{
+    width: 100%;
+    overflow: hidden;
+    &-body{
+      height: 100%;
+      overflow: hidden;
+      &-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        &-title{
+          color: var(--tiklab-black);
+          font-size: var(--tiklab-font-16);
+          font-weight: var(--tiklab-font-weight-bold);
+        }
+      }
+      &-content {
+        width: 100%;
+        color: var(--tiklab-black);
+        .log-content{
+          margin-top: 10px;
+        }
+        .tiklab_fulloplog-item{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          padding: 8px;
+          .full_oplog_abstract_text{
+            color: var(--tiklab-blue);
+            flex: 1;
+          }
+          .time{
+            color: var(--tiklab-gray-500);
+          }
+          &:hover{
+            background: #fafafa;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

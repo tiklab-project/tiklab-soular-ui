@@ -56,6 +56,45 @@ module.exports  = {
                 return `tiklab-eam-ui/es/${fullName}`;
             }
         }, "tiklab-eam-ui"],
+
+        ["import", {
+            "libraryName": "tiklab-privilege-ui",
+            "libraryDirectory": "es",
+            "style": true,
+            "customName": (name) => {
+                let split = name.split('-');
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex=== 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
+                return `tiklab-privilege-ui/es/${fullName}`;
+            }
+        },"tiklab-privilege-ui"],
+
+        ["import", {
+            "libraryName": "tiklab-user-ui",
+            "libraryDirectory": "es",
+            "style": true,
+            "customName": (name) => {
+                let split = name.split('-');
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex=== 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
+                return `tiklab-user-ui/es/${fullName}`;
+            }
+        },"tiklab-user-ui"],
+
         ["import", {
             "libraryName": "tiklab-licence-ui",
             "libraryDirectory": "es",
@@ -92,6 +131,7 @@ module.exports  = {
                 return `tiklab-message-ui/es/${fullName}`;
             }
         }, "tiklab-message-ui"],
+
         ["import", {
             "libraryName": "tiklab-plugin-manager-ui",
             "libraryDirectory": "es",
@@ -129,6 +169,7 @@ module.exports  = {
                 return `tiklab-integration-ui/es/${fullName}`;
             }
         }, "tiklab-integration-ui"],
+
         ["import", {
             "libraryName": "tiklab-todotask-ui",
             "libraryDirectory": "es",
@@ -147,6 +188,7 @@ module.exports  = {
                 return `tiklab-todotask-ui/es/${fullName}`;
             }
         }, "tiklab-todotask-ui"],
+
         ["import", {
             "libraryName": "tiklab-security-ui",
             "libraryDirectory": "es",
@@ -165,24 +207,8 @@ module.exports  = {
                 return `tiklab-security-ui/es/${fullName}`;
             }
         }, "tiklab-security-ui"],
-        ["import", {
-            "libraryName": "tiklab-form-ui",
-            "libraryDirectory": "es",
-            "style": true,
-            "customName": (name) => {
-                let split = name.split('-');
-                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
-                    if(currentIndex=== 0) {
-                        return total += currentValue;
-                    }
-                    const UpBit = currentValue.slice(0,1).toUpperCase();
-                    const lowBit = currentValue.slice(1,currentValue.length);
-                    const name = UpBit + lowBit
-                    return total += name;
-                },'');
-                return `tiklab-form-ui/es/${fullName}`;
-            }
-        }, "tiklab-form-ui"],
+
+
         ["import", {
             "libraryName": "tiklab-flow-ui",
             "libraryDirectory": "es",

@@ -1,9 +1,3 @@
-/**
- * @name: index
- * @author mahai
- * @date 2022/10/21 11:34 AM
- * @description index
- */
 import React, {useState, memo, useEffect} from "react";
 import {Badge, Drawer, Select, Tooltip, List, Button, Space, Tag, Empty} from "antd";
 import {getUser, parseUserSearchParams} from "tiklab-core-ui";
@@ -13,6 +7,11 @@ import './styles';
 import {findMessagePageService, updateMessageService} from "./api";
 
 const { Option } = Select;
+
+/**
+ * 消息通知
+ * @type {React.NamedExoticComponent<{readonly history?: *}>}
+ */
 const Notification = memo(({history}) => {
     const [messageList,setMessageList] = useState([]);
     const [notificationVisibility,setNotificationVisibility] = useState(false);
@@ -25,56 +24,9 @@ const Notification = memo(({history}) => {
 
     useEffect(() => {
         if (getUser().userId) {
-            getMySiteMessage(page, )
+            getMySiteMessage(page)
         }
     },[]);
-
-    useEffect(() => {
-        if (getUser().userId) {
-            changeMessageList(page)
-        }
-    }, [readStatus]);
-
-    /**
-     * 切换数据状态
-     */
-
-    const changeMessageList = (current) => {
-        if (loading) {
-            return;
-        }
-        const params = {
-            pageParam:{
-                pageSize:pageSize,
-                currentPage:current
-            },
-            sendType: 'site',
-            receiver: getUser().userId,
-            bgroup:"eas"
-        }
-        switch (readStatus) {
-            case "read":
-                params['status'] = 1;
-                break;
-            case "unread":
-                params['status'] = 0
-                break;
-        }
-        setLoading(true);
-        findMessagePageService(params).then(res => {
-            if (res.code === 0) {
-                const messageList = res.data.dataList;
-                setMessageList(messageList);
-                setTotal(res.data.totalRecord)
-                setLoading(false);
-                setPage(current);
-            } else {
-                setLoading(false);
-            }
-        }).catch(() => {
-            setLoading(false);
-        })
-    }
 
     /**
      * 获取我的站点类型的消息数据
@@ -115,6 +67,47 @@ const Notification = memo(({history}) => {
             setLoading(false);
         })
     };
+
+    /**
+     * 切换数据状态
+     */
+    const changeMessageList = (current,value) => {
+        if (loading) {
+            return;
+        }
+        const params = {
+            pageParam:{
+                pageSize:pageSize,
+                currentPage:current
+            },
+            sendType: 'site',
+            receiver: getUser().userId,
+            bgroup:"eas"
+        }
+        switch (value) {
+            case "read":
+                params['status'] = 1;
+                break;
+            case "unread":
+                params['status'] = 0
+                break;
+        }
+        setLoading(true);
+        findMessagePageService(params).then(res => {
+            if (res.code === 0) {
+                const messageList = res.data.dataList;
+                setMessageList(messageList);
+                setTotal(res.data.totalRecord)
+                setLoading(false);
+                setPage(current);
+            } else {
+                setLoading(false);
+            }
+        }).catch(() => {
+            setLoading(false);
+        })
+    }
+
     const showDrawer = () => {
         setNotificationVisibility(true);
     };
@@ -209,6 +202,7 @@ const Notification = memo(({history}) => {
 
     const onSelect = (value) => {
         setReadStatus(value)
+        changeMessageList(page,value)
     }
     return(
         <>
@@ -219,7 +213,9 @@ const Notification = memo(({history}) => {
                 placement="right"
                 onClose={onClose}
                 visible={notificationVisibility}
-                width={420}
+                bodyStyle={{padding:0}}
+                maskStyle={{background:"transparent"}}
+                contentWrapperStyle={{width:420,top:48,height:"calc(100% - 48px)"}}
                 title={
                     <Select defaultValue="all" bordered={false} onSelect={onSelect}>
                         <Option value="all"><BellOutlined style={{fontSize:"var(--tiklab-icon-size-16)"}}/>全部通知</Option>
@@ -227,14 +223,6 @@ const Notification = memo(({history}) => {
                         <Option value="read"><BellOutlined style={{fontSize:"var(--tiklab-icon-size-16)"}}/>已读通知</Option>
                     </Select>
                 }
-                bodyStyle={{
-                    padding:0
-                }}
-                mask={false}
-                style={{
-                    top: 48,
-                    height: 'calc(100% - 48px)',
-                }}
                 className={'as'}
             >
                 <div className={'tiklab_notification_main'} id="NotificationDiv">

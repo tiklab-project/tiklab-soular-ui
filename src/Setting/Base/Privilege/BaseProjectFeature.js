@@ -7,7 +7,7 @@
  * @description baseSystemFeature
  */
 import React from 'react';
-import {ProjectFeature} from "tiklab-user-ui";
+import {ProjectFeature} from "tiklab-privilege-ui";
 
 
 const BaseProjectFeature = () => {

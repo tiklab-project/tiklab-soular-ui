@@ -7,8 +7,8 @@ import {
 import {renderRoutes} from "react-router-config";
 import {inject,observer} from "mobx-react";
 import {getUser} from 'tiklab-core-ui';
-import {SYSTEM_ROLE_STORE} from "tiklab-user-ui/es/store";
-import {SystemNav,PrivilegeButton} from "tiklab-user-ui";
+import {SYSTEM_ROLE_STORE} from "tiklab-privilege-ui/es/store";
+import {SystemNav,PrivilegeButton} from "tiklab-privilege-ui";
 import {applicationRouters,templateRouter} from "./SettingRouters";
 import "./Setting.scss";
 

@@ -1,0 +1,66 @@
+.tiklab_fulloplog {
+  height: 100%;
+  overflow: auto;
+  padding: var(--tiklab-padding);
+  .tiklab_fulloplog-content{
+    margin: auto;
+    max-width: 1280px;
+    min-width: 768px;
+    background: #fff;
+    border-radius: 4px;
+  }
+  .tiklab_fulloplog-title{
+    margin-bottom: 8px;
+  }
+  &_nav {
+    font-size: var(--tiklab-font-16);
+    font-weight: var(--tiklab-font-weight-bold);
+  }
+  .tiklab_fulloplog_select{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--tiklab-padding-item);
+    white-space: nowrap;
+  }
+  .tiklab_fulloplog-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    .full_oplog_abstract{
+      display: flex;
+      align-items: center;
+      &_img {
+        flex: 0 0 50px;
+        height: 50px;
+        width: 50px;
+      }
+      &_text {
+        flex: 1;
+        color: var(--tiklab-blue);
+        h4 {
+          overflow: hidden;
+          white-space:nowrap;
+          text-overflow: ellipsis;
+        }
+        p {
+          overflow: hidden;
+          white-space:nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+    &:hover{
+      background: #fafafa;
+      cursor: pointer;
+    }
+  }
+}
+.ant-picker-cell-inner{
+  text-align: center;
+}
+
+

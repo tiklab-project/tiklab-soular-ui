@@ -1,0 +1,15 @@
+.tiklab-oplog-details{
+  height: 100%;
+  overflow: auto;
+  .tiklab-oplog-details-content{
+    margin: auto;
+    max-width: 1280px;
+    min-width: 768px;
+    background: #fff;
+    border-radius: 4px;
+  }
+  .tiklab-oplog-details-text{
+    cursor: pointer;
+    color: var(--tiklab-blue);
+  }
+}

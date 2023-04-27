@@ -2,73 +2,60 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import {InternalWechatEntry, Logout} from 'tiklab-eam-ui'
 import {LogTemplate} from "tiklab-security-ui";
-import {NotFound} from "tiklab-user-ui"
+import {NotFound} from "tiklab-privilege-ui"
 import SyncComponent from './common/lazy/SyncComponent';
-
 
 const Layout = SyncComponent(() => import('./common/layout/Layout'));
 
-// 设置layout
-const SettingLayout = SyncComponent(()=> import('./Setting/Navigator/Setting'));
-//部门
-const OrgaManagement = SyncComponent(() => import('./Setting/User/OrgaManagement'));
-// 用户
-const UserManagement = SyncComponent(() => import('./Setting/User/UserManagement'));
-// 用户目录
-const PortalDirectory = SyncComponent(() => import('./Setting/User/Directory'));
-// 用户组
-const UserGroupPage = SyncComponent(() => import('./Setting/User/UserGroupPage'))
-
-// 权限
-const SystemRole = SyncComponent(() => import('./Setting/Privilege/SystemRolePage'));
-// 消息发送方式
-const MessageSendType = SyncComponent(() => import('./Setting/Message/MessageSendTypePage'));
-// 消息通知
-const MessageManagement = SyncComponent(() => import('./Setting/Message/Management'));
-// 插件
-const PluginList = SyncComponent(() => import('./Setting/Plugin/Plugin'))
-// 操作日志
-const LogListPage = SyncComponent(()=> import('./Setting/Secuity/LogList'))
-
-// 基础数据
-// 待办模板
-const TodoTemplate = SyncComponent(()=> import('./Setting/Base/Todo/todoTemp'));
-
-const BaseTodoTypePage =  SyncComponent(()=> import('./Setting/Base/Todo/todoTypePage'));
-//系统功能
-const BaseSystemFeature = SyncComponent(() => import('./Setting/Base/Privilege/BaseSystemFeature'));
-const BaseSystemRole = SyncComponent(() => import('./Setting/Base/Privilege/BaseSystemRole'));
-//项目功能点
-const BaseProjectFeature = SyncComponent(() => import('./Setting/Base/Privilege/BaseProjectFeature'));
-const BaseProjectRole = SyncComponent(() => import('./Setting/Base/Privilege/BaseProjectRole'));
-const BaseDomainRole = SyncComponent(() => import('./Setting/Base/Privilege/BaseDomainRole'));
-
-// 消息发送方式
-const MessageSendTypeBase = SyncComponent(() => import('./Setting/Base/Message/MessageSendType'));
-// 消息类型
-const MessageType = SyncComponent(() => import('./Setting/Base/Message/MessageType'));
-const BaseOplogTypePage = SyncComponent(() => import('./Setting/Base/Secuity/oplogTypePage'));
-//消息通知方案
-const BaseMessageNoticePage = SyncComponent(() => import('./Setting/Base/Message/MessageNoticePage'));
-
-const BaseDomainUserPage = SyncComponent(() => import('./Setting/Base/User/domainUserPage'));
-
-// 版本
-const VersionPage = SyncComponent(() => import('./Setting/Version'));
-const ProductAuthPage =  SyncComponent(() => import('./Setting/ProductAuth/ProductAuthPage'));
-
-const Home = SyncComponent(() => import('./Home'))
-const Login = SyncComponent(() => import('./Login/Login'))
+const Login = SyncComponent(() => import('./login/Login'))
 const ExcludeProductUser = SyncComponent(() => import('./Login/ExcludeProductUser'))
 
+/**
+ * 首页工作台
+ * @type {LazyComponent|*}
+ */
+// const Home = SyncComponent(() => import('./home'))
+const Home = SyncComponent(() => import('./homePage/compontents/HomePage'))
 
+const OplogFull = SyncComponent(()=>import('./homePage/compontents/OplogFull'))
 
+/**
+ * 系统设置
+ * @type {LazyComponent|*}
+ */
+const SettingLayout = SyncComponent(()=> import('./setting/Navigator/setting'));
+const OrgaManagement = SyncComponent(() => import('./setting/User/OrgaManagement'));
+const UserManagement = SyncComponent(() => import('./setting/User/UserManagement'));
+const PortalDirectory = SyncComponent(() => import('./setting/User/Directory'));
+const UserGroupPage = SyncComponent(() => import('./setting/User/UserGroupPage'))
+const SystemRole = SyncComponent(() => import('./setting/Privilege/SystemRolePage'));
+const MessageSendType = SyncComponent(() => import('./setting/Message/MessageSendTypePage'));
+const MessageManagement = SyncComponent(() => import('./setting/Message/Management'));
+const PluginList = SyncComponent(() => import('./setting/Plugin/Plugin'))
+const LogListPage = SyncComponent(()=> import('./setting/Secuity/LogList'))
+const VersionPage = SyncComponent(() => import('./setting/Version'));
+const ProductAuthPage =  SyncComponent(() => import('./setting/ProductAuth/ProductAuthPage'));
 
-// Form
-const FormListPage = SyncComponent(() =>import('./Setting/Base/Form/FormLisPage'))
-const PreliminaryListPage = SyncComponent(() =>import('./Setting/Base/Form/PreliminaryListPage'))
-const PreliminaryTypeListPage = SyncComponent(() =>import('./Setting/Base/Form/PreliminaryTypeListPage'))
-const LinkFormDesign = SyncComponent(() =>import('./Setting/Base/Form/LinkFormDesign'))
+/**
+ * 基础数据
+ * @type {LazyComponent|*}
+ */
+const TodoTemplate = SyncComponent(()=> import('./setting/Base/Todo/todoTemp'));
+const BaseTodoTypePage =  SyncComponent(()=> import('./setting/Base/Todo/todoTypePage'));
+const BaseSystemFeature = SyncComponent(() => import('./setting/Base/Privilege/BaseSystemFeature'));
+const BaseSystemRole = SyncComponent(() => import('./setting/Base/Privilege/BaseSystemRole'));
+const BaseProjectFeature = SyncComponent(() => import('./setting/Base/Privilege/BaseProjectFeature'));
+const BaseProjectRole = SyncComponent(() => import('./setting/Base/Privilege/BaseProjectRole'));
+const BaseDomainRole = SyncComponent(() => import('./setting/Base/Privilege/BaseDomainRole'));
+const MessageSendTypeBase = SyncComponent(() => import('./setting/Base/Message/MessageSendType'));
+const MessageType = SyncComponent(() => import('./setting/Base/Message/MessageType'));
+const BaseOplogTypePage = SyncComponent(() => import('./setting/Base/Secuity/oplogTypePage'));
+const BaseMessageNoticePage = SyncComponent(() => import('./setting/Base/Message/MessageNoticePage'));
+const BaseDomainUserPage = SyncComponent(() => import('./setting/Base/User/domainUserPage'));
+const FormListPage = SyncComponent(() =>import('./setting/Base/Form/FormLisPage'))
+const PreliminaryListPage = SyncComponent(() =>import('./setting/Base/Form/PreliminaryListPage'))
+const PreliminaryTypeListPage = SyncComponent(() =>import('./setting/Base/Form/PreliminaryTypeListPage'))
+const LinkFormDesign = SyncComponent(() =>import('./setting/Base/Form/LinkFormDesign'))
 
 
 const routers = [
@@ -103,158 +90,163 @@ const routers = [
                 exact:true,
             },
             {
-                component: NotFound,
-                path:"/404",
+                component: OplogFull,
+                path:"/dynamic",
                 exact:true,
             },
             {
+                path:"/404",
+                exact:true,
+                render: props =><NotFound {...props} homePath={'/404'}/>
+            },
+            {
                 component: SettingLayout,
-                path: "/Setting",
+                path: "/setting",
                 routes:[
                     {
                         component: OrgaManagement,
-                        path:"/Setting/orga",
+                        path:"/setting/orga",
                         exact:true,
                     },
                     {
                         component: UserManagement,
-                        path:"/Setting/User",
+                        path:"/setting/user",
                         exact:true,
                     },
                     {
                         component: PortalDirectory,
-                        path:"/Setting/dir",
+                        path:"/setting/dir",
                         exact:true,
                     },
                     {
                         component: UserGroupPage,
-                        path: "/Setting/userGroup",
+                        path: "/setting/userGroup",
                         exact: true
                     },
                     {
                         component: SystemRole,
-                        path:"/Setting/permission",
+                        path:"/setting/permission",
                         exact:true,
                     },
                     {
                         component: MessageSendType,
-                        path:"/Setting/messagesendtype",
+                        path:"/setting/messagesendtype",
                         exact:true,
                     },
                     {
                         component: MessageManagement,
-                        path:"/Setting/Message",
+                        path:"/setting/Message",
                         exact:true,
                     },
                     {
                         component: PluginList,
-                        path:"/Setting/Plugin",
+                        path:"/setting/Plugin",
                         exact:true,
                     },
                     {
                         component: LogListPage,
-                        path:"/Setting/log",
+                        path:"/setting/log",
                         exact:true,
                     },
                     {
                         component: VersionPage,
-                        path:"/Setting/Version",
+                        path:"/setting/Version",
                         exact:true,
                     },
                     {
                         component: ProductAuthPage,
-                        path:"/Setting/ProductAuth",
+                        path:"/setting/ProductAuth",
                         exact:true,
                     },
 
                     {
                         component: TodoTemplate,
-                        path:"/Setting/Base/todotemplate",
+                        path:"/setting/base/todotemplate",
                         exact:true,
                     },
                     {
                         component: BaseTodoTypePage,
-                        path:"/Setting/Base/todotype",
+                        path:"/setting/base/todotype",
                         exact:true,
                     },
                     {
                         component: LogTemplate,
-                        path:"/Setting/Base/oplogtemplate",
+                        path:"/setting/base/oplogtemplate",
                         exact:true,
                     },
                     {
                         component: BaseOplogTypePage,
-                        path:"/Setting/Base/oplogtype",
+                        path:"/setting/base/oplogtype",
                         exact:true,
                     },
                     {
                         component: BaseSystemFeature,
-                        path:"/Setting/Base/systemfeature",
+                        path:"/setting/base/systemfeature",
                         exact:true,
                     },
                     {
                         component: BaseSystemRole,
-                        path:"/Setting/Base/systemrole",
+                        path:"/setting/base/systemrole",
                         exact:true,
                     },
                     {
                         component: BaseProjectFeature,
-                        path:"/Setting/Base/projectfeature",
+                        path:"/setting/base/projectfeature",
                         exact:true,
                     },
                     {
                         component: BaseProjectRole,
-                        path:"/Setting/Base/projectrole",
+                        path:"/setting/base/projectrole",
                         exact:true,
                     },
                     {
                         component: MessageSendTypeBase,
-                        path:"/Setting/Base/messagesendtype",
+                        path:"/setting/base/messagesendtype",
                         exact:true,
                     },
                     {
                         component: MessageType,
-                        path:"/Setting/Base/messagetype",
+                        path:"/setting/base/messagetype",
                         exact:true,
                     },
                     {
                         component:BaseMessageNoticePage,
-                        path:"/Setting/Base/messageNotice",
+                        path:"/setting/base/messageNotice",
                         exact:true,
                     },
                     {
                         component: FormListPage,
-                        path:"/Setting/Base/formList",
+                        path:"/setting/base/formList",
                         exact:true,
                     },
                     {
                         component: LinkFormDesign,
-                        path:"/Setting/Base/formList/:id",
+                        path:"/setting/base/formList/:id",
                         exact:true,
                     },
                     {
                         component: PreliminaryListPage,
-                        path:"/Setting/Base/preliminaryList",
+                        path:"/setting/base/preliminaryList",
                         exact:true,
                     },
 
                     {
                         component: PreliminaryTypeListPage,
-                        path:"/Setting/Base/preliminaryTypeList",
+                        path:"/setting/base/preliminaryTypeList",
                         exact:true,
                     },
                     {
                         component: BaseDomainUserPage,
-                        path:"/Setting/Base/domainUserList",
+                        path:"/setting/base/domainUserList",
                         exact:true,
                     },
                     {
                         component: BaseDomainRole,
-                        path:"/Setting/Base/domainRole",
+                        path:"/setting/base/domainRole",
                         exact:true,
                     },
                     {
-                        path: "/Setting/Base/*",
+                        path: "/setting/base/*",
                         render: ()=><Redirect to="/404"/>
                     },
                 ]

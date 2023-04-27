@@ -7,7 +7,7 @@
  * @description baseSystemFeature
  */
 import React from 'react';
-import {DomainRole} from "tiklab-user-ui";
+import {DomainRole} from "tiklab-privilege-ui";
 
 const BaseSystemRole = () => {
 
