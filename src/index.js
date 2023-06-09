@@ -1,4 +1,3 @@
-
 import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
 import {renderRoutes} from "react-router-config";
@@ -7,8 +6,7 @@ import { Provider } from 'mobx-react';
 import {useTranslation} from 'react-i18next';
 import {enableAxiosCE} from 'tiklab-core-ui';
 import {useAccountConfig} from 'tiklab-eam-ui/es/utils';
-import { messageModuleStores } from 'tiklab-message-ui/es/store';
-import {formStores} from 'tiklab-form-ui/es/store';
+import {messageModuleStores} from 'tiklab-message-ui/es/store';
 import {orgStores} from 'tiklab-user-ui/es/store';
 import {privilegeStores} from 'tiklab-privilege-ui/es/store'
 import {PluginProvider, pluginLoader} from "tiklab-plugin-core-ui";
@@ -20,7 +18,7 @@ import routes from './routers';
 import './common/language/i18n';
 import './styles/index.scss';
 
-enableAxiosCE();
+enableAxiosCE()
 const Index = () => {
 
     // 注册所有插件
@@ -29,7 +27,6 @@ const Index = () => {
         ...privilegeStores,
         ...messageModuleStores,
         ...orgStores,
-        ...formStores
     };
 
     const {i18n} = useTranslation();
@@ -57,8 +54,8 @@ const Index = () => {
     return (
         <PluginProvider store={pluginData}>
             <Provider {...allStore}>
-                <ConfigProvider>
-                    <HashRouter locale={zhCN}>
+                <ConfigProvider locale={zhCN}>
+                    <HashRouter>
                         {
                             renderRoutes(pluginData.routes)
                         }

@@ -4,11 +4,7 @@ import {getWorkListService} from "../store/store";
 import AppLinkManagement from './ProductsAppLink';
 import Btn from '../../common/btn'
 
-import teamwireImg from 'tiklab-eam-ui/es/assests/img/teamwire.png';
-import postinImg from 'tiklab-eam-ui/es/assests/img/postin.png';
-import matflowImg from 'tiklab-eam-ui/es/assests/img/matflow.png';
-import kanassImg from 'tiklab-eam-ui/es/assests/img/kanass.png';
-import testonImg from 'tiklab-eam-ui/es/assests/img/teston.png';
+import {WORK_IMAGE} from "../../utils/constant";
 
 import './ProductsWidget.scss'
 
@@ -18,7 +14,6 @@ const INIT_WORK = [
         appType: 'postin',
         label: "PostIn",
         description: "接口自动化测试",
-        img:postinImg,
         appUrl:"",
         id:"1"
     },
@@ -26,7 +21,6 @@ const INIT_WORK = [
         appType: 'teamwire',
         label: "TeamWire",
         description: "项目管理系统",
-        img:teamwireImg,
         appUrl:"",
         id:"2"
     },
@@ -34,7 +28,6 @@ const INIT_WORK = [
         appType: 'teston',
         label: "TestOn",
         description: "Jtest系统",
-        img:testonImg,
         appUrl:"",
         id:"3"
     },
@@ -42,7 +35,6 @@ const INIT_WORK = [
         appType: 'kanass',
         label: "Kanass",
         description: "知识库系统",
-        img:kanassImg,
         appUrl:"",
         id:"4"
     },
@@ -50,7 +42,6 @@ const INIT_WORK = [
         appType: 'matflow',
         label: "MatFlow",
         description: "自动化部署系统",
-        img:matflowImg,
         appUrl:"",
         id:"5"
     },
@@ -58,7 +49,6 @@ const INIT_WORK = [
         appType: 'xcode',
         label: "XCode",
         description: "代码管理",
-        img:matflowImg,
         appUrl:"",
         id:"6"
     },
@@ -66,7 +56,6 @@ const INIT_WORK = [
         appType: 'xpack',
         label: "XPack",
         description: "制品库管理",
-        img:matflowImg,
         appUrl:"",
         id:"7"
     },
@@ -105,6 +94,13 @@ const ProductsWidget = () => {
         setApplications(updateData)
     }
 
+    const goApplication = item => {
+        const url = user.ticket ? `${item.appUrl}?${parseUserSearchParams({
+            ticket:user.ticket
+        })}` : item.appUrl;
+        window.open(url)
+    }
+
     return(
         <div className={'widget'}>
             <div className={'widget-card'}>
@@ -118,16 +114,13 @@ const ProductsWidget = () => {
                             <div className={'card-content-wrap'}>
                                 {
                                     applications.map(item => {
-                                        const url = user.ticket ? `${item.appUrl}?${parseUserSearchParams(user)}` : item.appUrl;
                                         return(
-                                            <div key={item.id}>
-                                                <a className={'card-item'} href={url} target="_blank">
-                                                    <div className={'card-item_img'}>
-                                                        <img src={item.img} width={44} height={44} alt={item.label}/>
-                                                    </div>
-                                                    <div className={'card-item_title'}>{item.label}</div>
-                                                    <div className={'card-item_desc'}>{item.label}</div>
-                                                </a>
+                                            <div key={item.id} className={'card-item'} onClick={()=>goApplication(item)}>
+                                                <div className={'card-item_img'}>
+                                                    <img src={WORK_IMAGE[item.appType]} width={44} height={44} alt={item.label}/>
+                                                </div>
+                                                <div className={'card-item_title'}>{item.label}</div>
+                                                <div className={'card-item_desc'}>{item.label}</div>
                                             </div>
                                         )
                                     })

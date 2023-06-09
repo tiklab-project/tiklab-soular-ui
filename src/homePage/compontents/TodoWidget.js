@@ -13,7 +13,7 @@ import './TodoWidget.scss';
  * @returns {JSX.Element}
  * @constructor
  */
-const TodoWidget = props => {
+const   TodoWidget = props => {
 
     const {history,setMoreTodo} = props
 
@@ -47,7 +47,9 @@ const TodoWidget = props => {
         const {link} = item;
         if (link) {
             if(/^http|https/.test(link)){
-                window.open(link+"?" + parseUserSearchParams(getUser()))
+                window.open(link+"?" + parseUserSearchParams({
+                    ticket:getUser().ticket
+                }))
             }
         }
     }

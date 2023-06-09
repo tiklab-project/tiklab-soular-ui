@@ -113,6 +113,7 @@ module.exports  = {
                 return `tiklab-licence-ui/es/${fullName}`;
             }
         }, "tiklab-licence-ui"],
+
         ["import", {
             "libraryName": "tiklab-message-ui",
             "libraryDirectory": "es",
@@ -207,26 +208,6 @@ module.exports  = {
                 return `tiklab-security-ui/es/${fullName}`;
             }
         }, "tiklab-security-ui"],
-
-
-        ["import", {
-            "libraryName": "tiklab-flow-ui",
-            "libraryDirectory": "es",
-            "style": true,
-            "customName": (name) => {
-                let split = name.split('-');
-                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
-                    if(currentIndex=== 0) {
-                        return total += currentValue;
-                    }
-                    const UpBit = currentValue.slice(0,1).toUpperCase();
-                    const lowBit = currentValue.slice(1,currentValue.length);
-                    const name = UpBit + lowBit
-                    return total += name;
-                },'');
-                return `tiklab-flow-ui/es/${fullName}`;
-            }
-        }, "tiklab-flow-ui"],
 
         "@babel/plugin-transform-regenerator",
         "react-hot-loader/babel"

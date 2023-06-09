@@ -1,9 +1,5 @@
 import React,{useEffect,useState} from "react";
-import {
-    AppstoreOutlined,
-    SettingOutlined,
-    DownOutlined,UpOutlined
-} from "@ant-design/icons";
+import {DownOutlined,UpOutlined} from "@ant-design/icons";
 import {renderRoutes} from "react-router-config";
 import {inject,observer} from "mobx-react";
 import {getUser} from 'tiklab-core-ui';

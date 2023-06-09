@@ -14,7 +14,6 @@ const ExcludeProductUser = SyncComponent(() => import('./Login/ExcludeProductUse
  * 首页工作台
  * @type {LazyComponent|*}
  */
-// const Home = SyncComponent(() => import('./home'))
 const Home = SyncComponent(() => import('./homePage/compontents/HomePage'))
 
 const OplogFull = SyncComponent(()=>import('./homePage/compontents/OplogFull'))
@@ -32,9 +31,11 @@ const SystemRole = SyncComponent(() => import('./setting/Privilege/SystemRolePag
 const MessageSendType = SyncComponent(() => import('./setting/Message/MessageSendTypePage'));
 const MessageManagement = SyncComponent(() => import('./setting/Message/Management'));
 const PluginList = SyncComponent(() => import('./setting/Plugin/Plugin'))
-const LogListPage = SyncComponent(()=> import('./setting/Secuity/LogList'))
 const VersionPage = SyncComponent(() => import('./setting/Version'));
-const ProductAuthPage =  SyncComponent(() => import('./setting/ProductAuth/ProductAuthPage'));
+
+const LogListPage = SyncComponent(()=> import('./setting/Secuity/log/LogList'))
+const DataImport = SyncComponent(()=>import('./setting/Secuity/dataImport/components/DataImport'))
+
 
 /**
  * 基础数据
@@ -52,11 +53,6 @@ const MessageType = SyncComponent(() => import('./setting/Base/Message/MessageTy
 const BaseOplogTypePage = SyncComponent(() => import('./setting/Base/Secuity/oplogTypePage'));
 const BaseMessageNoticePage = SyncComponent(() => import('./setting/Base/Message/MessageNoticePage'));
 const BaseDomainUserPage = SyncComponent(() => import('./setting/Base/User/domainUserPage'));
-const FormListPage = SyncComponent(() =>import('./setting/Base/Form/FormLisPage'))
-const PreliminaryListPage = SyncComponent(() =>import('./setting/Base/Form/PreliminaryListPage'))
-const PreliminaryTypeListPage = SyncComponent(() =>import('./setting/Base/Form/PreliminaryTypeListPage'))
-const LinkFormDesign = SyncComponent(() =>import('./setting/Base/Form/LinkFormDesign'))
-
 
 const routers = [
     {
@@ -149,16 +145,15 @@ const routers = [
                         exact:true,
                     },
                     {
+                        component: DataImport,
+                        path:"/setting/data_import",
+                        exact:true,
+                    },
+                    {
                         component: VersionPage,
                         path:"/setting/Version",
                         exact:true,
                     },
-                    {
-                        component: ProductAuthPage,
-                        path:"/setting/ProductAuth",
-                        exact:true,
-                    },
-
                     {
                         component: TodoTemplate,
                         path:"/setting/base/todotemplate",
@@ -215,27 +210,6 @@ const routers = [
                         exact:true,
                     },
                     {
-                        component: FormListPage,
-                        path:"/setting/base/formList",
-                        exact:true,
-                    },
-                    {
-                        component: LinkFormDesign,
-                        path:"/setting/base/formList/:id",
-                        exact:true,
-                    },
-                    {
-                        component: PreliminaryListPage,
-                        path:"/setting/base/preliminaryList",
-                        exact:true,
-                    },
-
-                    {
-                        component: PreliminaryTypeListPage,
-                        path:"/setting/base/preliminaryTypeList",
-                        exact:true,
-                    },
-                    {
                         component: BaseDomainUserPage,
                         path:"/setting/base/domainUserList",
                         exact:true,
@@ -246,7 +220,7 @@ const routers = [
                         exact:true,
                     },
                     {
-                        path: "/setting/base/*",
+                        path: "/setting/*",
                         render: ()=><Redirect to="/404"/>
                     },
                 ]
@@ -257,8 +231,8 @@ const routers = [
                 render:()=><Redirect to="/work"/>
             },
             {
-                path: "*",
-                render: ()=><Redirect to="/404"/>
+                path:"*",
+                render:()=><Redirect to="/404"/>
             },
         ],
     },

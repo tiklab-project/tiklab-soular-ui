@@ -10,48 +10,29 @@
     .ant-list-item{
       padding: 0;
     }
+    .message-read{
+      color: #999;
+    }
   }
   &_message {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     width: 100%;
-    padding: 16px 16px 15px;
-    //border-bottom: 1px solid #e5e5e5;
+    padding: 8px 16px;
     cursor: pointer;
     &:hover{
       background: #f7f7f7;
     }
-
-    &_title {
-      color: #a6a6a6;
-      font-size: 14px;
-      margin-left: 10px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      line-height: 20px;
-      padding-bottom: 8px;
+    .message-bgroup{
+      margin-right: 10px;
     }
-
-    &_body{
-      margin-left: 10px;
-    }
-    &_summary{
-      color: #a6a6a6;
-      font-size: 14px;
-      max-height: 100px;
-      overflow: hidden;
-      line-height: 20px;
-      word-break: break-word;
-      margin-bottom: 0;
-    }
-    &_time{
-      display: block;
-      margin-top: 4px;
-      color: #a6a6a6;
-      font-size: 12px;
-      height: 20px;
-      line-height: 20px;
+    .message-center-title{
+      margin-bottom: 5px;
+      .time{
+        color: #999999;
+        font-size: 13px;
+        padding-left: 8px;
+      }
     }
   }
 }

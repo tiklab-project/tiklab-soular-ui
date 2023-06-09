@@ -55,7 +55,7 @@ const OpLogWidget = props => {
 
 
     const renderLis = (item,index) =>{
-        const {abstractContent, bgroup, timestamp, actionType} = item;
+        const {abstractContent, bgroup, createTime, actionType} = item;
         return (
             <div className='tiklab_fulloplog-item' key={index} onClick={()=>setViewDetail(item)}>
                 <div className={'full_oplog_abstract'}>
@@ -66,7 +66,7 @@ const OpLogWidget = props => {
                 <Space>
                     {ProductsTitle(bgroup)}
                     <div className='time'>{actionType && actionType.name}</div>
-                    <div className='time'>{timestamp}</div>
+                    <div className='time'>{createTime}</div>
                 </Space>
             </div>
         )

@@ -15,7 +15,9 @@ const LogDetail = props => {
     const changRouter = () => {
         if (link) {
             if(/^http|https/.test(link)){
-                window.open(link+"?" + parseUserSearchParams(getUser()))
+                window.open(link+"?" + parseUserSearchParams({
+                    ticket:getUser().ticket
+                }))
             }
         }
     }
@@ -36,12 +38,12 @@ const LogDetail = props => {
                         />
                     }
                 />
-                <Descriptions labelStyle={{justifyContent: 'flex-start  ',minWidth:100}}>
+                <Descriptions labelStyle={{justifyContent: 'flex-start',minWidth:100}}>
                     <Descriptions.Item label="摘要" span={3}>{data.abstractContent}</Descriptions.Item>
-                    <Descriptions.Item label="操作人" span={3}>{data.user.nickname}</Descriptions.Item>
-                    <Descriptions.Item label="日志类型" span={3}>{data.module}</Descriptions.Item>
+                    <Descriptions.Item label="操作人" span={3}>{data.user?.nickname || '--'}</Descriptions.Item>
+                    <Descriptions.Item label="类型" span={3}>{data.module}</Descriptions.Item>
                     <Descriptions.Item label="模块" span={3}>{ProductsTitle(data.bgroup)}</Descriptions.Item>
-                    <Descriptions.Item label="时间" span={3}>{data.timestamp}</Descriptions.Item>
+                    <Descriptions.Item label="时间" span={3}>{data.createTime}</Descriptions.Item>
                     <Descriptions.Item label="内容" span={3}>
                         <Space direction={"vertical"}>
                             <div dangerouslySetInnerHTML={{__html: data.data}}/>

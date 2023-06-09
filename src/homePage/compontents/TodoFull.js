@@ -103,8 +103,9 @@ const TodoFull = props => {
         const {link} = item;
         if (link) {
             if(/^http|https/.test(link)){
-                window.open(link+"?" + parseUserSearchParams(getUser()))
-
+                window.open(link+"?" + parseUserSearchParams({
+                    ticket:getUser().ticket
+                }))
             }
         }
     }

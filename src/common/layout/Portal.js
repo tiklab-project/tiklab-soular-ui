@@ -61,6 +61,9 @@ const Portal = props => {
         setProfileVisibility(!profileVisibility)
         history.push({
             pathname:'/logout',
+            // state:{
+            //     preRoute: props.location.pathname
+            // }
         })
     }
 

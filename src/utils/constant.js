@@ -1,3 +1,10 @@
+import teamwireImg from 'tiklab-eam-ui/es/assests/img/teamwire.png';
+import postinImg from 'tiklab-eam-ui/es/assests/img/postin.png';
+import matflowImg from 'tiklab-eam-ui/es/assests/img/matflow.png';
+import kanassImg from 'tiklab-eam-ui/es/assests/img/kanass.png';
+import testonImg from 'tiklab-eam-ui/es/assests/img/teston.png';
+import easImg from 'tiklab-eam-ui/es/assests/img/eas.png';
+
 /**
  * 全部应用产品
  * @type {{all: string, matflow: string, postin: string, eas: string, teston: string, teamwire: string, kanass: string, xcode: string, xpack: string}}
@@ -37,8 +44,20 @@ const WORK_NAME = {
     xpack:{label: PROJECT_NAME.xpack,}
 }
 
+const WORK_IMAGE = {
+    teamwire:teamwireImg,
+    postin:postinImg,
+    matflow:matflowImg,
+    kanass:kanassImg,
+    teston:testonImg,
+    eas:easImg,
+    xcode:matflowImg,
+    xpack:matflowImg
+}
+
 export {
     PROJECT_NAME,
     WORK_APP_SELECT,
-    WORK_NAME
+    WORK_NAME,
+    WORK_IMAGE
 }

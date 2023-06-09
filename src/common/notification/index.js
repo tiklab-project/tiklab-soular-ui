@@ -1,10 +1,10 @@
 import React, {useState, memo, useEffect} from "react";
 import {Badge, Drawer, Select, Tooltip, List, Button, Space, Tag, Empty} from "antd";
 import {getUser, parseUserSearchParams} from "tiklab-core-ui";
-
 import {BellOutlined} from "@ant-design/icons";
-import './styles';
 import {findMessagePageService, updateMessageService} from "./api";
+import {WORK_IMAGE} from "../../utils/constant";
+import './styles';
 
 const { Option } = Select;
 
@@ -13,6 +13,7 @@ const { Option } = Select;
  * @type {React.NamedExoticComponent<{readonly history?: *}>}
  */
 const Notification = memo(({history}) => {
+
     const [messageList,setMessageList] = useState([]);
     const [notificationVisibility,setNotificationVisibility] = useState(false);
     const [pageSize,] = useState(30);
@@ -42,7 +43,6 @@ const Notification = memo(({history}) => {
             },
             sendType: 'site',
             receiver: getUser().userId,
-            bgroup: 'eas'
         }
         switch (readStatus) {
             case "read":
@@ -55,8 +55,8 @@ const Notification = memo(({history}) => {
         setLoading(true);
         findMessagePageService(params).then(res => {
             if (res.code === 0) {
-                const messageList = [...message, ...res.data.dataList];
-                setMessageList(messageList);
+                const list = [...messageList, ...res.data.dataList];
+                setMessageList(list);
                 setTotal(res.data.totalRecord)
                 setLoading(false);
                 setPage(current);
@@ -82,7 +82,6 @@ const Notification = memo(({history}) => {
             },
             sendType: 'site',
             receiver: getUser().userId,
-            bgroup:"eas"
         }
         switch (value) {
             case "read":
@@ -121,7 +120,6 @@ const Notification = memo(({history}) => {
         const dataParams = {
             sendType: 'site',
             receiver: getUser().userId,
-            bgroup:"eas",
             pageParam:{
                 pageSize:pageSize,
                 currentPage:page +1
@@ -137,7 +135,7 @@ const Notification = memo(({history}) => {
         }
         const res =  await findMessagePageService(dataParams);
         if (res.code === 0 ) {
-            const data = [...message,...res.data.dataList];
+            const data = [...messageList,...res.data.dataList];
             setMessageList(data)
             setPage(page +1);
             setLoading(false)
@@ -194,7 +192,10 @@ const Notification = memo(({history}) => {
         // 做跳转详情页
         if (link) {
            if(/^http|https/.test(link)){
-               window.open(link+"?" + parseUserSearchParams(getUser()))
+               window.open(link+"?" + parseUserSearchParams({
+                   ticket:getUser().ticket
+               }))
+               return
            }
            history.push(link)
         }
@@ -204,6 +205,7 @@ const Notification = memo(({history}) => {
         setReadStatus(value)
         changeMessageList(page,value)
     }
+
     return(
         <>
             <Tooltip title={"通知"} mouseEnterDelay={0.3}>
@@ -230,29 +232,24 @@ const Notification = memo(({history}) => {
                         loadMore={loadMore}
                         dataSource={messageList}
                         locale={{
-                            emptyText: <Empty
-
-                                description={<span>暂无消息</span>}
-                            />,
+                            emptyText: <Empty description={<span>暂无消息</span>}/>
                         }}
                         renderItem={(item => {
-                            const {content, link, title, receiveTime, status} = item;
-
+                            const {title, sendTime, status} = item;
                             return <List.Item>
-                                <div className={'tiklab_notification_message'} key={item.id} onClick={() => itemClick(item)}>
-                                    <div className={'tiklab_notification_message_title'}>
-                                        {
-                                            readStatus === 'all' ?
-                                                <Space>
-                                                    <span>{title}</span>
-                                                    <Tag  color={status === 1 ? "#108ee9" : "#f50"}>{item.status === 1 ? "已读" : "未读"}</Tag>
-                                                </Space>:
-                                                <span>{title}</span>
-                                        }
+                                <div className={`tiklab_notification_message ${status===1?'message-read':'message-unread'}`}
+                                     key={item.id}
+                                     onClick={() =>itemClick(item)}
+                                >
+                                    <div className='message-bgroup'>
+                                        <img src={WORK_IMAGE[item.bgroup]} alt={item.bgroup} width={22} height={22}/>
                                     </div>
-                                    <div className={'tiklab_notification_message_body'}>
-                                        <p className={'tiklab_notification_message_summary'} dangerouslySetInnerHTML={{__html:content}}/>
-                                        <div className={'tiklab_notification_message_time'}>{receiveTime}</div>
+                                    <div className='message-center'>
+                                        <div className='message-center-title'>
+                                            <span className='title'>{title}</span>
+                                            <span className='time'>{sendTime}</span>
+                                        </div>
+                                        <div dangerouslySetInnerHTML={{__html: item.content}}/>
                                     </div>
                                 </div>
                             </List.Item>

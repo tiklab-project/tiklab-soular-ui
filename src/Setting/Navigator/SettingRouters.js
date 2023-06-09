@@ -65,25 +65,26 @@ const applicationRouters =  [
         id:'6',
         title: '安全',
         icon :<SettingOutlined/>,
-        children:[{
-            id:'/setting/log',
-            title: '操作日志',
-            purviewCode:'log',
-            icon :<SettingOutlined/>,
-        }]
+        children:[
+            {
+                id:'/setting/log',
+                title: '操作日志',
+                purviewCode:'log',
+                icon :<SettingOutlined/>,
+            },
+            {
+                id:'/setting/data_import',
+                title: '数据导入',
+                icon :<SettingOutlined/>,
+            }
+        ]
     },
     {
         id:'/setting/Version',
         title: '版本与许可证',
         purviewCode:'version',
         icon :<SettingOutlined/>,
-    },
-    {
-        id:'/setting/ProductAuth',
-        title: '应用授权',
-        purviewCode:'product_auth',
-        icon :<SettingOutlined/>,
-    },
+    }
 ]
 
 // 基础数据路由
@@ -124,22 +125,6 @@ const templateRouter = [
             {
                 id:'/setting/base/messagetype',
                 title: '消息类型',
-                icon :<AppstoreOutlined/>,
-                purviewCode:'user',
-            },
-            {
-                id:'/setting/base/formList',
-                title: '表单列表',
-                icon :<AppstoreOutlined/>,
-                purviewCode:'user',
-            },{
-                id:'/setting/base/preliminaryList',
-                title: '字段',
-                icon :<AppstoreOutlined/>,
-                purviewCode:'user',
-            },{
-                id:'/setting/base/preliminaryTypeList',
-                title: '字段类型',
                 icon :<AppstoreOutlined/>,
                 purviewCode:'user',
             },

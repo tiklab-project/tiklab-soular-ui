@@ -30,16 +30,12 @@
     overflow: hidden;
     &-title{
       color: var(--tiklab-black);
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 28px;
+      font-size: var(--tiklab-font-16);
+      font-weight: var(--tiklab-font-weight-bold);
     }
   }
   &-content {
-    height: calc(100% - 28px);
     width: 100%;
-    overflow: auto;
-    //padding-top: var(--tiklab-padding-item);
     color: var(--tiklab-black);
     &-wrap{
       display: flex;

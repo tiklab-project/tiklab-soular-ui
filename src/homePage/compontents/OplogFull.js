@@ -87,10 +87,10 @@ const OplogFull = props => {
             newParams = {
                 ...params,
                 pageParam,
-                timestamp:[start,end]
+                createTime:[start,end]
             }
         } else {
-            const {timestamp, ...rest} = params
+            const {createTime, ...rest} = params
             newParams = {
                 ...rest,
                 pageParam
@@ -126,7 +126,7 @@ const OplogFull = props => {
     }
 
     const renderLis = (item,index) =>{
-        const {abstractContent, bgroup, timestamp, actionType} = item;
+        const {abstractContent, bgroup, createTime, actionType} = item;
         return (
             <div className='tiklab_fulloplog-item' key={index} onClick={() => onDetail(item)}>
                 <div className={'full_oplog_abstract'}>
@@ -137,7 +137,7 @@ const OplogFull = props => {
                 <Space>
                     {ProductsTitle(bgroup)}
                     <div className='time'>{actionType && actionType.name}</div>
-                    <div className='time'>{timestamp}</div>
+                    <div className='time'>{createTime}</div>
                 </Space>
             </div>
         )
@@ -150,7 +150,6 @@ const OplogFull = props => {
                     {
                         setMoreOplog &&
                         <LeftOutlined onClick={()=>setMoreOplog(false)} style={{fontSize: 'var(--tiklab-icon-size-16)',cursor: 'pointer'}}/>
-
                     }
                     <div className={'tiklab_fulloplog_nav'}>动态</div>
                 </Space>

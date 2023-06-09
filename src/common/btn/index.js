@@ -17,15 +17,10 @@ const Btn = ({icon,type,title,onClick,isMar,children}) =>{
 
     return (
         <div className={`eas-btn ${type?`eas-btn-${type}`:""} ${isMar?"eas-btn-mar":""}`} onClick={onClick}>
-            {
-                children ? children:
-                    <Space>
-                        {
-                            icon &&  <span className="eas-btn-icon">{icon}</span>
-                        }
-                        {title}
-                    </Space>
-            }
+            <Space>
+                { icon &&  <span className="eas-btn-icon">{icon}</span> }
+                { children ? children:title}
+            </Space>
         </div>
     )
 }

@@ -7,7 +7,6 @@ import pluginManage_cn from 'tiklab-plugin-manager-ui/es/utils/language'
 import todoTask_cn from 'tiklab-todotask-ui/es/utils/language'
 import log_cn from 'tiklab-security-ui/es/utils/language'
 
-import form_cn from 'tiklab-form-ui/es/utils/language'
 const resources = {
     zh: {
         translation: {
@@ -18,7 +17,6 @@ const resources = {
             ...todoTask_cn,
             ...log_cn,
             ...privilege_cn,
-            ...form_cn
         },
     }
 }
