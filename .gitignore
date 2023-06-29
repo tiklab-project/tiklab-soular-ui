@@ -119,5 +119,5 @@ dist
 .pnp.*
 .idea/
 
-electron/es
+es
 plugin

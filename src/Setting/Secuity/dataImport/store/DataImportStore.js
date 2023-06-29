@@ -1,7 +1,7 @@
-import {action,observable} from "mobx";
+import {action} from "mobx";
 import {Axios} from "tiklab-core-ui";
 
-export class DataImportStore{
+class DataImportStore{
 
     /**
      * 导入数据
@@ -25,4 +25,5 @@ export class DataImportStore{
 
 }
 
-export const DATAIMPORT_STORE = "dataImportStore"
+const dataImportStore = new DataImportStore();
+export default dataImportStore

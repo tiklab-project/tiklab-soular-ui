@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {getUser, parseUserSearchParams} from "tiklab-core-ui";
 import {getWorkListService} from "../store/store";
-import AppLinkManagement from './ProductsAppLink';
+import {message} from "antd";
+import ProductsAppLink from './ProductsAppLink';
 import Btn from '../../common/btn'
 
 import {WORK_IMAGE} from "../../utils/constant";
@@ -74,9 +75,14 @@ const ProductsWidget = () => {
 
     const user = getUser();
     useEffect(() => {
+        // 初始化地址
         getWorkList().then(r => {})
     }, [])
 
+    /**
+     * 获取产品配置的地址
+     * @returns {Promise<void>}
+     */
     const getWorkList = async () => {
         const data = await getWorkListService();
         const updateData = INIT_WORK.map(item => {
@@ -94,7 +100,12 @@ const ProductsWidget = () => {
         setApplications(updateData)
     }
 
+    /**
+     * 跳转
+     * @param item
+     */
     const goApplication = item => {
+        if(!item.appUrl) return message.info("该产品未配置应用链接",0.5)
         const url = user.ticket ? `${item.appUrl}?${parseUserSearchParams({
             ticket:user.ticket
         })}` : item.appUrl;
@@ -130,7 +141,7 @@ const ProductsWidget = () => {
                     </div>
                 </div>
             </div>
-            <AppLinkManagement
+            <ProductsAppLink
                 visibleManagement={visibleManagement}
                 setVisibleManagement={setVisibleManagement}
                 applications={applications}

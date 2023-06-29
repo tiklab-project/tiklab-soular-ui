@@ -1,34 +1,33 @@
 import React,{useEffect,useState} from "react";
 import {Input, Form, message, Select, Spin} from "antd";
 import {LeftOutlined} from '@ant-design/icons';
-import {inject,observer} from "mobx-react";
 import Btn from "../../../../common/btn";
-import {WORK_APP_SELECT} from "../../../../utils/constant";
+import {PROJECT_NAME, WORK_APP_SELECT} from "../../../../utils/constant";
+import dataImportStore from "../store/DataImportStore";
 
 import "./DataImport.scss";
 
 /**
- * 数据导入
+ * 数据导入页面
  * @param props
  * @constructor
  */
 const DataImport = (props) => {
-
-    const {dataImportStore} = props
-
+    
     const {importData,findImportMessage} = dataImportStore
 
     const [form] = Form.useForm()
 
-    // 进度展示
-    const [pressVisible,setPressVisible] = useState(false)
-
     // 进度条内容
     const [press,setPress] = useState(null)
 
-    // 日志滚动条
+    // 进度展示状态
+    const [pressVisible,setPressVisible] = useState(false)
+
+    // 进度日志滚动状态
     const [isActiveSlide,setIsActiveSlide] = useState(true)
 
+    // 加载状态
     const [isLoading,setIsLoading] = useState(true)
 
     let interval
@@ -40,6 +39,7 @@ const DataImport = (props) => {
             setPress(null)
             // 清除定时器
             clearInterval(interval)
+            setIsLoading(true)
             setPressVisible(false)
         }
     },[])
@@ -51,10 +51,14 @@ const DataImport = (props) => {
         form.validateFields().then(values => {
             // 显示导入详情
             setPressVisible(true)
+            // 加载状态
+            setIsLoading(true)
             // 导入的数据
             importData(values)
             // 获取导入消息
             doProcess()
+            // 清空表单
+            form.resetFields(null)
         })
     }
 
@@ -81,20 +85,23 @@ const DataImport = (props) => {
     }
 
     /**
-     * 关闭进度蒙版
+     * 关闭进度详情
      */
     const closePress = () => {
         setPressVisible(false)
     }
 
+    // 运行日志
     const renderPressLog = () => {
-        const dataImport=document.getElementById("data-import")
+        const dataImport=document.getElementById("data-import-log")
+        // 设置滚动条在最下面
         if(dataImport && isActiveSlide){
-            dataImport.scrollTop = dataImport.scrollHeight
+            dataImport.scrollTop=dataImport.scrollHeight
         }
         return press?.message || '暂无日志'
     }
 
+    // 运行结果
     const renderResult = () => {
         if(press?.speed===100 && !press?.state){
             return <div className="info-right-success">成功</div>
@@ -105,15 +112,17 @@ const DataImport = (props) => {
         return <div className="info-right-run">运行中</div>
     }
 
+    // 加载状态
     if(isLoading){
         return (
             <div className='data-import-loading'>
-                <Spin size={'large'}/>
+                <Spin size='large' />
                 <div className='data-import-loading-title'>加载中</div>
             </div>
         )
     }
 
+    // 进度详情
     if(pressVisible){
         return (
             <div className="data-import">
@@ -131,8 +140,7 @@ const DataImport = (props) => {
                         <div className='info-left'>
                             <div>
                                 <span>产品类型：</span>
-                                <span>{press?.database?.application}</span>
-                                {/*<span>{renderApplication(press?.database?.application)}</span>*/}
+                                <span>{PROJECT_NAME[press?.database?.application]}</span>
                             </div>
                             <div>
                                 <span>数据库链接地址:</span>
@@ -153,10 +161,10 @@ const DataImport = (props) => {
                     </div>
                     <div className='progress-content-title'>输出</div>
 
-                    <div className='progress-content-log' id='data-import'
+                    <div className='progress-content-log' id='data-import-log'
                          onWheel={()=>setIsActiveSlide(false)}
                     >
-                        {renderPressLog()}
+                        { renderPressLog() }
                     </div>
                 </div>
             </div>
@@ -222,4 +230,4 @@ const DataImport = (props) => {
     )
 }
 
-export default inject("dataImportStore")(observer(DataImport))
+export default DataImport

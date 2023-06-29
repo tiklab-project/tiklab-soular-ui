@@ -17,13 +17,6 @@
     padding-right: 20px;
   }
   .box-gather {
-    //display: flex;
-    //flex-direction: row;
-    //justify-items: center;
-    //align-items: center;
-    //height: 200px;
-    //flex-wrap: wrap;
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);

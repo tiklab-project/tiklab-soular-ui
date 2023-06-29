@@ -7,6 +7,7 @@ import easImg from 'tiklab-eam-ui/es/assests/img/eas.png';
 
 /**
  * 全部应用产品
+ * 产品类型，图片，name
  * @type {{all: string, matflow: string, postin: string, eas: string, teston: string, teamwire: string, kanass: string, xcode: string, xpack: string}}
  */
 
@@ -33,17 +34,6 @@ const WORK_APP_SELECT = [
     {label: PROJECT_NAME.xpack, value: 'xpack',},
 ];
 
-const WORK_NAME = {
-    teamwire: {label: PROJECT_NAME.teamwire,},
-    kanass: {label: PROJECT_NAME.kanass,},
-    matflow: {label: PROJECT_NAME.matflow,},
-    postin: {label: PROJECT_NAME.postin,},
-    teston: {label: PROJECT_NAME.teston,},
-    eas: {label: PROJECT_NAME.eas,},
-    xcode:{label: PROJECT_NAME.xcode,},
-    xpack:{label: PROJECT_NAME.xpack,}
-}
-
 const WORK_IMAGE = {
     teamwire:teamwireImg,
     postin:postinImg,
@@ -58,6 +48,5 @@ const WORK_IMAGE = {
 export {
     PROJECT_NAME,
     WORK_APP_SELECT,
-    WORK_NAME,
     WORK_IMAGE
 }

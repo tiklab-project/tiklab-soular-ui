@@ -1,42 +1,37 @@
-module.exports  = {
+module.exports = {
     "presets": [
-        [
-            "@babel/preset-env",
-            {
-                "targets": {
-                    "browsers": [
-                        "> 1%",
-                        "last 5 versions",
-                        "ie >= 8"
-                    ]
-                }
-            }
-        ],
+        "@babel/preset-env",
         "@babel/preset-react"
     ],
     "plugins": [
         "@babel/plugin-transform-react-jsx",
+        ["@babel/plugin-transform-react-jsx-source"],
         ["@babel/plugin-transform-arrow-functions"],
-        ["@babel/plugin-proposal-decorators", { "legacy": true }],
-        "@babel/plugin-syntax-dynamic-import",
-        ["@babel/plugin-transform-runtime",
-            {
-                "regenerator": true
-            }
-        ],
+
         ["import", {
             "libraryName": "antd",
             "libraryDirectory": "es",
             "style": "css"
         }],
-        ["import",
-            {
-                "libraryName": "@ant-design/icons",
-                "libraryDirectory": "es/icons",
-                "camel2DashComponentName": false
-            },
-            "@ant-design/icons"
-        ],
+
+        ["import", {
+            "libraryName": "tiklab-plugin-manager-ui",
+            "libraryDirectory": "es",
+            "style": true,
+            "customName": (name) => {
+                let split = name.split('-');
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex=== 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
+                return `tiklab-plugin-manager-ui/es/${fullName}`;
+            }
+        }, "tiklab-plugin-manager-ui"],
 
         ["import", {
             "libraryName": "tiklab-eam-ui",
@@ -45,7 +40,7 @@ module.exports  = {
             "customName": (name) => {
                 let split = name.split('-');
                 const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
-                    if(currentIndex === 0) {
+                    if(currentIndex=== 0) {
                         return total += currentValue;
                     }
                     const UpBit = currentValue.slice(0,1).toUpperCase();
@@ -55,7 +50,7 @@ module.exports  = {
                 },'');
                 return `tiklab-eam-ui/es/${fullName}`;
             }
-        }, "tiklab-eam-ui"],
+        },"tiklab-eam-ui"],
 
         ["import", {
             "libraryName": "tiklab-privilege-ui",
@@ -96,23 +91,23 @@ module.exports  = {
         },"tiklab-user-ui"],
 
         ["import", {
-            "libraryName": "tiklab-licence-ui",
+            "libraryName": "tiklab-integration-ui",
             "libraryDirectory": "es",
             "style": true,
             "customName": (name) => {
                 let split = name.split('-');
-                const [first, ...other] = split;
-
-                let fullName = first
-                for (let i =0; i<other.length; i++) {
-                    const firstName = other[i].slice(0,1).toUpperCase();
-                    const last =  other[i].slice(1,other[i].length);
-                    const name = firstName+last
-                    fullName = fullName+name
-                }
-                return `tiklab-licence-ui/es/${fullName}`;
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex=== 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
+                return `tiklab-integration-ui/es/${fullName}`;
             }
-        }, "tiklab-licence-ui"],
+        }, "tiklab-integration-ui"],
 
         ["import", {
             "libraryName": "tiklab-message-ui",
@@ -134,51 +129,13 @@ module.exports  = {
         }, "tiklab-message-ui"],
 
         ["import", {
-            "libraryName": "tiklab-plugin-manager-ui",
-            "libraryDirectory": "es",
-            "style": true,
-            "customName": (name) => {
-                let split = name.split('-');
-                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
-                    if(currentIndex=== 0) {
-                        return total += currentValue;
-                    }
-                    const UpBit = currentValue.slice(0,1).toUpperCase();
-                    const lowBit = currentValue.slice(1,currentValue.length);
-                    const name = UpBit + lowBit
-                    return total += name;
-                },'');
-                return `tiklab-plugin-manager-ui/es/${fullName}`;
-            }
-        }, "tiklab-plugin-manager-ui"],
-
-        ["import", {
-            "libraryName": "tiklab-integration-ui",
-            "libraryDirectory": "es",
-            "style": true,
-            "customName": (name) => {
-                let split = name.split('-');
-                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
-                    if(currentIndex=== 0) {
-                        return total += currentValue;
-                    }
-                    const UpBit = currentValue.slice(0,1).toUpperCase();
-                    const lowBit = currentValue.slice(1,currentValue.length);
-                    const name = UpBit + lowBit
-                    return total += name;
-                },'');
-                return `tiklab-integration-ui/es/${fullName}`;
-            }
-        }, "tiklab-integration-ui"],
-
-        ["import", {
             "libraryName": "tiklab-todotask-ui",
             "libraryDirectory": "es",
             "style": true,
             "customName": (name) => {
                 let split = name.split('-');
                 const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
-                    if(currentIndex === 0) {
+                    if(currentIndex=== 0) {
                         return total += currentValue;
                     }
                     const UpBit = currentValue.slice(0,1).toUpperCase();
@@ -197,7 +154,7 @@ module.exports  = {
             "customName": (name) => {
                 let split = name.split('-');
                 const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
-                    if(currentIndex === 0) {
+                    if(currentIndex=== 0) {
                         return total += currentValue;
                     }
                     const UpBit = currentValue.slice(0,1).toUpperCase();
@@ -209,7 +166,29 @@ module.exports  = {
             }
         }, "tiklab-security-ui"],
 
-        "@babel/plugin-transform-regenerator",
-        "react-hot-loader/babel"
+        ["import", {
+            "libraryName": "tiklab-licence-ui",
+            "libraryDirectory": "es",
+            "style": true,
+            "customName": (name) => {
+                let split = name.split('-');
+                const fullName = split.reduce((total, currentValue, currentIndex, arr) => {
+                    if(currentIndex=== 0) {
+                        return total += currentValue;
+                    }
+                    const UpBit = currentValue.slice(0,1).toUpperCase();
+                    const lowBit = currentValue.slice(1,currentValue.length);
+                    const name = UpBit + lowBit
+                    return total += name;
+                },'');
+                return `tiklab-licence-ui/es/${fullName}`;
+            }
+        }, "tiklab-licence-ui"],
+
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        ["@babel/plugin-proposal-class-properties", { "loose" : false }],
+        ["dynamic-import-webpack"],
+        "@babel/plugin-syntax-dynamic-import",
+        "react-hot-loader/babel",
     ]
 }

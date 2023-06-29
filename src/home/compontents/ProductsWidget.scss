@@ -3,7 +3,7 @@
   height: 100%;
   overflow: hidden;
   padding: 10px;
-  margin-bottom: 24px;
+  margin-bottom: var(--tiklab-padding-item);
   background: var(--tiklab-white);
   &-card{
     width: 100%;

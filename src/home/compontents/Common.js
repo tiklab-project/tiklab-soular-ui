@@ -32,31 +32,6 @@ const Products = [
     },
 ]
 
-const ProductsTitle = value =>{
-    switch (value) {
-        case "all":
-            return "全部";
-        case 'eas':
-            return "EAS";
-        case 'teamwire':
-            return "TeamWire";
-        case 'kanass':
-            return "Kanass";
-        case 'postin':
-            return "PostIn";
-        case 'teston':
-            return "TestOn";
-        case 'matflow':
-            return "matflow";
-        case 'xcode':
-            return "XCode";
-        case 'xpack':
-            return "XPack";
-        default:
-            return "全部";
-    }
-}
-
 const ProductsTypeTab = props => {
 
     const {type,onClick} = props
@@ -74,8 +49,8 @@ const ProductsTypeTab = props => {
     ]
     return (
         <Tabs
-            tabLis={productsList}
             type={type}
+            tabLis={productsList}
             onClick={onClick}
         />
     )
@@ -83,6 +58,5 @@ const ProductsTypeTab = props => {
 
 export {
     Products,
-    ProductsTitle,
     ProductsTypeTab
 }

@@ -1,22 +1,23 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import {InternalWechatEntry, Logout} from 'tiklab-eam-ui'
-import {LogTemplate} from "tiklab-security-ui";
-import {NotFound} from "tiklab-privilege-ui"
 import SyncComponent from './common/lazy/SyncComponent';
 
 const Layout = SyncComponent(() => import('./common/layout/Layout'));
 
 const Login = SyncComponent(() => import('./login/Login'))
 const ExcludeProductUser = SyncComponent(() => import('./Login/ExcludeProductUser'))
+const Logout=SyncComponent(()=>import("./login/Logout"))
+const Wechat=SyncComponent(()=>import("./login/Wechat"))
+
+const NotFound = SyncComponent(()=>import('./setting/Privilege/NotFound'))
 
 /**
  * 首页工作台
  * @type {LazyComponent|*}
  */
-const Home = SyncComponent(() => import('./homePage/compontents/HomePage'))
+const Home = SyncComponent(() => import('./home/compontents/HomePage'))
 
-const OplogFull = SyncComponent(()=>import('./homePage/compontents/OplogFull'))
+const OplogFull = SyncComponent(()=>import('./home/compontents/OplogFull'))
 
 /**
  * 系统设置
@@ -53,6 +54,7 @@ const MessageType = SyncComponent(() => import('./setting/Base/Message/MessageTy
 const BaseOplogTypePage = SyncComponent(() => import('./setting/Base/Secuity/oplogTypePage'));
 const BaseMessageNoticePage = SyncComponent(() => import('./setting/Base/Message/MessageNoticePage'));
 const BaseDomainUserPage = SyncComponent(() => import('./setting/Base/User/domainUserPage'));
+const BaseLogTemplate = SyncComponent(()=>import('./setting/Base/Secuity/LogTemplate'))
 
 const routers = [
     {
@@ -63,7 +65,7 @@ const routers = [
     {
         component: Login,
         exact:true,
-        path: '/Login'
+        path: '/login'
     },
     {
         component: ExcludeProductUser,
@@ -71,7 +73,7 @@ const routers = [
         path: "/no-auth"
     },
     {
-        component:InternalWechatEntry,
+        component:Wechat,
         exact:true,
         path: '/project'
     },
@@ -165,7 +167,7 @@ const routers = [
                         exact:true,
                     },
                     {
-                        component: LogTemplate,
+                        component: BaseLogTemplate,
                         path:"/setting/base/oplogtemplate",
                         exact:true,
                     },

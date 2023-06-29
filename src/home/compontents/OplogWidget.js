@@ -5,8 +5,9 @@ import {RightOutlined} from '@ant-design/icons';
 
 import {getOplogPageService} from '../store/store';
 import messageEmpty from "../../assets/message.svg";
-import {ProductsTypeTab,ProductsTitle} from "./Common";
+import {ProductsTypeTab} from "./Common";
 import Btn from '../../common/btn';
+import {PROJECT_NAME} from "../../utils/constant";
 import './OplogWidget.scss';
 
 /**
@@ -64,7 +65,7 @@ const OpLogWidget = props => {
                     </div>
                 </div>
                 <Space>
-                    {ProductsTitle(bgroup)}
+                    {PROJECT_NAME[bgroup]}
                     <div className='time'>{actionType && actionType.name}</div>
                     <div className='time'>{createTime}</div>
                 </Space>

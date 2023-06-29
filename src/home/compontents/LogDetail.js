@@ -2,16 +2,16 @@ import React from "react";
 import {LeftOutlined} from "@ant-design/icons";
 import {getUser, parseUserSearchParams} from "tiklab-core-ui";
 import {Descriptions, Space} from "antd";
-import {ProductsTitle} from './Common'
 import TitleAction from "../../common/titleAction";
-import './LogDetail.scss'
-
+import {PROJECT_NAME} from "../../utils/constant";
+import './LogDetail.scss';
 
 const LogDetail = props => {
 
     const {data, history, closeDetailPage} = props
 
-    const {link} = data;
+    const {link} = data
+
     const changRouter = () => {
         if (link) {
             if(/^http|https/.test(link)){
@@ -22,10 +22,6 @@ const LogDetail = props => {
         }
     }
 
-    const goBack = () => {
-        closeDetailPage()
-    }
-
     return(
         <div className='tiklab-oplog-details'>
             <div className='tiklab-oplog-details-content'>
@@ -33,7 +29,7 @@ const LogDetail = props => {
                     title={'动态详情'}
                     icon={
                         <LeftOutlined
-                            onClick={goBack}
+                            onClick={()=>closeDetailPage()}
                             style={{fontSize:'var(--tiklab-icon-size-16)'}}
                         />
                     }
@@ -42,7 +38,7 @@ const LogDetail = props => {
                     <Descriptions.Item label="摘要" span={3}>{data.abstractContent}</Descriptions.Item>
                     <Descriptions.Item label="操作人" span={3}>{data.user?.nickname || '--'}</Descriptions.Item>
                     <Descriptions.Item label="类型" span={3}>{data.module}</Descriptions.Item>
-                    <Descriptions.Item label="模块" span={3}>{ProductsTitle(data.bgroup)}</Descriptions.Item>
+                    <Descriptions.Item label="模块" span={3}>{PROJECT_NAME[data.bgroup]}</Descriptions.Item>
                     <Descriptions.Item label="时间" span={3}>{data.createTime}</Descriptions.Item>
                     <Descriptions.Item label="内容" span={3}>
                         <Space direction={"vertical"}>

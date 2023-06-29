@@ -29,11 +29,16 @@ const ProductsAppLinckAdd = props => {
         }
     }, [edit])
 
-     // 提交表单
+    /**
+     * 提交表单
+     */
     const handleOk = () => {
         form.submit()
     };
-     // 取消提交
+
+    /**
+     * 取消提交
+     */
     const handleCancel = () => {
         form.resetFields()
         setVisible(false)

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Select, Space, Empty, DatePicker} from "antd";
+import {  Space, Empty, DatePicker} from "antd";
 import {LeftOutlined} from '@ant-design/icons';
 import {getUser,} from 'tiklab-core-ui';
 import moment from 'moment';
@@ -7,9 +7,10 @@ import moment from 'moment';
 import {getOplogPageService} from "../store/store";
 import messageEmpty from "../../assets/message.svg";
 import LogDetail from "./LogDetail";
-import {ProductsTitle,ProductsTypeTab} from "./Common";
+import {ProductsTypeTab} from "./Common";
 import Page from '../../common/page/Page'
-import './OplogFull.scss'
+import {PROJECT_NAME} from "../../utils/constant";
+import './OplogFull.scss';
 
 const { RangePicker } = DatePicker;
 
@@ -128,14 +129,14 @@ const OplogFull = props => {
     const renderLis = (item,index) =>{
         const {abstractContent, bgroup, createTime, actionType} = item;
         return (
-            <div className='tiklab_fulloplog-item' key={index} onClick={() => onDetail(item)}>
+            <div className='tiklab_fulloplog-item' key={index} onClick={()=>onDetail(item)}>
                 <div className={'full_oplog_abstract'}>
                     <div className={'full_oplog_abstract_text'}>
                         <span>{abstractContent}</span>
                     </div>
                 </div>
                 <Space>
-                    {ProductsTitle(bgroup)}
+                    {PROJECT_NAME[bgroup]}
                     <div className='time'>{actionType && actionType.name}</div>
                     <div className='time'>{createTime}</div>
                 </Space>

@@ -6,7 +6,6 @@
     .ant-modal-content{
         display: flex;
         flex: 0 1 auto;
-        //height: 100%;
         height: auto;
         flex-direction: column;
         max-height: inherit;
@@ -27,9 +26,9 @@
     .ant-modal-footer{
         border-top:transparent;
     }
-    
-    
-    
+
+
+
     .ant-form-item{
         margin-bottom: 8px;
     }
@@ -42,7 +41,7 @@
         line-height: 1;
         content: "*";
     }
-    
+
     .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
         display: none;
         content: "";

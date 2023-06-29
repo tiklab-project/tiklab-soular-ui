@@ -3,7 +3,7 @@ import { Row, Col } from 'antd';
 import BaseModal from "../../common/baseModal";
 import AddWorkBench from './ProductsAppLinckAdd';
 import {deleteWorkByIDService} from '../store/store'
-import {WORK_NAME} from '../../utils/constant'
+import {PROJECT_NAME} from '../../utils/constant'
 import Btn from '../../common/btn'
 import './ProductsAppLink.scss'
 
@@ -31,15 +31,24 @@ const ProductsAppLink = props => {
         }
     }
 
-    // TODO 提交表单
+    /**
+     * 提交表单
+     */
     const handleOk = () => {
         setVisibleManagement(false)
-    };
-    // TODO 取消提交
+    }
+
+    /**
+     * 取消提交
+     */
     const handleCancel = () => {
         setVisibleManagement(false)
     };
 
+    /**
+     * 编辑产品字段
+     * @param data
+     */
     const editData = (data ) => {
         setEdit(data)
         setVisible(true);
@@ -74,9 +83,9 @@ const ProductsAppLink = props => {
                                 return (
                                     <div className="box-item" key={work.id}>
                                         <div className="box-icon management">
-                                            {WORK_NAME[work.appType].label}
+                                            {PROJECT_NAME[work.appType]}
                                             <div className={'action'}>
-                                                <span onClick={() => editData(work)}>编辑</span>
+                                                <span onClick={()=>editData(work)}>编辑</span>
                                                 <span onClick={()=>deleteWorkByID(work.id) }>删除</span>
                                             </div>
                                         </div>
@@ -90,9 +99,9 @@ const ProductsAppLink = props => {
             <AddWorkBench
                 {...props}
                 edit={edit}
-                visible = {visible}
-                setVisible = {setVisible}
-                requestWorkList={ requestWorkList}
+                visible={visible}
+                setVisible={setVisible}
+                requestWorkList={requestWorkList}
             />
         </BaseModal>
     )

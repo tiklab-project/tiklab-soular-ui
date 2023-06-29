@@ -76,6 +76,7 @@ const   TodoWidget = props => {
     const renderLis = (item) => {
         return (
             <div className='item-todo' key={item.id} onClick={() => changRouter(item)}>
+                {/*<div dangerouslySetInnerHTML={{__html: data}}/>*/}
                 <div className='item-todo-wrap'>
                     <div className='item-todo-title'>
                         {item.title}
@@ -121,7 +122,7 @@ const   TodoWidget = props => {
                                         imageStyle={{
                                             height: 120,
                                         }}
-                                        description={<span style={{color:"#999",fontSize:13}}>没有日志</span>}
+                                        description={<span style={{color:"#999",fontSize:13}}>没有代办</span>}
                                         image={messageEmpty}
                                     />
                             }

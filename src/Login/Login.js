@@ -13,7 +13,6 @@ const PortalLogin  = props => {
     return (
         <Login
             {...props}
-            title={'portal'}
             vaildUserAuthRouter={'/no-auth'}
         />
 
