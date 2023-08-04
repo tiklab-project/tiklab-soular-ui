@@ -17,7 +17,6 @@ const NotFound = SyncComponent(()=>import('./setting/Privilege/NotFound'))
  */
 const Home = SyncComponent(() => import('./home/compontents/HomePage'))
 
-const OplogFull = SyncComponent(()=>import('./home/compontents/OplogFull'))
 
 /**
  * 系统设置
@@ -85,11 +84,6 @@ const routers = [
             {
                 component: Home,
                 path:"/work",
-                exact:true,
-            },
-            {
-                component: OplogFull,
-                path:"/dynamic",
                 exact:true,
             },
             {
@@ -236,8 +230,8 @@ const routers = [
                 path:"*",
                 render:()=><Redirect to="/404"/>
             },
-        ],
-    },
+        ]
+    }
 ]
 
 export default routers;

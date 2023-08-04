@@ -7,7 +7,6 @@ import moment from 'moment';
 import {getOplogPageService} from "../store/store";
 import messageEmpty from "../../assets/message.svg";
 import LogDetail from "./LogDetail";
-import {ProductsTypeTab} from "./Common";
 import Page from '../../common/page/Page'
 import {PROJECT_NAME} from "../../utils/constant";
 import './OplogFull.scss';
@@ -43,37 +42,20 @@ const OplogFull = props => {
      * 获取日志
      * @returns {Promise<void>}
      */
-    const getOplogPage = async () => {
-        const res =  await getOplogPageService({
+    const getOplogPage = () => {
+        getOplogPageService({
             ...params,
-            userId: getUser().userId
-        });
-        if (res.code === 0 ) {
-            const data = res.data.dataList;
-            setLogData(data);
-            setLogPage({
-                total:res.data.totalPage
-            })
-        }
-    }
-
-    /**
-     * 模糊搜索日志
-     * @param value：产品
-     */
-    const onChangeProduct = (value) => {
-        if (value.id === 'all') {
-            setParams({
-                pageParam,
-            })
-        } else {
-            setParams( {
-                ...params,
-                pageParam,
-                bgroup: value.id
-            })
-        }
-
+            userId: getUser().userId,
+            bgroup:'eas'
+        }).then(res=>{
+            if (res.code === 0 ) {
+                const data = res.data.dataList;
+                setLogData(data);
+                setLogPage({
+                    total:res.data.totalPage
+                })
+            }
+        })
     }
 
     /**
@@ -145,20 +127,16 @@ const OplogFull = props => {
     }
 
     return(
-        <div className={'tiklab_fulloplog'}>
-            <div className={'tiklab_fulloplog-content'}>
+        <div className='tiklab_fulloplog'>
+            <div className='tiklab_fulloplog-content'>
                 <Space className='tiklab_fulloplog-title'>
                     {
                         setMoreOplog &&
                         <LeftOutlined onClick={()=>setMoreOplog(false)} style={{fontSize: 'var(--tiklab-icon-size-16)',cursor: 'pointer'}}/>
                     }
-                    <div className={'tiklab_fulloplog_nav'}>动态</div>
+                    <div className='tiklab_fulloplog_nav'>动态</div>
                 </Space>
                 <div className='tiklab_fulloplog_select'>
-                    <ProductsTypeTab
-                        onClick={onChangeProduct}
-                        type={params.bgroup?params.bgroup:'all'}
-                    />
                     <RangePicker
                         onChange={OnSelectTime}
                         placeholder={["开始时间", "结束时间"]}
@@ -177,10 +155,11 @@ const OplogFull = props => {
                                 image={messageEmpty}
                             />
                     }
-                    {
-                        logPage && logPage.total > 1 &&
-                        <Page pageCurrent={params.pageParam.currentPage} changPage={changPage} page={logPage}/>
-                    }
+                    <Page
+                        pageCurrent={params.pageParam.currentPage}
+                        changPage={changPage}
+                        page={logPage}
+                    />
                 </div>
             </div>
         </div>

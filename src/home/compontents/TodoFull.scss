@@ -1,64 +1,44 @@
 .tiklab_fulltodo {
-  height: 100%;
-  overflow: auto;
-  padding: var(--tiklab-padding);
-  .tiklab_fulltodo-content{
-    margin: auto;
-    max-width: 1280px;
-    min-width: 768px;
-    background: #fff;
-    border-radius: 4px;
-  }
-  .tiklab_fulltodo-title{
-    margin-bottom: 8px;
-  }
-  .tiklab_fulltodo-select{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--tiklab-padding-item);
-    white-space: nowrap;
-  }
-  &_nav {
-    font-size: var(--tiklab-font-16);
-    font-weight: var(--tiklab-font-weight-bold);
-  }
-  .tab-content{
-    width: 100%;
-  }
-  .item-todo{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    cursor: pointer;
-    padding: 8px;
-    &:hover{
-      background: #fafafa;
-      cursor: pointer;
-    }
-    &-wrap{
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    &-title {
-      line-height: 28px;
-      font-size: var(--tiklab-font-16);
-    }
-    &-content {
-      color: var(--tiklab-gray-500);
-      font-size: var(--tiklab-font-14);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-  .ant-pagination-item-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100%;
-  }
+    overflow: auto;
+    padding: var(--tiklab-padding);
+    .tiklab_fulltodo-content{
+        margin: auto;
+        max-width: 1280px;
+        min-width: 768px;
+        background: #fff;
+        border-radius: 4px;
+    }
+    .tiklab_fulltodo-title{
+        margin-bottom: 8px;
+    }
+    .tiklab_fulltodo-select{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--tiklab-padding-item);
+        white-space: nowrap;
+    }
+    &_nav {
+        font-size: var(--tiklab-font-16);
+        font-weight: var(--tiklab-font-weight-bold);
+    }
+    .tab-content{
+        width: 100%;
+    }
+    .item-todo{
+        cursor: pointer;
+        padding: 8px;
+        &:hover{
+            background: #fafafa;
+            cursor: pointer;
+        }
+    }
+    .ant-pagination-item-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
 }

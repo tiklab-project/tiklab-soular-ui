@@ -1,6 +1,5 @@
 import React from "react";
 import {LeftOutlined} from "@ant-design/icons";
-import {getUser, parseUserSearchParams} from "tiklab-core-ui";
 import {Descriptions, Space} from "antd";
 import TitleAction from "../../common/titleAction";
 import {PROJECT_NAME} from "../../utils/constant";
@@ -8,16 +7,14 @@ import './LogDetail.scss';
 
 const LogDetail = props => {
 
-    const {data, history, closeDetailPage} = props
+    const {data, closeDetailPage} = props
 
     const {link} = data
 
     const changRouter = () => {
         if (link) {
             if(/^http|https/.test(link)){
-                window.open(link+"?" + parseUserSearchParams({
-                    ticket:getUser().ticket
-                }))
+                history.push(link.split("#")[1])
             }
         }
     }

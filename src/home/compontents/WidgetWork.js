@@ -37,10 +37,10 @@ const WidgetWork = props =>{
                         history={props.history}
                         setMoreTodo={setMoreTodo}
                     />
-                    {/*<OpLogWidget*/}
-                    {/*    setMoreOplog={setMoreOplog}*/}
-                    {/*    setViewDetail={setViewDetail}*/}
-                    {/*/>*/}
+                    <OpLogWidget
+                        setMoreOplog={setMoreOplog}
+                        setViewDetail={setViewDetail}
+                    />
                 </div>
             </div>
         </div>

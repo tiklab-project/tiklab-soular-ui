@@ -32,7 +32,7 @@ const Page = props =>{
         }
     }
 
-    return  <div className="eas-page">
+    return  page?.total > 1 &&  <div className="eas-page">
                 <span
                     className={`${pageCurrent===1?"eas-page-ban":"eas-page-allow"}`}
                     onClick={()=>pageCurrent===1? null :changPage(pageCurrent - 1)}

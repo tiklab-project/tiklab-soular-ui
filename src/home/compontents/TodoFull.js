@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from "react";
-import { Select, Space, Empty,Tag} from "antd";
+import { Select, Space, Empty} from "antd";
 import {LeftOutlined} from '@ant-design/icons';
-import {getUser, parseUserSearchParams} from 'tiklab-core-ui';
+import {getUser} from 'tiklab-core-ui';
 import {getTodoPageService} from "../store/store";
 import messageEmpty from "../../assets/message.svg";
 import './TodoFull.scss';
 import Page from "../../common/page/Page";
-import {ProductsTypeTab} from './Common'
 
 /**
  * 代办
@@ -31,18 +30,20 @@ const TodoFull = props => {
         getTodoList()
     },[params]);
 
-    const getTodoList = async () => {
-        const res =  await getTodoPageService({
+    const getTodoList = () => {
+        getTodoPageService({
             ...params,
-            userId: getUser().userId
-        });
-        if (res.code === 0 ) {
-            const data = res.data.dataList;
-            setTodoData(data);
-            setTodoPage({
-                total:res.data.totalPage
-            })
-        }
+            userId: getUser().userId,
+            bgroup:'eas'
+        }).then(res=>{
+            if (res.code === 0 ) {
+                const data = res.data.dataList;
+                setTodoData(data);
+                setTodoPage({
+                    total:res.data.totalPage
+                })
+            }
+        })
     }
 
     const handleChange = (value) => {
@@ -62,22 +63,6 @@ const TodoFull = props => {
         setParams(changeParams)
     };
 
-    const onChangeProduct = (value) => {
-        let newParams = {}
-        if (value.id === 'all') {
-            newParams = {
-                pageParam,
-            }
-        } else {
-            newParams = {
-                ...params,
-                pageParam,
-                bgroup: value.id
-            }
-        }
-        setParams(newParams)
-    }
-
     const changPage = page =>{
         setParams({
             ...params,
@@ -88,46 +73,11 @@ const TodoFull = props => {
         })
     }
 
-    const showStatusLabel = (status) => {
-        switch (status) {
-            case 1:
-                return <Tag color="#87d068">进行中</Tag>
-            case 2:
-                return <Tag color="#108ee9">完成</Tag>
-            case 3:
-                return <Tag color="#f50">逾期</Tag>
-        }
-    }
-
     const changRouter = (item) => {
         const {link} = item;
         if (link) {
-            if(/^http|https/.test(link)){
-                window.open(link+"?" + parseUserSearchParams({
-                    ticket:getUser().ticket
-                }))
-            }
+            props.history.push(link.split("#")[1])
         }
-    }
-
-    const renderLis = (item) => {
-        return (
-            <div className='item-todo' key={item.id} onClick={() => changRouter(item)}>
-                {/*<div dangerouslySetInnerHTML={{__html: item.data}}/>*/}
-                <div className='item-todo-wrap'>
-                    <div className='item-todo-title'>
-                        {item.title}
-                    </div>
-                    <div className='item-todo-content' >
-                        {item.remark}
-                    </div>
-                </div>
-                <div className='time'>
-                    {showStatusLabel(item.status)}
-                    截止时间：{item.endTime}
-                </div>
-            </div>
-        )
     }
 
     return(
@@ -138,10 +88,6 @@ const TodoFull = props => {
                     <span className={'tiklab_fulltodo_nav'}>待办</span>
                 </Space>
                 <div className={'tiklab_fulltodo-select'}>
-                    <ProductsTypeTab
-                        onClick={onChangeProduct}
-                        type={params.bgroup?params.bgroup:'all'}
-                    />
                     <Select
                         options={[
                             {value: 0, label: "所有状态",},
@@ -159,7 +105,11 @@ const TodoFull = props => {
                 <div className={'tab-content'}>
                     {
                         todoData && todoData.length>0 ?
-                            todoData.map((item)=>renderLis(item))
+                            todoData.map((item)=>(
+                                <div className='item-todo' key={item.id} onClick={() => changRouter(item)}>
+                                    <div dangerouslySetInnerHTML={{__html: item.data}}/>
+                                </div>
+                            ))
                             :
                             <Empty
                                 imageStyle={{
@@ -169,10 +119,11 @@ const TodoFull = props => {
                                 image={messageEmpty}
                             />
                     }
-                    {
-                        todoPage && todoPage.total > 1 &&
-                        <Page pageCurrent={params.pageParam.currentPage} changPage={changPage} page={todoPage}/>
-                    }
+                    <Page
+                        pageCurrent={params.pageParam.currentPage}
+                        changPage={changPage}
+                        page={todoPage}
+                    />
                 </div>
             </div>
         </div>

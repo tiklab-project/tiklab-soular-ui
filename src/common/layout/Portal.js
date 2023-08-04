@@ -1,9 +1,21 @@
 import React, {useState,useEffect} from 'react';
-import {Space, Tooltip, Menu} from "antd";
-import {GlobalOutlined, SettingOutlined, QuestionCircleOutlined,SnippetsOutlined, CustomerServiceOutlined, CommentOutlined, UserOutlined, LogoutOutlined } from "@ant-design/icons";
+import {Space, Tooltip, Menu, Badge} from "antd";
+import {
+    GlobalOutlined,
+    SettingOutlined,
+    QuestionCircleOutlined,
+    SnippetsOutlined,
+    CustomerServiceOutlined,
+    CommentOutlined,
+    UserOutlined,
+    LogoutOutlined,
+    BellOutlined
+} from "@ant-design/icons";
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
 import {renderRoutes} from 'react-router-config'
+import {AppLink} from "tiklab-integration-ui";
+import {findMessagePageService} from "../notification/api";
 import Profile from "../profile";
 import easLogo from '../../assets/eas.png'
 import Notification from "../notification";
@@ -24,7 +36,28 @@ const Portal = props => {
     const [visibility,setVisibility] = useState(false);
     const [profileVisibility,setProfileVisibility] = useState(false);
 
-    const [helpVisibility,setHelpVisibility] = useState(false)
+    // 消息抽屉状态
+    const [notificationVisibility,setNotificationVisibility] = useState(false);
+
+    // 未读
+    const [unread,setUnread] = useState(0)
+
+    useEffect(()=>{
+        findMessagePageService({
+            pageParam: {
+                pageSize: 20,
+                currentPage: 1
+            },
+            bgroup:'eas',
+            sendType:"site",
+            receiver:getUser().userId,
+            status:0,
+        }).then(res=>{
+            if(res.code===0){
+                setUnread(res.data.totalRecord || 0)
+            }
+        })
+    },[])
 
     useEffect(()=>{
         setCurrentLink(path)
@@ -33,14 +66,14 @@ const Portal = props => {
     const homeRouter = [
         {
             to:'/work',
-            title:'工作台',
+            title:'首页',
             key: '/work'
         },
-        {
-            to:'/dynamic',
-            title:'动态',
-            key: '/dynamic'
-        }
+        // {
+        //     to:'/dynamic',
+        //     title:'动态',
+        //     key: '/dynamic'
+        // }
     ]
 
     const changeCurrentLink = item => {
@@ -54,7 +87,6 @@ const Portal = props => {
         i18n.changeLanguage(key).then(res => {
             setLng(key)
         })
-
     }
 
     const goLogout = () => {
@@ -78,7 +110,7 @@ const Portal = props => {
         <main className={'layout'}>
             <header className={'layout_header'}>
                 <Space size={'large'}>
-                    {/*<AppLink isSSO={false}/>*/}
+                    <AppLink isSSO={false}/>
                     <img alt={'门户中心'} src={easLogo} height={'50%'} />
                     {
                         homeRouter.map(item => {
@@ -103,12 +135,24 @@ const Portal = props => {
                             </div>
                         </Tooltip>
                         <div className={'tiklab_portal_block_item'}>
-                            <Notification history={history}/>
+                            <Notification
+                                history={history}
+                                setUnread={setUnread}
+                                notificationVisibility={notificationVisibility}
+                                setNotificationVisibility={setNotificationVisibility}
+                            />
+                            <Tooltip title={"通知"} mouseEnterDelay={0.3}>
+                                <Badge count={unread}>
+                                    <BellOutlined
+                                        style={{fontSize:"var(--tiklab-icon-size-22)" ,color: "var(--tiklab-white)"}}
+                                        onClick={()=>setNotificationVisibility(true)}
+                                    />
+                                </Badge>
+                            </Tooltip>
                         </div>
 
                         <PortalMenu
                             tooltip={'帮助与支持'}
-                            visibility={helpVisibility}
                             Icon={<QuestionCircleOutlined style={{fontSize:'var(--tiklab-icon-size-22)', color: "var(--tiklab-white)"}}/>}
                             width={240}
                         >

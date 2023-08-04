@@ -4,7 +4,6 @@ import BaseModal from "../../common/baseModal";
 import AddWorkBench from './ProductsAppLinckAdd';
 import {deleteWorkByIDService} from '../store/store'
 import {PROJECT_NAME} from '../../utils/constant'
-import Btn from '../../common/btn'
 import './ProductsAppLink.scss'
 
 /**
@@ -54,23 +53,14 @@ const ProductsAppLink = props => {
         setVisible(true);
     }
 
-    const modalFooter = (
-        <>
-            <Btn onClick={handleCancel} title={"取消"} isMar={true}/>
-            <Btn onClick={handleOk} title={"确定"} type={"primary"}/>
-        </>
-    )
-
     return(
         <BaseModal
-            title= "应用链接管理"
+            title="应用链接管理"
             visible={visibleManagement}
-            footer={modalFooter}
-            onCancel={handleCancel}
-            okText={"确定"}
-            cancelText={"取消"}
             destroyOnClose={true}
             width={720}
+            onOk={handleOk}
+            onCancel={handleCancel}
         >
             <Row className={'applink'}>
                 <Col span={24} style={{overflow:'auto'}}>

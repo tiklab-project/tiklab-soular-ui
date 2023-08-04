@@ -5,7 +5,6 @@ import {RightOutlined} from '@ant-design/icons';
 
 import {getOplogPageService} from '../store/store';
 import messageEmpty from "../../assets/message.svg";
-import {ProductsTypeTab} from "./Common";
 import Btn from '../../common/btn';
 import {PROJECT_NAME} from "../../utils/constant";
 import './OplogWidget.scss';
@@ -19,8 +18,6 @@ const OpLogWidget = props => {
 
     const {setViewDetail,setMoreOplog} = props
 
-    const [activeKey, setActiveKey] = useState('all');
-
     const [logData,setLogData] = useState([])
 
     const [total,setTotal] = useState(null)
@@ -29,31 +26,22 @@ const OpLogWidget = props => {
         getOplogPage()
     }, []);
 
-    const getOplogPage = async bgroup => {
-        const res =  await getOplogPageService({
+    const getOplogPage = () => {
+        getOplogPageService({
             userId: getUser().userId,
             pageParam:{
                 pageSize:10,
                 currentPage:1
             },
-            bgroup
-        });
-        if (res.code === 0 ) {
-            const data = res.data.dataList;
-            setLogData(data);
-            setTotal(res.data.totalPage)
-        }
+            bgroup:'eas'
+        }).then(res=>{
+            if (res.code === 0 ) {
+                const data = res.data.dataList;
+                setLogData(data);
+                setTotal(res.data.totalPage)
+            }
+        })
     };
-
-    const changeTabActive = (tab) => {
-        setActiveKey(tab.id);
-        if (tab.id === 'all') {
-            getOplogPage()
-        } else {
-            getOplogPage(tab.id)
-        }
-    }
-
 
     const renderLis = (item,index) =>{
         const {abstractContent, bgroup, createTime, actionType} = item;
@@ -91,10 +79,6 @@ const OpLogWidget = props => {
                         }
                     </div>
                     <div className="oplogWidget-card-body-content">
-                        <ProductsTypeTab
-                            onClick={changeTabActive}
-                            type={activeKey}
-                        />
                         <div className='log-content'>
                             {
                                 logData && logData.length>0 ?

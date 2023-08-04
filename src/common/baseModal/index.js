@@ -6,9 +6,11 @@
  */
 import React from "react";
 import {Modal} from "antd";
+import Btn from "../btn";
 import './style/index.scss';
 
 const BaseModal = ({children, title, width,...res}) => {
+
     const style = {
         maxWidth: 'calc(100vw - 120px)',
         maxHeight: 'calc(100vh - 120px)',
@@ -23,14 +25,22 @@ const BaseModal = ({children, title, width,...res}) => {
         flexDirection: 'column'
     }
 
+    const modalFooter = (
+        <>
+            <Btn onClick={res.onCancel} title={"取消"} isMar={true}/>
+            <Btn onClick={res.onOk} title={"确定"} type={"primary"}/>
+        </>
+    )
+
     return(
         <Modal
+            {...res}
             title={title}
             width={width}
             style={style}
             wrapClassName={'tiklab_modal'}
             closable={false}
-            {...res}
+            footer={modalFooter}
         >
             {children}
         </Modal>

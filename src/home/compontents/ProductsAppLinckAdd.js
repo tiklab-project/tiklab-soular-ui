@@ -3,7 +3,6 @@ import { Form, Input, Select, message } from 'antd';
 import {createWorkAppLinkService, updateWorkService} from '../store/store';
 import {WORK_APP_SELECT} from '../../utils/constant'
 import BaseModal from "../../common/baseModal";
-import Btn from "../../common/btn";
 
 /**
  * 产品应用授权管理编辑
@@ -66,23 +65,14 @@ const ProductsAppLinckAdd = props => {
         }
     }
 
-    const modalFooter = (
-        <>
-            <Btn onClick={handleCancel} title={"取消"} isMar={true}/>
-            <Btn onClick={handleOk} title={"确定"} type={"primary"}/>
-        </>
-    )
-
     return(
         <BaseModal
             title= "设置项目"
             visible={visible}
-            footer={modalFooter}
-            onCancel={handleCancel}
-            okText={"确定"}
-            cancelText={"取消"}
             destroyOnClose={true}
             preserve={false}
+            onOk={handleOk}
+            onCancel={handleCancel}
         >
             <Form
                 {...layout}

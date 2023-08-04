@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from "react";
-import { Tag, Empty, Button} from 'antd';
-import {getUser, parseUserSearchParams} from 'tiklab-core-ui';
+import {Empty} from 'antd';
+import {getUser} from 'tiklab-core-ui';
 import {RightOutlined} from '@ant-design/icons';
 import {getTodoPageService} from '../store/store';
-import {ProductsTypeTab} from "./Common";
 import Btn from '../../common/btn';
 import messageEmpty from "../../assets/message.svg";
 import './TodoWidget.scss';
@@ -13,11 +12,9 @@ import './TodoWidget.scss';
  * @returns {JSX.Element}
  * @constructor
  */
-const   TodoWidget = props => {
+const TodoWidget = props => {
 
-    const {history,setMoreTodo} = props
-
-    const [activeKey, setActiveKey] = useState('all')
+    const {setMoreTodo} = props
 
     const [todoData,setTodoData] = useState([])
 
@@ -27,70 +24,28 @@ const   TodoWidget = props => {
         getTodoList()
     }, []);
 
-    const getTodoList = async bgroup => {
-        const res =  await getTodoPageService({
+    const getTodoList = () => {
+        getTodoPageService({
             userId: getUser().userId,
             pageParam:{
                 pageSize:10,
                 currentPage:1
             },
-            bgroup
-        });
-        if (res.code === 0 ) {
-            const data = res.data.dataList;
-            setTodoData(data);
-            setTotal(res.data.totalPage)
-        }
+            bgroup:'eas'
+        }).then(res=>{
+            if(res.code===0){
+                const data = res.data.dataList;
+                setTodoData(data);
+                setTotal(res.data.totalPage)
+            }
+        })
     }
 
     const changRouter = (item) => {
         const {link} = item;
         if (link) {
-            if(/^http|https/.test(link)){
-                window.open(link+"?" + parseUserSearchParams({
-                    ticket:getUser().ticket
-                }))
-            }
+            props.history.push(link.split("#")[1])
         }
-    }
-
-    const showStatusLabel = (status) => {
-        switch (status) {
-            case 1:
-                return <Tag color="#87d068">进行中</Tag>
-            case 2:
-                return <Tag color="#108ee9">完成</Tag>
-            case 3:
-                return <Tag color="#f50">逾期</Tag>
-        }
-    }
-    const changeTabActive = (tab) => {
-        setActiveKey(tab.id)
-        if (tab.id === 'all') {
-            getTodoList()
-        } else {
-            getTodoList(tab.id)
-        }
-    }
-
-    const renderLis = (item) => {
-        return (
-            <div className='item-todo' key={item.id} onClick={() => changRouter(item)}>
-                {/*<div dangerouslySetInnerHTML={{__html: data}}/>*/}
-                <div className='item-todo-wrap'>
-                    <div className='item-todo-title'>
-                        {item.title}
-                    </div>
-                    <div className='item-todo-content' >
-                        {item.remark}
-                    </div>
-                </div>
-                <div className='time'>
-                    {showStatusLabel(item.status)}
-                    截止时间：{item.endTime}
-                </div>
-            </div>
-        )
     }
 
     return(
@@ -109,14 +64,14 @@ const   TodoWidget = props => {
                         }
                     </div>
                     <div className="todoWidget-card-body-content">
-                        <ProductsTypeTab
-                            onClick={changeTabActive}
-                            type={activeKey}
-                        />
                         <div className='todo-content'>
                             {
                                 todoData && todoData.length>0 ?
-                                    todoData.map((item)=>renderLis(item))
+                                    todoData.map((item)=>(
+                                        <div className='item-todo' key={item.id} onClick={() => changRouter(item)}>
+                                            <div dangerouslySetInnerHTML={{__html: item.data}}/>
+                                        </div>
+                                    ))
                                     :
                                     <Empty
                                         imageStyle={{
