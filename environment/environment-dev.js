@@ -1,4 +1,4 @@
-const api =  'http://192.168.10.6:8080';
+const api =  'http://eas-api.local.tiklab.net';
 const base_url = JSON.stringify(api);
 
 const webpackGlobal = {

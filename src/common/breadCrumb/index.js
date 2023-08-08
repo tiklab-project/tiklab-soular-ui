@@ -1,16 +1,14 @@
-/**
- * @name: index
- * @author mahai
- * @date 2022/7/11 2:56 PM
- * @description index
- */
 import React from 'react';
 import {Link} from "react-router-dom";
 import {LeftOutlined} from '@ant-design/icons';
 import { Breadcrumb, Space } from 'antd';
 import './style/index.scss';
 
-
+/**
+ * 面包屑
+ * @param {*} props 
+ * @returns 
+ */
 const BreadCrumb = props => {
 
     const {routes, children} = props;

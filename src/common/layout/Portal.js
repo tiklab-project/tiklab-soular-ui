@@ -14,7 +14,7 @@ import {
 import {useTranslation} from 'react-i18next';
 import {getUser} from 'tiklab-core-ui';
 import {renderRoutes} from 'react-router-config'
-import {AppLink} from "tiklab-integration-ui";
+import {AppLink} from "tiklab-licence-ui";
 import {findMessagePageService} from "../notification/api";
 import Profile from "../profile";
 import easLogo from '../../assets/eas.png'
@@ -157,20 +157,20 @@ const Portal = props => {
                             width={240}
                         >
                             <>
-                                <div className={'layout_header_right_portal_item'} onClick={()=>goHelp("document/documentList")}>
+                                <div className={'layout_header_right_portal_item'} onClick={()=>goHelp("document")}>
                                     <Space>
                                         <SnippetsOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
                                         文档
                                     </Space>
 
                                 </div>
-                                <div className={'layout_header_right_portal_item'} onClick={()=>goHelp("question/questionList")}>
+                                <div className={'layout_header_right_portal_item'} onClick={()=>goHelp("question")}>
                                     <Space>
                                         <GlobalOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
                                         社区支持
                                     </Space>
                                 </div>
-                                <div className={'layout_header_right_portal_item'} onClick={()=>goHelp("account/workOrder/workOrderList")}>
+                                <div className={'layout_header_right_portal_item'} onClick={()=>goHelp("account/workOrder")}>
                                     <Space>
                                         <CustomerServiceOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}}/>
                                         在线工单

@@ -122,7 +122,7 @@ const Notification = props => {
     return(
         <Drawer
             placement="right"
-            onClose={onClose}
+            onClose={()=>setNotificationVisibility(false)}
             visible={notificationVisibility}
             bodyStyle={{padding:0}}
             maskStyle={{background:"transparent"}}
