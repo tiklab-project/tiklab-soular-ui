@@ -5,8 +5,7 @@
  * @description portalDirectory
  */
 import React from 'react';
-import {Directory} from 'tiklab-user-ui'
-
+import {Directory} from 'tiklab-user-ui';
 
 const DirectoryPage = (props) => {
 
@@ -14,4 +13,5 @@ const DirectoryPage = (props) => {
         <Directory {...props}/>
     )
 }
-export default DirectoryPage
+
+export default DirectoryPage;

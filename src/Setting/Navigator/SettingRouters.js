@@ -4,7 +4,7 @@ import {AppstoreOutlined} from "@ant-design/icons";
 // 基础数据路由
 const templateRouter = [
     {
-        id:'8',
+        id:'base',
         title: '基础数据',
         icon :<AppstoreOutlined/>,
         children:[

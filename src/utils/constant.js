@@ -35,12 +35,12 @@ const WORK_APP_SELECT = [
 ];
 
 const WORK_IMAGE = {
+    eas:easImg,
     teamwire:teamwireImg,
     postin:postinImg,
     matflow:matflowImg,
     kanass:kanassImg,
     teston:testonImg,
-    eas:easImg,
     xcode:matflowImg,
     xpack:matflowImg
 }

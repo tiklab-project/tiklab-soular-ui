@@ -4,45 +4,23 @@ import "./Page.scss";
 
 /**
  * 分页
- * @param props
- * @returns {JSX.Element}
- * @constructor
  */
 const Page = props =>{
 
-    const {pageCurrent,changPage,page} = props
+    const {currentPage,changPage,page:{totalPage=1,totalRecord=1}} = props
 
-    /**
-     * 渲染向右 > 箭头
-     * @returns {JSX.Element}
-     */
-    const renderRightOut = () =>{
-        if(pageCurrent===page.total || !page.total){
-            return(
-                <span className="eas-page-ban">
-                    <RightOutlined/>
-                </span>
-            )
-        }else {
-            return (
-                <span className="eas-page-allow" onClick={()=>changPage(pageCurrent+1)}>
-                    <RightOutlined/>
-                </span>
-            )
-        }
-    }
-
-    return  page?.total > 1 &&  <div className="eas-page">
-                <span
-                    className={`${pageCurrent===1?"eas-page-ban":"eas-page-allow"}`}
-                    onClick={()=>pageCurrent===1? null :changPage(pageCurrent - 1)}
-                >
-                    <LeftOutlined/>
-                </span>
-                <span className="eas-page-current">{pageCurrent}</span>
-                <span> / { page && page.total ? page.total:1}</span>
-                { renderRightOut() }
-            </div>
+    return totalPage > 1 && <div className="eas-page">
+        <div className={`${currentPage===1?"eas-page-ban":"eas-page-allow"}`}
+             onClick={()=>currentPage===1 ? null:changPage(currentPage-1)}
+        ><LeftOutlined/></div>
+        <div className="eas-page-current">{currentPage}</div>
+        <div className='eas-page-line'> / </div>
+        <div>{totalPage}</div>
+        <div className={`${currentPage===totalPage?"eas-page-ban":"eas-page-allow"}`}
+             onClick={()=>currentPage===totalPage? null:changPage(currentPage+1)}
+        ><RightOutlined/></div>
+        <div className='eas-page-record'>  共{totalRecord}条 </div>
+    </div>
 }
 
 export default Page

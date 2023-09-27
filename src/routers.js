@@ -17,24 +17,30 @@ const NotFound = SyncComponent(()=>import('./setting/Privilege/NotFound'))
  */
 const Home = SyncComponent(() => import('./home/compontents/HomePage'))
 
+/**
+ * 用户管理
+ */
+const UserLayout = SyncComponent(()=>import('./user/navigator/UserAside'))
+const OrgaManagement = SyncComponent(() => import('./user/user/OrgaManagement'));
+const UserManagement = SyncComponent(() => import('./user/user/UserManagement'));
+const PortalDirectory = SyncComponent(() => import('./user/user/Directory'));
+const UserGroupPage = SyncComponent(() => import('./user/user/UserGroupPage'))
+
 
 /**
  * 系统设置
- * @type {LazyComponent|*}
  */
-const SettingLayout = SyncComponent(()=> import('./setting/Navigator/setting'));
-const OrgaManagement = SyncComponent(() => import('./setting/User/OrgaManagement'));
-const UserManagement = SyncComponent(() => import('./setting/User/UserManagement'));
-const PortalDirectory = SyncComponent(() => import('./setting/User/Directory'));
-const UserGroupPage = SyncComponent(() => import('./setting/User/UserGroupPage'))
-const SystemRole = SyncComponent(() => import('./setting/Privilege/SystemRolePage'));
+const Setting = SyncComponent(()=> import('./setting/Navigator/setting'));
 const MessageSendType = SyncComponent(() => import('./setting/Message/MessageSendTypePage'));
 const MessageManagement = SyncComponent(() => import('./setting/Message/Management'));
 const PluginList = SyncComponent(() => import('./setting/Plugin/Plugin'))
 const VersionPage = SyncComponent(() => import('./setting/Version'));
+const SystemRole = SyncComponent(() => import('./setting/Privilege/SystemRolePage'));
 
-const LogListPage = SyncComponent(()=> import('./setting/Secuity/log/LogList'))
-const DataImport = SyncComponent(()=>import('./setting/Secuity/dataImport/components/DataImport'))
+const LogListPage = SyncComponent(()=> import('./setting/Secuity/LogList'))
+const DataImport = SyncComponent(()=>import('./setting/integration/dataImport/components/DataImport'))
+
+const BackupRecovery = SyncComponent(()=>import('./setting/Secuity/BackupRecovery'))
 
 
 /**
@@ -92,29 +98,35 @@ const routers = [
                 render: props =><NotFound {...props} homePath={'/404'}/>
             },
             {
-                component: SettingLayout,
-                path: "/setting",
-                routes:[
+                component: UserLayout,
+                path: "/user",
+                routes: [
                     {
                         component: OrgaManagement,
-                        path:"/setting/orga",
+                        path:"/user/orga",
                         exact:true,
                     },
                     {
                         component: UserManagement,
-                        path:"/setting/user",
+                        path:"/user/user",
                         exact:true,
                     },
                     {
                         component: PortalDirectory,
-                        path:"/setting/dir",
+                        path:"/user/dir",
                         exact:true,
                     },
                     {
                         component: UserGroupPage,
-                        path: "/setting/userGroup",
+                        path: "/user/userGroup",
                         exact: true
                     },
+                ]
+            },
+            {
+                component: Setting,
+                path: "/setting",
+                routes:[
                     {
                         component: SystemRole,
                         path:"/setting/permission",
@@ -143,6 +155,11 @@ const routers = [
                     {
                         component: DataImport,
                         path:"/setting/data_import",
+                        exact:true,
+                    },
+                    {
+                        component: BackupRecovery,
+                        path:"/setting/backups",
                         exact:true,
                     },
                     {

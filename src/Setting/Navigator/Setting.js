@@ -14,43 +14,13 @@ const Setting = props =>{
 
     const applicationRouters =  [
         {
-            id:'1',
-            title: '用户与部门',
-            icon :<SettingOutlined/>,
-            children:[
-                {
-                    id:'/setting/orga',
-                    title: '部门',
-                    purviewCode:'orga',
-                    icon :<SettingOutlined/>,
-                },
-                {
-                    id:'/setting/user',
-                    title: '用户',
-                    purviewCode:'user',
-                    icon :<SettingOutlined/>,
-                },
-                {
-                    id:'/setting/userGroup',
-                    title: '用户组',
-                    purviewCode:'user_group',
-                    icon :<SettingOutlined/>,
-                },
-                {
-                    id:'/setting/dir',
-                    title: '用户目录',
-                    purviewCode:'user_dir',
-                    icon :<SettingOutlined/>,
-                }]
-        },
-        {
             id:'/setting/permission',
             title: '权限',
             purviewCode:'permission',
             icon :<SettingOutlined/>,
         },
         {
-            id:'3',
+            id:'message',
             title: '消息',
             icon :<SettingOutlined/>,
             children: [
@@ -73,21 +43,34 @@ const Setting = props =>{
             icon :<SettingOutlined/>,
         },
         {
-            id:'6',
+            id:'integration',
+            title: '系统集成',
+            icon :<SettingOutlined/>,
+            children:[
+                {
+                    id:'/setting/data_import',
+                    title: '用户导入',
+                    icon :<SettingOutlined/>,
+                }
+            ]
+        },
+        {
+            id:'security',
             title: '安全',
             icon :<SettingOutlined/>,
             children:[
+                {
+                    id:'/setting/backups',
+                    title: '备份与恢复',
+                    icon :<SettingOutlined/>,
+                    purviewCode:"restore",
+                },
                 {
                     id:'/setting/log',
                     title: '操作日志',
                     purviewCode:'log',
                     icon :<SettingOutlined/>,
                 },
-                {
-                    id:'/setting/data_import',
-                    title: '数据导入',
-                    icon :<SettingOutlined/>,
-                }
             ]
         },
         {
@@ -95,7 +78,7 @@ const Setting = props =>{
             title: '版本与许可证',
             purviewCode:'version',
             icon :<SettingOutlined/>,
-        }
+        },
     ]
 
     return   <SystemContent

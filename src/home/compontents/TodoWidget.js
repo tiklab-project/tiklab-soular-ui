@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Empty} from 'antd';
-import {getUser} from 'tiklab-core-ui';
+import {getUser,applyJump} from 'tiklab-core-ui';
 import {RightOutlined} from '@ant-design/icons';
 import {getTodoPageService} from '../store/store';
 import Btn from '../../common/btn';
@@ -43,8 +43,8 @@ const TodoWidget = props => {
 
     const changRouter = (item) => {
         const {link} = item;
-        if (link) {
-            props.history.push(link.split("#")[1])
+        if (link && /^http|https/.test(link)) {
+            applyJump(link)
         }
     }
 

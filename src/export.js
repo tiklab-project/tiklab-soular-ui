@@ -8,9 +8,12 @@ const ExcludeProductUser = SyncComponent(() => import('./Login/ExcludeProductUse
 const Logout = SyncComponent(()=>import("./login/Logout"))
 const Wechat = SyncComponent(()=>import("./login/Wechat"))
 
+const UserLayout = SyncComponent(()=>import('./user/navigator/UserAside'))
+
+const SettingLayout = SyncComponent(()=> import('./setting/Navigator/setting'));
+
 /**
  * 首页工作台
- * @type {LazyComponent|*}
  */
 const Home = SyncComponent(() => import('./home/compontents/HomePage'))
 
@@ -19,26 +22,29 @@ const OplogFull = SyncComponent(()=>import('./home/compontents/OplogFull'))
 const NotFound = SyncComponent(()=>import('./setting/Privilege/NotFound'))
 
 /**
- * 系统设置
- * @type {LazyComponent|*}
+ * 用户管理
  */
-const OrgaManagement = SyncComponent(() => import('./setting/User/OrgaManagement'));
-const UserManagement = SyncComponent(() => import('./setting/User/UserManagement'));
-const PortalDirectory = SyncComponent(() => import('./setting/User/Directory'));
-const UserGroupPage = SyncComponent(() => import('./setting/User/UserGroupPage'))
+const OrgaManagement = SyncComponent(() => import('./user/user/OrgaManagement'));
+const UserManagement = SyncComponent(() => import('./user/user/UserManagement'));
+const PortalDirectory = SyncComponent(() => import('./user/user/Directory'));
+const UserGroupPage = SyncComponent(() => import('./user/user/UserGroupPage'))
+
+/**
+ * 系统设置
+ */
 const SystemRole = SyncComponent(() => import('./setting/Privilege/SystemRolePage'));
 const MessageSendType = SyncComponent(() => import('./setting/Message/MessageSendTypePage'));
 const MessageManagement = SyncComponent(() => import('./setting/Message/Management'));
 const PluginList = SyncComponent(() => import('./setting/Plugin/Plugin'))
 const VersionPage = SyncComponent(() => import('./setting/Version'));
 
-const LogListPage = SyncComponent(()=> import('./setting/Secuity/log/LogList'))
-const DataImport = SyncComponent(()=>import('./setting/Secuity/dataImport/components/DataImport'))
+const LogListPage = SyncComponent(()=> import('./setting/Secuity/LogList'))
+const DataImport = SyncComponent(()=>import('./setting/integration/dataImport/components/DataImport'))
 
+const BackupRecovery = SyncComponent(()=>import('./setting/Secuity/BackupRecovery'))
 
 /**
  * 基础数据
- * @type {LazyComponent|*}
  */
 const TodoTemplate = SyncComponent(()=> import('./setting/Base/Todo/todoTemp'));
 const BaseTodoTypePage =  SyncComponent(()=> import('./setting/Base/Todo/todoTypePage'));
@@ -65,6 +71,9 @@ export {
     Wechat,
     Logout,
 
+    UserLayout,
+    SettingLayout,
+
     Home,
     OplogFull,
 
@@ -81,6 +90,9 @@ export {
     VersionPage,
     LogListPage,
     DataImport,
+
+    BackupRecovery,
+
     TodoTemplate,
     BaseTodoTypePage,
     BaseSystemFeature,

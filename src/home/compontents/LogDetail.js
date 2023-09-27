@@ -1,7 +1,7 @@
 import React from "react";
-import {LeftOutlined} from "@ant-design/icons";
 import {Descriptions, Space} from "antd";
-import TitleAction from "../../common/titleAction";
+import BreadCrumb from "../../common/breadCrumb";
+import {applyJump} from "tiklab-core-ui";
 import {PROJECT_NAME} from "../../utils/constant";
 import './LogDetail.scss';
 
@@ -12,24 +12,17 @@ const LogDetail = props => {
     const {link} = data
 
     const changRouter = () => {
-        if (link) {
-            if(/^http|https/.test(link)){
-                history.push(link.split("#")[1])
-            }
+        if (link && /^http|https/.test(link)) {
+            applyJump(link)
         }
     }
 
     return(
         <div className='tiklab-oplog-details'>
             <div className='tiklab-oplog-details-content'>
-                <TitleAction
-                    title={'动态详情'}
-                    icon={
-                        <LeftOutlined
-                            onClick={()=>closeDetailPage()}
-                            style={{fontSize:'var(--tiklab-icon-size-16)'}}
-                        />
-                    }
+                <BreadCrumb
+                    firstItem={'动态详情'}
+                    onClick={()=>closeDetailPage()}
                 />
                 <Descriptions labelStyle={{justifyContent: 'flex-start',minWidth:100}}>
                     <Descriptions.Item label="摘要" span={3}>{data.abstractContent}</Descriptions.Item>

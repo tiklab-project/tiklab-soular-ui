@@ -2,7 +2,6 @@ import React,{useEffect,useState} from "react";
 import {DownOutlined,UpOutlined} from "@ant-design/icons";
 import {renderRoutes} from "react-router-config";
 import {inject,observer} from "mobx-react";
-import {getUser} from 'tiklab-core-ui';
 import {SYSTEM_ROLE_STORE} from "tiklab-privilege-ui/es/store";
 import {SystemNav,PrivilegeButton} from "tiklab-privilege-ui";
 import {templateRouter} from "./SettingRouters";
@@ -18,11 +17,7 @@ const Setting = props =>{
 
     const {route,applicationRouters,systemRoleStore} = props
 
-    const {getSystemPermissions,systemPermissions} = systemRoleStore
-
-    useEffect(()=>{
-        getSystemPermissions(getUser().userId)
-    },[])
+    const {systemPermissions} = systemRoleStore
 
     let path = props.location.pathname
 
@@ -133,7 +128,7 @@ const Setting = props =>{
             applicationRouters={menus()}
             expandedTree={expandedTree}
             setExpandedTree={setExpandedTree}
-            outerPath={"/Setting"}
+            outerPath={"/setting"}
             notFoundPath={"/404"}
         >
             <div className="system">

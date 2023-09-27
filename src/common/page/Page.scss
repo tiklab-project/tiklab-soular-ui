@@ -1,19 +1,23 @@
 .eas-page{
-    width: 100%;
-    text-align: center;
-    padding-top: 10px;
-    height: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
     .eas-page-ban{
         cursor:not-allowed;
         color: var(--tiklab-gray-500);
     }
     .eas-page-allow{
         cursor: pointer;
-        &:hover{
-          color: var(--tiklab-blue);
-        }
     }
-    .eas-page-current{
+    .eas-page-current,.eas-page-allow:hover{
         color: var(--tiklab-blue);
+    }
+    .eas-page-line{
+        margin: 0 5px;
+    }
+    .eas-page-record{
+        margin-left: 10px;
+        font-size: var(--tiklab-font-12);
     }
 }

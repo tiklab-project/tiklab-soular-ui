@@ -52,7 +52,8 @@ const OplogFull = props => {
                 const data = res.data.dataList;
                 setLogData(data);
                 setLogPage({
-                    total:res.data.totalPage
+                    totalPage:res.data.totalPage,
+                    totalRerocd:res.data.totalRerocd
                 })
             }
         })
@@ -156,7 +157,7 @@ const OplogFull = props => {
                             />
                     }
                     <Page
-                        pageCurrent={params.pageParam.currentPage}
+                        currentPage={params.pageParam.currentPage}
                         changPage={changPage}
                         page={logPage}
                     />

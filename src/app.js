@@ -16,7 +16,7 @@ const App = (props) => {
     const {allStore,routes} = props
 
     const {i18n} = useTranslation();
-    const [viable,setViable] = useState(true);
+    const [visible,setVisible] = useState(true);
     const [pluginData,setPluginData] = useState({
         routes,
         pluginStore:[],
@@ -28,11 +28,11 @@ const App = (props) => {
     useEffect(() => {
         pluginLoader(routes, resources, i18n).then(res => {
             setPluginData(res)
-            setViable(false)
+            setVisible(false)
         })
     }, []);
 
-    if (viable) {
+    if (visible) {
         return <div>加载中</div>
     }
 

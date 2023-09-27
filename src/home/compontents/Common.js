@@ -2,34 +2,13 @@ import React from 'react'
 import Tabs from '../../common/tabs/Tabs'
 
 const Products = [
-    {
-        value: 'all',
-        label: "所有应用",
-    },
-    {
-        value: 'eas',
-        label: "Eas",
-    },
-    {
-        value: 'postin',
-        label: "PostIn",
-    },
-    {
-        value: 'teamwire',
-        label: "TeamWire",
-    },
-    {
-        value: 'teston',
-        label: "TestOn",
-    },
-    {
-        value: 'kanass',
-        label: "Kanass",
-    },
-    {
-        value: 'matflow',
-        label: "MatFlow",
-    },
+    {value: 'all', label: "所有应用"},
+    {value: 'eas', label: "Eas"},
+    {value: 'postin', label: "PostIn",},
+    {value: 'teamwire', label: "TeamWire",},
+    {value: 'teston', label: "TestOn",},
+    {value: 'kanass', label: "Kanass",},
+    {value: 'matflow', label: "MatFlow",},
 ]
 
 const ProductsTypeTab = props => {

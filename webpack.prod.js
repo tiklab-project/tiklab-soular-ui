@@ -96,24 +96,10 @@ module.exports = merge(baseWebpackConfig, {
                     priority: 2,
                     reuseExistingChunk: true
                 },
-                tiklabLicenceUI: {
-                    name: "chunk-tiklab-licence-ui",
-                    chunks: "all",
-                    test: /tiklab-licence-ui/,
-                    priority: 2,
-                    reuseExistingChunk: true
-                },
-                tiklabIntegrationUI: {
-                    name: "chunk-tiklab-integration-ui",
-                    chunks: "all",
-                    test: /[\\/]node_modules[\\/]tiklab-integration-ui[\\/]/,
-                    priority: 2,
-                    reuseExistingChunk: true
-                },
                 tiklabSecurityUI: {
                     name: "chunk-tiklab-security-ui",
                     chunks: "all",
-                    test: /tiklab-security-ui/,
+                    test: /[\\/]node_modules[\\/]tiklab-security-ui[\\/]/,
                     priority: 2,
                     reuseExistingChunk: true
                 },
@@ -150,6 +136,13 @@ module.exports = merge(baseWebpackConfig, {
                     chunks: "all",
                     test: /[\\/]node_modules[\\/]moment[\\/]/,
                     priority: 2,
+                    reuseExistingChunk: true
+                },
+                tiklabLicenceUI: {
+                    name: "chunk-tiklab-licence-ui",
+                    chunks: "all",
+                    test: /[\\/]node_modules[\\/]tiklab-licence-ui[\\/]/,
+                    priority: 3,
                     reuseExistingChunk: true
                 },
                 zrender:{

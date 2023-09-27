@@ -1,50 +1,86 @@
-
-.tiklab_portal{
+.eas_dropdown{
   position: relative;
+}
 
-  &_block {
-    height: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    justify-content: center;
-    &_item {
-      cursor: pointer;
-      padding: 4px;
-      display: inline-block;
-      &:hover{
-        display: inline-block;
-        border-radius: 50%;
-        color: rgb(0, 82, 204);
-        background-color: rgba(222, 235, 255, 0.9);
-      }
-    }
-    &_linked{
-      display: inline-block;
-      border-radius: 50%;
-      color: rgb(0, 82, 204);
-      background-color: rgba(222, 235, 255, 0.9);
-    }
-    &_icon {
-      font-size: 24px;
-    }
+.eas_dropdown_block {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  &_title, &_item {
+    cursor: pointer;
+    padding: 4px;
   }
-  &_menu {
-    position: absolute;
-    display: block;
-    box-sizing: border-box;
-    z-index: 400;
-    background-color: #FFFFFF;
-    border-radius: 3px;
-    box-shadow: 0 4px 8px -2px rgba(9, 30, 66, 0.25), 0 0 1px rgba(9, 30, 66, 0.31);
-    overflow: auto;
-    min-width: 140px;
-    right: 0;
-    top: 48px;
+  &_item:hover, &_linked {
+    border-radius: 50%;
+    color: rgb(0, 82, 204);
+    background-color: rgba(222, 235, 255, 0.9);
   }
-  &_hidden {
-    visibility: hidden;
+  &_icon {
+    font-size: 24px;
   }
 }
 
+.eas_dropdown_hidden{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.eas_dropdown .eas_dropdown_menu{
+  right: 0;
+  top: 48px;
+}
+
+.eas_dropdown .eas_dropdown_menu{
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  z-index: 400;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px -2px rgba(9, 30, 66, 0.25), 0 0 1px rgba(9, 30, 66, 0.31);
+  overflow: auto;
+  min-width: 140px;
+}
+
+[data-title-bottom]{
+  position: relative;
+  &::before,
+  &::after {
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    left: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  &::before {
+    border: 5px solid transparent;
+    transform: translateX(-50%) translateY(-5px);
+    content: '';
+    margin-top: 3px;
+    border-bottom-color: #21242a;
+  }
+  &::after {
+    padding: 5px;
+    background-color: #21242a;
+    border-radius: 2px;
+    box-shadow: 0 5px 15px rgba(#000, 0.2);
+    color: #fff;
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+    margin-top: 12px;
+    transform: translateX(-50%) translateY(-5px);
+    content: attr(data-title-bottom);
+  }
+  &:hover {
+    &::before,
+    &::after {
+      opacity: 1;
+    }
+  }
+}

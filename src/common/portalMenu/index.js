@@ -5,9 +5,9 @@
  * @description index
  */
 import React, {useState, memo, useEffect, useRef} from "react";
-import {Tooltip} from "antd";
 import './styles';
-const PortalMenu = memo(({tooltip, children, visibility, Icon, width=140}) => {
+
+const PortalMenu = memo(({tooltip, children, visibility, Icon, onClick,width=140}) => {
 
     const [visible,setVisible] = useState(false);
 
@@ -32,27 +32,30 @@ const PortalMenu = memo(({tooltip, children, visibility, Icon, width=140}) => {
             setVisible(false)
         })
     },[visible]);
+
+    const link = () =>{
+        setVisible(!visible)
+    }
+
     return(
-        <div className={'tiklab_portal'} ref={tiklab_portal_menu}>
-            <div className={'tiklab_portal_block'}>
-                <span className={visible ? "tiklab_portal_block_item tiklab_portal_block_linked" : 'tiklab_portal_block_item'} onClick={()=> setVisible(!visible)}>
-                    <Tooltip title={tooltip} mouseEnterDelay={0.3}>
-                        <span className={"tiklab_portal_block_icon"}>
-                            {
-                                Icon
-                            }
-                        </span>
-                    </Tooltip>
+        <div className="eas_dropdown" ref={tiklab_portal_menu}>
+            <div className="eas_dropdown_block">
+                <span
+                    className={`eas_dropdown_block_item ${visible? "eas_dropdown_block_linked": ''}`}
+                    onClick={onClick? onClick : link}
+                >
+                    <span className="eas_dropdown_block_icon" data-title-bottom={tooltip}>
+                        { Icon }
+                    </span>
                 </span>
             </div>
-            <div
-                style={{width}}
-                className={visible ? 'tiklab_portal_menu' : "tiklab_portal_menu tiklab_portal_hidden"}
-            >
-                {children}
-            </div>
+            {
+                children &&
+                <div style={{width}} className={`eas_dropdown_menu ${visible?"":"eas_dropdown_hidden"}`} >
+                    {children}
+                </div>
+            }
         </div>
-
     )
 });
 

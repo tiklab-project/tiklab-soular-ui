@@ -1,14 +1,14 @@
-import React,{useEffect,useState} from "react";
+import React,{useEffect,useState,useRef} from "react";
 import {Input, Form, message, Select, Spin} from "antd";
-import {LeftOutlined} from '@ant-design/icons';
 import Btn from "../../../../common/btn";
+import BreadCrumb from "../../../../common/breadCrumb";
 import {PROJECT_NAME, WORK_APP_SELECT} from "../../../../utils/constant";
 import dataImportStore from "../store/DataImportStore";
 
 import "./DataImport.scss";
 
 /**
- * 数据导入页面
+ * 用户数据导入页面
  * @param props
  * @constructor
  */
@@ -16,7 +16,9 @@ const DataImport = (props) => {
     
     const {importData,findImportMessage} = dataImportStore
 
-    const [form] = Form.useForm()
+    const [form] = Form.useForm();
+
+    const pressRef = useRef();
 
     // 进度条内容
     const [press,setPress] = useState(null)
@@ -29,6 +31,12 @@ const DataImport = (props) => {
 
     // 加载状态
     const [isLoading,setIsLoading] = useState(true)
+
+    useEffect(()=>{
+        if(pressRef?.current && isActiveSlide){
+            pressRef.current.scrollTop = pressRef.current.scrollHeight
+        }
+    },[isActiveSlide,press?.message])
 
     let interval
     useEffect(()=>{
@@ -64,9 +72,23 @@ const DataImport = (props) => {
 
     /**
      * 开启进度定时器
-     * @returns {Promise<void>}
      */
     const doProcess = () => {
+        findImportMessage().then(res=>{
+            if(res.code===0 && res.data.state){
+                setPress(res.data)
+                setPressVisible(true)
+                findInter()
+            }
+            setIsLoading(false)
+        })
+    }
+
+    /**
+     * 开启定时器
+     */
+    const findInter = () =>{
+        clearInterval(interval)
         interval = setInterval(()=>findImportMessage().then(res=>{
             if(res.code===0){
                 setPress(res.data)
@@ -85,20 +107,46 @@ const DataImport = (props) => {
     }
 
     /**
+     * 鼠标滚轮滑动事件
+     */
+    const onWheel = () => {
+        if(!isActiveSlide) return
+        setIsActiveSlide(false)
+    }
+
+    let startScrollTop  = 0;
+
+    /**
+     * 鼠标左键事件获取内容区域初始滚动位置
+     * @param e
+     */
+    const handleMouseDown = e =>{
+        if(e.button===0){
+            if(!isActiveSlide) return
+            startScrollTop  = pressRef.current.scrollTop;
+        }
+    }
+
+
+    /**
+     * 结束滚动位置
+     * @param e
+     */
+    const handleMouseUp = e => {
+        if(e.button===0){
+            if(!isActiveSlide) return
+            const endScrollTop = pressRef.current.scrollTop;
+            if(startScrollTop !== endScrollTop) {
+                setIsActiveSlide(false)
+            }
+        }
+    }
+
+    /**
      * 关闭进度详情
      */
     const closePress = () => {
         setPressVisible(false)
-    }
-
-    // 运行日志
-    const renderPressLog = () => {
-        const dataImport=document.getElementById("data-import-log")
-        // 设置滚动条在最下面
-        if(dataImport && isActiveSlide){
-            dataImport.scrollTop=dataImport.scrollHeight
-        }
-        return press?.message || '暂无日志'
     }
 
     // 运行结果
@@ -127,15 +175,10 @@ const DataImport = (props) => {
         return (
             <div className="data-import">
                 <div className="data-import-progress">
-                    <div className="progress-content-up">
-                        {
-                            !press?.state &&
-                            <span className='up-back' onClick={closePress}>
-                                <LeftOutlined />
-                            </span>
-                        }
-                        <span>数据导入</span>
-                    </div>
+                    <BreadCrumb
+                        firstItem={"用户导入"}
+                        onClick={press?.state?null:closePress}
+                    />
                     <div className='progress-content-info'>
                         <div className='info-left'>
                             <div>
@@ -161,10 +204,13 @@ const DataImport = (props) => {
                     </div>
                     <div className='progress-content-title'>输出</div>
 
-                    <div className='progress-content-log' id='data-import-log'
-                         onWheel={()=>setIsActiveSlide(false)}
+                    <div className='progress-content-log'
+                         ref={pressRef}
+                         onWheel={onWheel}
+                         onMouseDown={handleMouseDown}
+                         onMouseUp={handleMouseUp}
                     >
-                        { renderPressLog() }
+                        { press?.message || '暂无日志' }
                     </div>
                 </div>
             </div>
@@ -174,7 +220,7 @@ const DataImport = (props) => {
     return (
         <div className="data-import">
             <div className="data-import-data">
-                <div className='data-content-up'>数据导入</div>
+                <BreadCrumb firstItem={"用户导入"}/>
                 <div className='data-content-form'>
                     <Form
                         form={form}

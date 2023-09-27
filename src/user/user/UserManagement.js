@@ -1,6 +1,6 @@
-
 import React from 'react';
 import {User} from "tiklab-user-ui";
+
 const UserManagement = props => {
     return(
         <User
@@ -9,4 +9,5 @@ const UserManagement = props => {
         />
     )
 };
+
 export default UserManagement

@@ -1,9 +1,4 @@
 .data-import{
-    .data-content-up{
-        font-size:var(--tiklab-font-16);
-        font-weight: var(--tiklab-font-weight-bold);
-        margin-bottom: var(--tiklab-padding-item);
-    }
     .progress-content-up .up-back{
         cursor: pointer;
         color: var(--tiklab-blue);
@@ -12,31 +7,25 @@
     .data-import-data{
         max-width: 900px;
         margin: auto;
-        padding: 20px;
+        padding: 15px;
         .data-content-form{
             margin-bottom: 10px;
-        }
-        .data-content-btn{
-            text-align: right;
+            margin-top: 15px;
         }
     }
     .data-import-progress{
         max-width: 900px;
         margin: auto;
-        padding: 20px;
+        padding: 15px;
         display: flex;
         flex-direction: column;
         overflow: hidden;
         height: 100%;
-        .progress-content-up{
-            font-size:var(--tiklab-font-16);
-            font-weight: var(--tiklab-font-weight-bold);
-            margin-bottom: var(--tiklab-padding-item);
-        }
         .progress-content-info{
             display: flex;
             align-items: center;
             justify-content: space-between;
+            margin-top: 15px;
             .info-left div{
                 &:first-child{
                     margin-bottom: 8px;

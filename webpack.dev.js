@@ -45,6 +45,7 @@ module.exports = merge(baseWebpackConfig,{
     // 开发环境本地启动的服务配置
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
+        // contentBase: path.join(__dirname, 'plugin'),
         hot:true,
         compress:true,
         port:3010,

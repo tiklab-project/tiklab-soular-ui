@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Select, Space, Empty} from "antd";
 import {LeftOutlined} from '@ant-design/icons';
-import {getUser} from 'tiklab-core-ui';
+import {applyJump, getUser} from 'tiklab-core-ui';
 import {getTodoPageService} from "../store/store";
 import messageEmpty from "../../assets/message.svg";
 import './TodoFull.scss';
@@ -40,7 +40,8 @@ const TodoFull = props => {
                 const data = res.data.dataList;
                 setTodoData(data);
                 setTodoPage({
-                    total:res.data.totalPage
+                    totalPage:res.data.totalPage,
+                    totalRerocd:res.data.totalRerocd
                 })
             }
         })
@@ -75,8 +76,8 @@ const TodoFull = props => {
 
     const changRouter = (item) => {
         const {link} = item;
-        if (link) {
-            props.history.push(link.split("#")[1])
+        if (link && /^http|https/.test(link)) {
+            applyJump(link)
         }
     }
 
@@ -120,7 +121,7 @@ const TodoFull = props => {
                             />
                     }
                     <Page
-                        pageCurrent={params.pageParam.currentPage}
+                        currentPage={params.pageParam.currentPage}
                         changPage={changPage}
                         page={todoPage}
                     />
