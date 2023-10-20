@@ -4,8 +4,15 @@ import OplogFull from "./OplogFull";
 import TodoWidget from './TodoWidget';
 import TodoFull from "./TodoFull";
 import LogDetail from "./LogDetail";
+// import ProductsWidget from "./ProductsWidget";
 import './WidgetWork.scss';
 
+/**
+ * 工作台
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const WidgetWork = props =>{
 
     const [moreTodo,setMoreTodo] = useState(false)
@@ -32,7 +39,9 @@ const WidgetWork = props =>{
         <div className='workLayout'>
             <div className='workLayout-content'>
                 <div className="dashboard-area">
-                    {props.children}
+                    {/*<ProductsWidget*/}
+                    {/*    history={props.history}*/}
+                    {/*/>*/}
                     <TodoWidget
                         history={props.history}
                         setMoreTodo={setMoreTodo}

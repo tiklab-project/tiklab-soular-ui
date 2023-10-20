@@ -15,7 +15,7 @@ const SettingLayout = SyncComponent(()=> import('./setting/Navigator/setting'));
 /**
  * 首页工作台
  */
-const Home = SyncComponent(() => import('./home/compontents/HomePage'))
+const WidgetWork = SyncComponent(() => import('./home/compontents/WidgetWork'))
 
 const OplogFull = SyncComponent(()=>import('./home/compontents/OplogFull'))
 
@@ -74,7 +74,7 @@ export {
     UserLayout,
     SettingLayout,
 
-    Home,
+    WidgetWork,
     OplogFull,
 
     NotFound,

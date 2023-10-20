@@ -15,7 +15,7 @@ const NotFound = SyncComponent(()=>import('./setting/Privilege/NotFound'))
  * 首页工作台
  * @type {LazyComponent|*}
  */
-const Home = SyncComponent(() => import('./home/compontents/HomePage'))
+const WidgetWork = SyncComponent(() => import('./home/compontents/WidgetWork'))
 
 /**
  * 用户管理
@@ -88,7 +88,7 @@ const routers = [
         path: '/',
         routes: [
             {
-                component: Home,
+                component: WidgetWork,
                 path:"/work",
                 exact:true,
             },
