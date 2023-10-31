@@ -6,9 +6,8 @@
     display: flex;
     justify-content: space-between;
     height: 48px;
-    border-bottom: 1px solid var(--tiklab-gray-300);
+    border-bottom: 2px solid var(--tiklab-gray-200);
     padding: 0 15px;
-    background: var(--tiklab-blue);
     &_link {
       height: 100%;
       display: flex;
@@ -16,18 +15,11 @@
       padding: 0 8px;
       >span{
         cursor: pointer;
-        color: var(--tiklab-white);
-        &:hover{
-          color: var(--tiklab-white);
-        }
       }
     }
     &_link_active {
       position: relative;
-      background-color: #a2aceacc;
-      >span{
-        color: var(--tiklab-gray-400);
-      }
+      border-bottom: 2px solid var(--tiklab-blue);
     }
     &_right{
       display: flex;
@@ -41,7 +33,9 @@
     }
     &-icon{
       font-size: var(--tiklab-icon-size-22);
-      color: #ffffff;
+    }
+    &_applinkS{
+      padding-left: 5px;
     }
   }
 
@@ -59,4 +53,6 @@
     padding: 0 20px;
   }
 }
+
+
 

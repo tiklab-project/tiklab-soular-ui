@@ -37,8 +37,10 @@
           justify-content: space-between;
           padding: 8px;
           .full_oplog_abstract_text{
-            color: var(--tiklab-blue);
             flex: 1;
+            &:hover{
+              color: var(--tiklab-blue);
+            }
           }
           .time{
             color: var(--tiklab-gray-500);

@@ -9,7 +9,7 @@ import {getUser} from 'tiklab-core-ui';
 import {renderRoutes} from 'react-router-config'
 import {AppLink,HelpLink,AvatarLink} from "tiklab-licence-ui";
 import {findMessagePageService} from "../notification/api";
-import easLogo from '../../assets/eas.png'
+import easLogo from '../../assets/logo.png'
 import Notification from "../notification";
 import PortalMenu from '../portalMenu'
 import './Layout.scss'
@@ -74,8 +74,10 @@ const Portal = props => {
         <main className="layout">
             <header className="layout_header">
                 <Space size="large">
-                    <AppLink/>
-                    <img alt={'门户中心'} src={easLogo} height={'50%'} />
+                    <div className='layout_header_applinkS'>
+                        <AppLink/>
+                    </div>
+                    <img alt={'门户中心'} src={easLogo} height={'60%'} />
                     {
                         homeRouter.map(item => {
                             return(
