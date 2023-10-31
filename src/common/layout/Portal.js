@@ -74,7 +74,8 @@ const Portal = props => {
         <main className="layout">
             <header className="layout_header">
                 <Space size="large">
-                    <div className='layout_header_applinkS'>
+                    {/*<div className='layout_header_applinkS'>*/}
+                    <div className={`${path.indexOf("/user")===0?'layout_header_applinkL':'layout_header_applinkS'}`}>
                         <AppLink/>
                     </div>
                     <img alt={'门户中心'} src={easLogo} height={'60%'} />
