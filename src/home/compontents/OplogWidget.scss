@@ -4,7 +4,6 @@
   overflow: hidden;
   padding: 10px;
   background: var(--tiklab-white);
-  border: 1px solid var(--tiklab-gray-200);
   min-height: 300px;
   &-card{
     width: 100%;
@@ -38,10 +37,8 @@
           justify-content: space-between;
           padding: 8px;
           .full_oplog_abstract_text{
+            color: var(--tiklab-blue);
             flex: 1;
-            &:hover{
-              color: var(--tiklab-blue);
-            }
           }
           .time{
             color: var(--tiklab-gray-500);
