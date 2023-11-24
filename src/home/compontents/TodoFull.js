@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Select, Space, Empty} from "antd";
-import {LeftOutlined} from '@ant-design/icons';
+import BreadCrumb from "../../common/breadCrumb";
 import {applyJump, getUser} from 'tiklab-core-ui';
 import {getTodoPageService} from "../store/store";
 import messageEmpty from "../../assets/message.svg";
@@ -14,8 +14,6 @@ import Page from "../../common/page/Page";
  * @constructor
  */
 const TodoFull = props => {
-
-    const {setMoreTodo} = props
 
     const [pageParam] = useState({
         pageSize: 20,
@@ -84,10 +82,11 @@ const TodoFull = props => {
     return(
         <div className={'tiklab_fulltodo'}>
             <div className='tiklab_fulltodo-content'>
-                <Space className='tiklab_fulltodo-title'>
-                    <LeftOutlined onClick={()=>setMoreTodo(false)} style={{fontSize: 'var(--tiklab-icon-size-16)',cursor: 'pointer'}}/>
-                    <span className={'tiklab_fulltodo_nav'}>待办</span>
-                </Space>
+                <div className="tiklab_fulltodo-title">
+                    <BreadCrumb
+                        firstItem={"代办"}
+                    />
+                </div>
                 <div className={'tiklab_fulltodo-select'}>
                     <Select
                         options={[

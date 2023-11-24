@@ -5,11 +5,11 @@ import {Axios} from 'tiklab-core-ui';
  * @param params
  * @returns {Promise<unknown>}
  */
-const getOplogPageService = async params => {
+export const getOplogPageService = async params => {
     return await Axios.post('/oplog/findlogpage', params);
 }
 
-const getOpLogTypeListService = async params => {
+export const getOpLogTypeListService = async params => {
     return await Axios.post('/oplog/type/findlogtypelist', params)
 }
 
@@ -17,7 +17,7 @@ const getOpLogTypeListService = async params => {
  * 获取所有工作台应用链接
  * @returns {Promise<*[]|*>}
  */
-const getWorkListService = async () => {
+export const getWorkListService = async () => {
     const appData = await Axios.post('/appLink/findAppLinkList', {});
     if (!appData.code) {
         return appData.data;
@@ -30,7 +30,7 @@ const getWorkListService = async () => {
  * @param data
  * @returns {Promise<unknown>}
  */
-const updateWorkService = async data => {
+export const updateWorkService = async data => {
     return await Axios.post('/appLink/updateAppLink', data);
 };
 
@@ -40,7 +40,7 @@ const updateWorkService = async data => {
  * @param id
  * @returns {Promise<unknown>}
  */
-const deleteWorkByIDService = async id => {
+export const deleteWorkByIDService = async id => {
     const formData = new FormData();
     formData.append('id', id);
 
@@ -52,7 +52,7 @@ const deleteWorkByIDService = async id => {
  * @param data
  * @returns {Promise<unknown>}
  */
-const createWorkAppLinkService = async data => {
+export const createWorkAppLinkService = async data => {
     return await Axios.post('/appLink/createAppLink', data);
 };
 
@@ -61,18 +61,23 @@ const createWorkAppLinkService = async data => {
  * @param params
  * @returns {Promise<unknown>}
  */
-const getTodoPageService = async params => {
+export const getTodoPageService = async params => {
     return await Axios.post('/todo/findtodopage', params);
 }
 
-export {
-    getOplogPageService,
-    getOpLogTypeListService,
 
-    getWorkListService,
-    updateWorkService,
-    deleteWorkByIDService,
-    createWorkAppLinkService,
+export const findOrgaTree = async value => {
+    return await Axios.post('/user/orga/findOrgaTree',{})
+}
 
-    getTodoPageService,
+export const findUserPage = async value => {
+    return await Axios.post('/user/user/findUserPage',value)
+}
+
+export const findAllGroup = async value => {
+    return await Axios.post('/usergroup/findAllGroup')
+}
+
+export const findRolePage = async value => {
+    return await Axios.post('/role/findRolePage',value)
 }

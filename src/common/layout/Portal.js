@@ -11,8 +11,7 @@ import {AppLink,HelpLink,AvatarLink} from "tiklab-licence-ui";
 import {findMessagePageService} from "../notification/api";
 import easLogo from '../../assets/logo.png'
 import Notification from "../notification";
-import PortalMenu from '../portalMenu'
-import './Layout.scss'
+import './Portal.scss';
 
 const Portal = props => {
 
@@ -48,7 +47,6 @@ const Portal = props => {
     },[])
 
     useEffect(()=>{
-        if(path.indexOf("/user")===0) path="/user"
         setCurrentLink(path)
     },[path])
 
@@ -59,9 +57,9 @@ const Portal = props => {
             key: 'work'
         },
         {
-            to:'/user',
-            title:'用户管理',
-            key: 'user'
+            to:'/todo',
+            title:'代办',
+            key: 'todo'
         }
     ]
 
@@ -74,8 +72,7 @@ const Portal = props => {
         <main className="layout">
             <header className="layout_header">
                 <Space size="large">
-                    {/*<div className='layout_header_applinkS'>*/}
-                    <div className={`${path.indexOf("/user")===0?'layout_header_applinkL':'layout_header_applinkS'}`}>
+                    <div className='layout_header_applinkS'>
                         <AppLink/>
                     </div>
                     <img alt={'门户中心'} src={easLogo} height={'60%'} />
@@ -91,21 +88,22 @@ const Portal = props => {
                 </Space>
                 <div className='layout_header_right'>
                     <div className="layout_header_right-text">
-                        <PortalMenu
-                            tooltip={'设置'}
-                            Icon={<SettingOutlined className="layout_header-icon"/>}
-                            onClick={()=>props.history.push("/setting")}
-                        />
+                        <div className="text_icon_block_item"
+                             onClick={()=>props.history.push("/setting")}
+                             data-title-bottom={'设置'}
+                        >
+                            <SettingOutlined className="layout_header-icon"/>
+                        </div>
                     </div>
                     <div className="layout_header_right-text">
-                        <PortalMenu
-                            tooltip={'消息'}
-                            visibility={notificationVisibility}
-                            Icon={<Badge count={unread} size="small">
-                                    <BellOutlined className="layout_header-icon"/>
-                                  </Badge>}
-                            onClick={()=>setNotificationVisibility(true)}
-                        />
+                        <div className={`text_icon_block_item ${notificationVisibility? "text_icon_block_linked": ''}`}
+                             onClick={()=>setNotificationVisibility(true)}
+                             data-title-bottom={'消息'}
+                        >
+                            <Badge count={unread} size="small">
+                                <BellOutlined className="layout_header-icon"/>
+                            </Badge>
+                        </div>
                         <Notification
                             history={history}
                             setUnread={setUnread}

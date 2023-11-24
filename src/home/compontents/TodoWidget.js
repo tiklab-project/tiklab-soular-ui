@@ -14,8 +14,6 @@ import './TodoWidget.scss';
  */
 const TodoWidget = props => {
 
-    const {setMoreTodo} = props
-
     const [todoData,setTodoData] = useState([])
 
     const [total,setTotal] = useState(null)
@@ -58,7 +56,7 @@ const TodoWidget = props => {
                             total > 1 &&
                             <Btn
                                 type={'link'}
-                                onClick={()=>setMoreTodo(true)}
+                                onClick={()=>props.history.push('/todo')}
                                 icon={<RightOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}} />}
                             />
                         }

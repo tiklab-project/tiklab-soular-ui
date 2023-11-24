@@ -1,0 +1,29 @@
+.quick-entry{
+    padding: 10px;
+    background: var(--tiklab-white);
+    margin-bottom: var(--tiklab-padding-item);
+    .quick-entry-title{
+      font-size: var(--tiklab-font-16);
+      font-weight: var(--tiklab-font-weight-bold);
+    }
+    .quick-entry-content{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 5px 0 10px;
+        .quick-entry-item{
+            width: 200px;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            background: #fafbfc;
+            &:not(:first-child){
+                margin-left: 15px;
+            }
+            div:first-child{
+                padding-bottom: 15px;
+            }
+        }
+    }
+}

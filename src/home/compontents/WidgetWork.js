@@ -2,9 +2,8 @@ import React,{useState} from 'react';
 import OpLogWidget from './OplogWidget';
 import OplogFull from "./OplogFull";
 import TodoWidget from './TodoWidget';
-import TodoFull from "./TodoFull";
 import LogDetail from "./LogDetail";
-// import ProductsWidget from "./ProductsWidget";
+import QuickEntry from "./QuickEntry";
 import './WidgetWork.scss';
 
 /**
@@ -15,7 +14,6 @@ import './WidgetWork.scss';
  */
 const WidgetWork = props =>{
 
-    const [moreTodo,setMoreTodo] = useState(false)
     const [moreOplog,setMoreOplog] = useState(false)
     const [viewDetail,setViewDetail] = useState(null);
 
@@ -31,20 +29,15 @@ const WidgetWork = props =>{
         return <OplogFull setMoreOplog={setMoreOplog}/>
     }
 
-    if(moreTodo){
-        return <TodoFull setMoreTodo={setMoreTodo}/>
-    }
-
     return (
         <div className='workLayout'>
             <div className='workLayout-content'>
                 <div className="dashboard-area">
-                    {/*<ProductsWidget*/}
-                    {/*    history={props.history}*/}
-                    {/*/>*/}
+                    <QuickEntry
+                        history={props.history}
+                    />
                     <TodoWidget
                         history={props.history}
-                        setMoreTodo={setMoreTodo}
                     />
                     <OpLogWidget
                         setMoreOplog={setMoreOplog}

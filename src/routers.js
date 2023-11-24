@@ -18,13 +18,18 @@ const NotFound = SyncComponent(()=>import('./setting/Privilege/NotFound'))
 const WidgetWork = SyncComponent(() => import('./home/compontents/WidgetWork'))
 
 /**
+ * 代办
+ */
+const Todo = SyncComponent(() => import('./home/compontents/TodoFull'))
+
+/**
  * 用户管理
  */
 const UserLayout = SyncComponent(()=>import('./user/navigator/UserAside'))
-const OrgaManagement = SyncComponent(() => import('./user/user/OrgaManagement'));
-const UserManagement = SyncComponent(() => import('./user/user/UserManagement'));
-const PortalDirectory = SyncComponent(() => import('./user/user/Directory'));
-const UserGroupPage = SyncComponent(() => import('./user/user/UserGroupPage'))
+const OrgaManagement = SyncComponent(() => import('./Setting/user/OrgaManagement'));
+const UserManagement = SyncComponent(() => import('./Setting/user/UserManagement'));
+const PortalDirectory = SyncComponent(() => import('./Setting/user/Directory'));
+const UserGroupPage = SyncComponent(() => import('./Setting/user/UserGroupPage'))
 
 
 /**
@@ -93,40 +98,39 @@ const routers = [
                 exact:true,
             },
             {
+                component: Todo,
+                path:"/todo",
+                exact:true,
+            },
+            {
                 path:"/404",
                 exact:true,
                 render: props =><NotFound {...props} homePath={'/404'}/>
             },
             {
-                component: UserLayout,
-                path: "/user",
-                routes: [
+                component: Setting,
+                path: "/setting",
+                routes:[
                     {
                         component: OrgaManagement,
-                        path:"/user/orga",
+                        path:"/setting/orga",
                         exact:true,
                     },
                     {
                         component: UserManagement,
-                        path:"/user/user",
+                        path:"/setting/user",
                         exact:true,
                     },
                     {
                         component: PortalDirectory,
-                        path:"/user/dir",
+                        path:"/setting/dir",
                         exact:true,
                     },
                     {
                         component: UserGroupPage,
-                        path: "/user/userGroup",
+                        path: "/setting/userGroup",
                         exact: true
                     },
-                ]
-            },
-            {
-                component: Setting,
-                path: "/setting",
-                routes:[
                     {
                         component: SystemRole,
                         path:"/setting/permission",

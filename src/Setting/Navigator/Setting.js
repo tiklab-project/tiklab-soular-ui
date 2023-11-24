@@ -5,7 +5,8 @@ import {
     SoundOutlined,
     LayoutOutlined,
     VerifiedOutlined,
-    MergeCellsOutlined
+    MergeCellsOutlined,
+    TeamOutlined
 } from "@ant-design/icons";
 import SystemContent from "./SettingContent";
 
@@ -18,6 +19,33 @@ import SystemContent from "./SettingContent";
 const Setting = props =>{
 
     const applicationRouters =  [
+        {
+            id:'user',
+            title: '用户与部门',
+            icon :<TeamOutlined/>,
+            children: [
+                {
+                    title:"部门",
+                    id:"/setting/orga",
+                    purviewCode:'orga',
+                },
+                {
+                    title:"用户",
+                    id:"/setting/user",
+                    purviewCode:'user',
+                },
+                {
+                    title:"用户组",
+                    id: "/setting/userGroup",
+                    purviewCode:'user_group',
+                },
+                {
+                    title:"用户目录",
+                    id:"/setting/dir",
+                    purviewCode:'user_dir',
+                },
+            ]
+        },
         {
             id:'/setting/permission',
             title: '权限',

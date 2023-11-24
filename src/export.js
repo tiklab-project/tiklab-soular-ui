@@ -24,10 +24,10 @@ const NotFound = SyncComponent(()=>import('./setting/Privilege/NotFound'))
 /**
  * 用户管理
  */
-const OrgaManagement = SyncComponent(() => import('./user/user/OrgaManagement'));
-const UserManagement = SyncComponent(() => import('./user/user/UserManagement'));
-const PortalDirectory = SyncComponent(() => import('./user/user/Directory'));
-const UserGroupPage = SyncComponent(() => import('./user/user/UserGroupPage'))
+const OrgaManagement = SyncComponent(() => import('./Setting/user/OrgaManagement'));
+const UserManagement = SyncComponent(() => import('./Setting/user/UserManagement'));
+const PortalDirectory = SyncComponent(() => import('./Setting/user/Directory'));
+const UserGroupPage = SyncComponent(() => import('./Setting/user/UserGroupPage'))
 
 /**
  * 系统设置
