@@ -2,8 +2,8 @@ import React, {useEffect, useState} from "react";
 import {
     findAllGroup,
     findUserPage,
-    findOrgaTree,
-    findRolePage
+    findRolePage,
+    findOrga
 } from "../store/store";
 import "./QuickEntry.scss";
 
@@ -24,7 +24,7 @@ const QuickEntry = props => {
     const [roleLength,setRoleLength] = useState(0);
 
     const pageParam =  {
-        pageSize:13,
+        pageSize:1,
         currentPage: 1,
     }
 
@@ -50,7 +50,7 @@ const QuickEntry = props => {
             }
         })
         // 获取部门总数
-        findOrgaTree().then(res=>{
+        findOrga("111111").then(res=>{
             if(res.code===0){
                 if(res.data?.length>0){
                     setOrgLength(res.data.length)

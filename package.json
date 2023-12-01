@@ -19,8 +19,8 @@
         "es:common": "cross-env NODE_ENV=production babel src/common --out-dir es/common && babel src/routers.js --out-file es/routers.js && babel src/app.js --out-file es/app.js && babel src/export.js --out-file es/index.js",
         "es:utils": "cross-env NODE_ENV=production babel src/utils --out-dir es/utils",
         "es:home": "cross-env NODE_ENV=production babel src/Home --out-dir es/Home",
-        "es:setting": "cross-env NODE_ENV=production babel src/Setting --out-dir es/Setting",
-        "es:login": "cross-env NODE_ENV=production babel src/Login --out-dir es/Login",
+        "es:setting": "cross-env NODE_ENV=production babel src/setting --out-dir es/Setting",
+        "es:login": "cross-env NODE_ENV=production babel src/login --out-dir es/Login",
         "es:prod": "npm run es:esm && npm run es:css",
         "es:esm": "rimraf es && cross-env NODE_ENV=production BABEL_ENV=esm rollup -c",
         "es:css": "cd scripts && gulp compile"

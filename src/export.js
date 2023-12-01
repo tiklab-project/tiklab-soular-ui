@@ -1,47 +1,52 @@
 import App from "./app";
-import SettingContent from "./setting/Navigator/SettingContent";
+import SettingContent from "./setting/navigator/SettingContent";
 import SyncComponent from "./common/lazy/SyncComponent";
 import Portal from "./common/layout/Portal";
 
+const Layout = SyncComponent(() => import('./common/layout/Layout'));
+
 const Login = SyncComponent(() => import('./login/Login'))
-const ExcludeProductUser = SyncComponent(() => import('./Login/ExcludeProductUser'))
+const ExcludeProductUser = SyncComponent(() => import('./login/ExcludeProductUser'))
 const Logout = SyncComponent(()=>import("./login/Logout"))
 const Wechat = SyncComponent(()=>import("./login/Wechat"))
 
-const UserLayout = SyncComponent(()=>import('./user/navigator/UserAside'))
-
-const SettingLayout = SyncComponent(()=> import('./setting/Navigator/setting'));
+const SettingLayout = SyncComponent(()=> import('./setting/navigator/Setting'));
 
 /**
  * 首页工作台
  */
 const WidgetWork = SyncComponent(() => import('./home/compontents/WidgetWork'))
 
+/**
+ * 待办
+ */
+const Todo = SyncComponent(() => import('./home/compontents/TodoFull'))
+
 const OplogFull = SyncComponent(()=>import('./home/compontents/OplogFull'))
 
-const NotFound = SyncComponent(()=>import('./setting/Privilege/NotFound'))
+const NotFound = SyncComponent(()=>import('./setting/privilege/NotFound'))
 
 /**
  * 用户管理
  */
-const OrgaManagement = SyncComponent(() => import('./Setting/user/OrgaManagement'));
-const UserManagement = SyncComponent(() => import('./Setting/user/UserManagement'));
-const PortalDirectory = SyncComponent(() => import('./Setting/user/Directory'));
-const UserGroupPage = SyncComponent(() => import('./Setting/user/UserGroupPage'))
+const OrgaManagement = SyncComponent(() => import('./setting/user/OrgaManagement'));
+const UserManagement = SyncComponent(() => import('./setting/user/UserManagement'));
+const PortalDirectory = SyncComponent(() => import('./setting/user/Directory'));
+const UserGroupPage = SyncComponent(() => import('./setting/user/UserGroupPage'))
 
 /**
  * 系统设置
  */
-const SystemRole = SyncComponent(() => import('./setting/Privilege/SystemRolePage'));
-const MessageSendType = SyncComponent(() => import('./setting/Message/MessageSendTypePage'));
-const MessageManagement = SyncComponent(() => import('./setting/Message/Management'));
-const PluginList = SyncComponent(() => import('./setting/Plugin/Plugin'))
-const VersionPage = SyncComponent(() => import('./setting/Version'));
+const SystemRole = SyncComponent(() => import('./setting/privilege/SystemRolePage'));
+const MessageSendType = SyncComponent(() => import('./setting/message/MessageSendTypePage'));
+const MessageManagement = SyncComponent(() => import('./setting/message/Management'));
+const PluginList = SyncComponent(() => import('./setting/plugin/Plugin'))
+const VersionPage = SyncComponent(() => import('./setting/licence/Version'));
 
-const LogListPage = SyncComponent(()=> import('./setting/Secuity/LogList'))
+const LogListPage = SyncComponent(()=> import('./setting/secuity/LogList'))
 const DataImport = SyncComponent(()=>import('./setting/integration/dataImport/components/DataImport'))
 
-const BackupRecovery = SyncComponent(()=>import('./setting/Secuity/BackupRecovery'))
+const BackupRecovery = SyncComponent(()=>import('./setting/secuity/BackupRecovery'))
 
 /**
  * 基础数据
@@ -65,17 +70,19 @@ export {
     App,
     SettingContent,
     Portal,
+    SyncComponent,
 
+    Layout,
     Login,
     ExcludeProductUser,
     Wechat,
     Logout,
 
-    UserLayout,
     SettingLayout,
 
     WidgetWork,
     OplogFull,
+    Todo,
 
     NotFound,
 

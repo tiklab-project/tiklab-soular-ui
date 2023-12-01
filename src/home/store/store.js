@@ -57,17 +57,12 @@ export const createWorkAppLinkService = async data => {
 };
 
 /**
- * 获取所有代办
+ * 获取所有待办
  * @param params
  * @returns {Promise<unknown>}
  */
 export const getTodoPageService = async params => {
     return await Axios.post('/todo/findtodopage', params);
-}
-
-
-export const findOrgaTree = async value => {
-    return await Axios.post('/user/orga/findOrgaTree',{})
 }
 
 export const findUserPage = async value => {
@@ -80,4 +75,11 @@ export const findAllGroup = async value => {
 
 export const findRolePage = async value => {
     return await Axios.post('/role/findRolePage',value)
+}
+
+export const findOrga = async value => {
+    const param = {
+        parentOrgaId:value
+    }
+    return await Axios.post('/user/orga/findOrgaList',param)
 }

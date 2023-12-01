@@ -8,7 +8,7 @@ import messageEmpty from "../../assets/message.svg";
 import './TodoWidget.scss';
 
 /**
- * 代办
+ * 待办
  * @returns {JSX.Element}
  * @constructor
  */
@@ -75,7 +75,7 @@ const TodoWidget = props => {
                                         imageStyle={{
                                             height: 120,
                                         }}
-                                        description={<span style={{color:"#999",fontSize:13}}>没有代办</span>}
+                                        description={<span style={{color:"#999",fontSize:13}}>没有待办</span>}
                                         image={messageEmpty}
                                     />
                             }

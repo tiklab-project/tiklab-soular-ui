@@ -8,7 +8,7 @@ import './TodoFull.scss';
 import Page from "../../common/page/Page";
 
 /**
- * 代办
+ * 待办
  * @param props
  * @returns {JSX.Element}
  * @constructor
@@ -84,7 +84,7 @@ const TodoFull = props => {
             <div className='tiklab_fulltodo-content'>
                 <div className="tiklab_fulltodo-title">
                     <BreadCrumb
-                        firstItem={"代办"}
+                        firstItem={"待办"}
                     />
                 </div>
                 <div className={'tiklab_fulltodo-select'}>
@@ -115,7 +115,7 @@ const TodoFull = props => {
                                 imageStyle={{
                                     height: 120,
                                 }}
-                                description={<span style={{color:"#999",fontSize:13}}>没有代办</span>}
+                                description={<span style={{color:"#999",fontSize:13}}>没有待办</span>}
                                 image={messageEmpty}
                             />
                     }

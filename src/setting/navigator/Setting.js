@@ -8,7 +8,7 @@ import {
     MergeCellsOutlined,
     TeamOutlined
 } from "@ant-design/icons";
-import SystemContent from "./SettingContent";
+import SettingContent from "./SettingContent";
 
 /**
  * 系统设置页面
@@ -109,7 +109,7 @@ const Setting = props =>{
         },
     ]
 
-    return   <SystemContent
+    return   <SettingContent
                 {...props}
                 applicationRouters={applicationRouters}
             />
