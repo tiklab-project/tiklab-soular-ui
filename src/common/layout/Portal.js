@@ -57,9 +57,9 @@ const Portal = props => {
             key: 'work'
         },
         {
-            to:'/todo',
-            title:'待办',
-            key: 'todo'
+            to:'/oplog',
+            title:'动态',
+            key: 'oplog'
         }
     ]
 
@@ -72,9 +72,7 @@ const Portal = props => {
         <main className="layout">
             <header className="layout_header">
                 <Space size="large">
-                    <div className='layout_header_applinkS'>
-                        <AppLink/>
-                    </div>
+                    <AppLink/>
                     <img alt={'门户中心'} src={easLogo} height={'60%'} />
                     {
                         homeRouter.map(item => {

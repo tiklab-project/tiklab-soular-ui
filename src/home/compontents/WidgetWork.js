@@ -1,8 +1,6 @@
-import React,{useState} from 'react';
+import React from 'react';
+import {Row,Col} from "antd";
 import OpLogWidget from './OplogWidget';
-import OplogFull from "./OplogFull";
-import TodoWidget from './TodoWidget';
-import LogDetail from "./LogDetail";
 import QuickEntry from "./QuickEntry";
 import './WidgetWork.scss';
 
@@ -14,38 +12,25 @@ import './WidgetWork.scss';
  */
 const WidgetWork = props =>{
 
-    const [moreOplog,setMoreOplog] = useState(false)
-    const [viewDetail,setViewDetail] = useState(null);
-
-    if (!!viewDetail) {
-        return (
-            <div className={'tiklab_fulloplog'}>
-                <LogDetail data={viewDetail} history={props.history} closeDetailPage={()=>setViewDetail(null)}/>
-            </div>
-        )
-    }
-
-    if(moreOplog){
-        return <OplogFull setMoreOplog={setMoreOplog}/>
-    }
-
     return (
-        <div className='workLayout'>
-            <div className='workLayout-content'>
-                <div className="dashboard-area">
+        <Row className='workLayout'>
+            <Col
+                sm={{ span: "24" }}
+                md={{ span: "24" }}
+                lg={{ span: "24" }}
+                xl={{ span: "18", offset: "3" }}
+                xxl={{ span: "18", offset: "3" }}
+            >
+                <div className="eas-home-limited">
                     <QuickEntry
                         history={props.history}
                     />
-                    <TodoWidget
+                    <OpLogWidget
                         history={props.history}
                     />
-                    <OpLogWidget
-                        setMoreOplog={setMoreOplog}
-                        setViewDetail={setViewDetail}
-                    />
                 </div>
-            </div>
-        </div>
+            </Col>
+        </Row>
     )
 }
 

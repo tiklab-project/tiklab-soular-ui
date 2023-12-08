@@ -1,5 +1,5 @@
 import React,{useEffect,useState,useRef} from "react";
-import {Input, Form, message, Select, Spin} from "antd";
+import {Input, Form, message, Select, Spin,Row,Col} from "antd";
 import Btn from "../../../../common/btn";
 import BreadCrumb from "../../../../common/breadCrumb";
 import {PROJECT_NAME, WORK_APP_SELECT} from "../../../../utils/constant";
@@ -13,7 +13,7 @@ import "./DataImport.scss";
  * @constructor
  */
 const DataImport = (props) => {
-    
+
     const {importData,findImportMessage} = dataImportStore
 
     const [form] = Form.useForm();
@@ -173,106 +173,116 @@ const DataImport = (props) => {
     // 进度详情
     if(pressVisible){
         return (
-            <div className="data-import">
-                <div className="data-import-progress">
-                    <BreadCrumb
-                        firstItem={"用户导入"}
-                        onClick={press?.state?null:closePress}
-                    />
-                    <div className='progress-content-info'>
-                        <div className='info-left'>
-                            <div>
-                                <span>产品类型：</span>
-                                <span>{PROJECT_NAME[press?.database?.application]}</span>
+            <Row className="data-import">
+                <Col
+                    md={{span: "24"}}
+                    lg={{ span: "18", offset: "3" }}
+                >
+                    <div className="eas-home-limited data-import-progress">
+                        <BreadCrumb
+                            firstItem={"用户导入"}
+                            onClick={press?.state?null:closePress}
+                        />
+                        <div className='progress-content-info'>
+                            <div className='info-left'>
+                                <div>
+                                    <span>产品类型：</span>
+                                    <span>{PROJECT_NAME[press?.database?.application]}</span>
+                                </div>
+                                <div>
+                                    <span>数据库链接地址:</span>
+                                    <span>{press?.database?.url}</span>
+                                </div>
                             </div>
-                            <div>
-                                <span>数据库链接地址:</span>
-                                <span>{press?.database?.url}</span>
+                            { renderResult() }
+                        </div>
+                        <div className='progress-content-title'>进度</div>
+
+                        <div className='progress-content-bar'>
+                            <div className="up-progress-bar">
+                                <div className="progress-bar" style={{
+                                    width:`${press?.speed || 0}%`
+                                }}/>
                             </div>
+                            <div className='up-progress-desc'>{press?.speed || 0}%</div>
                         </div>
-                        { renderResult() }
-                    </div>
-                    <div className='progress-content-title'>进度</div>
+                        <div className='progress-content-title'>输出</div>
 
-                    <div className='progress-content-bar'>
-                        <div className="up-progress-bar">
-                            <div className="progress-bar" style={{
-                                width:`${press?.speed || 0}%`
-                            }}/>
+                        <div className='progress-content-log'
+                             ref={pressRef}
+                             onWheel={onWheel}
+                             onMouseDown={handleMouseDown}
+                             onMouseUp={handleMouseUp}
+                        >
+                            { press?.message || '暂无日志' }
                         </div>
-                        <div className='up-progress-desc'>{press?.speed || 0}%</div>
                     </div>
-                    <div className='progress-content-title'>输出</div>
-
-                    <div className='progress-content-log'
-                         ref={pressRef}
-                         onWheel={onWheel}
-                         onMouseDown={handleMouseDown}
-                         onMouseUp={handleMouseUp}
-                    >
-                        { press?.message || '暂无日志' }
-                    </div>
-                </div>
-            </div>
+                </Col>
+            </Row>
         )
     }
 
     return (
-        <div className="data-import">
-            <div className="data-import-data">
-                <BreadCrumb firstItem={"用户导入"}/>
-                <div className='data-content-form'>
-                    <Form
-                        form={form}
-                        layout={"vertical"}
-                        initialValues={{application:'matflow'}}
-                    >
-                        <Form.Item
-                            label={'选择产品'}
-                            name={'application'}
-                            rules={[
-                                {required:true,message:"数据库地址不能为空"},
-                            ]}
+        <Row className="data-import">
+            <Col
+                md={{span: "24"}}
+                lg={{ span: "18", offset: "3" }}
+            >
+                <div className="eas-home-limited">
+                    <BreadCrumb firstItem={"用户导入"}/>
+                    <div className='data-content-form'>
+                        <Form
+                            form={form}
+                            layout={"vertical"}
+                            initialValues={{application:'matflow'}}
                         >
-                            <Select options={WORK_APP_SELECT}/>
-                        </Form.Item>
-                        <Form.Item
-                            label={'数据库链接信息'}
-                            name={'url'}
-                            rules={[
-                                {required:true,message:"数据库链接信息不能为空"},
-                            ]}
-                        >
-                            <Input
-                                autoComplete="off"
-                                placeholder="数据库链接信息，如 jdbc:postgresql://192.168.10.1:5432/tiklab_eas"
-                            />
-                        </Form.Item>
-                        <Form.Item
-                            label={'用户名'}
-                            name={'username'}
-                            rules={[
-                                {required:true,message:"用户名不能为空"},
-                            ]}
-                        >
-                            <Input placeholder="用户名"/>
-                        </Form.Item>
-                        <Form.Item
-                            label={'密码'}
-                            name={'password'}
-                            rules={[
-                                {required:true,message:"密码不能为空"},
-                            ]}
-                        >
-                            <Input.Password placeholder="密码"/>
-                        </Form.Item>
-                    </Form>
+                            <Form.Item
+                                label={'选择产品'}
+                                name={'application'}
+                                rules={[
+                                    {required:true,message:"数据库地址不能为空"},
+                                ]}
+                            >
+                                <Select options={WORK_APP_SELECT}/>
+                            </Form.Item>
+                            <Form.Item
+                                label={'数据库链接信息'}
+                                name={'url'}
+                                rules={[
+                                    {required:true,message:"数据库链接信息不能为空"},
+                                ]}
+                            >
+                                <Input
+                                    autoComplete="off"
+                                    placeholder="数据库链接信息，如 jdbc:postgresql://192.168.10.1:5432/tiklab_eas"
+                                />
+                            </Form.Item>
+                            <Form.Item
+                                label={'用户名'}
+                                name={'username'}
+                                rules={[
+                                    {required:true,message:"用户名不能为空"},
+                                ]}
+                            >
+                                <Input placeholder="用户名"/>
+                            </Form.Item>
+                            <Form.Item
+                                label={'密码'}
+                                name={'password'}
+                                rules={[
+                                    {required:true,message:"密码不能为空"},
+                                ]}
+                            >
+                                <Input.Password placeholder="密码"/>
+                            </Form.Item>
+                        </Form>
+                    </div>
+                    <div className='data-content-btn'>
+                        <Btn onClick={imports} type={"primary"} title={"导入"}/>
+                    </div>
                 </div>
-                <div className='data-content-btn'>
-                    <Btn onClick={imports} type={"primary"} title={"导入"}/>
-                </div>
-            </div>
-        </div>
+            </Col>
+        </Row>
     )
 }
 

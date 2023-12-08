@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Space, Empty} from 'antd';
-import {getUser} from 'tiklab-core-ui';
+import {applyJump, getUser} from 'tiklab-core-ui';
 import {RightOutlined} from '@ant-design/icons';
 
 import {getOplogPageService} from '../store/store';
@@ -16,11 +16,9 @@ import './OplogWidget.scss';
  */
 const OpLogWidget = props => {
 
-    const {setViewDetail,setMoreOplog} = props
+    const {history} = props
 
     const [logData,setLogData] = useState([])
-
-    const [total,setTotal] = useState(null)
 
     useEffect(() => {
         getOplogPage()
@@ -36,27 +34,25 @@ const OpLogWidget = props => {
             bgroup:'eas'
         }).then(res=>{
             if (res.code === 0 ) {
-                const data = res.data.dataList;
-                setLogData(data);
-                setTotal(res.data.totalPage)
+                setLogData(res.data.dataList);
             }
         })
     };
 
+    const changRouter = item => {
+        const {link} = item;
+        if (link && /^http|https/.test(link)) {
+            applyJump(link)
+        }
+    }
+
     const renderLis = (item,index) =>{
-        const {abstractContent, bgroup, createTime, actionType} = item;
         return (
-            <div className='tiklab_fulloplog-item' key={index} onClick={()=>setViewDetail(item)}>
-                <div className={'full_oplog_abstract'}>
-                    <div className={'full_oplog_abstract_text'}>
-                        <span>{abstractContent}</span>
-                    </div>
+            <div key={index} className="tiklab_fulloplog-item" onClick={()=>changRouter(item)}>
+                <div className="dynamic-item-data">
+                    <div dangerouslySetInnerHTML={{__html: item.data}}/>
                 </div>
-                <Space>
-                    {PROJECT_NAME[bgroup]}
-                    <div className='time'>{actionType && actionType.name}</div>
-                    <div className='time'>{createTime}</div>
-                </Space>
+                <div className="dynamic-item-time">{item.createTime}</div>
             </div>
         )
     }
@@ -67,16 +63,9 @@ const OpLogWidget = props => {
                 <div className="oplogWidget-card-body">
                     <div className="oplogWidget-card-body-header">
                         <div className="oplogWidget-card-body-header-title">动态</div>
-                        {
-                            total > 1 &&
-                            <Btn
-                                type={'link'}
-                                onClick={()=>setMoreOplog(true)}
-                                icon={
-                                    <RightOutlined style={{fontSize:'var(--tiklab-icon-size-16)'}} />
-                                }
-                            />
-                        }
+                        <div onClick={()=>history.push('/oplog')} style={{color:"var(--tiklab-blue)"}}>
+                            <RightOutlined/>
+                        </div>
                     </div>
                     <div className="oplogWidget-card-body-content">
                         <div className='log-content'>

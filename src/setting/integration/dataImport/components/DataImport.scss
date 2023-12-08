@@ -1,25 +1,18 @@
 .data-import{
+    height: 100%;
+    width: 100%;
     .progress-content-up .up-back{
         cursor: pointer;
         color: var(--tiklab-blue);
         margin-right: 10px;
     }
-    .data-import-data{
-        max-width: 900px;
-        margin: auto;
-        padding: 15px;
-        .data-content-form{
-            margin-bottom: 10px;
-            margin-top: 15px;
-        }
+    .data-content-form{
+        margin-bottom: 10px;
+        margin-top: 15px;
     }
     .data-import-progress{
-        max-width: 900px;
-        margin: auto;
-        padding: 15px;
         display: flex;
         flex-direction: column;
-        overflow: hidden;
         height: 100%;
         .progress-content-info{
             display: flex;
@@ -91,6 +84,7 @@
         }
     }
 }
+
 
 .data-import-loading{
     height: 100%;

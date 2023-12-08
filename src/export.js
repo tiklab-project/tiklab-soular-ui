@@ -18,9 +18,9 @@ const SettingLayout = SyncComponent(()=> import('./setting/navigator/Setting'));
 const WidgetWork = SyncComponent(() => import('./home/compontents/WidgetWork'))
 
 /**
- * 待办
+ * 日志
  */
-const Todo = SyncComponent(() => import('./home/compontents/TodoFull'))
+const Oplog = SyncComponent(()=>import('./home/compontents/OplogFull'))
 
 const OplogFull = SyncComponent(()=>import('./home/compontents/OplogFull'))
 
@@ -38,15 +38,17 @@ const UserGroupPage = SyncComponent(() => import('./setting/user/UserGroupPage')
  * 系统设置
  */
 const SystemRole = SyncComponent(() => import('./setting/privilege/SystemRolePage'));
-const MessageSendType = SyncComponent(() => import('./setting/message/MessageSendTypePage'));
+const MessageSendType = SyncComponent(() => import('./setting/message/MessageSendType'));
 const MessageManagement = SyncComponent(() => import('./setting/message/Management'));
 const PluginList = SyncComponent(() => import('./setting/plugin/Plugin'))
+
+const ProductAuth = SyncComponent(() => import('./setting/licence/ProductAuth'));
 const VersionPage = SyncComponent(() => import('./setting/licence/Version'));
 
 const LogListPage = SyncComponent(()=> import('./setting/secuity/LogList'))
 const DataImport = SyncComponent(()=>import('./setting/integration/dataImport/components/DataImport'))
 
-const BackupRecovery = SyncComponent(()=>import('./setting/secuity/BackupRecovery'))
+const BackupRestore = SyncComponent(()=>import('./setting/secuity/BackupRestore'))
 
 /**
  * 基础数据
@@ -82,7 +84,7 @@ export {
 
     WidgetWork,
     OplogFull,
-    Todo,
+    Oplog,
 
     NotFound,
 
@@ -94,11 +96,12 @@ export {
     MessageSendType,
     MessageManagement,
     PluginList,
+    ProductAuth,
     VersionPage,
     LogListPage,
     DataImport,
 
-    BackupRecovery,
+    BackupRestore,
 
     TodoTemplate,
     BaseTodoTypePage,

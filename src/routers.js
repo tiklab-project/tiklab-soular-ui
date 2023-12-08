@@ -18,9 +18,9 @@ const NotFound = SyncComponent(()=>import('./setting/privilege/NotFound'))
 const WidgetWork = SyncComponent(() => import('./home/compontents/WidgetWork'))
 
 /**
- * 待办
+ * 日志
  */
-const Todo = SyncComponent(() => import('./home/compontents/TodoFull'))
+const Oplog = SyncComponent(()=>import('./home/compontents/OplogFull'))
 
 /**
  * 用户管理
@@ -35,16 +35,18 @@ const UserGroupPage = SyncComponent(() => import('./setting/user/UserGroupPage')
  * 系统设置
  */
 const Setting = SyncComponent(()=> import('./setting/navigator/setting'));
-const MessageSendType = SyncComponent(() => import('./setting/message/MessageSendTypePage'));
+const MessageSendType = SyncComponent(() => import('./setting/message/MessageSendType'));
 const MessageManagement = SyncComponent(() => import('./setting/message/Management'));
 const PluginList = SyncComponent(() => import('./setting/plugin/Plugin'))
+
+const ProductAuth = SyncComponent(() => import('./setting/licence/ProductAuth'));
 const VersionPage = SyncComponent(() => import('./setting/licence/Version'));
 const SystemRole = SyncComponent(() => import('./setting/privilege/SystemRolePage'));
 
 const LogListPage = SyncComponent(()=> import('./setting/secuity/LogList'))
 const DataImport = SyncComponent(()=>import('./setting/integration/dataImport/components/DataImport'))
 
-const BackupRecovery = SyncComponent(()=>import('./setting/secuity/BackupRecovery'))
+const BackupRestore = SyncComponent(()=>import('./setting/secuity/BackupRestore'))
 
 
 /**
@@ -88,7 +90,6 @@ const routers = [
     },
     {
         component: Layout,
-        key:'layout',
         path: '/',
         routes: [
             {
@@ -97,8 +98,8 @@ const routers = [
                 exact:true,
             },
             {
-                component: Todo,
-                path:"/todo",
+                component: Oplog,
+                path:"/oplog",
                 exact:true,
             },
             {
@@ -161,13 +162,18 @@ const routers = [
                         exact:true,
                     },
                     {
-                        component: BackupRecovery,
+                        component: BackupRestore,
                         path:"/setting/backups",
                         exact:true,
                     },
                     {
                         component: VersionPage,
-                        path:"/setting/Version",
+                        path:"/setting/version",
+                        exact:true,
+                    },
+                    {
+                        component: ProductAuth,
+                        path:"/setting/productAuth",
                         exact:true,
                     },
                     {
@@ -245,10 +251,6 @@ const routers = [
                 path:"/",
                 exact:true,
                 render:()=><Redirect to="/work"/>
-            },
-            {
-                path:"*",
-                render:()=><Redirect to="/404"/>
             },
         ]
     }

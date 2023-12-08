@@ -102,10 +102,20 @@ const Setting = props =>{
             ]
         },
         {
-            id:'/setting/Version',
-            title: '版本与许可证',
-            purviewCode:'version',
+            id:'licence',
+            title: '应用',
             icon :<VerifiedOutlined />,
+            children:[
+                {
+                    id:'/setting/version',
+                    title: '版本与许可证',
+                    purviewCode:'version',
+                },
+                {
+                    id:'/setting/productAuth',
+                    title: '应用访问权限',
+                },
+            ]
         },
     ]
 

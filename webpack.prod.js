@@ -36,7 +36,7 @@ module.exports = merge(baseWebpackConfig, {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
-            title:'门户中心',
+            title:'true',
             template: path.resolve(__dirname, './public/index.template.html'),
             favicon: path.resolve(__dirname, './public/easIcon.png'),
             hash: false,

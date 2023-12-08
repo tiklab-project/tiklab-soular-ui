@@ -9,7 +9,7 @@ import {LogTemplate} from "tiklab-security-ui";
  */
 const LogTemplateContent = props => {
 
-    return <LogTemplate {...props} bgroup={"matflow"}/>
+    return <LogTemplate {...props} bgroup={"eas"}/>
 
 }
 

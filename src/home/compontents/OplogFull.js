@@ -1,14 +1,11 @@
 import React, {useState, useEffect} from "react";
-import {  Space, Empty, DatePicker} from "antd";
-import {LeftOutlined} from '@ant-design/icons';
-import {getUser,} from 'tiklab-core-ui';
+import {Empty, DatePicker,Row,Col} from "antd";
+import {applyJump, getUser,} from 'tiklab-core-ui';
 import moment from 'moment';
-
 import {getOplogPageService} from "../store/store";
 import messageEmpty from "../../assets/message.svg";
-import LogDetail from "./LogDetail";
 import Page from '../../common/page/Page'
-import {PROJECT_NAME} from "../../utils/constant";
+import BreadCrumb from "../../common/breadCrumb";
 import './OplogFull.scss';
 
 const { RangePicker } = DatePicker;
@@ -21,8 +18,6 @@ const { RangePicker } = DatePicker;
  */
 const OplogFull = props => {
 
-    const {setMoreOplog} = props
-
     const [pageParam] = useState({
         pageSize: 20,
         currentPage: 1,
@@ -31,7 +26,6 @@ const OplogFull = props => {
     const [params,setParams] = useState({pageParam})
     const [logData,setLogData] = useState([]);
     const [logPage,setLogPage] = useState({})
-    const [viewDetail,setViewDetail] = useState(null);
 
     useEffect(()=>{
         // 获取日志
@@ -40,7 +34,6 @@ const OplogFull = props => {
 
     /**
      * 获取日志
-     * @returns {Promise<void>}
      */
     const getOplogPage = () => {
         getOplogPageService({
@@ -94,76 +87,63 @@ const OplogFull = props => {
     }
 
     const onDetail = (item) => {
-        setViewDetail(item)
-    }
-
-    const closeDetailPage = () => {
-        setViewDetail(null);
-    }
-
-    if (!!viewDetail) {
-        return (
-            <div className={'tiklab_fulloplog'}>
-                <LogDetail data={viewDetail} history={props.history} closeDetailPage={closeDetailPage}/>
-            </div>
-        )
+        const {link} = item;
+        if (link && /^http|https/.test(link)) {
+            applyJump(link)
+        }
     }
 
     const renderLis = (item,index) =>{
-        const {abstractContent, bgroup, createTime, actionType} = item;
         return (
-            <div className='tiklab_fulloplog-item' key={index} onClick={()=>onDetail(item)}>
-                <div className={'full_oplog_abstract'}>
-                    <div className={'full_oplog_abstract_text'}>
-                        <span>{abstractContent}</span>
-                    </div>
+            <div key={index} className="tiklab_fulloplog-item" onClick={()=>onDetail(item)}>
+                <div className="dynamic-item-data">
+                    <div dangerouslySetInnerHTML={{__html: item.data}}/>
                 </div>
-                <Space>
-                    {PROJECT_NAME[bgroup]}
-                    <div className='time'>{actionType && actionType.name}</div>
-                    <div className='time'>{createTime}</div>
-                </Space>
+                <div className="dynamic-item-time">{item.createTime}</div>
             </div>
         )
     }
 
     return(
-        <div className='tiklab_fulloplog'>
-            <div className='tiklab_fulloplog-content'>
-                <Space className='tiklab_fulloplog-title'>
-                    {
-                        setMoreOplog &&
-                        <LeftOutlined onClick={()=>setMoreOplog(false)} style={{fontSize: 'var(--tiklab-icon-size-16)',cursor: 'pointer'}}/>
-                    }
-                    <div className='tiklab_fulloplog_nav'>动态</div>
-                </Space>
-                <div className='tiklab_fulloplog_select'>
-                    <RangePicker
-                        onChange={OnSelectTime}
-                        placeholder={["开始时间", "结束时间"]}
-                    />
+        <Row className='tiklab_fulloplog'>
+            <Col
+                lg={{span: "24"}}
+                xl={{ span: "18", offset: "3" }}
+            >
+                <div className='eas-home-limited'>
+                    <div className='tiklab_fulloplog-title'>
+                        <BreadCrumb
+                            firstItem={"动态"}
+                        />
+                    </div>
+                    <div className='tiklab_fulloplog_select'>
+                        <RangePicker
+                            onChange={OnSelectTime}
+                            placeholder={["开始时间", "结束时间"]}
+                        />
+                    </div>
+                    <div className={'tab-content'}>
+                        {
+                            logData && logData.length>0 ?
+                                logData.map((item,index)=>renderLis(item,index))
+                                :
+                                <Empty
+                                    imageStyle={{
+                                        height: 120,
+                                    }}
+                                    description={<span style={{color:"#999",fontSize:13}}>没有日志</span>}
+                                    image={messageEmpty}
+                                />
+                        }
+                        <Page
+                            currentPage={params.pageParam.currentPage}
+                            changPage={changPage}
+                            page={logPage}
+                        />
+                    </div>
                 </div>
-                <div className={'tab-content'}>
-                    {
-                        logData && logData.length>0 ?
-                            logData.map((item,index)=>renderLis(item,index))
-                            :
-                            <Empty
-                                imageStyle={{
-                                    height: 120,
-                                }}
-                                description={<span style={{color:"#999",fontSize:13}}>没有日志</span>}
-                                image={messageEmpty}
-                            />
-                    }
-                    <Page
-                        currentPage={params.pageParam.currentPage}
-                        changPage={changPage}
-                        page={logPage}
-                    />
-                </div>
-            </div>
-        </div>
+            </Col>
+        </Row>
 
     )
 };

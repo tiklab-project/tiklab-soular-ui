@@ -7,7 +7,7 @@
     justify-content: space-between;
     height: 48px;
     border-bottom: 1px solid var(--tiklab-gray-200);
-    padding: 0 15px;
+    padding: 0 30px;
     &_link {
       height: 100%;
       display: flex;
@@ -45,12 +45,6 @@
       .layout_header-icon{
         color: rgb(0, 82, 204);
       }
-    }
-    &_applinkS{
-      padding-left: 5px;
-    }
-    &_applinkL{
-      padding-left: 15px;
     }
   }
 

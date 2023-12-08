@@ -32,20 +32,18 @@
         }
         .tiklab_fulloplog-item{
           display: flex;
-          flex-direction: row;
-          align-items: center;
           justify-content: space-between;
+          align-items: center;
           padding: 8px;
-          .full_oplog_abstract_text{
-            color: var(--tiklab-blue);
-            flex: 1;
-          }
-          .time{
-            color: var(--tiklab-gray-500);
-          }
           &:hover{
             background: #fafafa;
             cursor: pointer;
+          }
+          .dynamic-item-data{
+            flex: 1;
+          }
+          .dynamic-item-time{
+            font-size: 13px;
           }
         }
       }
