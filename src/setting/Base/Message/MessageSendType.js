@@ -6,7 +6,7 @@
  * @update: 2021-05-06 15:53
  */
 import React from 'react';
-import {MessageSendType} from "tiklab-message-ui";
+import {MessageSendType} from "thoughtware-message-ui";
 
 
 const MessageSendTypePage = props => {

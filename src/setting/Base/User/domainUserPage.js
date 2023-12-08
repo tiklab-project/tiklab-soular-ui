@@ -6,8 +6,8 @@
  */
 
 import React from "react";
-import {Axios, getUser} from "tiklab-core-ui";
-import {DomainUser} from 'tiklab-user-ui'
+import {Axios, getUser} from "thoughtware-core-ui";
+import {DomainUser} from 'thoughtware-user-ui'
 
 const DomainUserPage = (props) => {
 

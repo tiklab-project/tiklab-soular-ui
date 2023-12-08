@@ -8,9 +8,9 @@ import "./style/index.scss";
 const Btn = ({icon,type,title,onClick,isMar,children}) =>{
 
     return (
-        <div className={`eas-btn ${type?`eas-btn-${type}`:""} ${isMar?"eas-btn-mar":""}`} onClick={onClick}>
+        <div className={`darth-btn ${type?`darth-btn-${type}`:""} ${isMar?"darth-btn-mar":""}`} onClick={onClick}>
             <Space>
-                { icon &&  <span className="eas-btn-icon">{icon}</span> }
+                { icon &&  <span className="darth-btn-icon">{icon}</span> }
                 { children ? children:title}
             </Space>
         </div>

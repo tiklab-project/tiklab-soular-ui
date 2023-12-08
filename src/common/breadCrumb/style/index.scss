@@ -1,13 +1,13 @@
-.eas-breadcrumb{
+.darth-breadcrumb{
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
-  font-weight: var(--tiklab-font-weight-bold);
-  .eas-breadcrumb-first{
+  font-weight: var(--thoughtware-font-weight-bold);
+  .darth-breadcrumb-first{
     cursor: pointer;
   }
-  .eas-breadcrumb-span{
+  .darth-breadcrumb-span{
     color: #00000073;
   }
 }

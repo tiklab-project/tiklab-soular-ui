@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import {SystemRole} from "tiklab-privilege-ui";
+import {SystemRole} from "thoughtware-privilege-ui";
 
 const SystemRolePage = props => {
 

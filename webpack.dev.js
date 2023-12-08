@@ -23,9 +23,9 @@ module.exports = merge(baseWebpackConfig,{
     plugins:[
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
-            title:'Eas',
+            title:'Darth',
             template: path.resolve(__dirname, './public/index.template.html'),
-            favicon: path.resolve('./public/easIcon.png'),
+            favicon: path.resolve('./public/darthIcon.png'),
             hash: false,
             filename: 'index.html',
             inject: 'body',

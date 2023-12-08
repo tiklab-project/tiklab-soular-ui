@@ -8,11 +8,11 @@ import "./style/index.scss";
  */
 const BreadCrumb = ({firstItem,secondItem,onClick,children}) =>{
 
-    return  <div className="eas-breadcrumb">
+    return  <div className="darth-breadcrumb">
                 <Space>
-                    <span className={onClick ? "eas-breadcrumb-first":""} onClick={onClick}>
+                    <span className={onClick ? "darth-breadcrumb-first":""} onClick={onClick}>
                         {onClick && <LeftOutlined style={{marginRight:8}}/>}
-                        <span className={secondItem ? "eas-breadcrumb-span":""}>
+                        <span className={secondItem ? "darth-breadcrumb-span":""}>
                             {firstItem}
                         </span>
                     </span>

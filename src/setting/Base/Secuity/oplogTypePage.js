@@ -5,7 +5,7 @@
  * @description oplogTypePage
  */
 import React from 'react';
-import {LogType} from "tiklab-security-ui";
+import {LogType} from "thoughtware-security-ui";
 
 const OplogTypePage = props => {
 

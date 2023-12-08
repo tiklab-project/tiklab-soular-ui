@@ -5,11 +5,11 @@ import {
     BellOutlined
 } from "@ant-design/icons";
 import {inject,observer} from "mobx-react";
-import {getUser} from 'tiklab-core-ui';
+import {getUser} from 'thoughtware-core-ui';
 import {renderRoutes} from 'react-router-config'
-import {AppLink,HelpLink,AvatarLink} from "tiklab-licence-ui";
+import {AppLink,HelpLink,AvatarLink} from "thoughtware-licence-ui";
 import {findMessagePageService} from "../notification/api";
-import easLogo from '../../assets/logo.png'
+import darth from 'thoughtware-licence-ui/es/assests/darth.png';
 import Notification from "../notification";
 import './Portal.scss';
 
@@ -35,7 +35,7 @@ const Portal = props => {
                 pageSize: 20,
                 currentPage: 1
             },
-            bgroup:'eas',
+            bgroup:'darth',
             sendType:"site",
             receiver:getUser().userId,
             status:0,
@@ -73,7 +73,10 @@ const Portal = props => {
             <header className="layout_header">
                 <Space size="large">
                     <AppLink/>
-                    <img alt={'门户中心'} src={easLogo} height={'60%'} />
+                    <div className='layout_header_logo'>
+                        <img alt={'门户中心'} src={darth} height={'55%'} />
+                        <div>Darth</div>
+                    </div>
                     {
                         homeRouter.map(item => {
                             return(

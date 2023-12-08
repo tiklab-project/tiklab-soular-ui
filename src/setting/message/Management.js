@@ -6,13 +6,13 @@
  * @update: 2021-05-06 15:50
  */
 import React from 'react';
-import {MessageNotice} from "tiklab-message-ui";
+import {MessageNotice} from "thoughtware-message-ui";
 
 
 const Management = props => {
 
     return(
-        <MessageNotice {...props} bgroup={'eas'}/>
+        <MessageNotice {...props} bgroup={'darth'}/>
     )
 }
 export default Management

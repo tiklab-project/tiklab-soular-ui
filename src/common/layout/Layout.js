@@ -1,6 +1,6 @@
 import React from "react";
-import {UserVerify} from "tiklab-eam-ui";
-import {connect} from "tiklab-plugin-core-ui";
+import {UserVerify} from "thoughtware-eam-ui";
+import {connect} from "thoughtware-plugin-core-ui";
 import Portal from "./Portal";
 
 /**

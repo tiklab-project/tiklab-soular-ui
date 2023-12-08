@@ -1,4 +1,4 @@
-.eas-btn{
+.darth-btn{
   display: inline-block;
   font-weight: 400;
   white-space: nowrap;
@@ -12,26 +12,26 @@
   border: 1px solid #d9d9d9;
 }
 
-.eas-btn-primary{
-  background: var(--tiklab-blue);
-  border-color: var(--tiklab-blue);
+.darth-btn-primary{
+  background: var(--thoughtware-blue);
+  border-color: var(--thoughtware-blue);
   color: #ffffff;
 }
 
-.eas-btn-disabled{
+.darth-btn-disabled{
   color: rgba(0,0,0,.25);
   background: #f5f5f5;
   border-color: #d9d9d9;
   cursor:not-allowed;
 }
 
-.eas-btn-link{
-  color: var(--tiklab-blue);
+.darth-btn-link{
+  color: var(--thoughtware-blue);
   background: transparent;
   border-color: transparent;
   box-shadow: none;
 }
 
-.eas-btn-mar{
+.darth-btn-mar{
   margin-right: 15px;
 }

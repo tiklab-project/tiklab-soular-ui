@@ -1,23 +1,23 @@
-.eas-page{
+.darth-page{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 40px;
-    .eas-page-ban{
+    .darth-page-ban{
         cursor:not-allowed;
-        color: var(--tiklab-gray-500);
+        color: var(--thoughtware-gray-500);
     }
-    .eas-page-allow{
+    .darth-page-allow{
         cursor: pointer;
     }
-    .eas-page-current,.eas-page-allow:hover{
-        color: var(--tiklab-blue);
+    .darth-page-current,.darth-page-allow:hover{
+        color: var(--thoughtware-blue);
     }
-    .eas-page-line{
+    .darth-page-line{
         margin: 0 5px;
     }
-    .eas-page-record{
+    .darth-page-record{
         margin-left: 10px;
-        font-size: var(--tiklab-font-12);
+        font-size: var(--thoughtware-font-12);
     }
 }

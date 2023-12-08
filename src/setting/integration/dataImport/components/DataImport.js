@@ -2,7 +2,7 @@ import React,{useEffect,useState,useRef} from "react";
 import {Input, Form, message, Select, Spin,Row,Col} from "antd";
 import Btn from "../../../../common/btn";
 import BreadCrumb from "../../../../common/breadCrumb";
-import {PROJECT_NAME, WORK_APP_SELECT} from "../../../../utils/constant";
+import {productTitle, Products} from "../../../../utils/products";
 import dataImportStore from "../store/DataImportStore";
 
 import "./DataImport.scss";
@@ -178,7 +178,7 @@ const DataImport = (props) => {
                     md={{span: "24"}}
                     lg={{ span: "18", offset: "3" }}
                 >
-                    <div className="eas-home-limited data-import-progress">
+                    <div className="darth-home-limited data-import-progress">
                         <BreadCrumb
                             firstItem={"用户导入"}
                             onClick={press?.state?null:closePress}
@@ -187,7 +187,7 @@ const DataImport = (props) => {
                             <div className='info-left'>
                                 <div>
                                     <span>产品类型：</span>
-                                    <span>{PROJECT_NAME[press?.database?.application]}</span>
+                                    <span>{productTitle[press?.database?.application]}</span>
                                 </div>
                                 <div>
                                     <span>数据库链接地址:</span>
@@ -228,7 +228,7 @@ const DataImport = (props) => {
                 md={{span: "24"}}
                 lg={{ span: "18", offset: "3" }}
             >
-                <div className="eas-home-limited">
+                <div className="darth-home-limited">
                     <BreadCrumb firstItem={"用户导入"}/>
                     <div className='data-content-form'>
                         <Form
@@ -243,7 +243,7 @@ const DataImport = (props) => {
                                     {required:true,message:"数据库地址不能为空"},
                                 ]}
                             >
-                                <Select options={WORK_APP_SELECT}/>
+                                <Select options={Products}/>
                             </Form.Item>
                             <Form.Item
                                 label={'数据库链接信息'}
@@ -254,7 +254,7 @@ const DataImport = (props) => {
                             >
                                 <Input
                                     autoComplete="off"
-                                    placeholder="数据库链接信息，如 jdbc:postgresql://192.168.10.1:5432/tiklab_eas"
+                                    placeholder="数据库链接信息，如 jdbc:postgresql://192.168.10.1:5432/thoughtware_darth"
                                 />
                             </Form.Item>
                             <Form.Item

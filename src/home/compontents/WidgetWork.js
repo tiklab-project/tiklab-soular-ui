@@ -21,7 +21,7 @@ const WidgetWork = props =>{
                 xl={{ span: "18", offset: "3" }}
                 xxl={{ span: "18", offset: "3" }}
             >
-                <div className="eas-home-limited">
+                <div className="darth-home-limited">
                     <QuickEntry
                         history={props.history}
                     />

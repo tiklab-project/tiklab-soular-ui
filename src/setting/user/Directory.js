@@ -5,7 +5,7 @@
  * @description portalDirectory
  */
 import React from 'react';
-import {Directory} from 'tiklab-user-ui';
+import {Directory} from 'thoughtware-user-ui';
 
 const DirectoryPage = (props) => {
 

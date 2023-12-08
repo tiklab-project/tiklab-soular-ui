@@ -5,7 +5,7 @@
  * @description todoTask
  */
 import React from 'react';
-import {MyTodoTask} from 'tiklab-todotask-ui'
+import {MyTodoTask} from 'thoughtware-todotask-ui'
 
 
 const MyTodoTaskPage = (props) => {

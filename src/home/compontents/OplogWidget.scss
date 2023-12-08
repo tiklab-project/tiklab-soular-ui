@@ -3,7 +3,7 @@
   display: flex;
   overflow: hidden;
   padding: 10px;
-  background: var(--tiklab-white);
+  background: var(--thoughtware-white);
   min-height: 300px;
   &-card{
     width: 100%;
@@ -19,18 +19,18 @@
         flex-wrap: nowrap;
         overflow: hidden;
         &-title{
-          color: var(--tiklab-black);
-          font-size: var(--tiklab-font-16);
-          font-weight: var(--tiklab-font-weight-bold);
+          color: var(--thoughtware-black);
+          font-size: var(--thoughtware-font-16);
+          font-weight: var(--thoughtware-font-weight-bold);
         }
       }
       &-content {
         width: 100%;
-        color: var(--tiklab-black);
+        color: var(--thoughtware-black);
         .log-content{
           margin-top: 10px;
         }
-        .tiklab_fulloplog-item{
+        .thoughtware_fulloplog-item{
           display: flex;
           justify-content: space-between;
           align-items: center;

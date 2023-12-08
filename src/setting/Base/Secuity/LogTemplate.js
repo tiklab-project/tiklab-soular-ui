@@ -1,5 +1,5 @@
 import React from "react";
-import {LogTemplate} from "tiklab-security-ui";
+import {LogTemplate} from "thoughtware-security-ui";
 
 /**
  * 日志模板
@@ -9,7 +9,7 @@ import {LogTemplate} from "tiklab-security-ui";
  */
 const LogTemplateContent = props => {
 
-    return <LogTemplate {...props} bgroup={"eas"}/>
+    return <LogTemplate {...props} bgroup={"darth"}/>
 
 }
 

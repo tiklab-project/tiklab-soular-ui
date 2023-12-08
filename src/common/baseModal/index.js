@@ -38,7 +38,7 @@ const BaseModal = ({children, title, width,...res}) => {
             title={title}
             width={width}
             style={style}
-            wrapClassName={'tiklab_modal'}
+            wrapClassName={'thoughtware_modal'}
             closable={false}
             footer={modalFooter}
         >

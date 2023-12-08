@@ -2,9 +2,9 @@ import React, {useState, useEffect} from "react";
 import { Drawer, Select, List, Button, Empty} from "antd";
 import {BellOutlined} from "@ant-design/icons";
 import {findMessagePageService, updateMessageService} from "./api";
-import {WORK_IMAGE} from "../../utils/constant";
+import {productImg} from "../../utils/products";
 import './styles';
-import {getUser} from "tiklab-core-ui";
+import {getUser} from "thoughtware-core-ui";
 
 const { Option } = Select;
 
@@ -46,7 +46,7 @@ const Notification = props => {
                 pageSize: 20,
                 currentPage: page
             },
-            bgroup:'eas',
+            bgroup:'darth',
             sendType:"site",
             receiver:getUser().userId
         }
@@ -129,13 +129,13 @@ const Notification = props => {
             contentWrapperStyle={{width:420,top:48,height:"calc(100% - 48px)"}}
             title={
                 <Select defaultValue={0} bordered={false} onSelect={onSelect}>
-                    <Option value={2}><BellOutlined style={{fontSize:"var(--tiklab-icon-size-16)"}}/>全部通知</Option>
-                    <Option value={0}><BellOutlined style={{fontSize:"var(--tiklab-icon-size-16)"}}/>未读通知</Option>
-                    <Option value={1}><BellOutlined style={{fontSize:"var(--tiklab-icon-size-16)"}}/>已读通知</Option>
+                    <Option value={2}><BellOutlined style={{fontSize:"var(--thoughtware-icon-size-16)"}}/>全部通知</Option>
+                    <Option value={0}><BellOutlined style={{fontSize:"var(--thoughtware-icon-size-16)"}}/>未读通知</Option>
+                    <Option value={1}><BellOutlined style={{fontSize:"var(--thoughtware-icon-size-16)"}}/>已读通知</Option>
                 </Select>
             }
         >
-            <div className={'tiklab_notification_main'} id="NotificationDiv">
+            <div className={'thoughtware_notification_main'} id="NotificationDiv">
                 <List
                     loadMore={loadMore}
                     dataSource={messageList}
@@ -145,12 +145,12 @@ const Notification = props => {
                     renderItem={(item => {
                         const {title, sendTime, status} = item;
                         return <List.Item>
-                            <div className={`tiklab_notification_message ${status===1?'message-read':'message-unread'}`}
+                            <div className={`thoughtware_notification_message ${status===1?'message-read':'message-unread'}`}
                                  key={item.id}
                                  onClick={() =>itemClick(item)}
                             >
                                 <div className='message-bgroup'>
-                                    <img src={WORK_IMAGE[item.bgroup]} alt={item.bgroup} width={22} height={22}/>
+                                    <img src={productImg[item.bgroup]} alt={item.bgroup} width={22} height={22}/>
                                 </div>
                                 <div className='message-center'>
                                     <div className='message-center-title'>

@@ -1,4 +1,4 @@
-import {Axios} from 'tiklab-core-ui';
+import {Axios} from 'thoughtware-core-ui';
 
 /**
  * 获取日志

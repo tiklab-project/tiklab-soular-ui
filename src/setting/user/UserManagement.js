@@ -1,5 +1,5 @@
 import React from 'react';
-import {User} from "tiklab-user-ui";
+import {User} from "thoughtware-user-ui";
 
 const UserManagement = props => {
     return(

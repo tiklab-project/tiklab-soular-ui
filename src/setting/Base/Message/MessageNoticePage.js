@@ -5,7 +5,7 @@
  * @description messageNoticePage
  */
 import React from 'react';
-import {MessageNotice} from "tiklab-message-ui";
+import {MessageNotice} from "thoughtware-message-ui";
 const MessageNoticePage = props => {
 
     return(

@@ -1,23 +1,23 @@
-.eas-tabs{
+.darth-tabs{
     display: flex;
     justify-content: flex-start;
     align-items: center;
     height: 40px;
     line-height: 40px;
-    font-size: var(--tiklab-font-13);
+    font-size: var(--thoughtware-font-13);
 }
 
-.eas-tab{
+.darth-tab{
     cursor: pointer;
     height: 40px;
     line-height: 40px;
     margin-right: 20px;
     &:hover{
-        color: var(--tiklab-blue);
+        color: var(--thoughtware-blue);
     }
 }
 
-.eas-active-tab{
-    color: var(--tiklab-blue);
-    border-bottom: 2px solid var(--tiklab-blue);
+.darth-active-tab{
+    color: var(--thoughtware-blue);
+    border-bottom: 2px solid var(--thoughtware-blue);
 }

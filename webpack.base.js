@@ -46,7 +46,7 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
     return loaders;
 };
 
-const publicPath = process.env.BUILD_TYPE === 'eas'?"/eas/" : "/";
+const publicPath = process.env.BUILD_TYPE === 'darth'?"/darth/" : "/";
 module.exports = {
     output: {
         filename: 'js/[name].[hash:8].js',

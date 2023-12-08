@@ -5,7 +5,7 @@
  * @description logList
  */
 import React from 'react';
-import {MyLog} from 'tiklab-security-ui';
+import {MyLog} from 'thoughtware-security-ui';
 const LogList = (props) => {
     return <MyLog {...props}/>
 }

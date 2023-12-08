@@ -38,7 +38,7 @@ module.exports = merge(baseWebpackConfig, {
             alwaysWriteToDisk: true,
             title:'true',
             template: path.resolve(__dirname, './public/index.template.html'),
-            favicon: path.resolve(__dirname, './public/easIcon.png'),
+            favicon: path.resolve(__dirname, './public/darthIcon.png'),
             hash: false,
             filename: 'index.html',
             inject: 'body',
@@ -82,52 +82,52 @@ module.exports = merge(baseWebpackConfig, {
                     priority: 1,
                     reuseExistingChunk: true
                 },
-                tiklabPluginCoreUI: {
-                    name: "chunk-tiklab-plugin-core-ui",
+                thoughtwarePluginCoreUI: {
+                    name: "chunk-thoughtware-plugin-core-ui",
                     chunks: "all",
-                    test: /[\\/]node_modules[\\/]tiklab-plugin-core-ui[\\/]/,
+                    test: /[\\/]node_modules[\\/]thoughtware-plugin-core-ui[\\/]/,
                     priority: 2,
                     reuseExistingChunk: true
                 },
-                tiklabPluginManagerUI: {
-                    name: "chunk-tiklab-plugin-manager-ui",
+                thoughtwarePluginManagerUI: {
+                    name: "chunk-thoughtware-plugin-manager-ui",
                     chunks: "all",
-                    test: /[\\/]node_modules[\\/]tiklab-plugin-manager-ui[\\/]/,
+                    test: /[\\/]node_modules[\\/]thoughtware-plugin-manager-ui[\\/]/,
                     priority: 2,
                     reuseExistingChunk: true
                 },
-                tiklabSecurityUI: {
-                    name: "chunk-tiklab-security-ui",
+                thoughtwareSecurityUI: {
+                    name: "chunk-thoughtware-security-ui",
                     chunks: "all",
-                    test: /[\\/]node_modules[\\/]tiklab-security-ui[\\/]/,
+                    test: /[\\/]node_modules[\\/]thoughtware-security-ui[\\/]/,
                     priority: 2,
                     reuseExistingChunk: true
                 },
-                tiklabTodoTaskUI: {
-                    name: "chunk-tiklab-todotask-ui",
+                thoughtwareTodoTaskUI: {
+                    name: "chunk-thoughtware-todotask-ui",
                     chunks: "all",
-                    test: /[\\/]node_modules[\\/]tiklab-todotask-ui[\\/]/,
+                    test: /[\\/]node_modules[\\/]thoughtware-todotask-ui[\\/]/,
                     priority: 2,
                     reuseExistingChunk: true
                 },
-                tiklabMessageUI: {
-                    name: 'chunk-tiklab-message-ui',
+                thoughtwareMessageUI: {
+                    name: 'chunk-thoughtware-message-ui',
                     chunks: 'all',
-                    test: /[\\/]node_modules[\\/]tiklab-message-ui[\\/]/,
+                    test: /[\\/]node_modules[\\/]thoughtware-message-ui[\\/]/,
                     priority: 2,
                     reuseExistingChunk: true
                 },
-                tiklabPrivilegeUI: {
-                    name: 'chunk-tiklab-privilege-ui',
+                thoughtwarePrivilegeUI: {
+                    name: 'chunk-thoughtware-privilege-ui',
                     chunks: 'all',
-                    test: /[\\/]node_modules[\\/]tiklab-privilege-ui[\\/]/,
+                    test: /[\\/]node_modules[\\/]thoughtware-privilege-ui[\\/]/,
                     priority: 2,
                     reuseExistingChunk: true
                 },
-                tiklabUserUI: {
-                    name: "chunk-tiklab-user-ui",
+                thoughtwareUserUI: {
+                    name: "chunk-thoughtware-user-ui",
                     chunks: "all",
-                    test: /[\\/]node_modules[\\/]tiklab-user-ui[\\/]/,
+                    test: /[\\/]node_modules[\\/]thoughtware-user-ui[\\/]/,
                     priority: 2,
                     reuseExistingChunk: true
                 },
@@ -138,10 +138,10 @@ module.exports = merge(baseWebpackConfig, {
                     priority: 2,
                     reuseExistingChunk: true
                 },
-                tiklabLicenceUI: {
-                    name: "chunk-tiklab-licence-ui",
+                thoughtwareLicenceUI: {
+                    name: "chunk-thoughtware-licence-ui",
                     chunks: "all",
-                    test: /[\\/]node_modules[\\/]tiklab-licence-ui[\\/]/,
+                    test: /[\\/]node_modules[\\/]thoughtware-licence-ui[\\/]/,
                     priority: 3,
                     reuseExistingChunk: true
                 },

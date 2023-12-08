@@ -1,12 +1,9 @@
 import React, {useState, useEffect} from "react";
-import {Space, Empty} from 'antd';
-import {applyJump, getUser} from 'tiklab-core-ui';
+import {Empty} from 'antd';
+import {applyJump, getUser} from 'thoughtware-core-ui';
 import {RightOutlined} from '@ant-design/icons';
-
 import {getOplogPageService} from '../store/store';
 import messageEmpty from "../../assets/message.svg";
-import Btn from '../../common/btn';
-import {PROJECT_NAME} from "../../utils/constant";
 import './OplogWidget.scss';
 
 /**
@@ -31,7 +28,7 @@ const OpLogWidget = props => {
                 pageSize:10,
                 currentPage:1
             },
-            bgroup:'eas'
+            bgroup:'darth'
         }).then(res=>{
             if (res.code === 0 ) {
                 setLogData(res.data.dataList);
@@ -48,7 +45,7 @@ const OpLogWidget = props => {
 
     const renderLis = (item,index) =>{
         return (
-            <div key={index} className="tiklab_fulloplog-item" onClick={()=>changRouter(item)}>
+            <div key={index} className="thoughtware_fulloplog-item" onClick={()=>changRouter(item)}>
                 <div className="dynamic-item-data">
                     <div dangerouslySetInnerHTML={{__html: item.data}}/>
                 </div>
@@ -63,7 +60,7 @@ const OpLogWidget = props => {
                 <div className="oplogWidget-card-body">
                     <div className="oplogWidget-card-body-header">
                         <div className="oplogWidget-card-body-header-title">动态</div>
-                        <div onClick={()=>history.push('/oplog')} style={{color:"var(--tiklab-blue)"}}>
+                        <div onClick={()=>history.push('/oplog')} style={{color:"var(--thoughtware-blue)"}}>
                             <RightOutlined/>
                         </div>
                     </div>

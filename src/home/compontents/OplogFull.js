@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Empty, DatePicker,Row,Col} from "antd";
-import {applyJump, getUser,} from 'tiklab-core-ui';
+import {applyJump, getUser,} from 'thoughtware-core-ui';
 import moment from 'moment';
 import {getOplogPageService} from "../store/store";
 import messageEmpty from "../../assets/message.svg";
@@ -39,7 +39,7 @@ const OplogFull = props => {
         getOplogPageService({
             ...params,
             userId: getUser().userId,
-            bgroup:'eas'
+            bgroup:'darth'
         }).then(res=>{
             if (res.code === 0 ) {
                 const data = res.data.dataList;
@@ -95,7 +95,7 @@ const OplogFull = props => {
 
     const renderLis = (item,index) =>{
         return (
-            <div key={index} className="tiklab_fulloplog-item" onClick={()=>onDetail(item)}>
+            <div key={index} className="thoughtware_fulloplog-item" onClick={()=>onDetail(item)}>
                 <div className="dynamic-item-data">
                     <div dangerouslySetInnerHTML={{__html: item.data}}/>
                 </div>
@@ -105,18 +105,18 @@ const OplogFull = props => {
     }
 
     return(
-        <Row className='tiklab_fulloplog'>
+        <Row className='thoughtware_fulloplog'>
             <Col
                 lg={{span: "24"}}
                 xl={{ span: "18", offset: "3" }}
             >
-                <div className='eas-home-limited'>
-                    <div className='tiklab_fulloplog-title'>
+                <div className='darth-home-limited'>
+                    <div className='thoughtware_fulloplog-title'>
                         <BreadCrumb
                             firstItem={"动态"}
                         />
                     </div>
-                    <div className='tiklab_fulloplog_select'>
+                    <div className='thoughtware_fulloplog_select'>
                         <RangePicker
                             onChange={OnSelectTime}
                             placeholder={["开始时间", "结束时间"]}

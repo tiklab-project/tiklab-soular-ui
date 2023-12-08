@@ -1,19 +1,19 @@
-.tiklab_fulloplog {
+.thoughtware_fulloplog {
   height: 100%;
   width: 100%;
   overflow: auto;
-  .tiklab_fulloplog-title{
+  .thoughtware_fulloplog-title{
     margin-bottom: 8px;
   }
-  .tiklab_fulloplog_select{
+  .thoughtware_fulloplog_select{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--tiklab-padding-item);
+    margin-bottom: var(--thoughtware-padding-item);
     white-space: nowrap;
   }
-  .tiklab_fulloplog-item{
+  .thoughtware_fulloplog-item{
     display: flex;
     justify-content: space-between;
     align-items: center;

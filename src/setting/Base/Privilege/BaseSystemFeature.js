@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import {SystemFeature} from "tiklab-privilege-ui";
+import {SystemFeature} from "thoughtware-privilege-ui";
 
 
 const BaseSystemFeature = (props) => {
