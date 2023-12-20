@@ -35,3 +35,14 @@
 .darth-btn-mar{
   margin-right: 15px;
 }
+
+.darth-btn-text {
+  color: rgba(0,0,0,.85);
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  padding-top: 5px;
+  &:hover{
+    background: #f4f4f4;
+  }
+}

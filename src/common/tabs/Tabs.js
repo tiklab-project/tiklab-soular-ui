@@ -18,7 +18,7 @@ const Tabs = props =>{
                     <div
                         key={item.id}
                         className={`darth-tab ${type===item.id?"darth-active-tab":""}`}
-                        onClick={()=>onClick(item)}
+                        onClick={type===item.id ? undefined : ()=>onClick(item)}
                     >{item.title}</div>
                 ))
             }

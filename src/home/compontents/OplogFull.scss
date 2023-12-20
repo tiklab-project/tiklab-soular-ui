@@ -13,25 +13,6 @@
     margin-bottom: var(--thoughtware-padding-item);
     white-space: nowrap;
   }
-  .thoughtware_fulloplog-item{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px;
-    &:hover{
-      background: #fafafa;
-      cursor: pointer;
-    }
-    .dynamic-item-data{
-      flex: 1;
-    }
-    .dynamic-item-time{
-      font-size: 13px;
-    }
-  }
-}
-.ant-picker-cell-inner{
-  text-align: center;
 }
 
 

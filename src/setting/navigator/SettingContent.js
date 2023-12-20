@@ -69,7 +69,7 @@ const Setting = props =>{
     const renderMenu = (data,deep)=> {
         return (
             <PrivilegeButton key={data.id} code={data.purviewCode} {...props}>
-                <li style={{cursor:"pointer",paddingLeft:`${deep*30+30}`}}
+                <li style={{cursor:"pointer",paddingLeft:deep}}
                     className={`system-aside-li system-aside-second ${data.id=== selectKey ? "system-aside-select":""}`}
                     onClick={()=>select(data)}
                     key={data.id}
@@ -88,7 +88,7 @@ const Setting = props =>{
         return(
             <li key={item.id} className="system-aside-li">
                 <div className="system-aside-item system-aside-first"
-                     style={{paddingLeft: `${deep * 30 + 30}`}}
+                     style={{paddingLeft: deep}}
                      onClick={()=>setOpenOrClose(item.id)}
                 >
                     <span>
@@ -108,7 +108,7 @@ const Setting = props =>{
                 <ul className={`system-aside-ul ${isExpandedTree(item.id) ? null: "system-aside-hidden"}`}>
                     {
                         item.children && item.children.map(item =>{
-                            const deepnew = deep +1
+                            const deepnew = deep + 20
                             return item.children && item.children.length ?
                                 renderSubMenu(item,deepnew) : renderMenu(item,deepnew)
                         })
@@ -140,7 +140,7 @@ const Setting = props =>{
                         {
                             menus().map(firstItem => {
                                 return firstItem.children && firstItem.children.length > 0 ?
-                                    renderSubMenu(firstItem,0) : renderMenu(firstItem,0)
+                                    renderSubMenu(firstItem,30) : renderMenu(firstItem,30)
                             })
                         }
                     </ul>

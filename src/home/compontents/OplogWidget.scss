@@ -1,4 +1,3 @@
-
 .oplogWidget{
   display: flex;
   overflow: hidden;
@@ -29,22 +28,6 @@
         color: var(--thoughtware-black);
         .log-content{
           margin-top: 10px;
-        }
-        .thoughtware_fulloplog-item{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 8px;
-          &:hover{
-            background: #fafafa;
-            cursor: pointer;
-          }
-          .dynamic-item-data{
-            flex: 1;
-          }
-          .dynamic-item-time{
-            font-size: 13px;
-          }
         }
       }
     }

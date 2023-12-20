@@ -8,9 +8,8 @@ import {inject,observer} from "mobx-react";
 import {getUser} from 'thoughtware-core-ui';
 import {renderRoutes} from 'react-router-config'
 import {AppLink,HelpLink,AvatarLink} from "thoughtware-licence-ui";
-import {findMessagePageService} from "../notification/api";
 import darth from 'thoughtware-licence-ui/es/assests/darth.png';
-import Notification from "../notification";
+import PortalMessage from "../messages";
 import './Portal.scss';
 
 const Portal = props => {
@@ -18,9 +17,6 @@ const Portal = props => {
     const {history,route,systemRoleStore} = props;
 
     const {getSystemPermissions} = systemRoleStore
-
-    let path = props.location.pathname
-    const [currentLink, setCurrentLink] = useState(path);
 
     // 消息抽屉状态
     const [notificationVisibility,setNotificationVisibility] = useState(false);
@@ -30,25 +26,7 @@ const Portal = props => {
 
     useEffect(()=>{
         getSystemPermissions(getUser().userId)
-        findMessagePageService({
-            pageParam: {
-                pageSize: 20,
-                currentPage: 1
-            },
-            bgroup:'darth',
-            sendType:"site",
-            receiver:getUser().userId,
-            status:0,
-        }).then(res=>{
-            if(res.code===0){
-                setUnread(res.data.totalRecord || 0)
-            }
-        })
     },[])
-
-    useEffect(()=>{
-        setCurrentLink(path)
-    },[path])
 
     const homeRouter = [
         {
@@ -74,13 +52,13 @@ const Portal = props => {
                 <Space size="large">
                     <AppLink/>
                     <div className='layout_header_logo'>
-                        <img alt={'门户中心'} src={darth} height={'55%'} />
+                        <img alt={'门户中心'} src={darth} height={24} width={24}/>
                         <div>Darth</div>
                     </div>
                     {
                         homeRouter.map(item => {
                             return(
-                                <div key={item.key} className={currentLink === item.to ? `layout_header_link layout_header_link_active`  : 'layout_header_link'} onClick={ () => changeCurrentLink(item)}>
+                                <div key={item.key} className={props.location.pathname === item.to ? `layout_header_link layout_header_link_active`  : 'layout_header_link'} onClick={ () => changeCurrentLink(item)}>
                                     <span>{item.title}</span>
                                 </div>
                             )
@@ -105,11 +83,12 @@ const Portal = props => {
                                 <BellOutlined className="layout_header-icon"/>
                             </Badge>
                         </div>
-                        <Notification
+                        <PortalMessage
                             history={history}
+                            unread={unread}
                             setUnread={setUnread}
-                            notificationVisibility={notificationVisibility}
-                            setNotificationVisibility={setNotificationVisibility}
+                            visible={notificationVisibility}
+                            setVisible={setNotificationVisibility}
                         />
                     </div>
                     <div className="layout_header_right-text">
@@ -121,9 +100,7 @@ const Portal = props => {
                 </div>
             </header>
             <section className={'layout_content'}>
-                <div style={{width:'100%', height:'calc(100% - 48px)'}}>
-                    {renderRoutes(route.routes)}
-                </div>
+                {renderRoutes(route.routes)}
             </section>
         </main>
     )

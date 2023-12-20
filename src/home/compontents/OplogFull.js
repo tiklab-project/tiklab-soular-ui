@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from "react";
-import {Empty, DatePicker,Row,Col} from "antd";
+import { DatePicker,Row,Col} from "antd";
 import {applyJump, getUser,} from 'thoughtware-core-ui';
 import moment from 'moment';
 import {getOplogPageService} from "../store/store";
-import messageEmpty from "../../assets/message.svg";
 import Page from '../../common/page/Page'
 import BreadCrumb from "../../common/breadCrumb";
+import DynamicList from "../../common/list/DynamicList";
 import './OplogFull.scss';
 
 const { RangePicker } = DatePicker;
@@ -107,8 +107,11 @@ const OplogFull = props => {
     return(
         <Row className='thoughtware_fulloplog'>
             <Col
-                lg={{span: "24"}}
+                sm={{ span: "24" }}
+                md={{ span: "24" }}
+                lg={{ span: "24" }}
                 xl={{ span: "18", offset: "3" }}
+                xxl={{ span: "18", offset: "3" }}
             >
                 <div className='darth-home-limited'>
                     <div className='thoughtware_fulloplog-title'>
@@ -123,18 +126,7 @@ const OplogFull = props => {
                         />
                     </div>
                     <div className={'tab-content'}>
-                        {
-                            logData && logData.length>0 ?
-                                logData.map((item,index)=>renderLis(item,index))
-                                :
-                                <Empty
-                                    imageStyle={{
-                                        height: 120,
-                                    }}
-                                    description={<span style={{color:"#999",fontSize:13}}>没有日志</span>}
-                                    image={messageEmpty}
-                                />
-                        }
+                        <DynamicList dynamicList={logData}/>
                         <Page
                             currentPage={params.pageParam.currentPage}
                             changPage={changPage}

@@ -53,8 +53,8 @@ const BackupRestore = SyncComponent(()=>import('./setting/secuity/BackupRestore'
 /**
  * 基础数据
  */
-const TodoTemplate = SyncComponent(()=> import('./setting/Base/Todo/todoTemp'));
-const BaseTodoTypePage =  SyncComponent(()=> import('./setting/Base/Todo/todoTypePage'));
+const TodoTemplate = SyncComponent(()=> import('./setting/Base/Todo/TodoTemp'));
+const BaseTodoTypePage =  SyncComponent(()=> import('./setting/Base/Todo/TodoTypePage'));
 const BaseSystemFeature = SyncComponent(() => import('./setting/Base/Privilege/BaseSystemFeature'));
 const BaseSystemRole = SyncComponent(() => import('./setting/Base/Privilege/BaseSystemRole'));
 const BaseProjectFeature = SyncComponent(() => import('./setting/Base/Privilege/BaseProjectFeature'));
@@ -64,7 +64,7 @@ const MessageSendTypeBase = SyncComponent(() => import('./setting/Base/Message/M
 const MessageType = SyncComponent(() => import('./setting/Base/Message/MessageType'));
 const BaseOplogTypePage = SyncComponent(() => import('./setting/Base/Secuity/oplogTypePage'));
 const BaseMessageNoticePage = SyncComponent(() => import('./setting/Base/Message/MessageNoticePage'));
-const BaseDomainUserPage = SyncComponent(() => import('./setting/Base/User/domainUserPage'));
+const BaseDomainUserPage = SyncComponent(() => import('./setting/Base/User/DomainUserPage'));
 const BaseLogTemplate = SyncComponent(()=>import('./setting/Base/Secuity/LogTemplate'))
 
 

@@ -27,7 +27,7 @@ export const productTitle = {
     postin:"PostIn",
     kanass:"Kanass",
     teston:"TestOn",
-    sward:"Sward",
+    sward:"sward",
     matflow:"MatFlow",
     gittork:"GitTork",
     hadess:"Hadess",
@@ -36,7 +36,7 @@ export const productTitle = {
 export const Products = [
     {value: 'darth', label: "Darth"},
     {value: 'postin', label: "PostIn",},
-    {value: 'sward', label: "Sward",},
+    {value: 'sward', label: "sward",},
     {value: 'teston', label: "TestOn",},
     {value: 'kanass', label: "Kanass",},
     {value: 'matflow', label: "MatFlow",},

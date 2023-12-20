@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from "react";
-import {Empty} from 'antd';
-import {applyJump, getUser} from 'thoughtware-core-ui';
+import {getUser} from 'thoughtware-core-ui';
 import {RightOutlined} from '@ant-design/icons';
 import {getOplogPageService} from '../store/store';
-import messageEmpty from "../../assets/message.svg";
+import DynamicList from "../../common/list/DynamicList";
 import './OplogWidget.scss';
 
 /**
@@ -36,24 +35,6 @@ const OpLogWidget = props => {
         })
     };
 
-    const changRouter = item => {
-        const {link} = item;
-        if (link && /^http|https/.test(link)) {
-            applyJump(link)
-        }
-    }
-
-    const renderLis = (item,index) =>{
-        return (
-            <div key={index} className="thoughtware_fulloplog-item" onClick={()=>changRouter(item)}>
-                <div className="dynamic-item-data">
-                    <div dangerouslySetInnerHTML={{__html: item.data}}/>
-                </div>
-                <div className="dynamic-item-time">{item.createTime}</div>
-            </div>
-        )
-    }
-
     return(
         <div className={'oplogWidget'}>
             <div className={'oplogWidget-card'}>
@@ -66,18 +47,7 @@ const OpLogWidget = props => {
                     </div>
                     <div className="oplogWidget-card-body-content">
                         <div className='log-content'>
-                            {
-                                logData && logData.length>0 ?
-                                    logData.map((item,index)=>renderLis(item,index))
-                                    :
-                                    <Empty
-                                        imageStyle={{
-                                            height: 120,
-                                        }}
-                                        description={<span style={{color:"#999",fontSize:13}}>没有日志</span>}
-                                        image={messageEmpty}
-                                    />
-                            }
+                            <DynamicList dynamicList={logData}/>
                         </div>
                     </div>
                 </div>
