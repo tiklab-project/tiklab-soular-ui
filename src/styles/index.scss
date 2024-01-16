@@ -1,33 +1,35 @@
-.ant-form-item{
-    margin-bottom: 8px !important;
-}
-.ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional):after {
-    display: inline-block;
-    margin-right: 4px;
-    color: #ff4d4f;
-    font-size: 14px;
-    font-family: SimSun,sans-serif;
-    line-height: 1;
-    content: "*";
+.system-content{
+    .ant-form-item{
+        margin-bottom: 8px !important;
+    }
+    .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional):after {
+        display: inline-block;
+        margin-right: 4px;
+        color: #ff4d4f;
+        font-size: 14px;
+        font-family: SimSun,sans-serif;
+        line-height: 1;
+        content: "*";
+    }
+
+    .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+        display: none !important;
+        content: "" !important;
+    }
+
+    .ant-form-item-explain{
+        font-size: 13px !important;
+    }
+
+    .ant-form-item-explain-error{
+        min-height: 20px !important;
+        height: 20px !important;
+    }
 }
 
-.ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
-    display: none !important;
-    content: "" !important;
-}
-
-.ant-form-item-explain{
-    font-size: 13px !important;
-}
-
-.ant-form-item-explain-error{
-    min-height: 20px !important;
-    height: 20px !important;
-}
-
-.darth-home-limited{
+.eas-home-limited{
     padding: 20px 30px;
-    min-width: 700px;
+    min-width: 576px;
 }
 
 

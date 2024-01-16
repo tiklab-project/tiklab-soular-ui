@@ -38,7 +38,7 @@ module.exports = merge(baseWebpackConfig, {
             alwaysWriteToDisk: true,
             title:'true',
             template: path.resolve(__dirname, './public/index.template.html'),
-            favicon: path.resolve(__dirname, './public/darthIcon.png'),
+            favicon: path.resolve(__dirname, './public/easIcon.png'),
             hash: false,
             filename: 'index.html',
             inject: 'body',
@@ -138,13 +138,13 @@ module.exports = merge(baseWebpackConfig, {
                     priority: 2,
                     reuseExistingChunk: true
                 },
-                thoughtwareLicenceUI: {
-                    name: "chunk-thoughtware-licence-ui",
-                    chunks: "all",
-                    test: /[\\/]node_modules[\\/]thoughtware-licence-ui[\\/]/,
-                    priority: 3,
-                    reuseExistingChunk: true
-                },
+                // thoughtwareLicenceUI: {
+                //     name: "chunk-thoughtware-licence-ui",
+                //     chunks: "all",
+                //     test: /[\\/]node_modules[\\/]thoughtware-licence-ui[\\/]/,
+                //     priority: 2,
+                //     reuseExistingChunk: true
+                // },
                 zrender:{
                     name: "chunk-zrender",
                     chunks: "all",

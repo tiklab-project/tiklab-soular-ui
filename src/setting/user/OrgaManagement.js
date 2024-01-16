@@ -13,6 +13,7 @@ const OrgaManagement = (props) => {
         <Orga
             {...props}
             isPortal={true}
+            bgroup={"eas"}
         />
     )
 }

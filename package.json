@@ -1,5 +1,5 @@
 {
-    "name": "thoughtware-darth-ui",
+    "name": "thoughtware-eas-ui",
     "version": "1.0.1",
     "description": "",
     "main": "es/src/export.js",
@@ -10,7 +10,7 @@
         "registry": "http://172.13.1.24:8080/repository/npm-hosted"
     },
     "scripts": {
-        "darth-ce-start": "cross-env NODE_ENV=development CUSTOM_ENV=dev webpack-dev-server --progress --config ./webpack.dev.js ",
+        "eas-ce-start": "cross-env NODE_ENV=development CUSTOM_ENV=dev webpack-dev-server --progress --config ./webpack.dev.js ",
         "build:dev": "cross-env NODE_ENV=production CUSTOM_ENV=dev webpack --config ./webpack.prod.js ",
         "build:prod": "cross-env NODE_ENV=production CUSTOM_ENV=prod webpack --config ./webpack.prod.js ",
         "build:test": "cross-env NODE_ENV=production CUSTOM_ENV=test webpack --config ./webpack.prod.js ",
@@ -54,11 +54,11 @@
         "thoughtware-eam-cloud-ui": "^1.0.1",
         "thoughtware-licence-cloud-ui": "^1.0.0",
         "thoughtware-tenant-cloud-ui": "^1.0.1",
-        "thoughtware-darth-ui": "^1.0.1",
+        "thoughtware-eas-ui": "^1.0.1",
         "thoughtware-core-ui": "^1.0.2",
         "thoughtware-eam-ui": "^1.0.2",
         "thoughtware-licence-ui": "^1.0.2",
-        "thoughtware-message-ui": "^1.0.2",
+        "thoughtware-message-ui": "^1.0.3",
         "thoughtware-plugin-core-ui": "^1.0.2",
         "thoughtware-plugin-manager-ui": "^1.0.2",
         "thoughtware-privilege-ui": "^1.0.2",
@@ -68,7 +68,7 @@
     },
     "dependencies": {
         "@ant-design/icons": "4.3.0",
-        "antd": "^4.15.2",
+        "antd": "4.15.2",
         "i18next": "19.8.4",
         "i18next-browser-languagedetector": "6.0.1",
         "i18next-http-backend": "1.0.21",
@@ -92,7 +92,7 @@
         "thoughtware-core-ui": "^1.0.2",
         "thoughtware-eam-ui": "^1.0.2",
         "thoughtware-licence-ui": "^1.0.2",
-        "thoughtware-message-ui": "^1.0.2",
+        "thoughtware-message-ui": "^1.0.3",
         "thoughtware-plugin-core-ui": "^1.0.2",
         "thoughtware-plugin-manager-ui": "^1.0.2",
         "thoughtware-privilege-ui": "^1.0.2",

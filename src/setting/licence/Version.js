@@ -112,7 +112,7 @@ const VersionPage = () => {
     ]
 
     return (
-        <Version>
+        <Version bgroup={"eas"}>
             <Table
                 bordered
                 columns={columns}

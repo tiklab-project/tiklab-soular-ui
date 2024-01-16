@@ -8,7 +8,7 @@ import {UserGroup} from 'thoughtware-user-ui';
  */
 const UserGroupPage = () => {
 
-    return <UserGroup />
+    return <UserGroup bgroup={"eas"} />
 }
 
 export default UserGroupPage

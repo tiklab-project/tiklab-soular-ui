@@ -1,22 +1,22 @@
-.darth-page{
+.eas-page{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 40px;
-    .darth-page-ban{
+    .eas-page-ban{
         cursor:not-allowed;
         color: var(--thoughtware-gray-500);
     }
-    .darth-page-allow{
+    .eas-page-allow{
         cursor: pointer;
     }
-    .darth-page-current,.darth-page-allow:hover{
+    .eas-page-current,.eas-page-allow:hover{
         color: var(--thoughtware-blue);
     }
-    .darth-page-line{
+    .eas-page-line{
         margin: 0 5px;
     }
-    .darth-page-record{
+    .eas-page-record{
         margin-left: 10px;
         font-size: var(--thoughtware-font-12);
     }

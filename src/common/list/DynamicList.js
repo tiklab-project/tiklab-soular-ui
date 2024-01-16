@@ -1,7 +1,7 @@
 import React from "react";
 import {Empty} from "antd";
 import {withRouter} from "react-router";
-import Profile from "../Profile";
+import Profile from "../profile/Profile";
 import messageEmpty from "../../assets/message.svg";
 import "./DynamicList.scss";
 
@@ -20,7 +20,7 @@ const DynamicList = props =>{
     }
 
     return (
-        <div className="dynamic-center">
+        <div className="eas-dynamic-center">
             {
                 dynamicList && dynamicList.length>0 ?
                     dynamicList.map(item=> {

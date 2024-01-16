@@ -8,8 +8,8 @@ import {inject,observer} from "mobx-react";
 import {getUser} from 'thoughtware-core-ui';
 import {renderRoutes} from 'react-router-config'
 import {AppLink,HelpLink,AvatarLink} from "thoughtware-licence-ui";
-import darth from 'thoughtware-licence-ui/es/assests/darth.png';
-import PortalMessage from "../messages";
+import logo from 'thoughtware-core-ui/es/assests/eas.png';
+import PortalMessage from "../messages/Messages";
 import './Portal.scss';
 
 const Portal = props => {
@@ -52,8 +52,8 @@ const Portal = props => {
                 <Space size="large">
                     <AppLink/>
                     <div className='layout_header_logo'>
-                        <img alt={'门户中心'} src={darth} height={24} width={24}/>
-                        <div>Darth</div>
+                        <img alt={'门户中心'} src={logo} height={24} width={24}/>
+                        <div>EAS</div>
                     </div>
                     {
                         homeRouter.map(item => {

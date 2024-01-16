@@ -6,6 +6,7 @@ const UserManagement = props => {
         <User
             {...props}
             isPortal={true}
+            bgroup={"eas"}
         />
     )
 };

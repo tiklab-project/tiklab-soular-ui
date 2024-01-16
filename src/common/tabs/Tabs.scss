@@ -1,4 +1,4 @@
-.darth-tabs{
+.eas-tabs{
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -7,7 +7,7 @@
     font-size: var(--thoughtware-font-13);
 }
 
-.darth-tab{
+.eas-tab{
     cursor: pointer;
     height: 40px;
     line-height: 40px;
@@ -17,7 +17,7 @@
     }
 }
 
-.darth-active-tab{
+.eas-active-tab{
     color: var(--thoughtware-blue);
     border-bottom: 2px solid var(--thoughtware-blue);
 }

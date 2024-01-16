@@ -7,7 +7,7 @@
 import React from 'react';
 import {MyLog} from 'thoughtware-security-ui';
 const LogList = (props) => {
-    return <MyLog {...props}/>
+    return <MyLog {...props} bgroup={"eas"}/>
 }
 
 export default LogList;

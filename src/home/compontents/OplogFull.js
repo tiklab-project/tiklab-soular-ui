@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
 import { DatePicker,Row,Col} from "antd";
-import {applyJump, getUser,} from 'thoughtware-core-ui';
+import {applyJump, getUser} from 'thoughtware-core-ui';
 import moment from 'moment';
 import {getOplogPageService} from "../store/store";
 import Page from '../../common/page/Page'
-import BreadCrumb from "../../common/breadCrumb";
+import BreadCrumb from "../../common/breadCrumb/BreadCrumb";
 import DynamicList from "../../common/list/DynamicList";
 import './OplogFull.scss';
 
@@ -39,7 +39,7 @@ const OplogFull = props => {
         getOplogPageService({
             ...params,
             userId: getUser().userId,
-            bgroup:'darth'
+            bgroup:'eas'
         }).then(res=>{
             if (res.code === 0 ) {
                 const data = res.data.dataList;
@@ -93,27 +93,16 @@ const OplogFull = props => {
         }
     }
 
-    const renderLis = (item,index) =>{
-        return (
-            <div key={index} className="thoughtware_fulloplog-item" onClick={()=>onDetail(item)}>
-                <div className="dynamic-item-data">
-                    <div dangerouslySetInnerHTML={{__html: item.data}}/>
-                </div>
-                <div className="dynamic-item-time">{item.createTime}</div>
-            </div>
-        )
-    }
-
     return(
         <Row className='thoughtware_fulloplog'>
             <Col
                 sm={{ span: "24" }}
                 md={{ span: "24" }}
                 lg={{ span: "24" }}
-                xl={{ span: "18", offset: "3" }}
-                xxl={{ span: "18", offset: "3" }}
+                xl={{ span: "16", offset: "4" }}
+                xxl={{ span: "14", offset: "5" }}
             >
-                <div className='darth-home-limited'>
+                <div className='eas-home-limited'>
                     <div className='thoughtware_fulloplog-title'>
                         <BreadCrumb
                             firstItem={"动态"}

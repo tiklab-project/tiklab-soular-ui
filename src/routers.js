@@ -1,71 +1,45 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import SyncComponent from './common/lazy/SyncComponent';
 
-const Layout = SyncComponent(() => import('./common/layout/Layout'));
+import {
+    Logout,
+    Login,
+    ExcludeProductUser,
+    Wechat,
+    Layout,
 
-const Login = SyncComponent(() => import('./login/Login'))
-const ExcludeProductUser = SyncComponent(() => import('./login/ExcludeProductUser'))
-const Logout=SyncComponent(()=>import("./login/Logout"))
-const Wechat=SyncComponent(()=>import("./login/Wechat"))
+    WidgetWork,
+    Oplog,
+    NotFound,
 
-const NotFound = SyncComponent(()=>import('./setting/privilege/NotFound'))
+    Setting,
+    OrgaManagement,
+    UserManagement,
+    PortalDirectory,
+    UserGroupPage,
+    SystemRole,
+    MessageSendType,
+    MessageNotice,
+    PluginList,
+    LogListPage,
+    DataImport,
+    BackupRestore,
+    VersionPage,
+    ProductAuth,
 
-/**
- * 首页工作台
- * @type {LazyComponent|*}
- */
-const WidgetWork = SyncComponent(() => import('./home/compontents/WidgetWork'))
-
-/**
- * 日志
- */
-const Oplog = SyncComponent(()=>import('./home/compontents/OplogFull'))
-
-/**
- * 用户管理
- */
-const OrgaManagement = SyncComponent(() => import('./setting/user/OrgaManagement'));
-const UserManagement = SyncComponent(() => import('./setting/user/UserManagement'));
-const PortalDirectory = SyncComponent(() => import('./setting/user/Directory'));
-const UserGroupPage = SyncComponent(() => import('./setting/user/UserGroupPage'))
-
-
-/**
- * 系统设置
- */
-const Setting = SyncComponent(()=> import('./setting/navigator/setting'));
-const MessageSendType = SyncComponent(() => import('./setting/message/MessageSendType'));
-const MessageManagement = SyncComponent(() => import('./setting/message/Management'));
-const PluginList = SyncComponent(() => import('./setting/plugin/Plugin'))
-
-const ProductAuth = SyncComponent(() => import('./setting/licence/ProductAuth'));
-const VersionPage = SyncComponent(() => import('./setting/licence/Version'));
-const SystemRole = SyncComponent(() => import('./setting/privilege/SystemRolePage'));
-
-const LogListPage = SyncComponent(()=> import('./setting/secuity/LogList'))
-const DataImport = SyncComponent(()=>import('./setting/integration/dataImport/components/DataImport'))
-
-const BackupRestore = SyncComponent(()=>import('./setting/secuity/BackupRestore'))
-
-
-/**
- * 基础数据
- * @type {LazyComponent|*}
- */
-const TodoTemplate = SyncComponent(()=> import('./setting/Base/Todo/TodoTemp'));
-const BaseTodoTypePage =  SyncComponent(()=> import('./setting/Base/Todo/TodoTypePage'));
-const BaseSystemFeature = SyncComponent(() => import('./setting/Base/Privilege/BaseSystemFeature'));
-const BaseSystemRole = SyncComponent(() => import('./setting/Base/Privilege/BaseSystemRole'));
-const BaseProjectFeature = SyncComponent(() => import('./setting/Base/Privilege/BaseProjectFeature'));
-const BaseProjectRole = SyncComponent(() => import('./setting/Base/Privilege/BaseProjectRole'));
-const BaseDomainRole = SyncComponent(() => import('./setting/Base/Privilege/BaseDomainRole'));
-const MessageSendTypeBase = SyncComponent(() => import('./setting/Base/Message/MessageSendType'));
-const MessageType = SyncComponent(() => import('./setting/Base/Message/MessageType'));
-const BaseOplogTypePage = SyncComponent(() => import('./setting/Base/Secuity/oplogTypePage'));
-const BaseMessageNoticePage = SyncComponent(() => import('./setting/Base/Message/MessageNoticePage'));
-const BaseDomainUserPage = SyncComponent(() => import('./setting/Base/User/DomainUserPage'));
-const BaseLogTemplate = SyncComponent(()=>import('./setting/Base/Secuity/LogTemplate'))
+    SystemFeature,
+    SystemRoleTrue,
+    ProjectRole,
+    ProjectFeature,
+    TodoTemp,
+    TodoType,
+    LogTemplate,
+    LogType,
+    MessageSendTypeTrue,
+    MessageType,
+    SystemMessageNotice,
+    ProjectMessageNotice
+} from './export';
 
 const routers = [
     {
@@ -142,7 +116,7 @@ const routers = [
                         exact:true,
                     },
                     {
-                        component: MessageManagement,
+                        component: MessageNotice,
                         path:"/setting/Message",
                         exact:true,
                     },
@@ -177,47 +151,47 @@ const routers = [
                         exact:true,
                     },
                     {
-                        component: TodoTemplate,
+                        component: TodoTemp,
                         path:"/setting/base/todotemplate",
                         exact:true,
                     },
                     {
-                        component: BaseTodoTypePage,
+                        component: TodoType,
                         path:"/setting/base/todotype",
                         exact:true,
                     },
                     {
-                        component: BaseLogTemplate,
+                        component: LogTemplate,
                         path:"/setting/base/oplogtemplate",
                         exact:true,
                     },
                     {
-                        component: BaseOplogTypePage,
+                        component: LogType,
                         path:"/setting/base/oplogtype",
                         exact:true,
                     },
                     {
-                        component: BaseSystemFeature,
+                        component: SystemFeature,
                         path:"/setting/base/systemfeature",
                         exact:true,
                     },
                     {
-                        component: BaseSystemRole,
+                        component: SystemRoleTrue,
                         path:"/setting/base/systemrole",
                         exact:true,
                     },
                     {
-                        component: BaseProjectFeature,
+                        component: ProjectFeature,
                         path:"/setting/base/projectfeature",
                         exact:true,
                     },
                     {
-                        component: BaseProjectRole,
+                        component: ProjectRole,
                         path:"/setting/base/projectrole",
                         exact:true,
                     },
                     {
-                        component: MessageSendTypeBase,
+                        component: MessageSendTypeTrue,
                         path:"/setting/base/messagesendtype",
                         exact:true,
                     },
@@ -227,18 +201,13 @@ const routers = [
                         exact:true,
                     },
                     {
-                        component:BaseMessageNoticePage,
+                        component:SystemMessageNotice,
                         path:"/setting/base/messageNotice",
                         exact:true,
                     },
                     {
-                        component: BaseDomainUserPage,
-                        path:"/setting/base/domainUserList",
-                        exact:true,
-                    },
-                    {
-                        component: BaseDomainRole,
-                        path:"/setting/base/domainRole",
+                        component:ProjectMessageNotice,
+                        path:"/setting/base/projectNotice",
                         exact:true,
                     },
                     {

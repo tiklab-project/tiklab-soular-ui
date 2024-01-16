@@ -3,7 +3,7 @@ import {ProductAuth} from "thoughtware-licence-ui";
 
 const ProductAuthContent = (props) => {
     return (
-        <ProductAuth {...props}/>
+        <ProductAuth {...props} bgroup={'eas'}/>
     )
 }
 

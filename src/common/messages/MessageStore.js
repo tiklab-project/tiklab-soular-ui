@@ -13,7 +13,7 @@ class MessageStore {
     findMessageItemPage = async values =>{
         const params = {
             ...values,
-            bgroup:"darth",
+            bgroup:"eas",
             sendType:"site",
             receiver:getUser().userId,
         }

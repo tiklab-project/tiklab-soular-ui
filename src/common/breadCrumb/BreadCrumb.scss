@@ -1,0 +1,13 @@
+.eas-breadcrumb{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: var(--thoughtware-font-weight-bold);
+  .eas-breadcrumb-first{
+    cursor: pointer;
+  }
+  .eas-breadcrumb-span{
+    color: #00000073;
+  }
+}

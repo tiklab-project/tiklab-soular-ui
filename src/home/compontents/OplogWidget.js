@@ -27,7 +27,7 @@ const OpLogWidget = props => {
                 pageSize:10,
                 currentPage:1
             },
-            bgroup:'darth'
+            bgroup:'eas'
         }).then(res=>{
             if (res.code === 0 ) {
                 setLogData(res.data.dataList);

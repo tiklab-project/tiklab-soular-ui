@@ -22,7 +22,15 @@ const templateRouter = [
             },
             {
                 id:'/setting/base/systemrole',
-                title: '系统权限',
+                title: '系统角色',
+            },
+            {
+                id:'/setting/base/projectfeature',
+                title: '项目功能',
+            },
+            {
+                id:'/setting/base/projectrole',
+                title: '项目角色',
             },
             {
                 id:'/setting/base/messagesendtype',
@@ -44,22 +52,7 @@ const templateRouter = [
                 id:'/setting/base/messageNotice',
                 title: '消息通知方案',
             },
-            {
-                id:'/setting/base/projectfeature',
-                title: '项目功能',
-            },
-            {
-                id:'/setting/base/projectrole',
-                title: '项目角色',
-            },
-            {
-                id:'/setting/base/domainUserList',
-                title: '项目用户自定义',
-            },
-            {
-                id:'/setting/base/domainRole',
-                title: '项目角色自定义',
-            }]
+        ]
     }
 ]
 
