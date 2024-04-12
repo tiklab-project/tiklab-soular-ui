@@ -1,0 +1,28 @@
+.thoughtware_fulltodo {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  .thoughtware_fulltodo-title{
+    margin-bottom: 8px;
+  }
+  .thoughtware_fulltodo-select{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--thoughtware-padding-item);
+  }
+  &_nav {
+    font-size: var(--thoughtware-font-16);
+    font-weight: var(--thoughtware-font-weight-bold);
+  }
+  .tab-content{
+    width: 100%;
+  }
+  .ant-pagination-item-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+}

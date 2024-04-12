@@ -7,7 +7,7 @@ import {Orga} from "thoughtware-user-ui";
  * @returns {JSX.Element}
  * @constructor
  */
-const OrgaManagement = (props) => {
+const OrgaContent = (props) => {
 
     return(
         <Orga
@@ -18,4 +18,4 @@ const OrgaManagement = (props) => {
     )
 }
 
-export default OrgaManagement
+export default OrgaContent

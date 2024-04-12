@@ -1,26 +1,23 @@
 .system-content{
     .ant-form-item{
-        margin-bottom: 8px !important;
+        margin-bottom: 20px !important;
     }
     .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional):after {
         display: inline-block;
-        margin-right: 4px;
+        margin-left: 4px;
         color: #ff4d4f;
         font-size: 14px;
         font-family: SimSun,sans-serif;
         line-height: 1;
         content: "*";
     }
-
     .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
         display: none !important;
         content: "" !important;
     }
-
     .ant-form-item-explain{
         font-size: 13px !important;
     }
-
     .ant-form-item-explain-error{
         min-height: 20px !important;
         height: 20px !important;
@@ -37,7 +34,7 @@
 
     --thoughtware-white: #fff;   /* 主色调白*/
     --thoughtware-black: #000;   /*主色调黑 */
-    --thoughtware-blue: #5D70EA;   /* 主色调蓝*/
+    --thoughtware-blue: #0d66e4;   /* 主色调蓝*/
     --thoughtware-gray-200: #ececec;  /*border 的边线 */
     --thoughtware-gray-300: #EDF0F5;  /*hover颜色 */
     --thoughtware-gray-400: #e3e8f0;  /*左侧导航 选中颜色 */

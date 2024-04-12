@@ -13,6 +13,10 @@ const templateRouter = [
                 title: '待办模板',
             },
             {
+                id:'/setting/base/todotype',
+                title: '待办类型',
+            },
+            {
                 id:'/setting/base/oplogtemplate',
                 title: '日志模板',
             },
@@ -43,10 +47,6 @@ const templateRouter = [
             {
                 id:'/setting/base/oplogtype',
                 title: '日志类型',
-            },
-            {
-                id:'/setting/base/todotype',
-                title: '待办类型',
             },
             {
                 id:'/setting/base/messageNotice',

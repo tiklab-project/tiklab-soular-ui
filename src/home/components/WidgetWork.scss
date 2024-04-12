@@ -1,0 +1,179 @@
+.workLayout{
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: var(--thoughtware-gray-600);
+  .workLayout-title{
+    font-size: var(--thoughtware-font-16);
+    font-weight: var(--thoughtware-font-weight-bold);
+    padding-bottom: 10px;
+  }
+  .product_widget{
+    display: flex;
+    overflow: hidden;
+    background-color: var(--thoughtware-white);
+    margin-bottom: var(--thoughtware-padding-item);
+    &-card{
+      width: 100%;
+      padding: 10px;
+      overflow: hidden;
+      transition: all .3s ease;
+    }
+    .clicked{
+      cursor: pointer;
+    }
+    .product_card {
+      &-header{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        overflow: hidden;
+        &-title{
+          color: var(--thoughtware-black);
+          font-size: var(--thoughtware-font-16);
+          font-weight: var(--thoughtware-font-weight-bold);
+        }
+      }
+      &-content {
+        width: 100%;
+        color: #6e6e6e;
+        padding: 0 10px;
+        &-wrap{
+          display: flex;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          gap: 8%;
+        }
+      }
+      &-contentleft{
+        min-height: 420px;
+      }
+      &-item{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 20px 0;
+        &:hover{
+          .card-item_img{
+            top: -4px
+          }
+        }
+        &_img{
+          width: 44px;
+          height: 44px;
+          position: relative;
+        }
+        &_title{
+          height: 20px;
+          font-size: 14px;
+          color: #3a3c41;
+          text-align: center;
+          line-height: 20px;
+          margin: 8px auto 0;
+        }
+
+        .product_card-item_lock{
+          position: absolute;
+          right: -4px;
+          top: -4px;
+          width: 16px;
+          height: 16px;
+          color: #222;
+        }
+
+      }
+    }
+  }
+
+  .quick-entry{
+    padding: 10px;
+    background: var(--thoughtware-white);
+    margin-bottom: var(--thoughtware-padding-item);
+    .quick-entry-content{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 5px 0 10px;
+      .quick-entry-item{
+        width: 200px;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        background: #fafbfc;
+        &:not(:first-child){
+          margin-left: 15px;
+        }
+        div:first-child{
+          padding-bottom: 15px;
+        }
+      }
+    }
+  }
+
+  .todoWidget{
+    padding: 10px;
+    margin-bottom: var(--thoughtware-padding-item);
+    background: var(--thoughtware-white);
+    min-height: 251px;
+    &-header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      &-title{
+        color: var(--thoughtware-black);
+        font-size: var(--thoughtware-font-16);
+        font-weight: var(--thoughtware-font-weight-bold);
+        padding-bottom: 8px;
+      }
+    }
+    &-content {
+      width: 100%;
+      color: var(--thoughtware-black);
+      .todo-select{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .todo-content{
+        margin-top: 10px;
+      }
+    }
+    .time{
+      color: var(--thoughtware-gray-500);
+    }
+    &-tags {
+      padding: var(--thoughtware-padding-item) 0;
+    }
+  }
+
+  .oplogWidget{
+    overflow: hidden;
+    padding: 10px;
+    background: var(--thoughtware-white);
+    min-height: 300px;
+    &-header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      &-title{
+        color: var(--thoughtware-black);
+        font-size: var(--thoughtware-font-16);
+        font-weight: var(--thoughtware-font-weight-bold);
+      }
+    }
+    &-content {
+      width: 100%;
+      color: var(--thoughtware-black);
+      .log-select{
+        padding: 10px 0;
+      }
+    }
+  }
+}

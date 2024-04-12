@@ -16,7 +16,7 @@ const Portal = props => {
 
     const {history,route,systemRoleStore} = props;
 
-    const {getSystemPermissions} = systemRoleStore
+    const {getSystemPermissions} = systemRoleStore;
 
     // 消息抽屉状态
     const [notificationVisibility,setNotificationVisibility] = useState(false);
@@ -35,9 +35,9 @@ const Portal = props => {
             key: 'work'
         },
         {
-            to:'/oplog',
-            title:'动态',
-            key: 'oplog'
+            to:'/todo',
+            title:'代办',
+            key: 'todo'
         }
     ]
 
@@ -45,30 +45,34 @@ const Portal = props => {
         props.history.push(item.to)
     }
 
-
     return(
         <main className="layout">
             <header className="layout_header">
                 <Space size="large">
-                    <AppLink/>
+                    <AppLink
+                        {...props}
+                        bgroup={'eas'}
+                    />
                     <div className='layout_header_logo'>
                         <img alt={'门户中心'} src={logo} height={24} width={24}/>
                         <div>EAS</div>
                     </div>
-                    {
-                        homeRouter.map(item => {
-                            return(
-                                <div key={item.key} className={props.location.pathname === item.to ? `layout_header_link layout_header_link_active`  : 'layout_header_link'} onClick={ () => changeCurrentLink(item)}>
-                                    <span>{item.title}</span>
-                                </div>
-                            )
-                        })
-                    }
+                    <div className='layout_header_link'>
+                        {
+                            homeRouter.map(item => {
+                                return(
+                                    <div key={item.key} className={props.location.pathname === item.to ? `layout_header_link_active` : ''} onClick={ () => changeCurrentLink(item)}>
+                                        <span className='headers-link-text'>{item.title}</span>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </Space>
                 <div className='layout_header_right'>
                     <div className="layout_header_right-text">
                         <div className="text_icon_block_item"
-                             onClick={()=>props.history.push("/setting")}
+                             onClick={()=>props.history.push("/setting/home")}
                              data-title-bottom={'设置'}
                         >
                             <SettingOutlined className="layout_header-icon"/>
@@ -106,4 +110,4 @@ const Portal = props => {
     )
 };
 
-export default inject("systemRoleStore")(observer(Portal))
+export default inject("systemRoleStore","homeStore")(observer(Portal))

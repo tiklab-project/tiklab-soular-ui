@@ -2,15 +2,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    height: 40px;
-    line-height: 40px;
-    font-size: var(--thoughtware-font-13);
 }
 
 .eas-tab{
+    padding: 10px 0;
     cursor: pointer;
-    height: 40px;
-    line-height: 40px;
     margin-right: 20px;
     &:hover{
         color: var(--thoughtware-blue);

@@ -10,39 +10,48 @@ const ExcludeProductUser = SyncComponent(() => import('./login/ExcludeProductUse
 const Logout=SyncComponent(()=>import("./login/Logout"))
 const Wechat=SyncComponent(()=>import("./login/Wechat"))
 
-const NotFound = SyncComponent(()=>import('./setting/privilege/NotFound'))
+const NotFound = SyncComponent(()=>import('./login/NotFound'))
+const NoAccess = SyncComponent(()=>import('./setting/privilege/NoAccess'))
 
 /**
  * 首页工作台
  * @type {LazyComponent|*}
  */
-const WidgetWork = SyncComponent(() => import('./home/compontents/WidgetWork'))
+const WidgetWork = SyncComponent(() => import('./home/components/WidgetWork'))
 
 /**
  * 日志
  */
-const Oplog = SyncComponent(()=>import('./home/compontents/OplogFull'))
+const Oplog = SyncComponent(()=>import('./home/components/Oplog'))
+
+/**
+ * 代办
+ */
+const Todo = SyncComponent(() => import('./home/components/Todo'))
 
 /**
  * 用户管理
  */
-const OrgaManagement = SyncComponent(() => import('./setting/user/OrgaManagement'));
-const UserManagement = SyncComponent(() => import('./setting/user/UserManagement'));
+const OrgaManagement = SyncComponent(() => import('./setting/user/Orga'));
+const UserManagement = SyncComponent(() => import('./setting/user/User'));
 const PortalDirectory = SyncComponent(() => import('./setting/user/Directory'));
-const UserGroupPage = SyncComponent(() => import('./setting/user/UserGroupPage'))
+const UserGroupPage = SyncComponent(() => import('./setting/user/UserGroup'))
 
 
 /**
  * 系统设置
  */
 const Setting = SyncComponent(()=> import('./setting/navigator/setting'));
+
+const SettingHome = SyncComponent(() => import('./setting/home/component/SettingHome'));
+
 const MessageSendType = SyncComponent(() => import('./setting/message/MessageSendType'));
 const MessageNotice = SyncComponent(() => import('./setting/message/MessageNotice'));
 const PluginList = SyncComponent(() => import('./setting/plugin/Plugin'))
 
 const ProductAuth = SyncComponent(() => import('./setting/licence/ProductAuth'));
 const VersionPage = SyncComponent(() => import('./setting/licence/Version'));
-const SystemRole = SyncComponent(() => import('./setting/privilege/SystemRolePage'));
+const SystemRole = SyncComponent(() => import('./setting/privilege/SystemRole'));
 
 const LogListPage = SyncComponent(()=> import('./setting/secuity/LogList'))
 const DataImport = SyncComponent(()=>import('./setting/integration/dataImport/components/DataImport'))
@@ -59,10 +68,10 @@ const SystemRoleTrue=SyncComponent(()=>import("./setting/base/privilege/SystemRo
 const ProjectRole=SyncComponent(()=>import("./setting/base/privilege/ProjectRole"))
 const ProjectFeature=SyncComponent(()=>import("./setting/base/privilege/ProjectFeature"))
 
-const MyTodoTask=SyncComponent(()=>import("./setting/base/todo/MyTodoTask"))
-const Task=SyncComponent(()=>import("./setting/base/todo/Task"))
-const TodoTemp=SyncComponent(()=>import("./setting/base/todo/TodoTemp"))
-const TodoType=SyncComponent(()=>import("./setting/base/todo/TodoType"))
+const MyTodoTask=SyncComponent(()=>import("./setting/base/message/MyTodoTask"))
+const Task=SyncComponent(()=>import("./setting/base/message/Task"))
+const TodoTemp=SyncComponent(()=>import("./setting/base/message/TodoTemp"))
+const TodoType=SyncComponent(()=>import("./setting/base/message/TodoType"))
 
 const LogTemplate=SyncComponent(()=>import("./setting/base/log/LogTemplate"))
 const LogType=SyncComponent(()=>import("./setting/base/log/LogType"))
@@ -84,11 +93,15 @@ export {
     Wechat,
     Layout,
 
+    NotFound,
+    NoAccess,
+
     WidgetWork,
     Oplog,
-    NotFound,
+    Todo,
 
     Setting,
+    SettingHome,
     OrgaManagement,
     UserManagement,
     PortalDirectory,

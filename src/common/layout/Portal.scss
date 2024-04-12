@@ -9,16 +9,28 @@
     border-bottom: 1px solid var(--thoughtware-gray-200);
     padding: 0 30px;
     &_link {
-      height: 100%;
       display: flex;
-      align-items: center;
-      padding: 0 8px;
-      >span{
+      flex-direction: row;
+      gap: 24px;
+      &>div{
         cursor: pointer;
+        overflow: hidden;
+        height: 48px;
+        line-height: 48px;
+        flex-shrink: 0;
+        .headers-link-text{
+          padding: 5px;
+        }
+        &:hover .headers-link-text{
+          background: #E1EDFF;
+          border-radius: 3px;
+          color: var(--thoughtware-blue);
+        }
       }
     }
     &_link_active {
-      position: relative;
+      font-weight: 600;
+      color: var(--thoughtware-blue);
       border-bottom: 2px solid var(--thoughtware-blue);
     }
     &_right{

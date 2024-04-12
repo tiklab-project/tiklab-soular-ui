@@ -6,9 +6,9 @@ import {UserGroup} from 'thoughtware-user-ui';
  * @returns {JSX.Element}
  * @constructor
  */
-const UserGroupPage = () => {
+const UserGroupContent = () => {
 
     return <UserGroup bgroup={"eas"} />
 }
 
-export default UserGroupPage
+export default UserGroupContent

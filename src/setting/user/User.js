@@ -1,7 +1,7 @@
 import React from 'react';
 import {User} from "thoughtware-user-ui";
 
-const UserManagement = props => {
+const UserContent = props => {
     return(
         <User
             {...props}
@@ -11,4 +11,4 @@ const UserManagement = props => {
     )
 };
 
-export default UserManagement
+export default UserContent

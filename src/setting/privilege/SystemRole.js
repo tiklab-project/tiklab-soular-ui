@@ -9,13 +9,13 @@
 import React from 'react';
 import {SystemRole} from "thoughtware-privilege-ui";
 
-const SystemRolePage = props => {
+const SystemRoleContent = props => {
 
     return(
         <SystemRole {...props} group={'system'}/>
     )
 }
 
-export default SystemRolePage
+export default SystemRoleContent
 
 

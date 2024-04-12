@@ -34,16 +34,8 @@ const Setting = props =>{
         }
     }
 
-    // 当前路径
-    const [selectKey,setSelectKey] = useState(path)
-
     // 树的展开与闭合
     const [expandedTree,setExpandedTree] = useState([""])
-
-    useEffect(()=>{
-        // 激活菜单
-        setSelectKey(path)
-    },[path])
 
     /**
      * 路由跳转
@@ -70,7 +62,7 @@ const Setting = props =>{
         return (
             <PrivilegeButton key={data.id} code={data.purviewCode} {...props}>
                 <li style={{cursor:"pointer",paddingLeft:deep}}
-                    className={`system-aside-li system-aside-second ${data.id=== selectKey ? "system-aside-select":""}`}
+                    className={`system-aside-li system-aside-second ${data.id=== path ? "system-aside-select":""}`}
                     onClick={()=>select(data)}
                     key={data.id}
                 >
@@ -132,7 +124,7 @@ const Setting = props =>{
             expandedTree={expandedTree}
             setExpandedTree={setExpandedTree}
             outerPath={"/setting"}
-            notFoundPath={"/404"}
+            noAccessPath={"/noaccess"}
         >
             <div className="system">
                 <div className="system-aside">

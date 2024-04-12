@@ -8,11 +8,15 @@ import {
     Wechat,
     Layout,
 
+    NotFound,
+    NoAccess,
+
     WidgetWork,
     Oplog,
-    NotFound,
+    Todo,
 
     Setting,
+    SettingHome,
     OrgaManagement,
     UserManagement,
     PortalDirectory,
@@ -38,7 +42,7 @@ import {
     MessageSendTypeTrue,
     MessageType,
     SystemMessageNotice,
-    ProjectMessageNotice
+    ProjectMessageNotice,
 } from './export';
 
 const routers = [
@@ -77,14 +81,27 @@ const routers = [
                 exact:true,
             },
             {
-                path:"/404",
+                component: Todo,
+                path:"/todo",
                 exact:true,
+            },
+            {
+                path:"/404",
                 component: NotFound,
+            },
+            {
+                path:"/noaccess",
+                component: NoAccess,
             },
             {
                 component: Setting,
                 path: "/setting",
                 routes:[
+                    {
+                        component: SettingHome,
+                        path:"/setting/home",
+                        exact:true,
+                    },
                     {
                         component: OrgaManagement,
                         path:"/setting/orga",
@@ -117,12 +134,12 @@ const routers = [
                     },
                     {
                         component: MessageNotice,
-                        path:"/setting/Message",
+                        path:"/setting/message",
                         exact:true,
                     },
                     {
                         component: PluginList,
-                        path:"/setting/Plugin",
+                        path:"/setting/plugin",
                         exact:true,
                     },
                     {

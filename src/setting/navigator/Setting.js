@@ -21,7 +21,7 @@ const Setting = props =>{
     const applicationRouters =  [
         {
             id:'user',
-            title: '用户与部门',
+            title: '用户与权限',
             icon :<TeamOutlined/>,
             children: [
                 {
@@ -44,13 +44,12 @@ const Setting = props =>{
                     id:"/setting/dir",
                     purviewCode:'user_dir',
                 },
+                {
+                    id:'/setting/permission',
+                    title: '权限',
+                    purviewCode:'permission',
+                },
             ]
-        },
-        {
-            id:'/setting/permission',
-            title: '权限',
-            purviewCode:'permission',
-            icon :<SafetyCertificateOutlined/>,
         },
         {
             id:'message',
@@ -58,7 +57,7 @@ const Setting = props =>{
             icon :<SoundOutlined/>,
             children: [
                 {
-                    id:'/setting/Message',
+                    id:'/setting/message',
                     title: '消息通知方案',
                 },
                 {
@@ -68,7 +67,7 @@ const Setting = props =>{
             ]
         },
         {
-            id:'/setting/Plugin',
+            id:'/setting/plugin',
             title: '插件',
             purviewCode:'plugin',
             icon :<MergeCellsOutlined />,
