@@ -1,11 +1,68 @@
-import React,{useEffect,useState} from "react";
-import {DownOutlined,UpOutlined} from "@ant-design/icons";
+import React,{useState} from "react";
+import {AppstoreOutlined, DownOutlined, UpOutlined} from "@ant-design/icons";
 import {renderRoutes} from "react-router-config";
 import {inject,observer} from "mobx-react";
 import {SYSTEM_ROLE_STORE} from "thoughtware-privilege-ui/es/store";
 import {SystemNav,PrivilegeButton} from "thoughtware-privilege-ui";
-import {templateRouter} from "./SettingRouters";
 import "./SettingContent.scss";
+
+const templateRouter = [
+    {
+        id:'base',
+        title: '基础数据',
+        icon :<AppstoreOutlined/>,
+        children:[
+            {
+                id:'/setting/base/todotemplate',
+                title: '待办模板',
+            },
+            {
+                id:'/setting/base/todotype',
+                title: '待办类型',
+            },
+            {
+                id:'/setting/base/oplogtemplate',
+                title: '日志模板',
+            },
+            {
+                id:'/setting/base/systemfeature',
+                title: '系统功能',
+            },
+            {
+                id:'/setting/base/systemrole',
+                title: '系统角色',
+            },
+            {
+                id:'/setting/base/projectfeature',
+                title: '项目功能',
+            },
+            {
+                id:'/setting/base/projectrole',
+                title: '项目角色',
+            },
+            {
+                id:'/setting/base/vRole',
+                title: '项目虚拟角色',
+            },
+            {
+                id:'/setting/base/messageNotice',
+                title: '消息通知方案',
+            },
+            {
+                id:'/setting/base/messagesendtype',
+                title: '消息通知类型',
+            },
+            {
+                id:'/setting/base/messagetype',
+                title: '消息类型',
+            },
+            {
+                id:'/setting/base/oplogtype',
+                title: '日志类型',
+            },
+        ]
+    }
+]
 
 /**
  * 系统设置页面
@@ -25,12 +82,11 @@ const Setting = props =>{
         try{
             if(devProduction){
                 return [...applicationRouters,...templateRouter]
-            }
-            else {
-                return [...applicationRouters]
+            } else {
+                return applicationRouters
             }
         }catch {
-            return [...applicationRouters]
+            return applicationRouters
         }
     }
 
@@ -125,6 +181,7 @@ const Setting = props =>{
             setExpandedTree={setExpandedTree}
             outerPath={"/setting"}
             noAccessPath={"/noaccess"}
+            pathKey={'id'}
         >
             <div className="system">
                 <div className="system-aside">

@@ -8,10 +8,11 @@
     height: 48px;
     border-bottom: 1px solid var(--thoughtware-gray-200);
     padding: 0 30px;
+    gap: 20px;
     &_link {
       display: flex;
       flex-direction: row;
-      gap: 24px;
+      gap: 20px;
       &>div{
         cursor: pointer;
         overflow: hidden;
@@ -62,9 +63,10 @@
       display: flex;
       align-items: center;
       height: 100%;
+      margin: 0 20px;
       &>div:last-child{
         margin-left: 10px;
-        font-size: 20px;
+        font-size: 19px;
         font-weight: 500;
       }
     }

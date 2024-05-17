@@ -15,7 +15,6 @@ const PortalLogin  = props => {
             {...props}
             vaildUserAuthRouter={'/no-auth'}
         />
-
     )
 }
 

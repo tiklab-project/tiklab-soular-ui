@@ -10,7 +10,10 @@ import {Directory} from 'thoughtware-user-ui';
 const DirectoryPage = (props) => {
 
     return(
-        <Directory {...props} bgroup={"eas"}/>
+        <Directory
+            {...props}
+            bgroup={"eas"}
+        />
     )
 }
 

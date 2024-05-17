@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import {Space, Badge} from "antd";
+import {Badge} from "antd";
 import {
     SettingOutlined,
     BellOutlined
@@ -36,7 +36,7 @@ const Portal = props => {
         },
         {
             to:'/todo',
-            title:'代办',
+            title:'待办',
             key: 'todo'
         }
     ]
@@ -48,7 +48,7 @@ const Portal = props => {
     return(
         <main className="layout">
             <header className="layout_header">
-                <Space size="large">
+                <div className='layout_header_right'>
                     <AppLink
                         {...props}
                         bgroup={'eas'}
@@ -68,7 +68,7 @@ const Portal = props => {
                             })
                         }
                     </div>
-                </Space>
+                </div>
                 <div className='layout_header_right'>
                     <div className="layout_header_right-text">
                         <div className="text_icon_block_item"

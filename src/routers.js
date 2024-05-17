@@ -35,6 +35,7 @@ import {
     SystemRoleTrue,
     ProjectRole,
     ProjectFeature,
+    ProjectVirtualRole,
     TodoTemp,
     TodoType,
     LogTemplate,
@@ -200,6 +201,11 @@ const routers = [
                     {
                         component: ProjectFeature,
                         path:"/setting/base/projectfeature",
+                        exact:true,
+                    },
+                    {
+                        component: ProjectVirtualRole,
+                        path:"/setting/base/vRole",
                         exact:true,
                     },
                     {

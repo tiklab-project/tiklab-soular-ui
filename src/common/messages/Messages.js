@@ -126,13 +126,13 @@ const PortalMessage = props =>{
             }
             // 更新消息（已读）
             updateMessageItem(updateParams).then(res=>{
-                findMessage()
+                setUnread(unread-1)
             })
         }
         if(item.link){
             window.open(item.link)
         }
-        setVisible(false)
+        onClose()
     }
 
     /**
@@ -145,7 +145,7 @@ const PortalMessage = props =>{
         e.stopPropagation()
         deleteMessageItem(item.id).then(res=>{
             if(res.code===0){
-                findMessage()
+                setMessageList(messageList.filter(li=>item.id!==li.id))
             }
         })
     }
@@ -159,6 +159,14 @@ const PortalMessage = props =>{
         setMessageParams({
             pageParam,
             status: item.id
+        })
+    }
+
+    const onClose = () =>{
+        setVisible(false)
+        setMessageParams({
+            ...messageParams,
+            pageParam
         })
     }
 
@@ -184,7 +192,7 @@ const PortalMessage = props =>{
             closable={false}
             placement="right"
             visible={visible}
-            onClose={()=>setVisible(false)}
+            onClose={onClose}
             maskStyle={{background:"transparent"}}
             contentWrapperStyle={{width:450,top:48,height:"calc(100% - 48px)"}}
             bodyStyle={{padding:0}}
@@ -198,7 +206,7 @@ const PortalMessage = props =>{
                     <Btn
                         title={<CloseOutlined />}
                         type="text"
-                        onClick={()=>setVisible(false)}
+                        onClick={onClose}
                     />
                 </div>
                 <div className="messageModal-content">

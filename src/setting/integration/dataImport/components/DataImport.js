@@ -225,8 +225,12 @@ const DataImport = (props) => {
     return (
         <Row className="data-import">
             <Col
+                xs={{span: "24"}}
+                sm={{span: "24"}}
                 md={{span: "24"}}
                 lg={{ span: "18", offset: "3" }}
+                xl={{ span: "18", offset: "3" }}
+                xxl={{ span: "18", offset: "3" }}
             >
                 <div className="eas-home-limited">
                     <BreadCrumb firstItem={"用户导入"}/>

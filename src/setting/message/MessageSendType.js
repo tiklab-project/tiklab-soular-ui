@@ -12,7 +12,10 @@ import {MessageSendType} from "thoughtware-message-ui";
 const MessageSendTypeContent = props => {
 
     return(
-        <MessageSendType {...props} bgroup={'eas'}/>
+        <MessageSendType
+            {...props}
+            bgroup={'eas'}
+        />
     )
 }
 export default MessageSendTypeContent

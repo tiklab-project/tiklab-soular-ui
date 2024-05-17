@@ -70,6 +70,10 @@ const WidgetWork = props =>{
         })
     },[])
 
+    const toSetting = path => {
+        props.history.push(`/setting/${path}`)
+    }
+
     if(moreOplog){
         return <Oplog setMoreOplog={setMoreOplog}/>
     }

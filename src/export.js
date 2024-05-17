@@ -1,3 +1,4 @@
+import {store as easStore} from "./store";
 import App from "./app";
 import SettingContent from "./setting/navigator/SettingContent";
 import SyncComponent from "./common/lazy/SyncComponent";
@@ -35,7 +36,7 @@ const Todo = SyncComponent(() => import('./home/components/Todo'))
 const OrgaManagement = SyncComponent(() => import('./setting/user/Orga'));
 const UserManagement = SyncComponent(() => import('./setting/user/User'));
 const PortalDirectory = SyncComponent(() => import('./setting/user/Directory'));
-const UserGroupPage = SyncComponent(() => import('./setting/user/UserGroup'))
+const UserGroupPage = SyncComponent(() => import('./setting/user/UserGroup'));
 
 
 /**
@@ -67,6 +68,7 @@ const SystemFeature=SyncComponent(()=>import("./setting/base/privilege/SystemFea
 const SystemRoleTrue=SyncComponent(()=>import("./setting/base/privilege/SystemRoleTrue"))
 const ProjectRole=SyncComponent(()=>import("./setting/base/privilege/ProjectRole"))
 const ProjectFeature=SyncComponent(()=>import("./setting/base/privilege/ProjectFeature"))
+const ProjectVirtualRole=SyncComponent(()=>import("./setting/base/privilege/ProjectVirtualRole"))
 
 const MyTodoTask=SyncComponent(()=>import("./setting/base/message/MyTodoTask"))
 const Task=SyncComponent(()=>import("./setting/base/message/Task"))
@@ -82,6 +84,7 @@ const SystemMessageNotice=SyncComponent(()=>import("./setting/base/message/Syste
 const ProjectMessageNotice=SyncComponent(()=>import("./setting/base/message/ProjectMessageNotice"))
 
 export {
+    easStore,
     App,
     SettingContent,
     Portal,
@@ -106,6 +109,7 @@ export {
     UserManagement,
     PortalDirectory,
     UserGroupPage,
+
     SystemRole,
     MessageSendType,
     MessageNotice,
@@ -120,6 +124,7 @@ export {
     SystemRoleTrue,
     ProjectRole,
     ProjectFeature,
+    ProjectVirtualRole,
     MyTodoTask,
     Task,
     TodoTemp,
