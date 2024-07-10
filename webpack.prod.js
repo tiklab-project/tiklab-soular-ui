@@ -82,20 +82,6 @@ module.exports = merge(baseWebpackConfig, {
                     priority: 1,
                     reuseExistingChunk: true
                 },
-                thoughtwarePluginCoreUI: {
-                    name: "chunk-thoughtware-plugin-core-ui",
-                    chunks: "all",
-                    test: /[\\/]node_modules[\\/]thoughtware-plugin-core-ui[\\/]/,
-                    priority: 2,
-                    reuseExistingChunk: true
-                },
-                thoughtwarePluginManagerUI: {
-                    name: "chunk-thoughtware-plugin-manager-ui",
-                    chunks: "all",
-                    test: /[\\/]node_modules[\\/]thoughtware-plugin-manager-ui[\\/]/,
-                    priority: 2,
-                    reuseExistingChunk: true
-                },
                 thoughtwareSecurityUI: {
                     name: "chunk-thoughtware-security-ui",
                     chunks: "all",

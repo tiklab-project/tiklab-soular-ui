@@ -5,7 +5,7 @@ import {
     BellOutlined
 } from "@ant-design/icons";
 import {inject,observer} from "mobx-react";
-import {getUser} from 'thoughtware-core-ui';
+import {getUser,isPC} from 'thoughtware-core-ui';
 import {renderRoutes} from 'react-router-config'
 import {AppLink,HelpLink,AvatarLink} from "thoughtware-licence-ui";
 import logo from 'thoughtware-core-ui/es/assests/eas.png';
@@ -14,17 +14,19 @@ import './Portal.scss';
 
 const Portal = props => {
 
-    const {history,route,systemRoleStore} = props;
+    const {replacePath,history,route,systemRoleStore} = props;
 
     const {getSystemPermissions} = systemRoleStore;
 
-    // 消息抽屉状态
+    //消息抽屉状态
     const [notificationVisibility,setNotificationVisibility] = useState(false);
-
-    // 未读
+    //未读
     const [unread,setUnread] = useState(0)
 
     useEffect(()=>{
+        if (typeof replacePath === 'function') {
+            return replacePath();
+        }
         getSystemPermissions(getUser().userId)
     },[])
 
@@ -83,9 +85,14 @@ const Portal = props => {
                              onClick={()=>setNotificationVisibility(true)}
                              data-title-bottom={'消息'}
                         >
-                            <Badge count={unread} size="small">
+                            {
+                                unread>0?
+                                <Badge count={unread} size="small">
+                                    <BellOutlined className="layout_header-icon"/>
+                                </Badge>
+                                :
                                 <BellOutlined className="layout_header-icon"/>
-                            </Badge>
+                            }
                         </div>
                         <PortalMessage
                             history={history}

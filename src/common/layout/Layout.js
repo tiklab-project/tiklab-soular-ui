@@ -1,6 +1,5 @@
 import React from "react";
 import {UserVerify} from "thoughtware-eam-ui";
-import {connect} from "thoughtware-plugin-core-ui";
 import Portal from "./Portal";
 
 /**
@@ -10,13 +9,11 @@ import Portal from "./Portal";
  * @constructor
  */
 const Layout = props => {
-    return <Portal {...props}/>
+    return (
+        <Portal
+            {...props}
+        />
+    )
 }
 
-function mapStateToProps(state) {
-    return {
-        pluginStore: state.pluginStore
-    }
-}
-
-export default connect(mapStateToProps)(UserVerify(Layout,"/no-auth"))
+export default UserVerify(Layout,"/no-auth")

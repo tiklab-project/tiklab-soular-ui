@@ -5,7 +5,6 @@ import {
     Logout,
     Login,
     ExcludeProductUser,
-    Wechat,
     Layout,
 
     NotFound,
@@ -17,14 +16,13 @@ import {
 
     Setting,
     SettingHome,
-    OrgaManagement,
-    UserManagement,
-    PortalDirectory,
-    UserGroupPage,
+    Orga,
+    User,
+    Directory,
+    UserGroup,
     SystemRole,
     MessageSendType,
     MessageNotice,
-    PluginList,
     LogListPage,
     DataImport,
     BackupRestore,
@@ -63,11 +61,6 @@ const routers = [
         path: "/no-auth"
     },
     {
-        component:Wechat,
-        exact:true,
-        path: '/project'
-    },
-    {
         component: Layout,
         path: '/',
         routes: [
@@ -104,22 +97,22 @@ const routers = [
                         exact:true,
                     },
                     {
-                        component: OrgaManagement,
+                        component: Orga,
                         path:"/setting/orga",
                         exact:true,
                     },
                     {
-                        component: UserManagement,
+                        component: User,
                         path:"/setting/user",
                         exact:true,
                     },
                     {
-                        component: PortalDirectory,
+                        component: Directory,
                         path:"/setting/dir",
                         exact:true,
                     },
                     {
-                        component: UserGroupPage,
+                        component: UserGroup,
                         path: "/setting/userGroup",
                         exact: true
                     },
@@ -136,11 +129,6 @@ const routers = [
                     {
                         component: MessageNotice,
                         path:"/setting/message",
-                        exact:true,
-                    },
-                    {
-                        component: PluginList,
-                        path:"/setting/plugin",
                         exact:true,
                     },
                     {

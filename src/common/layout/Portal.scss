@@ -75,6 +75,29 @@
     height: calc(100vh - 48px);
     width: 100%;
   }
+  &_footer{
+    height: 48px;
+    padding: 0 30px;
+    border-top: 1px solid var(--thoughtware-gray-200);
+    white-space: nowrap;
+    &_link{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 100%;
+      justify-content: space-between;
+      &>div{
+        text-align: center;
+      }
+      &_icon{
+        font-size: 16px;
+      }
+    }
+    .layout_footer_link_active{
+      color: var(--thoughtware-blue);
+      font-weight: 600;
+    }
+  }
 
 }
 

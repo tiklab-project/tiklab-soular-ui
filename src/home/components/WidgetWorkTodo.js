@@ -60,7 +60,7 @@ const WidgetWorkTodo = props => {
             <div className="todoWidget">
                 <div className="todoWidget-header">
                     <div className="todoWidget-header-title">待办</div>
-                    <div onClick={()=>history.push('/todo')}>
+                    <div onClick={()=>history.push(props.route.path==='/work'?'/todo':'/h5/todo')}>
                         <RightOutlined style={{color:"var(--thoughtware-blue)"}}/>
                     </div>
                 </div>

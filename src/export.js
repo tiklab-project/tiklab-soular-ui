@@ -9,7 +9,6 @@ const Layout = SyncComponent(() => import('./common/layout/Layout'));
 const Login = SyncComponent(() => import('./login/Login'))
 const ExcludeProductUser = SyncComponent(() => import('./login/ExcludeProductUser'))
 const Logout=SyncComponent(()=>import("./login/Logout"))
-const Wechat=SyncComponent(()=>import("./login/Wechat"))
 
 const NotFound = SyncComponent(()=>import('./login/NotFound'))
 const NoAccess = SyncComponent(()=>import('./setting/privilege/NoAccess'))
@@ -33,10 +32,10 @@ const Todo = SyncComponent(() => import('./home/components/Todo'))
 /**
  * 用户管理
  */
-const OrgaManagement = SyncComponent(() => import('./setting/user/Orga'));
-const UserManagement = SyncComponent(() => import('./setting/user/User'));
-const PortalDirectory = SyncComponent(() => import('./setting/user/Directory'));
-const UserGroupPage = SyncComponent(() => import('./setting/user/UserGroup'));
+const Orga = SyncComponent(() => import('./setting/user/Orga'));
+const User = SyncComponent(() => import('./setting/user/User'));
+const Directory = SyncComponent(() => import('./setting/user/Directory'));
+const UserGroup = SyncComponent(() => import('./setting/user/UserGroup'));
 
 
 /**
@@ -93,7 +92,6 @@ export {
     Logout,
     Login,
     ExcludeProductUser,
-    Wechat,
     Layout,
 
     NotFound,
@@ -105,10 +103,10 @@ export {
 
     Setting,
     SettingHome,
-    OrgaManagement,
-    UserManagement,
-    PortalDirectory,
-    UserGroupPage,
+    Orga,
+    User,
+    Directory,
+    UserGroup,
 
     SystemRole,
     MessageSendType,

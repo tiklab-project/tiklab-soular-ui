@@ -67,12 +67,6 @@ const Setting = props =>{
             ]
         },
         {
-            id:'/setting/plugin',
-            title: '插件',
-            purviewCode:'plugin',
-            icon :<MergeCellsOutlined />,
-        },
-        {
             id:'integration',
             title: '系统集成',
             icon :<MacCommandOutlined />,

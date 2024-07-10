@@ -88,24 +88,6 @@ const SettingHome = props => {
                         </div>
                     </div>
                     <div className='setting-home-chunk'>
-                        <div className='home-title'>插件</div>
-                        <div className='home-chunk'>
-                            <div className='home-chunk-item' onClick={()=>goPath('plugin')}>
-                                <div className='home-chunk-label'>插件</div>
-                                <div className='home-chunk-info home-chunk-wrap'>
-                                    <div className='home-chunk-wrap-inline'>
-                                        <div className='home-chunk-desc'>已安装</div>
-                                        <div className='home-chunk-length'>{count?.installPluginNumber || 0}</div>
-                                    </div>
-                                    <div className='home-chunk-wrap-inline'>
-                                        <div className='home-chunk-desc home-chunk-right'>插件市场</div>
-                                        <div className='home-chunk-length'>{count?.shopPluginNumber || 0}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='setting-home-chunk'>
                         <div className='home-title'>应用与安全</div>
                         <div className='home-chunk'>
                             <div className='home-chunk-item' onClick={()=>goPath('backups')}>

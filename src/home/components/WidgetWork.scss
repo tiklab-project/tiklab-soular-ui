@@ -42,7 +42,7 @@
           display: flex;
           justify-content: flex-start;
           flex-wrap: wrap;
-          gap: 8%;
+          gap: 7%;
         }
       }
       &-contentleft{
@@ -53,6 +53,7 @@
         align-items: center;
         flex-direction: column;
         margin: 20px 0;
+        min-width: 55px;
         &:hover{
           .card-item_img{
             top: -4px
@@ -62,6 +63,14 @@
           width: 44px;
           height: 44px;
           position: relative;
+        }
+        &_beta{
+          position: absolute;
+          z-index: 10;
+          top: -14px;
+          right: -26px;
+          pointer-events: none;
+          transition: opacity 0.3s, transform 0.3s;
         }
         &_title{
           height: 20px;

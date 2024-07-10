@@ -1,6 +1,6 @@
 import React from "react";
 import {Empty} from "antd";
-import {withRouter} from "react-router";
+import {applyJump} from "thoughtware-core-ui";
 import Profile from "../profile/Profile";
 import messageEmpty from "../../assets/message.svg";
 import "./DynamicList.scss";
@@ -15,7 +15,7 @@ const DynamicList = props =>{
     // 动态路由跳转
     const goDynaLink = item =>{
         if(item.link){
-            props.history.push(item.link.split("#")[1])
+            applyJump(item.link)
         }
     }
 
@@ -60,4 +60,4 @@ const DynamicList = props =>{
     )
 }
 
-export default withRouter(DynamicList)
+export default DynamicList

@@ -8,7 +8,11 @@ import {ExcludeProductUser} from "thoughtware-eam-ui";
  * @constructor
  */
 const ExcludeProductUserContent = props => {
-    return <ExcludeProductUser {...props}/>
+    return (
+        <ExcludeProductUser
+            {...props}
+        />
+    )
 }
 
 export default ExcludeProductUserContent

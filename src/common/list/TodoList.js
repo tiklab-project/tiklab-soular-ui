@@ -1,6 +1,6 @@
 import React from "react";
 import {Empty} from "antd";
-import {isPC} from "thoughtware-core-ui";
+import {isPC,applyJump} from "thoughtware-core-ui";
 import Profile from "../profile/Profile";
 import messageEmpty from "../../assets/message.svg";
 import './TodoList.scss';
@@ -12,7 +12,7 @@ const TodoList = (props) => {
     // 动态路由跳转
     const goTodoLink = item =>{
         if(item.link && isPC()){
-            window.open(item.link)
+            applyJump(item.link)
         }
     }
 
