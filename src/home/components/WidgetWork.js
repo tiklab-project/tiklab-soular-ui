@@ -9,6 +9,7 @@ import WidgetWorkOplog from './WidgetWorkOplog';
 import WidgetWorkTodo from "./WidgetWorkTodo";
 import Btn from "../../common/btn/Btn";
 import Oplog from "./Oplog";
+import Todo from './Todo';
 import './WidgetWork.scss';
 
 /**
@@ -25,14 +26,16 @@ const WidgetWork = props =>{
     const {findCount} = countStore;
     const {findAppLinkList} = appLinkStore;
 
-    //更多动态显示
-    const [moreOplog,setMoreOplog] = useState(false);
+    //显示动态
+    const [showOplog,setShowOplog] = useState(false);
     //常用数据
     const [count,setCount] = useState({});
     //应用链接弹出框
     const [visible,setVisible] = useState(false);
     //配置链接编辑数据
     const [edit,setEdit] = useState(null);
+    //显示待办
+    const [showTodo,setShowTodo] = useState(null);
 
     /**
      * 编辑或创建应用配置成功后处理
@@ -89,11 +92,24 @@ const WidgetWork = props =>{
      * @param path
      */
     const toSetting = path => {
-        props.history.push(`/setting/${path}`)
+        props.history.push(`/user/${path}`)
     }
 
-    if(moreOplog){
-        return <Oplog setMoreOplog={setMoreOplog}/>
+    if(showOplog){
+        return (
+            <Oplog
+                setShowOplog={setShowOplog}
+            />
+        )
+    }
+
+    if(showTodo){
+        return (
+            <Todo
+                showTodo={showTodo}
+                setShowTodo={setShowTodo}
+            />
+        )
     }
 
     return (
@@ -103,14 +119,14 @@ const WidgetWork = props =>{
                 sm={{ span: "24" }}
                 md={{ span: "24" }}
                 lg={{ span: "24" }}
-                xl={{ span: "16", offset: "4" }}
-                xxl={{ span: "14", offset: "5" }}
+                xl={{ span: "18", offset: "3" }}
+                xxl={{ span: "16", offset: "4" }}
             >
                 <div className="eas-home-limited">
                     <div className="product_widget">
                         <div className="product_widget-card">
-                            <div className="product_card-header">
-                                <div className="product_card-header-title">应用</div>
+                            <div className="workLayout-guide">
+                                <div className="workLayout-title">应用</div>
                                 <Btn type="link" onClick={onUrlConfig}>配置</Btn>
                                 <AppLinkEdit
                                     edit={edit}
@@ -149,8 +165,10 @@ const WidgetWork = props =>{
                     {
                         isPC() &&
                         <div className='quick-entry'>
-                            <div className='workLayout-title'>
-                                常用
+                            <div className='workLayout-guide'>
+                                <div className='workLayout-title'>
+                                    用户概况
+                                </div>
                             </div>
                             <div className='quick-entry-content'>
                                 <div className='quick-entry-item' onClick={()=>toSetting('orga')}>
@@ -165,10 +183,6 @@ const WidgetWork = props =>{
                                     <div>{count?.userGroupNumber || 0}</div>
                                     <div>用户组</div>
                                 </div>
-                                <div className='quick-entry-item' onClick={()=>toSetting('dir')}>
-                                    <div>{count?.userDirNumber || 0}</div>
-                                    <div>用户目录</div>
-                                </div>
                                 <div className='quick-entry-item' onClick={()=>toSetting('permission')}>
                                     <div>{count?.roleNumber || 0}</div>
                                     <div>权限</div>
@@ -178,11 +192,11 @@ const WidgetWork = props =>{
                     }
                     <WidgetWorkTodo
                         {...props}
-                        history={props.history}
+                        setShowTodo={setShowTodo}
                     />
                     <WidgetWorkOplog
-                        history={props.history}
-                        setMoreOplog={setMoreOplog}
+                        {...props}
+                        setShowOplog={setShowOplog}
                     />
                 </div>
             </Col>

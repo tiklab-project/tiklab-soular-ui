@@ -4,65 +4,7 @@ import {renderRoutes} from "react-router-config";
 import {inject,observer} from "mobx-react";
 import {SYSTEM_ROLE_STORE} from "thoughtware-privilege-ui/es/store";
 import {SystemNav,PrivilegeButton} from "thoughtware-privilege-ui";
-import "./SettingContent.scss";
-
-const templateRouter = [
-    {
-        id:'base',
-        title: '基础数据',
-        icon :<AppstoreOutlined/>,
-        children:[
-            {
-                id:'/setting/base/todotemplate',
-                title: '待办模板',
-            },
-            {
-                id:'/setting/base/todotype',
-                title: '待办类型',
-            },
-            {
-                id:'/setting/base/oplogtemplate',
-                title: '日志模板',
-            },
-            {
-                id:'/setting/base/systemfeature',
-                title: '系统功能',
-            },
-            {
-                id:'/setting/base/systemrole',
-                title: '系统角色',
-            },
-            {
-                id:'/setting/base/projectfeature',
-                title: '项目功能',
-            },
-            {
-                id:'/setting/base/projectrole',
-                title: '项目角色',
-            },
-            {
-                id:'/setting/base/vRole',
-                title: '项目虚拟角色',
-            },
-            {
-                id:'/setting/base/messageNotice',
-                title: '消息通知方案',
-            },
-            {
-                id:'/setting/base/messagesendtype',
-                title: '消息通知类型',
-            },
-            {
-                id:'/setting/base/messagetype',
-                title: '消息类型',
-            },
-            {
-                id:'/setting/base/oplogtype',
-                title: '日志类型',
-            },
-        ]
-    }
-]
+import "./Aside.scss";
 
 /**
  * 系统设置页面
@@ -70,25 +12,14 @@ const templateRouter = [
  * @returns {JSX.Element}
  * @constructor
  */
-const Setting = props =>{
+const Aside = props =>{
 
-    const {route,applicationRouters,systemRoleStore} = props
+    const {outerPath,route,applicationRouters,systemRoleStore} = props
 
     const {systemPermissions} = systemRoleStore
 
     let path = props.location.pathname
 
-    let menus = () =>{
-        try{
-            if(devProduction){
-                return [...applicationRouters,...templateRouter]
-            } else {
-                return applicationRouters
-            }
-        }catch {
-            return applicationRouters
-        }
-    }
 
     // 树的展开与闭合
     const [expandedTree,setExpandedTree] = useState([""])
@@ -122,10 +53,6 @@ const Setting = props =>{
                     onClick={()=>select(data)}
                     key={data.id}
                 >
-                    {
-                        data?.icon &&
-                        <span className="sys-content-icon">{data?.icon}</span>
-                    }
                     <span>{data.title}</span>
                 </li>
             </PrivilegeButton>
@@ -139,10 +66,7 @@ const Setting = props =>{
                      style={{paddingLeft: deep}}
                      onClick={()=>setOpenOrClose(item.id)}
                 >
-                    <span>
-                        <span className="sys-content-icon">{item.icon}</span>
-                        <span className="system-aside-title">{item.title}</span>
-                    </span>
+                    <span className="system-aside-title">{item.title}</span>
                     <div className="system-aside-item-icon">
                         {
                             item.children ?
@@ -176,20 +100,23 @@ const Setting = props =>{
     return (
         <SystemNav
             {...props}
-            applicationRouters={menus()}
+            applicationRouters={applicationRouters}
             expandedTree={expandedTree}
             setExpandedTree={setExpandedTree}
-            outerPath={"/setting"}
+            outerPath={outerPath}
             noAccessPath={"/noaccess"}
             pathKey={'id'}
         >
             <div className="system">
                 <div className="system-aside">
-                    <ul className="system-aside-top" style={{padding:0}}>
+                    <ul className="system-aside-top">
+                        <li className='system-aside-top-head'>
+                            {outerPath==='/setting'?'设置':'用户'}
+                        </li>
                         {
-                            menus().map(firstItem => {
+                            applicationRouters.map(firstItem => {
                                 return firstItem.children && firstItem.children.length > 0 ?
-                                    renderSubMenu(firstItem,30) : renderMenu(firstItem,30)
+                                    renderSubMenu(firstItem,20) : renderMenu(firstItem,20)
                             })
                         }
                     </ul>
@@ -202,4 +129,4 @@ const Setting = props =>{
     )
 }
 
-export default inject(SYSTEM_ROLE_STORE)(observer(Setting))
+export default inject(SYSTEM_ROLE_STORE)(observer(Aside))

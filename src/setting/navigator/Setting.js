@@ -1,14 +1,12 @@
 import React from "react";
 import {
     MacCommandOutlined,
-    SafetyCertificateOutlined,
     SoundOutlined,
     LayoutOutlined,
     VerifiedOutlined,
-    MergeCellsOutlined,
-    TeamOutlined
+    AppstoreOutlined
 } from "@ant-design/icons";
-import SettingContent from "./SettingContent";
+import Aside from "../../common/aside/Aside";
 
 /**
  * 系统设置页面
@@ -19,38 +17,6 @@ import SettingContent from "./SettingContent";
 const Setting = props =>{
 
     const applicationRouters =  [
-        {
-            id:'user',
-            title: '用户与权限',
-            icon :<TeamOutlined/>,
-            children: [
-                {
-                    title:"部门",
-                    id:"/setting/orga",
-                    purviewCode:'orga',
-                },
-                {
-                    title:"用户",
-                    id:"/setting/user",
-                    purviewCode:'user',
-                },
-                {
-                    title:"用户组",
-                    id: "/setting/userGroup",
-                    purviewCode:'user_group',
-                },
-                {
-                    title:"用户目录",
-                    id:"/setting/dir",
-                    purviewCode:'user_dir',
-                },
-                {
-                    id:'/setting/permission',
-                    title: '权限',
-                    purviewCode:'permission',
-                },
-            ]
-        },
         {
             id:'message',
             title: '消息',
@@ -112,10 +78,83 @@ const Setting = props =>{
         },
     ]
 
-    return   <SettingContent
-                {...props}
-                applicationRouters={applicationRouters}
-            />
+    const templateRouter = [
+        {
+            id:'base',
+            title: '基础数据',
+            icon :<AppstoreOutlined/>,
+            children:[
+                {
+                    id:'/setting/base/todotemplate',
+                    title: '待办模板',
+                },
+                {
+                    id:'/setting/base/todotype',
+                    title: '待办类型',
+                },
+                {
+                    id:'/setting/base/oplogtemplate',
+                    title: '日志模板',
+                },
+                {
+                    id:'/setting/base/systemfeature',
+                    title: '系统功能',
+                },
+                {
+                    id:'/setting/base/systemrole',
+                    title: '系统角色',
+                },
+                {
+                    id:'/setting/base/projectfeature',
+                    title: '项目功能',
+                },
+                {
+                    id:'/setting/base/projectrole',
+                    title: '项目角色',
+                },
+                {
+                    id:'/setting/base/vRole',
+                    title: '项目虚拟角色',
+                },
+                {
+                    id:'/setting/base/messageNotice',
+                    title: '消息通知方案',
+                },
+                {
+                    id:'/setting/base/messagesendtype',
+                    title: '消息通知类型',
+                },
+                {
+                    id:'/setting/base/messagetype',
+                    title: '消息类型',
+                },
+                {
+                    id:'/setting/base/oplogtype',
+                    title: '日志类型',
+                },
+            ]
+        }
+    ]
+
+    let menus = () =>{
+        try{
+            if(devProduction){
+                return [...applicationRouters,...templateRouter]
+            } else {
+                return applicationRouters
+            }
+        }catch {
+            return applicationRouters
+        }
+    }
+
+    return (
+        <Aside
+            {...props}
+            outerPath={"/setting"}
+            applicationRouters={menus()}
+        />
+    )
 }
 
 export default Setting

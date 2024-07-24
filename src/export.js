@@ -1,8 +1,7 @@
 import {store as easStore} from "./store";
 import App from "./app";
-import SettingContent from "./setting/navigator/SettingContent";
-import SyncComponent from "./common/lazy/SyncComponent";
 import Portal from "./common/layout/Portal";
+import SyncComponent from "./common/lazy/SyncComponent";
 
 const Layout = SyncComponent(() => import('./common/layout/Layout'));
 
@@ -29,6 +28,9 @@ const Oplog = SyncComponent(()=>import('./home/components/Oplog'))
  */
 const Todo = SyncComponent(() => import('./home/components/Todo'))
 
+
+const UserNav = SyncComponent(()=>import('./setting/user/navigator/User'));
+
 /**
  * 用户管理
  */
@@ -47,7 +49,6 @@ const SettingHome = SyncComponent(() => import('./setting/home/component/Setting
 
 const MessageSendType = SyncComponent(() => import('./setting/message/MessageSendType'));
 const MessageNotice = SyncComponent(() => import('./setting/message/MessageNotice'));
-const PluginList = SyncComponent(() => import('./setting/plugin/Plugin'))
 
 const ProductAuth = SyncComponent(() => import('./setting/licence/ProductAuth'));
 const VersionPage = SyncComponent(() => import('./setting/licence/Version'));
@@ -85,24 +86,26 @@ const ProjectMessageNotice=SyncComponent(()=>import("./setting/base/message/Proj
 export {
     easStore,
     App,
-    SettingContent,
     Portal,
     SyncComponent,
 
     Logout,
     Login,
     ExcludeProductUser,
-    Layout,
 
     NotFound,
     NoAccess,
+
+    Layout,
 
     WidgetWork,
     Oplog,
     Todo,
 
+    UserNav,
     Setting,
     SettingHome,
+
     Orga,
     User,
     Directory,
@@ -111,7 +114,6 @@ export {
     SystemRole,
     MessageSendType,
     MessageNotice,
-    PluginList,
     LogListPage,
     DataImport,
     BackupRestore,

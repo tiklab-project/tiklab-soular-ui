@@ -12,25 +12,24 @@ import {UserOutlined} from '@ant-design/icons';
 
 import './Profile.scss';
 
-const Profile = ({userInfo = undefined}) => {
+const Profile = ({userInfo = undefined,...props}) => {
 
     const user = !!userInfo ? userInfo : getUser();
 
-
     const renderEl = () => {
         if (user.avatar && user.avatar !== "null") {
-            return <Avatar src={user.avatar}/>
+            return <Avatar src={user.avatar} {...props}/>
         }
 
         if (user.nickname && user.nickname !== "null") {
-            return <Avatar >{user.nickname.substring(0, 1)}</Avatar>
+            return <Avatar {...props}>{user.nickname.substring(0, 1)}</Avatar>
         }
 
         if (user.name && user.name !== "null") {
-            return <Avatar >{user.name.substring(0, 1)}</Avatar>
+            return <Avatar {...props}>{user.name.substring(0, 1)}</Avatar>
         }
 
-        return <Avatar size={32} icon={<UserOutlined />} />
+        return <Avatar size={32} icon={<UserOutlined />} {...props}/>
     }
 
     return (

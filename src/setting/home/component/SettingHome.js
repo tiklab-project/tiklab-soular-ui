@@ -36,41 +36,6 @@ const SettingHome = props => {
             >
                 <div className='eas-home-limited'>
                     <div className='setting-home-chunk'>
-                        <div className='home-title'>用户与权限</div>
-                        <div className='home-chunk'>
-                            <div className='home-chunk-item' onClick={()=>goPath('orga')}>
-                                <div className='label-one'>部门</div>
-                                <div className='info-one'>
-                                    {count?.orgaNumber || 0}
-                                </div>
-                            </div>
-                            <div className='home-chunk-item' onClick={()=>goPath('user')}>
-                                <div className='label-one'>用户</div>
-                                <div className='info-one'>
-                                    {count?.userNumber || 0}
-                                </div>
-                            </div>
-                            <div className='home-chunk-item' onClick={()=>goPath('userGroup')}>
-                                <div className='label-one'>用户组</div>
-                                <div className='info-one'>
-                                    {count?.userGroupNumber || 0}
-                                </div>
-                            </div>
-                            <div className='home-chunk-item' onClick={()=>goPath('dir')}>
-                                <div className='label-one'>用户目录</div>
-                                <div className='info-one'>
-                                    {count?.userDirNumber || 0}
-                                </div>
-                            </div>
-                            <div className='home-chunk-item' onClick={()=>goPath('permission')}>
-                                <div className='label-one'>权限</div>
-                                <div className='info-one'>
-                                    {count?.roleNumber || 0}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='setting-home-chunk'>
                         <div className='home-title'>消息</div>
                         <div className='home-chunk'>
                             <div className='home-chunk-item' onClick={()=>goPath('message')}>

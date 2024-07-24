@@ -10,6 +10,8 @@
     font-weight: var(--thoughtware-font-weight-bold);
   }
   .thoughtware_fulloplog_select{
+    gap: 15px;
+    flex-wrap: wrap;
     padding: 15px 0;
   }
 }

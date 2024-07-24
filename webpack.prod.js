@@ -1,21 +1,12 @@
-
-
 const webpack = require("webpack");
 const { merge } = require('webpack-merge');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const optimizeCss = require('optimize-css-assets-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
-
 const baseWebpackConfig = require('./webpack.base');
-const customEnv = process.env.CUSTOM_ENV;
-const {webpackGlobal} = require('./environment/environment-' + customEnv)
 
 module.exports = merge(baseWebpackConfig, {
     mode: 'production',
@@ -33,29 +24,6 @@ module.exports = merge(baseWebpackConfig, {
                 }
             }
         }),
-        new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            alwaysWriteToDisk: true,
-            title:'true',
-            template: path.resolve(__dirname, './public/index.template.html'),
-            favicon: path.resolve(__dirname, './public/easIcon.png'),
-            hash: false,
-            filename: 'index.html',
-            inject: 'body',
-            minify: {
-                collapseWhitespace: true,
-                removeComments: true,
-                removeAttributeQuotes: true
-            }
-        }),
-
-        new webpack.DefinePlugin({ENV:JSON.stringify(customEnv), ...webpackGlobal}),
-
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash:8].css',
-            ignoreOrder: true
-        }),
-        new CssMinimizerPlugin(),
         new ProgressBarPlugin(),
         new BundleAnalyzerPlugin(),
         new webpack.ContextReplacementPlugin(

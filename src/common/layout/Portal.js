@@ -1,97 +1,80 @@
-import React, {useState,useEffect} from 'react';
+import React, {useEffect, useState} from "react";
 import {Badge} from "antd";
-import {
-    SettingOutlined,
-    BellOutlined
-} from "@ant-design/icons";
-import {inject,observer} from "mobx-react";
-import {getUser,isPC} from 'thoughtware-core-ui';
-import {renderRoutes} from 'react-router-config'
-import {AppLink,HelpLink,AvatarLink} from "thoughtware-licence-ui";
-import logo from 'thoughtware-core-ui/es/assests/eas.png';
+import {BellOutlined, HomeOutlined, CarryOutOutlined, SettingOutlined, TeamOutlined} from "@ant-design/icons";
 import PortalMessage from "../messages/Messages";
+import {AvatarLink, AppLink, HelpLink} from "thoughtware-licence-ui";
+import {inject, observer} from "mobx-react";
+import {getUser,productWhiteImg} from "thoughtware-core-ui";
+import {renderRoutes} from "react-router-config";
+import PortalFeature from "./PortalFeature";
 import './Portal.scss';
 
-const Portal = props => {
+const Portal = props =>{
 
-    const {replacePath,history,route,systemRoleStore} = props;
+    const {history,route,replacePath,systemRoleStore} = props;
 
     const {getSystemPermissions} = systemRoleStore;
+    const path = props.location.pathname;
 
     //消息抽屉状态
     const [notificationVisibility,setNotificationVisibility] = useState(false);
     //未读
-    const [unread,setUnread] = useState(0)
+    const [unread,setUnread] = useState(0);
 
     useEffect(()=>{
         if (typeof replacePath === 'function') {
-            return replacePath();
+            replacePath();
         }
         getSystemPermissions(getUser().userId)
     },[])
 
-    const homeRouter = [
+    const firstRouters = [
         {
-            to:'/work',
-            title:'首页',
-            key: 'work'
+            key:'/work',
+            to:"/work",
+            title: "首页",
+            icon:<HomeOutlined />
         },
         {
-            to:'/todo',
-            title:'待办',
-            key: 'todo'
-        }
+            key:'/todo',
+            to:"/todo",
+            title: "待办",
+            icon:<CarryOutOutlined />
+        },
+        {
+            key:'/user',
+            to:"/user/user",
+            title: "用户",
+            icon:<TeamOutlined />
+        },
     ]
 
-    const changeCurrentLink = item => {
-        props.history.push(item.to)
-    }
-
-    return(
-        <main className="layout">
-            <header className="layout_header">
-                <div className='layout_header_right'>
+    return (
+        <main className="eas-layout">
+            <header className="eas-layout-header">
+                <div className="layout-header">
                     <AppLink
                         {...props}
                         bgroup={'eas'}
                     />
-                    <div className='layout_header_logo'>
-                        <img alt={'门户中心'} src={logo} height={24} width={24}/>
+                    <div className='layout-header-logo' onClick={()=>props.history.push('/work')}>
+                        <img alt={'EAS'} src={productWhiteImg.eas} height={24} width={24}/>
                         <div>EAS</div>
                     </div>
-                    <div className='layout_header_link'>
-                        {
-                            homeRouter.map(item => {
-                                return(
-                                    <div key={item.key} className={props.location.pathname === item.to ? `layout_header_link_active` : ''} onClick={ () => changeCurrentLink(item)}>
-                                        <span className='headers-link-text'>{item.title}</span>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
                 </div>
-                <div className='layout_header_right'>
-                    <div className="layout_header_right-text">
-                        <div className="text_icon_block_item"
-                             onClick={()=>props.history.push("/setting/home")}
-                             data-title-bottom={'设置'}
-                        >
-                            <SettingOutlined className="layout_header-icon"/>
-                        </div>
-                    </div>
-                    <div className="layout_header_right-text">
-                        <div className={`text_icon_block_item ${notificationVisibility? "text_icon_block_linked": ''}`}
+                <div className="layout-header">
+                    <div className="layout-header-text">
+                        <div className={`layout-header-text-icon ${notificationVisibility? "layout-header-text-icon-linked": ''}`}
                              onClick={()=>setNotificationVisibility(true)}
                              data-title-bottom={'消息'}
                         >
                             {
                                 unread>0?
-                                <Badge count={unread} size="small">
-                                    <BellOutlined className="layout_header-icon"/>
-                                </Badge>
-                                :
-                                <BellOutlined className="layout_header-icon"/>
+                                    <Badge count={unread} size="small">
+                                        <BellOutlined className="text-icon"/>
+                                    </Badge>
+                                    :
+                                    <BellOutlined className="text-icon"/>
                             }
                         </div>
                         <PortalMessage
@@ -102,19 +85,51 @@ const Portal = props => {
                             setVisible={setNotificationVisibility}
                         />
                     </div>
-                    <div className="layout_header_right-text">
-                        <HelpLink/>
+                    <div className="layout-header-text">
+                        <HelpLink />
                     </div>
-                    <div className="layout_header_right-text">
+                    <div className="layout-header-text">
+                        <PortalFeature/>
+                    </div>
+                    <div className="layout-header-text">
                         <AvatarLink {...props}/>
                     </div>
                 </div>
             </header>
-            <section className={'layout_content'}>
-                {renderRoutes(route.routes)}
+            <section className='eas-layout-content'>
+                <div className='eas-home'>
+                    <aside className="normal-aside">
+                        <div className="normal-aside-up">
+                            {
+                                firstRouters.map(item=>(
+                                    <div key={item.key}
+                                         className={`normal-aside-item ${path.indexOf(item.key)===0 ? "normal-aside-select":""}`}
+                                         onClick={()=>props.history.push(item.to)}
+                                    >
+                                        <div className="normal-aside-item-icon">{item.icon}</div>
+                                        <div className="normal-aside-item-title">{item.title}</div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                        <div className="normal-aside-bottom"
+                             onClick={()=>props.history.push(`/setting/home`)}
+                        >
+                            <div className="normal-aside-bottom-icon" data-title-right='设置'>
+                                <SettingOutlined className='bottom-icon'/>
+                            </div>
+                        </div>
+                    </aside>
+                    <section className='eas-normal-content'>
+                        {renderRoutes(route.routes)}
+                    </section>
+                </div>
             </section>
         </main>
     )
-};
+}
 
 export default inject("systemRoleStore","homeStore")(observer(Portal))
+
+
+

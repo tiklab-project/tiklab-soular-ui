@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {DatePicker, Row, Col, Select, Space, Spin} from "antd";
 import {getUser,productSelect} from 'thoughtware-core-ui';
 import moment from 'moment';
-import {getOplogPageService} from "../store/homeStore";
+import {getOplogPageService,findlogtypelist} from "../store/homeStore";
 import Page from '../../common/page/Page'
 import BreadCrumb from "../../common/breadCrumb/BreadCrumb";
 import DynamicList from "../../common/list/DynamicList";
@@ -18,17 +18,35 @@ const { RangePicker } = DatePicker;
  */
 const Oplog = props => {
 
-    const {setMoreOplog} = props
+    const {setShowOplog} = props
 
     const pageParam = {
         pageSize: 20,
         currentPage: 1,
     }
 
+    //日志参数
     const [params,setParams] = useState({pageParam})
+    //日志数据
     const [logData,setLogData] = useState([]);
-    const [logPage,setLogPage] = useState({})
+    //日志分页
+    const [logPage,setLogPage] = useState({});
+    //加载状态
     const [spinning,setSpinning] = useState(false);
+    //日志类型
+    const [logType,setLogType] = useState([]);
+
+    useEffect(() => {
+        findlogtypelist().then(res=>{
+            if (res.code === 0 ) {
+                const oplogTypes = res?.data.map(item => ({
+                    value: item.id,
+                    label: item.name,
+                }))
+                setLogType(oplogTypes);
+            }
+        })
+    }, []);
 
     useEffect(()=>{
         // 获取日志
@@ -40,10 +58,7 @@ const Oplog = props => {
      */
     const getOplogPage = () => {
         setSpinning(true)
-        getOplogPageService({
-            ...params,
-            userId: getUser().userId
-        }).then(res=>{
+        getOplogPageService(params).then(res=>{
             if (res.code === 0 ) {
                 setLogData(res.data.dataList);
                 setLogPage({
@@ -57,26 +72,24 @@ const Oplog = props => {
 
     /**
      * 模糊搜索日志
-     * @param value
      */
-    const onChangeProduct = value => {
+    const onChangeProduct = (value,type) => {
         if (value === 'all') {
+            delete params[type]
             setParams({
-                pageParam,
+                ...params
             })
         } else {
             setParams( {
                 ...params,
                 pageParam,
-                bgroup: value
+                [type]: value
             })
         }
-
     }
 
     /**
      * 模糊搜索日志
-     * @param times：时间
      */
     const OnSelectTime = (times) => {
         let newParams = {}
@@ -86,7 +99,7 @@ const Oplog = props => {
             newParams = {
                 ...params,
                 pageParam,
-                createTime:[start,end]
+                timestamp:[start,end]
             }
         } else {
             const {createTime, ...rest} = params
@@ -122,7 +135,7 @@ const Oplog = props => {
                     <div className="eas-home-limited">
                         <BreadCrumb
                             firstItem={'动态'}
-                            onClick={setMoreOplog ? ()=>setMoreOplog(false) :undefined}
+                            onClick={setShowOplog ? ()=>setShowOplog(false) :undefined}
                         />
                         <Space className='thoughtware_fulloplog_select'>
                             <Select
@@ -130,9 +143,20 @@ const Oplog = props => {
                                     {label: "全部应用", value: 'all'},
                                     ...productSelect
                                 ]}
-                                value={params.bgroup?params.bgroup:'all'}
-                                onChange={onChangeProduct}
-                                style={{width: 120}}
+                                value={params?.bgroup}
+                                placeholder={'应用'}
+                                onChange={value=>onChangeProduct(value,'bgroup')}
+                                style={{width:120}}
+                            />
+                            <Select
+                                options={[
+                                    {value:'all',label:'全部'},
+                                    ...logType
+                                ]}
+                                value={params?.actionType}
+                                placeholder={'类型'}
+                                onChange={value=>onChangeProduct(value,'actionType')}
+                                style={{width:180}}
                             />
                             <RangePicker
                                 onChange={OnSelectTime}

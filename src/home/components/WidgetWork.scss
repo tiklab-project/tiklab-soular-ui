@@ -1,21 +1,30 @@
+$block-spacing: 30px;
+
 .workLayout{
   height: 100%;
   width: 100%;
   overflow: auto;
-  background: var(--thoughtware-gray-600);
+  .workLayout-guide{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+    .workLayout-guide-right{
+      cursor: pointer;
+    }
+  }
   .workLayout-title{
-    font-size: var(--thoughtware-font-16);
+    height: 36px;
+    line-height: 36px;
     font-weight: var(--thoughtware-font-weight-bold);
-    padding-bottom: 10px;
   }
   .product_widget{
     display: flex;
     overflow: hidden;
     background-color: var(--thoughtware-white);
-    margin-bottom: var(--thoughtware-padding-item);
+    margin-bottom: $block-spacing;
     &-card{
       width: 100%;
-      padding: 10px;
       overflow: hidden;
       transition: all .3s ease;
     }
@@ -23,26 +32,14 @@
       cursor: pointer;
     }
     .product_card {
-      &-header{
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        overflow: hidden;
-        &-title{
-          color: var(--thoughtware-black);
-          font-size: var(--thoughtware-font-16);
-          font-weight: var(--thoughtware-font-weight-bold);
-        }
-      }
       &-content {
         width: 100%;
         color: #6e6e6e;
-        padding: 0 10px;
         &-wrap{
           display: flex;
           justify-content: flex-start;
           flex-wrap: wrap;
-          gap: 7%;
+          gap: 5%;
         }
       }
       &-contentleft{
@@ -52,12 +49,9 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        margin: 20px 0;
         min-width: 55px;
-        &:hover{
-          .card-item_img{
-            top: -4px
-          }
+        &:hover .card-item_img{
+          top: -4px
         }
         &_img{
           width: 44px;
@@ -95,94 +89,119 @@
   }
 
   .quick-entry{
-    padding: 10px;
     background: var(--thoughtware-white);
-    margin-bottom: var(--thoughtware-padding-item);
+    margin-bottom: $block-spacing;
     .quick-entry-content{
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 5px 0 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      overflow: hidden;
+      gap: 10px;
       .quick-entry-item{
-        width: 200px;
+        flex: 1;
+        min-width: 112px;
         padding: 10px;
         border-radius: 4px;
         cursor: pointer;
         text-align: center;
         background: #fafbfc;
-        &:not(:first-child){
-          margin-left: 15px;
-        }
-        div:first-child{
+        &>div:first-child{
           padding-bottom: 15px;
+          font-weight: var(--thoughtware-font-weight-bold);
+        }
+        &>div:last-child{
+          font-size: 13px;
         }
       }
     }
   }
 
   .todoWidget{
-    padding: 10px;
-    margin-bottom: var(--thoughtware-padding-item);
+    margin-bottom:$block-spacing;
     background: var(--thoughtware-white);
-    min-height: 251px;
-    &-header {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-      overflow: hidden;
-      &-title{
-        color: var(--thoughtware-black);
-        font-size: var(--thoughtware-font-16);
-        font-weight: var(--thoughtware-font-weight-bold);
-        padding-bottom: 8px;
-      }
-    }
     &-content {
-      width: 100%;
-      color: var(--thoughtware-black);
-      .todo-select{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      overflow: hidden;
+      gap: 10px;
+      .widget-todo-item{
+        flex: 1;
+        min-width: 112px;
+        padding: 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        background: #fafbfc;
+        &>div:first-child{
+          padding-bottom: 15px;
+          font-weight: var(--thoughtware-font-weight-bold);
+        }
+        &>div:last-child{
+          font-size: 13px;
+        }
       }
-      .todo-content{
-        margin-top: 10px;
-      }
-    }
-    .time{
-      color: var(--thoughtware-gray-500);
-    }
-    &-tags {
-      padding: var(--thoughtware-padding-item) 0;
     }
   }
 
   .oplogWidget{
     overflow: hidden;
-    padding: 10px;
     background: var(--thoughtware-white);
     min-height: 300px;
-    &-header {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-      overflow: hidden;
-      &-title{
-        color: var(--thoughtware-black);
-        font-size: var(--thoughtware-font-16);
-        font-weight: var(--thoughtware-font-weight-bold);
-      }
-    }
     &-content {
       width: 100%;
       color: var(--thoughtware-black);
-      .log-select{
-        padding: 10px 0;
+      .widget-log-avatar {
+        display: flex;
+        align-items: center;
+        .avatar-wrapper {
+          position: relative;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          overflow: hidden;
+          border: 2px solid white;
+          margin-left: -10px;
+          background-color: #fff;
+        }
+        .avatar-wrapper:first-child {
+          margin-left: 0;
+        }
+        .avatar {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          &-0{
+            background: #77b3eb;
+          }
+          &-1{
+            background: #8e9bed;
+          }
+          &-2{
+            background: #f6c659;
+          }
+          &-3{
+            background: #6852e0cf;
+          }
+          &-4{
+            background: #53d0c4;
+          }
+        }
+        .more-avatars {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background-color: #f0f0f0;
+          border: 2px solid white;
+          margin-left: -10px;
+          font-size: 12px;
+          color: #555;
+        }
       }
     }
   }
 }
+

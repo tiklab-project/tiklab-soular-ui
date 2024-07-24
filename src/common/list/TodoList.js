@@ -64,7 +64,7 @@ const TodoList = (props) => {
                         imageStyle={{
                             height: 120,
                         }}
-                        description={<span style={{color:"#999",fontSize:13}}>没有代办</span>}
+                        description={<span style={{color:"#999",fontSize:13}}>没有待办</span>}
                         image={messageEmpty}
                     />
             }
