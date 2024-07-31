@@ -4,7 +4,7 @@ import {
     SoundOutlined,
     LayoutOutlined,
     VerifiedOutlined,
-    AppstoreOutlined
+    AppstoreOutlined, TeamOutlined
 } from "@ant-design/icons";
 import Aside from "../../common/aside/Aside";
 
@@ -17,6 +17,38 @@ import Aside from "../../common/aside/Aside";
 const Setting = props =>{
 
     const applicationRouters =  [
+        {
+            id: "user",
+            title: "用户与权限",
+            icon: <TeamOutlined/>,
+            children: [
+                {
+                    id: "/setting/user",
+                    title: "用户",
+                    purviewCode: "user",
+                },
+                {
+                    id: "/setting/orga",
+                    title: "部门",
+                    purviewCode: "orga",
+                },
+                {
+                    id: "/setting/userGroup",
+                    title: "用户组",
+                    purviewCode: "user_group",
+                },
+                {
+                    id: "/setting/dir",
+                    title: "用户目录",
+                    purviewCode: "user_dir",
+                },
+                {
+                    id:"/setting/permission",
+                    title:"权限",
+                    purviewCode:"permission",
+                },
+            ]
+        },
         {
             id:'message',
             title: '消息',

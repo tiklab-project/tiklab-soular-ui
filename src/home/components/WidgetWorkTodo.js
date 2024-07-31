@@ -2,7 +2,11 @@ import React, {useState, useEffect} from "react";
 import {Spin} from 'antd';
 import {getUser} from 'thoughtware-core-ui';
 import {RightOutlined} from '@ant-design/icons';
-import {findTodoCount} from '../store/homeStore';
+import {findTodoCount} from '../store/HomeStore';
+import todo from '../../assets/todo.svg';
+import todoFinish from '../../assets/todoFinish.svg';
+import todoOverdue from '../../assets/todoOverdue.svg';
+import todoProgress from '../../assets/todoProgress.svg';
 
 /**
  * 待办
@@ -52,20 +56,32 @@ const WidgetWorkTodo = props => {
                 </div>
                 <div className="todoWidget-content">
                     <div className='widget-todo-item' onClick={()=>goTodo(0)}>
-                        <div>{todoData?.allTodo  || 0}</div>
-                        <div>全部</div>
+                        <img src={todo} alt={''}/>
+                        <div>
+                            <div className='widget-todo-item-num'>{todoData?.allTodo  || 0}</div>
+                            <div className='widget-todo-item-text'>全部待办</div>
+                        </div>
                     </div>
                     <div className='widget-todo-item' onClick={()=>goTodo(1)}>
-                        <div>{todoData?.runTodo || 0}</div>
-                        <div>进行</div>
+                        <img src={todoProgress} alt={''}/>
+                        <div>
+                            <div className='widget-todo-item-num'>{todoData?.runTodo || 0}</div>
+                            <div className='widget-todo-item-text'>进行中</div>
+                        </div>
                     </div>
                     <div className='widget-todo-item' onClick={()=>goTodo(2)}>
-                        <div>{todoData?.finishTodo || 0}</div>
-                        <div>完成</div>
+                        <img src={todoFinish} alt={''}/>
+                        <div>
+                            <div className='widget-todo-item-num'>{todoData?.finishTodo || 0}</div>
+                            <div className='widget-todo-item-text'>已完成</div>
+                        </div>
                     </div>
                     <div className='widget-todo-item' onClick={()=>goTodo(3)}>
-                        <div>{todoData?.expireTodo || 0}</div>
-                        <div>逾期</div>
+                        <img src={todoOverdue} alt={''}/>
+                        <div>
+                            <div className='widget-todo-item-num'>{todoData?.expireTodo || 0}</div>
+                            <div className='widget-todo-item-text'>逾期</div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,65 +1,66 @@
+$block-spacing: 30px;
+$inline-spacing: 15px;
+$inline-padding: 15px;
+
 .setting-home{
     height: 100%;
     width: 100%;
     overflow: auto;
     .home-title{
-        font-size: 12px;
-        color: #999999;
         margin-bottom: 10px;
+        font-weight: var(--thoughtware-font-weight-bold);
     }
-    .home-chunk-item{
-        padding: 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        background: #f7f7f7;
+    .home-label{
+        padding-bottom: $inline-padding;
     }
-    .label-one{
-        text-align: center;
-        padding-top: 4px;
-        padding-bottom: 10px;
+    .home-info{
+        font-weight: var(--thoughtware-font-weight-bold);
     }
-    .info-one{
-        text-align: center;
-        padding: 10px 0;
-    }
-    .home-chunk-label{
-        padding-top: 4px;
-        padding-bottom: 10px;
-    }
-    .home-chunk-info{
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        padding: 10px 0
-    }
-    .home-chunk-wrap{
-        grid-column-gap: 20px;
-        .home-chunk-wrap-inline{
+    .home-message-box{
+        margin-bottom: $block-spacing;
+        .home-message{
             display: flex;
-            align-items: center;
+            .home-message-item{
+                flex: 1;
+                background: var(--eas-backdrop-color);
+                text-align: center;
+                padding: $inline-padding;
+                border-radius: 4px;
+                &:not(:last-child){
+                    margin-right: $inline-spacing;
+                }
+            }
         }
     }
-    .home-chunk-desc{
-        font-size: 12px;
-        color: #999999;
-        margin-right: 10px;
-    }
-    .setting-home-chunk{
-        padding: 10px;
-        &:not(:last-child){
-            margin-bottom: 20px;
-        }
-        .home-chunk{
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            grid-gap: 20px;
-        }
-        .home-chunk-item-inline{
+    .home-licence-box{
+        .home-licence{
             display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            min-height: 48px;
+            .home-licence-item{
+                flex: 1;
+                background: var(--eas-backdrop-color);
+                border-radius: 4px;
+                padding: $inline-padding;
+                &:not(:last-child){
+                    margin-right: $inline-spacing;
+                }
+                .home-licence-item-label{
+                    padding-bottom: $inline-padding;
+                }
+                .home-licence-item-level{
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    .licence-level-label{
+                        font-size: 12px;
+                        color: #999999;
+                        margin-right: 10px;
+                    }
+                    .licence-level-info{
+                        font-weight: var(--thoughtware-font-weight-bold);
+                    }
+                }
+            }
         }
     }
+
 }

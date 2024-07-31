@@ -1,8 +1,8 @@
 import React from "react";
-import {Empty} from "antd";
 import {applyJump} from "thoughtware-core-ui";
 import Profile from "../profile/Profile";
-import messageEmpty from "../../assets/message.svg";
+import ListEmpty from "./ListEmpty";
+import moment from "moment";
 import "./DynamicList.scss";
 
 /**
@@ -12,7 +12,10 @@ const DynamicList = props =>{
 
     const {dynamicList} = props
 
-    // 动态路由跳转
+    /**
+     * 动态路由跳转
+     * @param item
+     */
     const goDynaLink = item =>{
         if(item.link){
             applyJump(item.link)
@@ -23,38 +26,41 @@ const DynamicList = props =>{
         <div className="eas-dynamic-center">
             {
                 dynamicList && dynamicList.length>0 ?
-                    dynamicList.map(item=> {
-                        const {actionType,action,user,createTime,data} = item
-                        const dataObj = data && JSON.parse(data)
+                    dynamicList.map((item,index)=> {
+                        const {loggingList,time} = item;
                         return (
-                            <div key={item.id} className="dynamic-item" onClick={()=>goDynaLink(item)}>
-                                <div className="dynamic-item-data">
-                                    <Profile
-                                        userInfo={user}
-                                    />
-                                    <div className='item-data-info'>
-                                        <div className='item-data-info-name'>{user?.nickname || user?.name} {actionType?.name}</div>
-                                        <div className='item-data-info-desc'>
-                                            <div className='desc-action'> {action}</div>
-                                            {
-                                                dataObj?.message &&
-                                                <div className='desc-message'>{dataObj.message}</div>
-                                            }
-                                        </div>
-                                    </div>
+                            <div key={index} className='dynamic-item'>
+                                <div className='dynamic-item-time'>
+                                    <span>{time}</span>
                                 </div>
-                                <div className="dynamic-item-time">{createTime}</div>
+                                {
+                                    loggingList && loggingList.map(logItem=>{
+                                        const {actionType,action,user,createTime,data,id,bgroup} = logItem
+                                        const dataObj = data && JSON.parse(data)
+                                        return (
+                                            <div key={id} className='dynamic-item-log'>
+                                                <div className='dynamic-item-log-time'>
+                                                    {moment(createTime).format("HH:mm")}
+                                                </div>
+                                                <Profile userInfo={user}/>
+                                                <div className='dynamic-item-log-info'>
+                                                    <div onClick={()=>goDynaLink(logItem)} className='dynamic-item-log-info-name'>
+                                                        {user?.nickname || user?.name}{actionType?.name}
+                                                    </div>
+                                                    <div className='dynamic-item-log-desc'>
+                                                        <div className='log-desc-action'> {action}</div>
+                                                        {dataObj?.message && <div className='log-desc-message'>{dataObj.message}</div>}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                }
                             </div>
                         )
                     })
                     :
-                    <Empty
-                        imageStyle={{
-                            height: 120,
-                        }}
-                        description={<span style={{color:"#999",fontSize:13}}>没有动态</span>}
-                        image={messageEmpty}
-                    />
+                    <ListEmpty title={'没有动态'}/>
             }
         </div>
     )

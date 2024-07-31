@@ -11,7 +11,7 @@ import './Portal.scss';
 
 const Portal = props =>{
 
-    const {history,route,replacePath,systemRoleStore} = props;
+    const {history,route,systemRoleStore} = props;
 
     const {getSystemPermissions} = systemRoleStore;
     const path = props.location.pathname;
@@ -22,9 +22,6 @@ const Portal = props =>{
     const [unread,setUnread] = useState(0);
 
     useEffect(()=>{
-        if (typeof replacePath === 'function') {
-            replacePath();
-        }
         getSystemPermissions(getUser().userId)
     },[])
 
@@ -43,7 +40,7 @@ const Portal = props =>{
         },
         {
             key:'/user',
-            to:"/user/user",
+            to:"/setting/user",
             title: "用户",
             icon:<TeamOutlined />
         },
@@ -98,28 +95,31 @@ const Portal = props =>{
             </header>
             <section className='eas-layout-content'>
                 <div className='eas-home'>
-                    <aside className="normal-aside">
-                        <div className="normal-aside-up">
-                            {
-                                firstRouters.map(item=>(
-                                    <div key={item.key}
-                                         className={`normal-aside-item ${path.indexOf(item.key)===0 ? "normal-aside-select":""}`}
-                                         onClick={()=>props.history.push(item.to)}
-                                    >
-                                        <div className="normal-aside-item-icon">{item.icon}</div>
-                                        <div className="normal-aside-item-title">{item.title}</div>
-                                    </div>
-                                ))
-                            }
-                        </div>
-                        <div className="normal-aside-bottom"
-                             onClick={()=>props.history.push(`/setting/home`)}
-                        >
-                            <div className="normal-aside-bottom-icon" data-title-right='设置'>
-                                <SettingOutlined className='bottom-icon'/>
+                    {
+                        !path.startsWith('/setting') &&
+                        <aside className="normal-aside">
+                            <div className="normal-aside-up">
+                                {
+                                    firstRouters.map(item=>(
+                                        <div key={item.key}
+                                             className={`normal-aside-item ${path.indexOf(item.key)===0 ? "normal-aside-select":""}`}
+                                             onClick={()=>props.history.push(item.to)}
+                                        >
+                                            <div className="normal-aside-item-icon">{item.icon}</div>
+                                            <div className="normal-aside-item-title">{item.title}</div>
+                                        </div>
+                                    ))
+                                }
                             </div>
-                        </div>
-                    </aside>
+                            <div className="normal-aside-bottom"
+                                 onClick={()=>props.history.push(`/setting`)}
+                            >
+                                <div className="normal-aside-bottom-icon" data-title-right='设置'>
+                                    <SettingOutlined className='bottom-icon'/>
+                                </div>
+                            </div>
+                        </aside>
+                    }
                     <section className='eas-normal-content'>
                         {renderRoutes(route.routes)}
                     </section>

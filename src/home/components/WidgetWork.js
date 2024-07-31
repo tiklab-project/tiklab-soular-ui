@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {Row, Col, message, Tag} from "antd";
 import {inject,observer} from "mobx-react";
-import {applyJump,product,productImg,productTitle,isPC} from "thoughtware-core-ui";
+import {applyJump,product,productWhiteImg,productTitle} from "thoughtware-core-ui";
 import AppLinkEdit from "thoughtware-licence-ui/es/appLink/component/AppLinkEdit";
 import appLinkStore from "thoughtware-licence-ui/es/appLink/AppLinkStore";
 import countStore from "../../setting/home/store/CountStore";
@@ -71,28 +71,14 @@ const WidgetWork = props =>{
                 setCount(res.data)
             }
         })
-        if(!isPC()){
-            findAppLinkList().then(res=>{
-                if(res.length > 0){
-                    setInstallApp(res)
-                }
-            })
-        }
     },[])
-
-    const onUrlConfig = () =>{
-        if(isPC()){
-            return setVisible(true)
-        }
-        props.history.push('/h5/config')
-    }
 
     /**
      * 设置菜单
      * @param path
      */
     const toSetting = path => {
-        props.history.push(`/user/${path}`)
+        props.history.push(`/setting/${path}`)
     }
 
     if(showOplog){
@@ -127,7 +113,7 @@ const WidgetWork = props =>{
                         <div className="product_widget-card">
                             <div className="workLayout-guide">
                                 <div className="workLayout-title">应用</div>
-                                <Btn type="link" onClick={onUrlConfig}>配置</Btn>
+                                <Btn type="link" onClick={()=>setVisible(true)}>配置</Btn>
                                 <AppLinkEdit
                                     edit={edit}
                                     setEdit={setEdit}
@@ -142,54 +128,49 @@ const WidgetWork = props =>{
                                     {
                                         product.map(code => {
                                             if(code==='eas') return;
-                                            if(isPC() || code==='kanass' || code==='sward'){
-                                                return(
-                                                    <div key={code} className='product_card-item clicked' onClick={()=>goProject(code)}>
-                                                        <div className="product_card-item_img">
-                                                            <img src={productImg[code]} width={44} height={44} alt={""}/>
-                                                            {
-                                                                code==='xmonitor' &&
-                                                                <div className='product_card-item_beta'><Tag color="green">beta</Tag></div>
-                                                            }
-                                                        </div>
-                                                        <div className="product_card-item_title">{productTitle[code]}</div>
+                                            return(
+                                                <div key={code} className='product_card-item clicked' onClick={()=>goProject(code)}>
+                                                    <div className="product_card-item_img">
+                                                        <img src={productWhiteImg[code]} width={40} height={40} alt={""}/>
+                                                        {
+                                                            code==='xmonitor' &&
+                                                            <div className='product_card-item_beta'><Tag color="green">beta</Tag></div>
+                                                        }
                                                     </div>
-                                                )
-                                            }
+                                                    <div className="product_card-item_title">{productTitle[code]}</div>
+                                                </div>
+                                            )
                                         })
                                     }
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {
-                        isPC() &&
-                        <div className='quick-entry'>
-                            <div className='workLayout-guide'>
-                                <div className='workLayout-title'>
-                                    用户概况
-                                </div>
-                            </div>
-                            <div className='quick-entry-content'>
-                                <div className='quick-entry-item' onClick={()=>toSetting('orga')}>
-                                    <div>{count?.orgaNumber || 0}</div>
-                                    <div>部门</div>
-                                </div>
-                                <div className='quick-entry-item' onClick={()=>toSetting('user')}>
-                                    <div>{count?.userNumber || 0}</div>
-                                    <div>用户</div>
-                                </div>
-                                <div className='quick-entry-item' onClick={()=>toSetting('userGroup')}>
-                                    <div>{count?.userGroupNumber || 0}</div>
-                                    <div>用户组</div>
-                                </div>
-                                <div className='quick-entry-item' onClick={()=>toSetting('permission')}>
-                                    <div>{count?.roleNumber || 0}</div>
-                                    <div>权限</div>
-                                </div>
+                    <div className='quick-entry'>
+                        <div className='workLayout-guide'>
+                            <div className='workLayout-title'>
+                                用户概况
                             </div>
                         </div>
-                    }
+                        <div className='quick-entry-content'>
+                            <div className='quick-entry-item' onClick={()=>toSetting('user')}>
+                                <div>{count?.userNumber || 0}</div>
+                                <div>用户</div>
+                            </div>
+                            <div className='quick-entry-item' onClick={()=>toSetting('orga')}>
+                                <div>{count?.orgaNumber || 0}</div>
+                                <div>部门</div>
+                            </div>
+                            <div className='quick-entry-item' onClick={()=>toSetting('userGroup')}>
+                                <div>{count?.userGroupNumber || 0}</div>
+                                <div>用户组</div>
+                            </div>
+                            <div className='quick-entry-item' onClick={()=>toSetting('permission')}>
+                                <div>{count?.roleNumber || 0}</div>
+                                <div>权限</div>
+                            </div>
+                        </div>
+                    </div>
                     <WidgetWorkTodo
                         {...props}
                         setShowTodo={setShowTodo}

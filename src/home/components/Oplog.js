@@ -1,14 +1,18 @@
 import React, {useState, useEffect} from "react";
 import {DatePicker, Row, Col, Select, Space, Spin} from "antd";
-import {getUser,productSelect} from 'thoughtware-core-ui';
+import {productSelect} from 'thoughtware-core-ui';
 import moment from 'moment';
-import {getOplogPageService,findlogtypelist} from "../store/homeStore";
+import {findLogPageByTime,findlogtypelist} from "../store/HomeStore";
 import Page from '../../common/page/Page'
 import BreadCrumb from "../../common/breadCrumb/BreadCrumb";
+import SearchSelect from "../../common/search/SearchSelect";
+import SearchPicker from "../../common/search/SearchPicker";
 import DynamicList from "../../common/list/DynamicList";
 import './Oplog.scss'
 
 const { RangePicker } = DatePicker;
+
+const pageSize = 10;
 
 /**
  * 日志
@@ -21,7 +25,7 @@ const Oplog = props => {
     const {setShowOplog} = props
 
     const pageParam = {
-        pageSize: 20,
+        pageSize: pageSize,
         currentPage: 1,
     }
 
@@ -58,7 +62,7 @@ const Oplog = props => {
      */
     const getOplogPage = () => {
         setSpinning(true)
-        getOplogPageService(params).then(res=>{
+        findLogPageByTime(params).then(res=>{
             if (res.code === 0 ) {
                 setLogData(res.data.dataList);
                 setLogPage({
@@ -115,7 +119,7 @@ const Oplog = props => {
         setParams({
             ...params,
             pageParam: {
-                pageSize: 20,
+                pageSize: pageSize,
                 currentPage: page,
             }
         })
@@ -138,7 +142,7 @@ const Oplog = props => {
                             onClick={setShowOplog ? ()=>setShowOplog(false) :undefined}
                         />
                         <Space className='thoughtware_fulloplog_select'>
-                            <Select
+                            <SearchSelect
                                 options={[
                                     {label: "全部应用", value: 'all'},
                                     ...productSelect
@@ -146,9 +150,9 @@ const Oplog = props => {
                                 value={params?.bgroup}
                                 placeholder={'应用'}
                                 onChange={value=>onChangeProduct(value,'bgroup')}
-                                style={{width:120}}
+                                style={{width:150}}
                             />
-                            <Select
+                            <SearchSelect
                                 options={[
                                     {value:'all',label:'全部'},
                                     ...logType
@@ -156,9 +160,9 @@ const Oplog = props => {
                                 value={params?.actionType}
                                 placeholder={'类型'}
                                 onChange={value=>onChangeProduct(value,'actionType')}
-                                style={{width:180}}
+                                style={{width:150}}
                             />
-                            <RangePicker
+                            <SearchPicker
                                 onChange={OnSelectTime}
                                 placeholder={["开始时间", "结束时间"]}
                             />

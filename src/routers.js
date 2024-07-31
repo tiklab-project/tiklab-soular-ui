@@ -14,7 +14,6 @@ import {
     Oplog,
     Todo,
 
-    UserNav,
     Setting,
     SettingHome,
 
@@ -90,43 +89,37 @@ const routers = [
                 component: NoAccess,
             },
             {
-                component: UserNav,
-                path:"/user",
-                routes:[
-                    {
-                        component: Orga,
-                        path:"/user/orga",
-                        exact:true,
-                    },
-                    {
-                        component: User,
-                        path:"/user/user",
-                        exact:true,
-                    },
-                    {
-                        component: Directory,
-                        path:"/user/dir",
-                        exact:true,
-                    },
-                    {
-                        component: UserGroup,
-                        path: "/user/userGroup",
-                        exact: true
-                    },
-                    {
-                        component: SystemRole,
-                        path:"/user/permission",
-                        exact:true,
-                    },
-                ]
-            },
-            {
                 component: Setting,
                 path: "/setting",
                 routes:[
                     {
                         component: SettingHome,
                         path:"/setting/home",
+                        exact:true,
+                    },
+                    {
+                        component: Orga,
+                        path:"/setting/orga",
+                        exact:true,
+                    },
+                    {
+                        component: User,
+                        path:"/setting/user",
+                        exact:true,
+                    },
+                    {
+                        component: Directory,
+                        path:"/setting/dir",
+                        exact:true,
+                    },
+                    {
+                        component: UserGroup,
+                        path: "/setting/userGroup",
+                        exact: true
+                    },
+                    {
+                        component: SystemRole,
+                        path:"/setting/permission",
                         exact:true,
                     },
                     {

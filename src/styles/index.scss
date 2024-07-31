@@ -1,6 +1,13 @@
-.eas-home-limited,.system-content{
+@import "normalize";
+
+.eas-layout,.ant-modal,.ant-drawer{
     .ant-form-item{
         margin-bottom: 20px !important;
+    }
+    .ant-form-item-label>label{
+        font-size: 13px;
+        color: #777;
+        font-weight: 600;
     }
     .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional):after {
         display: inline-block;
@@ -25,8 +32,8 @@
     .ant-table-thead>tr>th{
         background: #ffffff;
         padding: 8px;
-        font-size: 12px;
-        color: #666;
+        font-size: 13px;
+        color: #777;
         font-weight: 600;
     }
     .ant-table-tbody>tr>td{
@@ -36,12 +43,47 @@
     .ant-table{
         border-bottom: 1px solid #f0f0f0;;
     }
+    .ant-empty-image{
+        margin-bottom: 0;
+        .ant-empty-img-default{
+            width: 100px;
+        }
+    }
+    .ant-empty-description{
+        font-size: 13px;
+        color: #999;
+        padding-bottom: 8px;
+    }
 }
 
 .eas-home-limited{
     padding: 20px 30px;
 }
 
+.ant-modal,.ant-drawer{
+    .ant-btn{
+        font-weight: 600;
+        border-radius: 4px;
+        color: #42526E;
+        background: var(--thoughtware-gray) !important;
+        border: 1px solid var(--thoughtware-gray) !important;
+        &:hover{
+            color: #42526E;
+            background-color: #e3e8f0;
+            border-color: #e3e8f0;
+        }
+    }
+    .ant-btn-primary{
+        background: var(--thoughtware-blue) !important;
+        border-color: var(--thoughtware-blue) !important;
+        color: #ffffff;
+        &:hover{
+            color: #ffffff;
+            background:var(--thoughtware-blue);
+            border-color:var(--thoughtware-blue);
+        }
+    }
+}
 
 :root {
 
@@ -53,7 +95,7 @@
     --thoughtware-gray-400: #e3e8f0;  /*左侧导航 选中颜色 */
     --thoughtware-gray-500: #999; /* 文字次级颜色灰色调*/
     --thoughtware-gray-600:#f7f7f7; /* 内容区域侧边栏色调 */
-    --thoughtware-gray: #efefef;  /* 主色调灰 左侧导航*/
+    --thoughtware-gray: #f7f7f7;  /* 主色调灰 左侧导航*/
 
 
     --thoughtware-padding: 20px;  /*页面边距 */

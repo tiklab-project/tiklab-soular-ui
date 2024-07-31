@@ -1,8 +1,7 @@
 import React from "react";
-import {Empty} from "antd";
-import {isPC,applyJump} from "thoughtware-core-ui";
+import {applyJump} from "thoughtware-core-ui";
 import Profile from "../profile/Profile";
-import messageEmpty from "../../assets/message.svg";
+import ListEmpty from "./ListEmpty";
 import './TodoList.scss';
 
 const TodoList = (props) => {
@@ -11,7 +10,7 @@ const TodoList = (props) => {
 
     // 动态路由跳转
     const goTodoLink = item =>{
-        if(item.link && isPC()){
+        if(item.link){
             applyJump(item.link)
         }
     }
@@ -60,13 +59,7 @@ const TodoList = (props) => {
                         )
                     })
                     :
-                    <Empty
-                        imageStyle={{
-                            height: 120,
-                        }}
-                        description={<span style={{color:"#999",fontSize:13}}>没有待办</span>}
-                        image={messageEmpty}
-                    />
+                    <ListEmpty title={'没有待办'}/>
             }
         </div>
     )

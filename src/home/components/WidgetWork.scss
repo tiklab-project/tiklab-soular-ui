@@ -35,11 +35,12 @@ $block-spacing: 30px;
       &-content {
         width: 100%;
         color: #6e6e6e;
+        padding-top: 10px;
         &-wrap{
           display: flex;
           justify-content: flex-start;
           flex-wrap: wrap;
-          gap: 5%;
+          gap:25px 5%;
         }
       }
       &-contentleft{
@@ -99,18 +100,19 @@ $block-spacing: 30px;
       gap: 10px;
       .quick-entry-item{
         flex: 1;
-        min-width: 112px;
+        min-width: 150px;
+        max-width: 25%;
         padding: 10px;
         border-radius: 4px;
         cursor: pointer;
         text-align: center;
-        background: #fafbfc;
+        background: var(--eas-backdrop-color);
         &>div:first-child{
           padding-bottom: 15px;
           font-weight: var(--thoughtware-font-weight-bold);
         }
         &>div:last-child{
-          font-size: 13px;
+          color: var(--thoughtware-gray-500);
         }
       }
     }
@@ -121,24 +123,33 @@ $block-spacing: 30px;
     background: var(--thoughtware-white);
     &-content {
       display: flex;
-      align-items: center;
       flex-wrap: wrap;
       overflow: hidden;
       gap: 10px;
       .widget-todo-item{
         flex: 1;
-        min-width: 112px;
-        padding: 10px;
+        min-width: 150px;
+        max-width: 25%;
+        padding: 15px;
         border-radius: 4px;
         cursor: pointer;
-        text-align: center;
-        background: #fafbfc;
-        &>div:first-child{
-          padding-bottom: 15px;
-          font-weight: var(--thoughtware-font-weight-bold);
+        background:  var(--eas-backdrop-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+          width: 32px;
+          height: 32px;
         }
         &>div:last-child{
-          font-size: 13px;
+          margin-left: 10px;
+        }
+        .widget-todo-item-num{
+          font-weight: var(--thoughtware-font-weight-bold);
+          padding-bottom: 10px;
+        }
+        .widget-todo-item-text{
+          color: var(--thoughtware-gray-500);
         }
       }
     }
@@ -151,56 +162,6 @@ $block-spacing: 30px;
     &-content {
       width: 100%;
       color: var(--thoughtware-black);
-      .widget-log-avatar {
-        display: flex;
-        align-items: center;
-        .avatar-wrapper {
-          position: relative;
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          overflow: hidden;
-          border: 2px solid white;
-          margin-left: -10px;
-          background-color: #fff;
-        }
-        .avatar-wrapper:first-child {
-          margin-left: 0;
-        }
-        .avatar {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          &-0{
-            background: #77b3eb;
-          }
-          &-1{
-            background: #8e9bed;
-          }
-          &-2{
-            background: #f6c659;
-          }
-          &-3{
-            background: #6852e0cf;
-          }
-          &-4{
-            background: #53d0c4;
-          }
-        }
-        .more-avatars {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          background-color: #f0f0f0;
-          border: 2px solid white;
-          margin-left: -10px;
-          font-size: 12px;
-          color: #555;
-        }
-      }
     }
   }
 }

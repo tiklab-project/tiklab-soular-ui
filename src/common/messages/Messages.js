@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from "react";
-import {Drawer, Divider, Space, Tooltip, Empty, Spin} from "antd";
+import {Drawer, Divider, Space, Tooltip, Spin} from "antd";
 import {
     BellOutlined,
     LoadingOutlined,
@@ -8,8 +8,8 @@ import {
 } from "@ant-design/icons";
 import Btn from "../btn/Btn";
 import Profile from "../profile/Profile";
+import ListEmpty from "../list/ListEmpty";
 import messageStore from "./MessageStore"
-import messageEmpty from "../../assets/message.svg";
 import "./Messages.scss";
 
 /**
@@ -286,19 +286,15 @@ const PortalMessage = props =>{
                             }
                             {
                                 messageList && messageList.length===0 &&
-                                <div>
-                                    <Empty
-                                        imageStyle={{height: 120,}}
-                                        description={
-                                            <span style={{color:"#999",fontSize:13}}>
+                                <ListEmpty
+                                    title={
+                                        <>
                                             { messageParams.status===0 && "暂无未读消息"}
-                                                { messageParams.status===1 && "暂无已读消息"}
-                                                { messageParams.status===2 && "暂无消息"}
-                                        </span>
-                                        }
-                                        image={messageEmpty}
-                                    />
-                                </div>
+                                            { messageParams.status===1 && "暂无已读消息"}
+                                            { messageParams.status===2 && "暂无消息"}
+                                        </>
+                                    }
+                                />
                             }
                         </div>
                     </Spin>

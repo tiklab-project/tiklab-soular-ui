@@ -1,5 +1,5 @@
 import {createContext} from "react";
-import {HOME_STORE,HomeStore} from "./home/store/homeStore";
+import {HOME_STORE,HomeStore} from "./home/store/HomeStore";
 
 function createStores() {
     return {

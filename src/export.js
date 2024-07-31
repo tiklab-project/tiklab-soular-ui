@@ -29,7 +29,6 @@ const Oplog = SyncComponent(()=>import('./home/components/Oplog'))
 const Todo = SyncComponent(() => import('./home/components/Todo'))
 
 
-const UserNav = SyncComponent(()=>import('./setting/user/navigator/User'));
 
 /**
  * 用户管理
@@ -102,7 +101,6 @@ export {
     Oplog,
     Todo,
 
-    UserNav,
     Setting,
     SettingHome,
 

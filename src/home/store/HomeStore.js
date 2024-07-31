@@ -44,6 +44,15 @@ export const findTodoCount = async params => {
     return await Axios.post('/todo/findTodoCount', params);
 }
 
+/**
+ * 获取所有动态
+ * @param values
+ * @returns {Promise<*>}
+ */
+export const findLogPageByTime = async values =>{
+    return await Axios.post("/oplog/findLogPageByTime", values)
+}
+
 export class HomeStore {
 
     // 应用链接

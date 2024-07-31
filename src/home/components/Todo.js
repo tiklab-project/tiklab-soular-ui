@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react";
-import {Select, Row, Col, Spin} from "antd";
+import {Row, Col, Spin} from "antd";
 import {getUser,productSelect} from 'thoughtware-core-ui';
-import {findTodoCount, getTodoPageService} from "../store/homeStore";
+import {findTodoCount, getTodoPageService} from "../store/HomeStore";
 import Page from '../../common/page/Page'
 import BreadCrumb from "../../common/breadCrumb/BreadCrumb";
 import Tabs from "../../common/tabs/Tabs";
+import SearchSelect from "../../common/search/SearchSelect";
 import TodoList from "../../common/list/TodoList";
 import './Todo.scss';
 
@@ -137,7 +138,7 @@ const Todo = props => {
                                 ]}
                                 onClick={item=>changeActive(item.id,'status')}
                             />
-                            <Select
+                            <SearchSelect
                                 options={[
                                     {label: "全部应用", value: 'all'},
                                     ...productSelect

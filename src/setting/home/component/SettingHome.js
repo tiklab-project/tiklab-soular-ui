@@ -29,51 +29,44 @@ const SettingHome = props => {
             <Col
                 xs={{ span: "24" }}
                 sm={{ span: "24" }}
-                md={{ span: "24" }}
-                lg={{ span: "24" }}
-                xl={{ span: "21", offset: "1" }}
-                xxl={{ span: "20", offset: "2" }}
+                md={{ span: "20", offset: "2"  }}
+                lg={{ span: "16", offset: "4" }}
+                xl={{ span: "14", offset: "5" }}
+                xxl={{ span: "12", offset: "6" }}
             >
                 <div className='eas-home-limited'>
-                    <div className='setting-home-chunk'>
+                    <div className='home-message-box'>
                         <div className='home-title'>消息</div>
-                        <div className='home-chunk'>
-                            <div className='home-chunk-item' onClick={()=>goPath('message')}>
-                                <div className='label-one'>消息通知方案</div>
-                                <div className='info-one'>
+                        <div className='home-message'>
+                            <div className='home-message-item' onClick={()=>goPath('notice')}>
+                                <div className='home-label'>消息通知方案</div>
+                                <div className='home-info'>
                                     {count?.noticeNumber || 0}
                                 </div>
                             </div>
-                            <div className='home-chunk-item' onClick={()=>goPath('messagesendtype')}>
-                                <div className='label-one'>消息发送方式</div>
-                                <div className='info-one'>
+                            <div className='home-message-item' onClick={()=>goPath('send')}>
+                                <div className='home-label'>消息发送方式</div>
+                                <div className='home-info'>
                                     {count?.sendTypeNumber || 0}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className='setting-home-chunk'>
-                        <div className='home-title'>应用与安全</div>
-                        <div className='home-chunk'>
-                            <div className='home-chunk-item' onClick={()=>goPath('backups')}>
-                                <div className='home-chunk-label'>备份与恢复</div>
-                                <div className='home-chunk-info'>
-                                    <div className='home-chunk-desc'>上次备份时间</div>
-                                    <div className='home-chunk-length'>{count?.lastBackupsTime || '无'}</div>
+                    <div className='home-licence-box'>
+                        <div className='home-title'>应用</div>
+                        <div className='home-licence'>
+                            <div className='home-licence-item' onClick={()=>goPath('version')}>
+                                <div className='home-licence-item-label'>版本与许可证</div>
+                                <div className='home-licence-item-level'>
+                                    <div className='licence-level-label'>版本类型</div>
+                                    <div className='licence-level-info'>{count?.version ? '社区版' : '企业版'}</div>
                                 </div>
                             </div>
-                            <div className='home-chunk-item' onClick={()=>goPath('version')}>
-                                <div className='home-chunk-label'>版本与许可证</div>
-                                <div className='home-chunk-info'>
-                                    <div className='home-chunk-desc'>版本类型</div>
-                                    <div className='home-chunk-length'>{count?.version ? '社区版' : '企业版'}</div>
-                                </div>
-                            </div>
-                            <div className='home-chunk-item' onClick={()=>goPath('productAuth')}>
-                                <div className='home-chunk-label'>应用访问权限</div>
-                                <div className='home-chunk-info'>
-                                    <div className='home-chunk-desc'>已授权</div>
-                                    <div className='home-chunk-length'>{count?.applyAuthNumber || 0}</div>
+                            <div className='home-licence-item' onClick={()=>goPath('productAuth')}>
+                                <div className='home-licence-item-label'>应用访问权限</div>
+                                <div className='home-licence-item-level'>
+                                    <div className='licence-level-label'>已授权</div>
+                                    <div className='licence-level-info'>{count?.applyAuthNumber || 0}</div>
                                 </div>
                             </div>
                         </div>
