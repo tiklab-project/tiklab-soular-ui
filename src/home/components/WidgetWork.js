@@ -113,7 +113,9 @@ const WidgetWork = props =>{
                         <div className="product_widget-card">
                             <div className="workLayout-guide">
                                 <div className="workLayout-title">应用</div>
-                                <Btn type="link" onClick={()=>setVisible(true)}>配置</Btn>
+                                <div className='workLayout-guide-link' onClick={()=>setVisible(true)}>
+                                    配置
+                                </div>
                                 <AppLinkEdit
                                     edit={edit}
                                     setEdit={setEdit}

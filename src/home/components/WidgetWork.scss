@@ -8,14 +8,17 @@ $block-spacing: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     .workLayout-guide-right{
       cursor: pointer;
     }
+    .workLayout-guide-link{
+      cursor: pointer;
+      color: var(--thoughtware-blue);
+      font-weight: var(--thoughtware-font-weight-bold);
+    }
   }
   .workLayout-title{
-    height: 36px;
-    line-height: 36px;
     font-weight: var(--thoughtware-font-weight-bold);
   }
   .product_widget{

@@ -64,24 +64,6 @@
     .ant-btn{
         font-weight: 600;
         border-radius: 4px;
-        color: #42526E;
-        background: var(--thoughtware-gray) !important;
-        border: 1px solid var(--thoughtware-gray) !important;
-        &:hover{
-            color: #42526E;
-            background-color: #e3e8f0;
-            border-color: #e3e8f0;
-        }
-    }
-    .ant-btn-primary{
-        background: var(--thoughtware-blue) !important;
-        border-color: var(--thoughtware-blue) !important;
-        color: #ffffff;
-        &:hover{
-            color: #ffffff;
-            background:var(--thoughtware-blue);
-            border-color:var(--thoughtware-blue);
-        }
     }
 }
 

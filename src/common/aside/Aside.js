@@ -1,11 +1,11 @@
 import React,{useState} from "react";
 import {DownOutlined,UpOutlined} from "@ant-design/icons";
-import {renderRoutes} from "react-router-config";
 import {inject,observer} from "mobx-react";
 import {SYSTEM_ROLE_STORE} from "thoughtware-privilege-ui/es/store";
 import {SystemNav,PrivilegeButton} from "thoughtware-privilege-ui";
 import back from '../../assets/back.svg';
 import "./Aside.scss";
+import {productWhiteImg} from "thoughtware-core-ui";
 
 /**
  * 系统设置页面
@@ -15,7 +15,7 @@ import "./Aside.scss";
  */
 const Aside = props =>{
 
-    const {outerPath,route,applicationRouters,systemRoleStore} = props
+    const {outerPath,applicationRouters,systemRoleStore} = props
 
     const {systemPermissions} = systemRoleStore
 
@@ -113,26 +113,25 @@ const Aside = props =>{
             outerPath={outerPath}
             noAccessPath={"/noaccess"}
         >
-            <div className="system">
-                <div className="system-aside">
-                    <ul className="system-aside-top">
-                        <li className='system-aside-top-head'>
-                            <span className='top-head-icon' onClick={()=>props.history.push('/work')}>
-                                <img src={back} width={19} height={19} alt={''}/>
-                            </span>
-                            <span className='top-head-text'>设置</span>
-                        </li>
-                        {
-                            applicationRouters.map(firstItem => {
-                                return firstItem.children && firstItem.children.length > 0 ?
-                                    renderSubMenu(firstItem,30) : renderMenu(firstItem,30)
-                            })
-                        }
-                    </ul>
-                </div>
-                <div className="system-content">
-                    { renderRoutes(route.routes) }
-                </div>
+            <div className="system-aside">
+                <ul className="system-aside-top">
+                    <li className='system-aside-logo' onClick={()=>props.history.push('/work')}>
+                        <img src={productWhiteImg.eas} height={24} width={24} alt={''}/>
+                        <span className='system-aside-logo-text'>EAS</span>
+                    </li>
+                    <li className='system-aside-head'>
+                        <span className='top-head-icon' onClick={()=>props.history.push('/work')}>
+                            <img src={back} width={19} height={19} alt={''}/>
+                        </span>
+                        <span className='top-head-text'>设置</span>
+                    </li>
+                    {
+                        applicationRouters.map(firstItem => {
+                            return firstItem.children && firstItem.children.length > 0 ?
+                                renderSubMenu(firstItem,20) : renderMenu(firstItem,20)
+                        })
+                    }
+                </ul>
             </div>
         </SystemNav>
     )
