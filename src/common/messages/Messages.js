@@ -20,7 +20,7 @@ import "./Messages.scss";
  */
 const PortalMessage = props =>{
 
-    const {unread,setUnread,visible,setVisible} = props
+    const {unread,setUnread,visible,setVisible,translateX=75} = props
     const {findMessageItemPage,updateMessageItem,deleteMessageItem} = messageStore
     const pageParam = {
         pageSize: 12,
@@ -187,15 +187,16 @@ const PortalMessage = props =>{
         }
     }
 
-    return(
+    return visible && (
         <Drawer
-            closable={false}
-            placement="right"
+            placement="left"
             visible={visible}
             onClose={onClose}
-            maskStyle={{background:"transparent"}}
-            contentWrapperStyle={{width:450,top:48,height:"calc(100% - 48px)"}}
-            bodyStyle={{padding:0}}
+            closable={false}
+            maskStyle={{ background: "transparent" }}
+            contentWrapperStyle={visible?{transform:`translateX(${translateX}px)`}:{}}
+            bodyStyle={{padding: 0}}
+            width={450}
         >
             <div className="messageModal">
                 <div className="messageModal-up">

@@ -100,10 +100,10 @@
     --thoughtware-icon-size-24: 24px;
     --thoughtware-icon-size-32: 32px;
 
-    --eas-border-color: #ececec;
-    --eas-select-color: #e3e8f0;
-    --eas-hover-color: #edf0f5;
-    --eas-backdrop-color: #f7f7f7;
+    --eas-border-color: var(--thoughtware-gray-200);
+    --eas-select-color: var(--thoughtware-gray-400);
+    --eas-hover-color: var(--thoughtware-gray-300);
+    --eas-backdrop-color: var(--thoughtware-gray);
     --eas-head-height: 48px;
     --eas-content-height: calc(100vh - 48px)
 

@@ -1,11 +1,69 @@
 import React,{useState} from "react";
-import {DownOutlined,UpOutlined} from "@ant-design/icons";
+import {AppstoreOutlined, DownOutlined, UpOutlined} from "@ant-design/icons";
 import {inject,observer} from "mobx-react";
 import {SYSTEM_ROLE_STORE} from "thoughtware-privilege-ui/es/store";
 import {SystemNav,PrivilegeButton} from "thoughtware-privilege-ui";
 import back from '../../assets/back.svg';
 import "./Aside.scss";
 import {productWhiteImg} from "thoughtware-core-ui";
+
+const templateRouter = [
+    {
+        id:'base',
+        title: '基础数据',
+        icon :<AppstoreOutlined/>,
+        children:[
+            {
+                id:'/setting/base/todotemplate',
+                title: '待办模板',
+            },
+            {
+                id:'/setting/base/todotype',
+                title: '待办类型',
+            },
+            {
+                id:'/setting/base/oplogtemplate',
+                title: '日志模板',
+            },
+            {
+                id:'/setting/base/systemfeature',
+                title: '系统功能',
+            },
+            {
+                id:'/setting/base/systemrole',
+                title: '系统角色',
+            },
+            {
+                id:'/setting/base/projectfeature',
+                title: '项目功能',
+            },
+            {
+                id:'/setting/base/projectrole',
+                title: '项目角色',
+            },
+            {
+                id:'/setting/base/vRole',
+                title: '项目虚拟角色',
+            },
+            {
+                id:'/setting/base/messageNotice',
+                title: '消息通知方案',
+            },
+            {
+                id:'/setting/base/messagesendtype',
+                title: '消息通知类型',
+            },
+            {
+                id:'/setting/base/messagetype',
+                title: '消息类型',
+            },
+            {
+                id:'/setting/base/oplogtype',
+                title: '日志类型',
+            },
+        ]
+    }
+]
 
 /**
  * 系统设置页面
@@ -21,6 +79,17 @@ const Aside = props =>{
 
     let path = props.location.pathname
 
+    const menus = () =>{
+        try{
+            if(devProduction){
+                return [...applicationRouters,...templateRouter]
+            } else {
+                return applicationRouters
+            }
+        }catch {
+            return applicationRouters
+        }
+    }
 
     // 树的展开与闭合
     const [expandedTree,setExpandedTree] = useState([""])
@@ -107,7 +176,7 @@ const Aside = props =>{
     return (
         <SystemNav
             {...props}
-            applicationRouters={applicationRouters}
+            applicationRouters={menus()}
             expandedTree={expandedTree}
             setExpandedTree={setExpandedTree}
             outerPath={outerPath}
@@ -116,17 +185,17 @@ const Aside = props =>{
             <div className="system-aside">
                 <ul className="system-aside-top">
                     <li className='system-aside-logo' onClick={()=>props.history.push('/work')}>
-                        <img src={productWhiteImg.eas} height={24} width={24} alt={''}/>
+                        <img src={productWhiteImg.eas} height={32} width={32} alt={''}/>
                         <span className='system-aside-logo-text'>EAS</span>
                     </li>
                     <li className='system-aside-head'>
                         <span className='top-head-icon' onClick={()=>props.history.push('/work')}>
-                            <img src={back} width={19} height={19} alt={''}/>
+                            <img src={back} width={18} height={18} alt={''}/>
                         </span>
                         <span className='top-head-text'>设置</span>
                     </li>
                     {
-                        applicationRouters.map(firstItem => {
+                        menus().map(firstItem => {
                             return firstItem.children && firstItem.children.length > 0 ?
                                 renderSubMenu(firstItem,20) : renderMenu(firstItem,20)
                         })
