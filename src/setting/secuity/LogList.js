@@ -5,9 +5,9 @@
  * @description logList
  */
 import React from 'react';
-import {MyLog} from 'thoughtware-security-ui';
+import {MyLog} from 'tiklab-security-ui';
 const LogList = (props) => {
-    return <MyLog {...props} bgroup={"eas"}/>
+    return <MyLog {...props} bgroup={"soular"}/>
 }
 
 export default LogList;

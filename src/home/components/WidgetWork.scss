@@ -14,17 +14,17 @@ $block-spacing: 30px;
     }
     .workLayout-guide-link{
       cursor: pointer;
-      color: var(--thoughtware-blue);
-      font-weight: var(--thoughtware-font-weight-bold);
+      color: var(--tiklab-blue);
+      font-weight: var(--tiklab-font-weight-bold);
     }
   }
   .workLayout-title{
-    font-weight: var(--thoughtware-font-weight-bold);
+    font-weight: var(--tiklab-font-weight-bold);
   }
   .product_widget{
     display: flex;
     overflow: hidden;
-    background-color: var(--thoughtware-white);
+    background-color: var(--tiklab-white);
     margin-bottom: $block-spacing;
     &-card{
       width: 100%;
@@ -37,13 +37,11 @@ $block-spacing: 30px;
     .product_card {
       &-content {
         width: 100%;
-        color: #6e6e6e;
         padding-top: 10px;
         &-wrap{
-          display: flex;
-          justify-content: flex-start;
-          flex-wrap: wrap;
-          gap:25px 5%;
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap:30px 4%;
         }
       }
       &-contentleft{
@@ -52,48 +50,30 @@ $block-spacing: 30px;
       &-item{
         display: flex;
         align-items: center;
-        flex-direction: column;
-        min-width: 55px;
+        min-width: 65px;
         &:hover .card-item_img{
           top: -4px
         }
         &_img{
-          width: 44px;
-          height: 44px;
-          position: relative;
+          margin-right: 5px;
         }
         &_beta{
-          position: absolute;
-          z-index: 10;
-          top: -14px;
-          right: -26px;
-          pointer-events: none;
           transition: opacity 0.3s, transform 0.3s;
+          padding-left: 3px;
         }
         &_title{
-          height: 20px;
-          font-size: 14px;
-          color: #3a3c41;
-          text-align: center;
-          line-height: 20px;
-          margin: 8px auto 0;
+          white-space: nowrap;
         }
-
-        .product_card-item_lock{
-          position: absolute;
-          right: -4px;
-          top: -4px;
-          width: 16px;
-          height: 16px;
-          color: #222;
+        &_desc{
+          font-size: 12px;
+          color: #999;
         }
-
       }
     }
   }
 
   .quick-entry{
-    background: var(--thoughtware-white);
+    background: var(--tiklab-white);
     margin-bottom: $block-spacing;
     .quick-entry-content{
       display: flex;
@@ -109,13 +89,13 @@ $block-spacing: 30px;
         border-radius: 4px;
         cursor: pointer;
         text-align: center;
-        background: var(--eas-backdrop-color);
+        background: var(--soular-backdrop-color);
         &>div:first-child{
           padding-bottom: 15px;
-          font-weight: var(--thoughtware-font-weight-bold);
+          font-weight: var(--tiklab-font-weight-bold);
         }
         &>div:last-child{
-          color: var(--thoughtware-gray-500);
+          color: var(--tiklab-gray-500);
         }
       }
     }
@@ -123,7 +103,7 @@ $block-spacing: 30px;
 
   .todoWidget{
     margin-bottom:$block-spacing;
-    background: var(--thoughtware-white);
+    background: var(--tiklab-white);
     &-content {
       display: flex;
       flex-wrap: wrap;
@@ -136,7 +116,7 @@ $block-spacing: 30px;
         padding: 15px;
         border-radius: 4px;
         cursor: pointer;
-        background:  var(--eas-backdrop-color);
+        background:  var(--soular-backdrop-color);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -148,11 +128,11 @@ $block-spacing: 30px;
           margin-left: 10px;
         }
         .widget-todo-item-num{
-          font-weight: var(--thoughtware-font-weight-bold);
+          font-weight: var(--tiklab-font-weight-bold);
           padding-bottom: 10px;
         }
         .widget-todo-item-text{
-          color: var(--thoughtware-gray-500);
+          color: var(--tiklab-gray-500);
         }
       }
     }
@@ -160,11 +140,11 @@ $block-spacing: 30px;
 
   .oplogWidget{
     overflow: hidden;
-    background: var(--thoughtware-white);
+    background: var(--tiklab-white);
     min-height: 300px;
     &-content {
       width: 100%;
-      color: var(--thoughtware-black);
+      color: var(--tiklab-black);
     }
   }
 }

@@ -1,11 +1,9 @@
 import React,{useState} from "react";
-import {AppstoreOutlined, DownOutlined, UpOutlined} from "@ant-design/icons";
+import {AppstoreOutlined, DownOutlined, HomeOutlined, UpOutlined} from "@ant-design/icons";
 import {inject,observer} from "mobx-react";
-import {SYSTEM_ROLE_STORE} from "thoughtware-privilege-ui/es/store";
-import {SystemNav,PrivilegeButton} from "thoughtware-privilege-ui";
-import back from '../../assets/back.svg';
+import {SYSTEM_ROLE_STORE} from "tiklab-privilege-ui/es/store";
+import {SystemNav,PrivilegeButton} from "tiklab-privilege-ui";
 import "./Aside.scss";
-import {productWhiteImg} from "thoughtware-core-ui";
 
 const templateRouter = [
     {
@@ -123,7 +121,7 @@ const Aside = props =>{
                     onClick={()=>select(data)}
                     key={data.id}
                 >
-                    <div>
+                    <div className='system-aside-li-left'>
                         {data?.icon && <span className="sys-content-icon">{data.icon}</span>}
                         <span className='aside-second-title'>{data.title}</span>
                     </div>
@@ -139,7 +137,7 @@ const Aside = props =>{
                      style={{paddingLeft: deep}}
                      onClick={()=>setOpenOrClose(item.id)}
                 >
-                    <div>
+                    <div className='system-aside-li-left'>
                         {item?.icon && <span className="sys-content-icon">{item.icon}</span>}
                         <span className="system-aside-title">{item.title}</span>
                     </div>
@@ -156,7 +154,7 @@ const Aside = props =>{
                 <ul className={`system-aside-ul ${isExpandedTree(item.id) ? null: "system-aside-hidden"}`}>
                     {
                         item.children && item.children.map(item =>{
-                            const deepnew = deep + 20
+                            const deepnew = deep + 28
                             return item.children && item.children.length ?
                                 renderSubMenu(item,deepnew) : renderMenu(item,deepnew)
                         })
@@ -177,22 +175,25 @@ const Aside = props =>{
         <SystemNav
             {...props}
             applicationRouters={menus()}
+            outerPath={outerPath}
             expandedTree={expandedTree}
             setExpandedTree={setExpandedTree}
-            outerPath={outerPath}
             noAccessPath={"/noaccess"}
         >
             <div className="system-aside">
                 <ul className="system-aside-top">
-                    <li className='system-aside-logo' onClick={()=>props.history.push('/work')}>
-                        <img src={productWhiteImg.eas} height={32} width={32} alt={''}/>
-                        <span className='system-aside-logo-text'>EAS</span>
-                    </li>
                     <li className='system-aside-head'>
-                        <span className='top-head-icon' onClick={()=>props.history.push('/work')}>
-                            <img src={back} width={18} height={18} alt={''}/>
+                        <span onClick={()=>props.history.push(`${outerPath}/home`)}>
+                            {outerPath==='/setting'?'设置':'企业管理'}
                         </span>
-                        <span className='top-head-text'>设置</span>
+                    </li>
+                    <li className="system-aside-back" onClick={()=>props.history.push('/index')}>
+                        <div className='aside-back-box'>
+                           <span className="aside-back-box-icon">
+                                <HomeOutlined />
+                            </span>
+                            <span className="aside-back-box-title">返回首页</span>
+                        </div>
                     </li>
                     {
                         menus().map(firstItem => {

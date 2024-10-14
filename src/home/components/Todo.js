@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Row, Col, Spin} from "antd";
-import {getUser,productSelect} from 'thoughtware-core-ui';
+import {getUser,productSelect} from 'tiklab-core-ui';
 import {findTodoCount, getTodoPageService} from "../store/HomeStore";
 import Page from '../../common/page/Page'
 import BreadCrumb from "../../common/breadCrumb/BreadCrumb";
@@ -112,7 +112,7 @@ const Todo = props => {
     }
 
     return(
-        <Row className={'thoughtware_fulltodo'}>
+        <Row className={'tiklab_fulltodo'}>
             <Col
                 xs={{ span: "24" }}
                 sm={{ span: "24" }}
@@ -122,12 +122,12 @@ const Todo = props => {
                 xxl={{ span: "14", offset: "5" }}
             >
                 <Spin spinning={spinning}>
-                    <div className='eas-home-limited'>
+                    <div className='soular-home-limited'>
                         <BreadCrumb
                             firstItem={'待办'}
                             onClick={showTodo ? ()=>setShowTodo(null) :undefined}
                         />
-                        <div className={'thoughtware_fulltodo-select'}>
+                        <div className={'tiklab_fulltodo-select'}>
                             <Tabs
                                 type={params?.status ? params.status : 0}
                                 tabLis={[

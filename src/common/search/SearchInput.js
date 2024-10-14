@@ -12,10 +12,10 @@ const SearchInput = props =>{
         <Input
             {...res}
             allowClear
-            bordered={true}
+            bordered={false}
             autoComplete={"off"}
             prefix={<SearchOutlined style={{fontSize: 16}}/>}
-            className='eas-search-input'
+            className='soular-search-input'
             onChange={e=>{
                 if(e.type==='click'){
                     res.onPressEnter(e);

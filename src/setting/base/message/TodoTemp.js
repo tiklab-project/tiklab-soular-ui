@@ -1,5 +1,5 @@
 import React from "react";
-import {TodoTemp} from "thoughtware-message-ui";
+import {TodoTemp} from "tiklab-message-ui";
 
 /**
  * 待办模板
@@ -9,7 +9,7 @@ import {TodoTemp} from "thoughtware-message-ui";
  */
 const TodoTempContent = props =>{
 
-    return <TodoTemp {...props} bgroup={"eas"}/>
+    return <TodoTemp {...props} bgroup={"soular"}/>
 
 }
 

@@ -3,7 +3,7 @@
     width: 100%;
     .progress-content-up .up-back{
         cursor: pointer;
-        color: var(--thoughtware-blue);
+        color: var(--tiklab-blue);
         margin-right: 10px;
     }
     .data-content-form{
@@ -24,7 +24,7 @@
                     margin-bottom: 8px;
                 }
                 &:last-child{
-                    margin-bottom: var(--thoughtware-padding-item);
+                    margin-bottom: var(--tiklab-padding-item);
                 }
                 &>span:first-child{
                     display: inline-block;
@@ -33,10 +33,10 @@
             }
             &>div:last-child{
                 font-size: 20px;
-                font-weight: var(--thoughtware-font-weight-bold);
+                font-weight: var(--tiklab-font-weight-bold);
             }
             .info-right-success{
-                color: var(--thoughtware-blue);
+                color: var(--tiklab-blue);
             }
             .info-right-error{
                 color: #ff0000;
@@ -47,13 +47,13 @@
         }
         .progress-content-title{
             font-size: 13px;
-            font-weight: var(--thoughtware-font-weight-bold);
+            font-weight: var(--tiklab-font-weight-bold);
             margin-bottom: 8px;
         }
         .progress-content-bar{
             display: flex;
             align-items: center;
-            margin-bottom: var(--thoughtware-padding-item);
+            margin-bottom: var(--tiklab-padding-item);
             .up-progress-bar{
                 flex: 1;
                 height: 5px;
@@ -64,7 +64,7 @@
                 .progress-bar {
                     width: 0;
                     height: 100%;
-                    background-color: var(--thoughtware-blue);
+                    background-color: var(--tiklab-blue);
                     transition: width 1s ease-in-out;
                 }
             }
@@ -95,6 +95,6 @@
     .data-import-loading-title{
         padding-top: 10px;
         font-size: 13px;
-        color: var(--thoughtware-gray-500);
+        color: var(--tiklab-gray-500);
     }
 }

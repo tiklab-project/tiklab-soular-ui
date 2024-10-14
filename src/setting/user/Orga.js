@@ -1,5 +1,5 @@
 import React from 'react';
-import {Orga} from "thoughtware-user-ui";
+import {Orga} from "tiklab-user-ui";
 
 /**
  * 部门
@@ -13,7 +13,7 @@ const OrgaContent = (props) => {
         <Orga
             {...props}
             isPortal={true}
-            bgroup={"eas"}
+            bgroup={"soular"}
         />
     )
 }

@@ -1,5 +1,5 @@
 import {action,observable} from "mobx";
-import {Axios} from 'thoughtware-core-ui';
+import {Axios} from 'tiklab-core-ui';
 
 /**
  * 获取日志
@@ -22,7 +22,7 @@ export const findLoggingCountList = async () => {
  */
 export const findlogtypelist = async () => {
     return await Axios.post('/oplog/type/findlogtypelist',{
-        bgroup:"eas"
+        bgroup:"soular"
     });
 }
 

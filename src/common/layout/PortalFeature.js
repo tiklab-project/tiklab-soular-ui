@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
-import {BaseModal,HeaderDropdown} from "thoughtware-licence-ui/es/commons";
-import {disableFunction} from "thoughtware-core-ui";
+import {BaseModal,HeaderDropdown} from "tiklab-licence-ui/es/commons";
+import {disableFunction,applySubscription} from "tiklab-core-ui";
 import vipLight from '../../assets/images/vip-light.png';
 import vipDark from '../../assets/images/vip-dark.png';
 import "./PortalFeature.scss";
@@ -10,12 +10,12 @@ const featureList = [
     {
         "id": "c41206b0c8d3",
         "productType": {
-            "id": "eas",
+            "id": "soular",
             "code": null,
             "typeName": null
         },
         "type": "ce",
-        "name": "EAS-社区版",
+        "name": "soular-社区版",
         "price": "0",
         "version": "V1.0.1",
         "createTime": "2024-01-31 16:19:57.337",
@@ -163,12 +163,12 @@ const featureList = [
     {
         "id": "rew23fsdas",
         "productType": {
-            "id": "eas",
+            "id": "soular",
             "code": null,
             "typeName": null
         },
         "type": "ee",
-        "name": "EAS-企业版",
+        "name": "soular-企业版",
         "price": "3000",
         "version": "V1.0.2",
         "createTime": "2024-01-31 16:19:57.337",
@@ -281,7 +281,7 @@ const PortalFeature = props =>{
     const [visible,setVisible] = useState(false);
 
     const onOk = () =>{
-        window.open(`https://thoughtware.cn/account/subscribe/apply/eas`)
+        applySubscription('soular')
         onCancel()
     }
 

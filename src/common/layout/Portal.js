@@ -9,9 +9,9 @@ import {
     SettingOutlined,
 } from "@ant-design/icons";
 import PortalMessage from "../messages/Messages";
-import {AvatarLink, AppLink, HelpLink} from "thoughtware-licence-ui";
+import {AvatarLink, AppLink, HelpLink} from "tiklab-licence-ui";
 import {inject, observer} from "mobx-react";
-import {getUser,productTitle, productWhiteImg,productWhitePureImg} from "thoughtware-core-ui";
+import {getUser,productTitle, productImg,productWhiteImg} from "tiklab-core-ui";
 import {renderRoutes} from "react-router-config";
 import SettingAside from "./SettingAside";
 import './Portal.scss';
@@ -21,8 +21,8 @@ import menuWhite from '../../assets/images/menu-white.png';
 
 const firstRouters = [
     {
-        key:'/work',
-        to:"/work",
+        key:'/index',
+        to:"/index",
         title: "首页",
         icon:<HomeOutlined />
     },
@@ -34,7 +34,7 @@ const firstRouters = [
     },
     {
         key:'/setting',
-        to:"/setting",
+        to:"/setting/home",
         title: "设置",
         icon:<SettingOutlined />
     },
@@ -58,7 +58,7 @@ const Portal = props =>{
 
     useEffect(()=>{
         getSystemPermissions(getUser().userId);
-        const type = localStorage.getItem('themeType')
+        const type = localStorage.getItem('theme')
         if(type){
             setThemeType(type)
         }
@@ -66,29 +66,32 @@ const Portal = props =>{
 
     /**
      * type主题类型:
-     * default(默认 --> --thoughtware-gray-600)，
+     * default(默认 --> --tiklab-gray-600)，
      * blue(蓝色 --> #2f5eb1)，
      * black(黑色 --> #131d30)
      */
     const changeTheme = type => {
         setThemeType(type)
-        localStorage.setItem('themeType',type)
+        localStorage.setItem('theme',type)
     }
+
     return (
-        <main className="eas-layout">
+        <main className="soular-layout">
             {
                 path.startsWith('/setting') ?
                 <SettingAside {...props}/>
                 :
-                <div className={`eas-aside ${isExpand ? 'eas-aside-expand': 'eas-aside-normal'} eas-aside-${themeType}`}>
-                    <div className='aside-logo' onClick={()=>history.push('/work')}>
+                <div className={`soular-aside ${isExpand ? 'soular-aside-expand': 'soular-aside-normal'} soular-aside-${themeType}`}>
+                    <div className='aside-logo' onClick={()=>history.push('/index')}>
                         {
-                            themeType === 'default' ?
-                                <img src={productWhiteImg.eas} height={32} width={32} alt={''}/>
-                                :
-                                <img src={productWhitePureImg.eas} height={32} width={32} alt={''}/>
+                            isExpand ?
+                            <>
+                                <img src={themeType === 'default' ? productImg.soular : productWhiteImg.soular} height={24} width={24} alt={''}/>
+                                <div className='aside-logo-text'>{productTitle.soular}</div>
+                            </>
+                            :
+                            <img src={themeType === 'default' ? productImg.soular : productWhiteImg.soular} height={32} width={32} alt={''}/>
                         }
-                        {isExpand&&<div className='aside-logo-text'>{productTitle.eas}</div>}
                     </div>
                     <div className="aside-up">
                         {
@@ -107,7 +110,7 @@ const Portal = props =>{
                         {
                             isExpand ?
                                 <div
-                                    className={'aside-item'}
+                                    className='aside-item'
                                     onClick={()=>setNotificationVisibility(!notificationVisibility)}
                                 >
                                     <div className="aside-item-icon"><BellOutlined/></div>
@@ -117,7 +120,7 @@ const Portal = props =>{
                                 <div className="aside-bottom-text text-icon" data-title-right={'消息'}
                                      onClick={()=>setNotificationVisibility(!notificationVisibility)}
                                 >
-                                    <BellOutlined/>
+                                    <BellOutlined className='aside-bottom-text-icon'/>
                                 </div>
 
                         }
@@ -130,7 +133,7 @@ const Portal = props =>{
                             setVisible={setNotificationVisibility}
                         />
                         <HelpLink
-                            bgroup={'eas'}
+                            bgroup={'soular'}
                             iconComponent={
                                 isExpand ?
                                     <div className='aside-item'>
@@ -139,26 +142,28 @@ const Portal = props =>{
                                     </div>
                                     :
                                     <div className="aside-bottom-text" data-title-right={'帮助与支持'}>
-                                        <QuestionCircleOutlined/>
+                                        <QuestionCircleOutlined className='aside-bottom-text-icon'/>
                                     </div>
                             }
                         />
                         <AppLink
                             {...props}
-                            bgroup={'eas'}
+                            bgroup={'soular'}
                             translateX={isExpand?200:75}
                             iconComponent={
                                 isExpand?
                                     <div className='aside-item'>
                                         <div className="aside-item-icon">
-                                            <img src={themeType==='default'?menuBlack:menuWhite} alt="link" width="16" height="16">
+                                            <img src={themeType==='default'?menuBlack:menuWhite} alt="link" width="18" height="18">
                                             </img>
                                         </div>
                                         <div className="aside-item-title">应用</div>
                                     </div>
                                     :
                                     <div className="aside-bottom-text" data-title-right={'应用'}>
-                                        <img src={themeType==='default'?menuBlack:menuWhite} alt="link" width="16" height="16">
+                                        <img src={themeType==='default'?menuBlack:menuWhite} alt="link" width="18" height="18"
+                                             className='aside-bottom-text-icon'
+                                        >
                                         </img>
                                     </div>
                             }
@@ -168,7 +173,7 @@ const Portal = props =>{
                             changeTheme={changeTheme}
                             iconComponent={
                                 isExpand?
-                                    <div className='aside-item'>
+                                    <div className='aside-item aside-item-user'>
                                         <div className="aside-item-icon"><Profile /></div>
                                         <div className="aside-item-title">{getUser().nickname || getUser().name}</div>
                                     </div>
@@ -185,7 +190,7 @@ const Portal = props =>{
                     </div>
                 </div>
             }
-            <section className='eas-layout-content'>
+            <section className='soular-layout-content'>
                 {renderRoutes(route.routes)}
             </section>
         </main>

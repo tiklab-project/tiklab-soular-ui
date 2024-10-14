@@ -1,21 +1,23 @@
-.thoughtware_fulltodo {
+.tiklab_fulltodo {
   height: 100%;
   width: 100%;
   overflow: auto;
-  .thoughtware_fulltodo-title{
+  .tiklab_fulltodo-title{
     margin-bottom: 8px;
   }
-  .thoughtware_fulltodo-select{
+  .tiklab_fulltodo-select{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
-    margin-bottom: var(--thoughtware-padding-item);
+    margin-bottom: var(--tiklab-padding-item);
+    flex-wrap: wrap;
+    gap: 10px 0;
   }
   &_nav {
-    font-size: var(--thoughtware-font-16);
-    font-weight: var(--thoughtware-font-weight-bold);
+    font-size: var(--tiklab-font-16);
+    font-weight: var(--tiklab-font-weight-bold);
   }
   .tab-content{
     width: 100%;

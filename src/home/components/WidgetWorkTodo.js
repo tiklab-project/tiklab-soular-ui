@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Spin} from 'antd';
-import {getUser} from 'thoughtware-core-ui';
+import {getUser} from 'tiklab-core-ui';
 import {RightOutlined} from '@ant-design/icons';
 import {findTodoCount} from '../store/HomeStore';
 import todo from '../../assets/todo.svg';

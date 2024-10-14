@@ -163,9 +163,9 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
-            title:'EAS',
+            title:'soular',
             template: path.resolve(__dirname, './public/index.template.html'),
-            favicon: path.resolve('./public/easIcon.png'),
+            favicon: path.resolve('./public/soular.png'),
             hash: false,
             filename: 'index.html',
             inject: 'body',

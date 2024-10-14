@@ -1,5 +1,5 @@
 import React from "react";
-import {TodoType} from "thoughtware-message-ui";
+import {TodoType} from "tiklab-message-ui";
 
 /**
  * 待办类型
@@ -9,7 +9,7 @@ import {TodoType} from "thoughtware-message-ui";
  */
 const TodoTypeContent = props =>{
 
-    return <TodoType {...props} bgroup={"eas"}/>
+    return <TodoType {...props} bgroup={"soular"}/>
 
 }
 

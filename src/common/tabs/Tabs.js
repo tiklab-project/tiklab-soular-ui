@@ -12,12 +12,12 @@ const Tabs = props =>{
     const {tabLis,type,onClick} = props
 
     return (
-        <div className="eas-tabs">
+        <div className="soular-tabs">
             {
                 tabLis.map(item=>(
                     <div
                         key={item.id}
-                        className={`eas-tab ${type===item.id?"eas-active-tab":""}`}
+                        className={`soular-tab ${type===item.id?"soular-active-tab":""}`}
                         onClick={type===item.id ? undefined : ()=>onClick(item)}
                     >{item.title}</div>
                 ))

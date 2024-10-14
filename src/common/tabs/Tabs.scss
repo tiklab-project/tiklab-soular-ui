@@ -1,19 +1,19 @@
-.eas-tabs{
+.soular-tabs{
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.eas-tab{
+.soular-tab{
     padding: 10px 0;
     cursor: pointer;
     margin-right: 20px;
     &:hover{
-        color: var(--thoughtware-blue);
+        color: var(--tiklab-blue);
     }
 }
 
-.eas-active-tab{
-    color: var(--thoughtware-blue);
-    border-bottom: 2px solid var(--thoughtware-blue);
+.soular-active-tab{
+    color: var(--tiklab-blue);
+    border-bottom: 2px solid var(--tiklab-blue);
 }

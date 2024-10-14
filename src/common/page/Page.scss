@@ -1,26 +1,26 @@
-.eas-page{
+.soular-page{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 40px;
-    .eas-page-ban{
+    .soular-page-ban{
         cursor:not-allowed;
-        color: var(--thoughtware-gray-500);
+        color: var(--tiklab-gray-500);
     }
-    .eas-page-allow{
+    .soular-page-allow{
         cursor: pointer;
     }
-    .eas-page-current,.eas-page-allow:hover{
-        color: var(--thoughtware-blue);
+    .soular-page-current,.soular-page-allow:hover{
+        color: var(--tiklab-blue);
     }
-    .eas-page-line{
+    .soular-page-line{
         margin: 0 5px;
     }
-    .eas-page-record{
+    .soular-page-record{
         margin-right: 30px;
-        font-size: var(--thoughtware-font-12);
+        font-size: var(--tiklab-font-12);
     }
-    .eas-page-fresh{
+    .soular-page-fresh{
         margin-left: 30px;
         cursor: pointer;
     }

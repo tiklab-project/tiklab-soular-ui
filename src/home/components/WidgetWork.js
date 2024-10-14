@@ -1,13 +1,12 @@
 import React,{useState,useEffect} from 'react';
 import {Row, Col, message, Tag} from "antd";
 import {inject,observer} from "mobx-react";
-import {applyJump,product,productWhiteImg,productTitle} from "thoughtware-core-ui";
-import AppLinkEdit from "thoughtware-licence-ui/es/appLink/component/AppLinkEdit";
-import appLinkStore from "thoughtware-licence-ui/es/appLink/AppLinkStore";
+import {applyJump, product, productDesc, productImg, productTitle} from "tiklab-core-ui";
+import AppLinkEdit from "tiklab-licence-ui/es/appLink/component/AppLinkEdit";
+import appLinkStore from "tiklab-licence-ui/es/appLink/AppLinkStore";
 import countStore from "../../setting/home/store/CountStore";
 import WidgetWorkOplog from './WidgetWorkOplog';
 import WidgetWorkTodo from "./WidgetWorkTodo";
-import Btn from "../../common/btn/Btn";
 import Oplog from "./Oplog";
 import Todo from './Todo';
 import './WidgetWork.scss';
@@ -49,8 +48,7 @@ const WidgetWork = props =>{
             setInstallApp(data)
             if(type==='clear'){setEdit({...data[0],edit:'edit'})}
             else {setEdit({...app,edit:'edit'})}
-        }
-        else {
+        } else {
             setInstallApp([])
             setEdit({edit:'add'})
         }
@@ -108,7 +106,7 @@ const WidgetWork = props =>{
                 xl={{ span: "18", offset: "3" }}
                 xxl={{ span: "16", offset: "4" }}
             >
-                <div className="eas-home-limited">
+                <div className="soular-home-limited">
                     <div className="product_widget">
                         <div className="product_widget-card">
                             <div className="workLayout-guide">
@@ -129,17 +127,21 @@ const WidgetWork = props =>{
                                 <div className="product_card-content-wrap">
                                     {
                                         product.map(code => {
-                                            if(code==='eas') return;
+                                            if(code==='soular') return;
                                             return(
                                                 <div key={code} className='product_card-item clicked' onClick={()=>goProject(code)}>
                                                     <div className="product_card-item_img">
-                                                        <img src={productWhiteImg[code]} width={40} height={40} alt={""}/>
-                                                        {
-                                                            code==='xmonitor' &&
-                                                            <div className='product_card-item_beta'><Tag color="green">beta</Tag></div>
-                                                        }
+                                                        <img src={productImg[code]} width={40} height={40} alt={""}/>
                                                     </div>
-                                                    <div className="product_card-item_title">{productTitle[code]}</div>
+                                                    <div>
+                                                        <div className="product_card-item_title">
+                                                            <span>{productTitle[code]}</span>
+                                                            {code==='kaelthas' &&
+                                                                <span className='product_card-item_beta'><Tag color="green">beta</Tag></span>
+                                                            }
+                                                        </div>
+                                                        <div className="product_card-item_desc">{productDesc[code]}</div>
+                                                    </div>
                                                 </div>
                                             )
                                         })

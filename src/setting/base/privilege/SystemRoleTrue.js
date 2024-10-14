@@ -1,5 +1,5 @@
 import React from "react";
-import {SystemRole} from "thoughtware-privilege-ui";
+import {SystemRole} from "tiklab-privilege-ui";
 
 /**
  * 系统权限
@@ -9,7 +9,7 @@ import {SystemRole} from "thoughtware-privilege-ui";
  */
 const SystemRoleTrue = props =>{
 
-    return <SystemRole {...props} bgroup={"eas"} isBase={true}/>
+    return <SystemRole {...props} bgroup={"soular"} isBase={true}/>
 
 }
 

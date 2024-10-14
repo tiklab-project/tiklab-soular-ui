@@ -8,7 +8,7 @@ const SearchSelect = (props) => {
     const {children,...res} = props;
 
     return (
-        <div className='eas-search-select'>
+        <div className='soular-search-select'>
             <Select
                 {...res}
                 bordered={false}

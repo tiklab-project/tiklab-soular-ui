@@ -1,5 +1,5 @@
 import React from "react";
-import {applyJump} from "thoughtware-core-ui";
+import {applyJump} from "tiklab-core-ui";
 import Profile from "../profile/Profile";
 import ListEmpty from "./ListEmpty";
 import './TodoList.scss';
@@ -17,8 +17,8 @@ const TodoList = (props) => {
 
     const renderDescMessage = (dataObj,bgroup) => {
         switch (bgroup) {
-            case 'matflow':
-            case 'eas':
+            case 'arbess':
+            case 'soular':
                 return  dataObj?.message &&
                     <div className='desc-message'>{dataObj.message}</div>
             case 'kanass':
@@ -32,14 +32,14 @@ const TodoList = (props) => {
     }
 
     return (
-        <div className='eas-todo-center'>
+        <div className='soular-todo-center'>
             {
                 todoList && todoList.length > 0?
                     todoList.map(item=>{
                         const {todoType,action,createUser,createTime,data,bgroup} = item
                         // const dataObj = data && JSON.parse(data)
                         return (
-                            <div key={item.id} className="todo-item" onClick={()=>goTodoLink(item)}>
+                            <div key={item.id} className="todo-item soular-user-avatar" onClick={()=>goTodoLink(item)}>
                                 <div className="todo-item-data">
                                     <Profile
                                         userInfo={createUser}
@@ -48,9 +48,7 @@ const TodoList = (props) => {
                                         <div className='item-data-info-name'>{createUser?.nickname || createUser?.name} {todoType?.name}</div>
                                         <div className='item-data-info-desc'>
                                             <div className='desc-action'> {action}</div>
-                                            {
-                                                // renderDescMessage(dataObj,bgroup)
-                                            }
+                                            {/*{renderDescMessage(dataObj,bgroup)}*/}
                                         </div>
                                     </div>
                                 </div>
@@ -59,7 +57,7 @@ const TodoList = (props) => {
                         )
                     })
                     :
-                    <ListEmpty title={'没有待办'}/>
+                    <ListEmpty />
             }
         </div>
     )

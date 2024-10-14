@@ -1,5 +1,5 @@
 import React from "react";
-import {MessageSendType} from "thoughtware-message-ui";
+import {MessageSendType} from "tiklab-message-ui";
 
 /**
  * 消息通知类型
@@ -9,7 +9,7 @@ import {MessageSendType} from "thoughtware-message-ui";
  */
 const MessageSendTypeContentTrue = props => {
 
-    return <MessageSendType {...props} bgroup={"eas"} isBase={true}/>
+    return <MessageSendType {...props} bgroup={"soular"} isBase={true}/>
 
 }
 

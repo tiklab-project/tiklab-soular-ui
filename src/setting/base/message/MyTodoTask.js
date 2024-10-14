@@ -1,5 +1,5 @@
 import React from "react";
-import {MyTodoTask} from "thoughtware-message-ui";
+import {MyTodoTask} from "tiklab-message-ui";
 
 /**
  * 待办
@@ -9,7 +9,7 @@ import {MyTodoTask} from "thoughtware-message-ui";
  */
 const MyTodoTaskContent = props =>{
 
-    return <MyTodoTask {...props} bgroup={"eas"}/>
+    return <MyTodoTask {...props} bgroup={"soular"}/>
 
 }
 

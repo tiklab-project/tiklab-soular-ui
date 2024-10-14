@@ -1,12 +1,12 @@
 import React from 'react';
-import {User} from "thoughtware-user-ui";
+import {User} from "tiklab-user-ui";
 
 const UserContent = props => {
     return(
         <User
             {...props}
             isPortal={true}
-            bgroup={"eas"}
+            bgroup={"soular"}
         />
     )
 };

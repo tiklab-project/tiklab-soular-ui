@@ -13,7 +13,7 @@ const ListEmpty = props =>{
 
     return (
         <Empty
-            description={title ? title : "暂无数据"}
+            description={title ? title : "没有查询到数据"}
         />
     )
 

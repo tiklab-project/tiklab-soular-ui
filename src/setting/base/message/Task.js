@@ -1,5 +1,5 @@
 import React from "react";
-import {Task} from "thoughtware-message-ui";
+import {Task} from "tiklab-message-ui";
 
 /**
  * 待办列表
@@ -9,7 +9,7 @@ import {Task} from "thoughtware-message-ui";
  */
 const TaskContent = props =>{
 
-    return <Task {...props} bgroup={"eas"}/>
+    return <Task {...props} bgroup={"soular"}/>
 
 }
 

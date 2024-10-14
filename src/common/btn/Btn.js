@@ -8,9 +8,9 @@ import "./Btn.scss";
 const Btn = ({icon,type,title,onClick,isMar,children}) =>{
 
     return (
-        <div className={`eas-btn ${type?`eas-btn-${type}`:""} ${isMar?"eas-btn-mar":""}`} onClick={onClick}>
+        <div className={`soular-btn ${type?`soular-btn-${type}`:""} ${isMar?"soular-btn-mar":""}`} onClick={onClick}>
             <Space>
-                { icon &&  <span className="eas-btn-icon">{icon}</span> }
+                { icon &&  <span className="soular-btn-icon">{icon}</span> }
                 { children ? children:title}
             </Space>
         </div>

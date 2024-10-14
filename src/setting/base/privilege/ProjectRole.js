@@ -1,5 +1,5 @@
 import React from "react";
-import {ProjectRole} from "thoughtware-privilege-ui";
+import {ProjectRole} from "tiklab-privilege-ui";
 
 /**
  * 项目权限
@@ -9,7 +9,7 @@ import {ProjectRole} from "thoughtware-privilege-ui";
  */
 const ProjectRoleContent = props =>{
 
-    return <ProjectRole {...props} bgroup={"eas"} isBase={true}/>
+    return <ProjectRole {...props} bgroup={"soular"} isBase={true}/>
 
 }
 

@@ -6,7 +6,7 @@
  * @update: 2021-05-06 15:53
  */
 import React from 'react';
-import {MessageSendType} from "thoughtware-message-ui";
+import {MessageSendType} from "tiklab-message-ui";
 
 
 const MessageSendTypeContent = props => {
@@ -14,7 +14,7 @@ const MessageSendTypeContent = props => {
     return(
         <MessageSendType
             {...props}
-            bgroup={'eas'}
+            bgroup={'soular'}
         />
     )
 }

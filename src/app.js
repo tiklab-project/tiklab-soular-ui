@@ -2,7 +2,7 @@ import React from 'react';
 import {renderRoutes} from "react-router-config";
 import {HashRouter} from 'react-router-dom';
 import {Provider} from 'mobx-react';
-import {useAccountConfig} from 'thoughtware-eam-ui/es/utils';
+import {useAccountConfig} from 'tiklab-eam-ui/es/utils';
 import {ConfigProvider} from "antd";
 import zhCN from "antd/es/locale/zh_CN";
 import './common/language/i18n';

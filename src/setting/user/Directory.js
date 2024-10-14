@@ -5,14 +5,14 @@
  * @description portalDirectory
  */
 import React from 'react';
-import {Directory} from 'thoughtware-user-ui';
+import {Directory} from 'tiklab-user-ui';
 
 const DirectoryPage = (props) => {
 
     return(
         <Directory
             {...props}
-            bgroup={"eas"}
+            bgroup={"soular"}
         />
     )
 }

@@ -92,7 +92,6 @@ const applicationRouters =  [
             {
                 id:'/setting/version',
                 title: '版本与许可证',
-                purviewCode:'version',
             },
             {
                 id:'/setting/productAuth',

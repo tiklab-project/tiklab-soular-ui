@@ -172,8 +172,8 @@ const PortalMessage = props =>{
 
     const renderMessage = (dataObj,bgroup) => {
         switch (bgroup) {
-            case 'matflow':
-            case 'eas':
+            case 'arbess':
+            case 'soular':
                 return dataObj?.message &&
                     <div className="message-item-info-messages" title={dataObj?.message}> {dataObj?.message}</div>
             case 'kanass':
@@ -287,15 +287,7 @@ const PortalMessage = props =>{
                             }
                             {
                                 messageList && messageList.length===0 &&
-                                <ListEmpty
-                                    title={
-                                        <>
-                                            { messageParams.status===0 && "暂无未读消息"}
-                                            { messageParams.status===1 && "暂无已读消息"}
-                                            { messageParams.status===2 && "暂无消息"}
-                                        </>
-                                    }
-                                />
+                                <ListEmpty />
                             }
                         </div>
                     </Spin>

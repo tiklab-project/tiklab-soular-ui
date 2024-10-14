@@ -1,7 +1,7 @@
 $main-padding: 30px;
 $line-color: #dadfe6;
 
-.eas-dynamic-center{
+.soular-dynamic-center{
     box-sizing: border-box;
     .dynamic-item{
         margin-bottom: 30px;
@@ -29,12 +29,12 @@ $line-color: #dadfe6;
                 left: 0;
                 width: 11px;
                 height: 11px;
-                border: 3px solid var(--thoughtware-blue);
+                border: 3px solid var(--tiklab-blue);
                 border-radius: 50%;
             }
             &>span{
                 display: inline-block;
-                background: var(--eas-backdrop-color);
+                background: var(--soular-backdrop-color);
                 padding: 0 10px;
             }
         }
@@ -65,36 +65,6 @@ $line-color: #dadfe6;
                 background: $line-color;
                 border-radius: 50%;
             }
-            &:nth-child(5n+1) {
-                .ant-avatar {
-                    background-color: #e9b4b4;
-                }
-            }
-
-            &:nth-child(5n+2) {
-                .ant-avatar {
-                    background-color: #b1c1d7;
-                }
-            }
-
-            &:nth-child(5n+3) {
-                .ant-avatar {
-                    background-color: #afb3ce;
-                }
-            }
-
-            &:nth-child(5n+4) {
-                .ant-avatar {
-                    background-color: #c4d3bd;
-                }
-            }
-
-            &:nth-child(5n+5) {
-                .ant-avatar {
-                    background-color: #a8d4d0;
-                }
-            }
-
             .dynamic-item-log-time{
                 margin-right: 30px;
             }
@@ -102,10 +72,14 @@ $line-color: #dadfe6;
                 margin-left: 10px;
                 min-width: 0;
                 .dynamic-item-log-info-name{
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    -o-text-overflow: ellipsis;
                     &:hover{
                         cursor: pointer;
                         text-decoration: underline;
-                        color: var(--thoughtware-blue);
+                        color: var(--tiklab-blue);
                     }
                 }
                 .dynamic-item-log-desc{
@@ -121,20 +95,14 @@ $line-color: #dadfe6;
                     }
                     .log-desc-action{
                         font-size: 13px;
-                        color: var(--thoughtware-gray-500);
+                        color: var(--tiklab-gray-500);
                     }
                     .log-desc-message{
-                        background-color: #f6f6f6;
                         padding: 4px;
                         border-radius: 4px;
                         font-size: 12px;
                         margin-left: 10px;
                         max-width: 200px;
-                    }
-                    .log-desc-separato{
-                        width: 30px;
-                        border-top: 1px solid #cccccc;
-                        margin-left: 10px;
                     }
                 }
             }

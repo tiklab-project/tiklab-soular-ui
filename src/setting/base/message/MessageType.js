@@ -1,5 +1,5 @@
 import React from "react";
-import {MessageType} from "thoughtware-message-ui";
+import {MessageType} from "tiklab-message-ui";
 
 /**
  * 消息类型
@@ -9,7 +9,7 @@ import {MessageType} from "thoughtware-message-ui";
  */
 const MessageTypeContent = props => {
 
-    return <MessageType {...props} bgroup={"eas"}/>
+    return <MessageType {...props} bgroup={"soular"}/>
 
 }
 export default MessageTypeContent

@@ -1,5 +1,5 @@
 import React from "react";
-import {UserGroup} from 'thoughtware-user-ui';
+import {UserGroup} from 'tiklab-user-ui';
 
 /**
  * 用户组
@@ -8,7 +8,7 @@ import {UserGroup} from 'thoughtware-user-ui';
  */
 const UserGroupContent = () => {
 
-    return <UserGroup bgroup={"eas"} />
+    return <UserGroup bgroup={"soular"} />
 }
 
 export default UserGroupContent

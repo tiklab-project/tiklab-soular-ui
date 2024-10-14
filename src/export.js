@@ -1,11 +1,12 @@
-import {store as easStore} from "./store";
+import {store as soularStore} from "./store";
 import App from "./app";
 import Portal from "./common/layout/Portal";
 import SyncComponent from "./common/lazy/SyncComponent";
 
 const Layout = SyncComponent(() => import('./common/layout/Layout'));
 
-const Login = SyncComponent(() => import('./login/Login'))
+const Login = SyncComponent(() => import('./login/Login'));
+const LoginRpw = SyncComponent(()=>import('./login/LoginRpw'));
 const ExcludeProductUser = SyncComponent(() => import('./login/ExcludeProductUser'))
 const Logout=SyncComponent(()=>import("./login/Logout"))
 
@@ -83,13 +84,14 @@ const SystemMessageNotice=SyncComponent(()=>import("./setting/base/message/Syste
 const ProjectMessageNotice=SyncComponent(()=>import("./setting/base/message/ProjectMessageNotice"))
 
 export {
-    easStore,
+    soularStore,
     App,
     Portal,
     SyncComponent,
 
     Logout,
     Login,
+    LoginRpw,
     ExcludeProductUser,
 
     NotFound,

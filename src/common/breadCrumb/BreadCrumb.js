@@ -9,11 +9,11 @@ import "./BreadCrumb.scss";
 const BreadCrumb = ({firstItem,secondItem,onClick,children}) =>{
 
     return (
-        <div className="eas-breadcrumb">
+        <div className="soular-breadcrumb">
             <Space>
-                <span className={onClick ? "eas-breadcrumb-first":""} onClick={onClick}>
+                <span className={onClick ? "soular-breadcrumb-first":""} onClick={onClick}>
                     {onClick && <LeftOutlined style={{marginRight:8}}/>}
-                    <span className={secondItem ? "eas-breadcrumb-span":""}>
+                    <span className={secondItem ? "soular-breadcrumb-span":""}>
                         {firstItem}
                     </span>
                 </span>

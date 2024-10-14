@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
-import {DatePicker, Row, Col, Select, Space, Spin} from "antd";
-import {productSelect} from 'thoughtware-core-ui';
+import {DatePicker, Row, Col, Space, Spin} from "antd";
+import {productSelect} from 'tiklab-core-ui';
 import moment from 'moment';
 import {findLogPageByTime,findlogtypelist} from "../store/HomeStore";
 import Page from '../../common/page/Page'
@@ -126,7 +126,7 @@ const Oplog = props => {
     }
 
     return(
-        <Row className={'thoughtware_fulloplog'}>
+        <Row className={'tiklab_fulloplog'}>
             <Col
                 xs={{ span: "24" }}
                 sm={{ span: "24" }}
@@ -136,12 +136,12 @@ const Oplog = props => {
                 xxl={{ span: "14", offset: "5" }}
             >
                 <Spin spinning={spinning}>
-                    <div className="eas-home-limited">
+                    <div className="soular-home-limited">
                         <BreadCrumb
                             firstItem={'动态'}
                             onClick={setShowOplog ? ()=>setShowOplog(false) :undefined}
                         />
-                        <Space className='thoughtware_fulloplog_select'>
+                        <Space className='tiklab_fulloplog_select'>
                             <SearchSelect
                                 options={[
                                     {label: "全部应用", value: 'all'},

@@ -1,5 +1,5 @@
 import React from "react";
-import {LogType} from "thoughtware-security-ui";
+import {LogType} from "tiklab-security-ui";
 
 /**
  * 日志类型
@@ -9,7 +9,7 @@ import {LogType} from "thoughtware-security-ui";
  */
 const LogTypeContent = props =>{
 
-    return <LogType {...props} bgroup={"eas"}/>
+    return <LogType {...props} bgroup={"soular"}/>
 
 }
 

@@ -1,19 +1,20 @@
 $main-padding:10px;
 
-.eas-layout {
-  height: 100vh;
+.soular-layout {
+  height: 100%;
   display: flex;
   overflow: hidden;
 
-  .eas-aside {
+  .soular-aside {
     position: relative;
     transition: width 0.3s ease, transform 0.3s ease;
-    border-right: 1px solid var(--eas-border-color);
+    border-right: 1px solid var(--soular-border-color);
     .ant-avatar {
-      width: 20px;
-      height: 20px;
-      line-height: 20px;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
       background: #8e9bed;
+      font-size: 13px;
     }
     .aside-hover-expand{
       position: absolute;
@@ -67,7 +68,7 @@ $main-padding:10px;
         .aside-item {
           cursor: pointer;
           display: flex;
-          height: 50px;
+          height: 52px;
           align-items: center;
           flex-direction: column;
           justify-content: center;
@@ -78,12 +79,9 @@ $main-padding:10px;
           }
         }
         .aside-item-icon {
-          font-size: var(--thoughtware-icon-size-16);
+          font-size: 18px;
+          padding-top: 4px;
           padding-bottom: 2px;
-        }
-
-        .aside-item-title {
-          font-size: 13px;
         }
       }
       .aside-bottom {
@@ -93,7 +91,7 @@ $main-padding:10px;
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 36px;
+          height: 32px;
           font-size: 18px;
           transition: background 0.3s ease;
           cursor: pointer;
@@ -115,9 +113,6 @@ $main-padding:10px;
         margin-bottom: 10px;
         padding-bottom: 5px;
       }
-      .aside-dropdown{
-        left: 75px !important;
-      }
     }
 
     &-expand {
@@ -132,11 +127,11 @@ $main-padding:10px;
         align-items: center;
         height: 48px;
         padding-top: 15px;
-        padding-left: 20px;
+        padding-left: 19px;
         margin-bottom: 20px;
         cursor: pointer;
         .aside-logo-text {
-          margin: 0 $main-padding;
+          margin: 0 8px;
           font-size: 20px;
           font-weight: 500;
         }
@@ -163,44 +158,23 @@ $main-padding:10px;
         margin-top: 20px;
         margin-bottom: 10px;
         .aside-item {
-          height: 36px;
+          height: 32px;
           display: flex;
           width: 100%;
           align-items: center;
-          padding-left: 20px;
+          padding-left: 23px;
           cursor: pointer;
           .aside-item-icon {
             margin-right: $main-padding;
             font-size: 18px;
           }
-          .ant-avatar {
-            width: 20px;
-            height: 20px;
-            background: #8e9bed;
+        }
+        .aside-item-user{
+          padding-left: 20px !important;
+          .aside-item-icon {
+            margin-right: 7px !important;
+            opacity: 1 !important;
           }
-        }
-      }
-      .aside-opt{
-        cursor: pointer;
-        display: flex;
-        height: 50px;
-        align-items: center;
-        padding: 15px 5px 5px 20px;
-        margin-bottom: 5px;
-        .aside-opt-name{
-          font-weight: var(--thoughtware-font-weight-bold);
-          margin: 0 5px;
-          min-width: 0;
-          max-width: 110px;
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          -o-text-overflow: ellipsis;
-        }
-        .eas-listname-icon{
-          width: 24px;
-          height: 24px;
-          line-height: 24px;
         }
       }
       .aside-item-back{
@@ -211,80 +185,31 @@ $main-padding:10px;
         left: 200px !important;
       }
     }
-    .aside-dropdown{
-      top: 0 !important;
-      box-shadow: 0 4px 8px -2px #091e4240, 0 0 1px #091e424f;
-      border-radius: 4px;
-      background: #ffffff;
-      .pipeline-opt{
-        &-title{
-          font-weight: var(--thoughtware-font-weight-bold);
-          padding: 0 var(--thoughtware-padding-item);
-          height: 40px;
-          line-height: 40px;
-          border-bottom: 1px solid var(--eas-border-color);
-        }
-        &-group{
-          max-height: calc(100vh - 120px);
-          min-height: 45px;
-          overflow: auto;
-        }
-        &-item{
-          padding: 0 var(--thoughtware-padding-item);
-          height: 40px;
-          line-height: 40px;
-          cursor: pointer;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-          max-width: 200px;
-        }
-        &-icon{
-          display: inline-block;
-          width: 25px;
-          height: 25px;
-          line-height: 25px;
-          text-align: center;
-          margin-right: $main-padding;
-          border-radius: 4px;
-        }
-        &-active{
-          background:#edf0f5;
-        }
-        &-more{
-          cursor: pointer;
-          text-align: center;
-          padding: 8px 0 ;
-          background: #f8f8f8;
-          color: var(--thoughtware-blue);
-        }
-      }
-    }
   }
 
-  .eas-layout-content {
-    height: 100vh;
+  .soular-layout-content {
+    height: 100%;
     flex: 1;
-    width: 0;
+    overflow: auto;
   }
 
-  .eas-aside{
+  .soular-aside{
     &-default{
-      background: #f7f7f7;
+      background: var(--soular-aside-color);
       .aside-expand{
-        background: #edf0f5;
+        background: #ebebeb;
       }
       .aside-item-back{
-        border-bottom: 1px solid var(--eas-border-color);
+        border-bottom: 1px solid var(--soular-border-color);
       }
       .aside-item,.aside-bottom-text{
         &:hover{
-          background: #edf0f5;
+          background: var(--soular-select-color);
         }
       }
       .aside-select{
-        background-color: var(--thoughtware-gray-400);
-        border-left: 3px solid var(--thoughtware-blue) !important;
+        background-color: var(--soular-select-color);
+        border-left: 3px solid var(--tiklab-blue) !important;
       }
     }
     &-black{
@@ -292,6 +217,9 @@ $main-padding:10px;
       color: #f6f7f8;
       .aside-expand{
         background: #7e8085;
+      }
+      .aside-item-icon,.aside-bottom-text-icon{
+        opacity: 0.6;
       }
       .aside-item-back{
         border-bottom: 1px solid #f6f7f81a;
@@ -303,7 +231,7 @@ $main-padding:10px;
       }
       .aside-select{
         background-color: #e9f2ff2e;
-        border-left: 3px solid var(--thoughtware-blue) !important;
+        border-left: 3px solid #ffffff !important;
       }
     }
     &-blue{

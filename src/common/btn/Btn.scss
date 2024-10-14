@@ -1,4 +1,4 @@
-.eas-btn{
+.soular-btn{
   display: inline-block;
   font-weight: 600;
   white-space: nowrap;
@@ -8,35 +8,35 @@
   font-size: 14px;
   border-radius: 4px;
   color: #42526E;
-  background-color: var(--thoughtware-gray);
-  border: 1px solid var(--thoughtware-gray);
+  background-color: var(--tiklab-gray);
+  border: 1px solid var(--tiklab-gray);
 }
 
-.eas-btn-primary{
-  background: var(--thoughtware-blue);
-  border-color: var(--thoughtware-blue);
+.soular-btn-primary{
+  background: var(--tiklab-blue);
+  border-color: var(--tiklab-blue);
   color: #ffffff;
 }
 
-.eas-btn-disabled{
+.soular-btn-disabled{
   color: rgba(0,0,0,.25);
   background: #f5f5f5;
   border-color: #d9d9d9;
   cursor:not-allowed;
 }
 
-.eas-btn-link{
-  color: var(--thoughtware-blue);
+.soular-btn-link{
+  color: var(--tiklab-blue);
   background: transparent;
   border-color: transparent;
   box-shadow: none;
 }
 
-.eas-btn-mar{
+.soular-btn-mar{
   margin-right: 15px;
 }
 
-.eas-btn-text {
+.soular-btn-text {
   color: rgba(0,0,0,.85);
   background: transparent;
   border-color: transparent;

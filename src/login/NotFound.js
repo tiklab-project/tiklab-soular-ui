@@ -1,5 +1,5 @@
 import React from "react";
-import {NotFound} from "thoughtware-eam-ui";
+import {NotFound} from "tiklab-eam-ui";
 
 /**
  * 微信登录入口

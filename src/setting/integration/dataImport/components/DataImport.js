@@ -2,7 +2,7 @@ import React,{useEffect,useState,useRef} from "react";
 import {Input, Form, message, Select, Spin,Row,Col} from "antd";
 import Btn from "../../../../common/btn/Btn";
 import BreadCrumb from "../../../../common/breadCrumb/BreadCrumb";
-import {productTitle, productSelect} from "thoughtware-core-ui";
+import {productTitle, productSelect} from "tiklab-core-ui";
 import dataImportStore from "../store/DataImportStore";
 
 import "./DataImport.scss";
@@ -175,10 +175,14 @@ const DataImport = (props) => {
         return (
             <Row className="data-import">
                 <Col
-                    md={{span: "24"}}
+                    xs={{ span: "24" }}
+                    sm={{ span: "24" }}
+                    md={{ span: "24" }}
                     lg={{ span: "18", offset: "3" }}
+                    xl={{ span: "18", offset: "3" }}
+                    xxl={{ span: "18", offset: "3" }}
                 >
-                    <div className="eas-home-limited data-import-progress">
+                    <div className="soular-home-limited data-import-progress">
                         <BreadCrumb
                             firstItem={"用户导入"}
                             onClick={press?.state?null:closePress}
@@ -232,13 +236,13 @@ const DataImport = (props) => {
                 xl={{ span: "18", offset: "3" }}
                 xxl={{ span: "18", offset: "3" }}
             >
-                <div className="eas-home-limited">
+                <div className="soular-home-limited">
                     <BreadCrumb firstItem={"用户导入"}/>
                     <div className='data-content-form'>
                         <Form
                             form={form}
                             layout={"vertical"}
-                            initialValues={{application:'matflow'}}
+                            initialValues={{application:'arbess'}}
                         >
                             <Form.Item
                                 label={'选择产品'}
@@ -258,7 +262,7 @@ const DataImport = (props) => {
                             >
                                 <Input
                                     autoComplete="off"
-                                    placeholder="数据库链接信息，如 jdbc:postgresql://192.168.10.1:5432/thoughtware_eas"
+                                    placeholder="数据库链接信息，如 jdbc:postgresql://192.168.10.1:5432/tiklab_soular"
                                 />
                             </Form.Item>
                             <Form.Item

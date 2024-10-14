@@ -4,6 +4,7 @@ import { Redirect } from 'react-router';
 import {
     Logout,
     Login,
+    LoginRpw,
     ExcludeProductUser,
 
     NotFound,
@@ -57,9 +58,14 @@ const routers = [
         path: '/login'
     },
     {
+        component: LoginRpw,
+        exact:true,
+        path: '/loginRpw'
+    },
+    {
         component: ExcludeProductUser,
         exact:true,
-        path: "/no-auth"
+        path: "/noAuth"
     },
     {
         component: Layout,
@@ -67,7 +73,7 @@ const routers = [
         routes: [
             {
                 component: WidgetWork,
-                path:"/work",
+                path:"/index",
                 exact:true,
             },
             {
@@ -227,7 +233,7 @@ const routers = [
             {
                 path:"/",
                 exact:true,
-                render:()=><Redirect to="/work"/>
+                render:()=><Redirect to="/index"/>
             },
         ]
     }

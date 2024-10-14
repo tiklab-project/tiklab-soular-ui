@@ -1,5 +1,5 @@
 import React from "react";
-import {MessageNotice} from "thoughtware-message-ui";
+import {MessageNotice} from "tiklab-message-ui";
 
 /**
  * 消息通知方案
@@ -9,7 +9,7 @@ import {MessageNotice} from "thoughtware-message-ui";
  */
 const MessageNoticeContentTrue = props =>{
 
-    return <MessageNotice {...props} bgroup={"eas"} isBase={true}/>
+    return <MessageNotice {...props} bgroup={"soular"} isBase={true}/>
 
 }
 

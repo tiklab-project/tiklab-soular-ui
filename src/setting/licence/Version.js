@@ -1,6 +1,6 @@
 import React from 'react';
 import {Table} from 'antd';
-import {Version} from 'thoughtware-licence-ui';
+import {Version} from 'tiklab-licence-ui';
 import {CheckOutlined, CloseOutlined} from "@ant-design/icons";
 
 /**
@@ -97,7 +97,7 @@ const VersionPage = () => {
                 if (row.colSpan > 0) {
                     return null
                 } else {
-                    return value ? <CheckOutlined style={{color:"var(--thoughtware-blue)", fontSize:'var(--thoughtware-icon-size-16)'}}/> : <CloseOutlined style={{color:"red"}}/>
+                    return value ? <CheckOutlined style={{color:"var(--tiklab-blue)", fontSize:'var(--tiklab-icon-size-16)'}}/> : <CloseOutlined style={{color:"red"}}/>
                 }
             },
         },
@@ -106,13 +106,13 @@ const VersionPage = () => {
             dataIndex: 'ee',
             key: 'ee',
             render: (value, row, index) => {
-                return value ? <CheckOutlined style={{color:"var(--thoughtware-blue)",fontSize:'var(--thoughtware-icon-size-16)'}}/> : <CloseOutlined style={{color:"red"}}/>
+                return value ? <CheckOutlined style={{color:"var(--tiklab-blue)",fontSize:'var(--tiklab-icon-size-16)'}}/> : <CloseOutlined style={{color:"red"}}/>
             },
         },
     ]
 
     return (
-        <Version bgroup={"eas"}>
+        <Version bgroup={"soular"}>
             <Table
                 bordered
                 columns={columns}

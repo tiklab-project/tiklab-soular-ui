@@ -1,5 +1,5 @@
 import React from "react";
-import {UserVerify} from "thoughtware-eam-ui";
+import {UserVerify} from "tiklab-eam-ui";
 import Portal from "./Portal";
 
 /**
@@ -16,4 +16,4 @@ const Layout = props => {
     )
 }
 
-export default UserVerify(Layout,"/no-auth")
+export default UserVerify(Layout,"/noAuth")

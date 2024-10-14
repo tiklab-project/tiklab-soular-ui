@@ -6,15 +6,15 @@
  * @update: 2021-05-24 10:52
  */
 import React from 'react';
-import {Login} from "thoughtware-eam-ui";
+import {Login} from "tiklab-eam-ui";
 
 const PortalLogin  = props => {
 
     return (
         <Login
             {...props}
-            bgroup={'eas'}
-            vaildUserAuthRouter={'/no-auth'}
+            bgroup={'soular'}
+            vaildUserAuthRouter={'/noAuth'}
         />
     )
 }

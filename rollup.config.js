@@ -45,9 +45,9 @@ const globals = {
     'react-dom': 'ReactDOM',
     antd:"antd",
     'react-i18next':'reactI18next',
-    "thoughtware-core-ui":"thoughtwareCoreUi",
+    "tiklab-core-ui":"tiklabCoreUi",
     "@ant-design/icons":"icons",
-    "thoughtware-plugin-ui":"thoughtwarePluginUi",
+    "tiklab-plugin-ui":"tiklabPluginUi",
     'mobx-react':'mobxReact',
     'mobx':'mobx',
     "react-router-dom":"reactRouterDom"
@@ -58,7 +58,7 @@ const extensions = ['.js', '.jsx',]
 
 const umdOutput = {
     format: 'umd',
-    name: 'thoughtware-matflow-ui',
+    name: 'tiklab-soular-ui',
     globals,
     assetFileNames: '[name].[ext]'
 };

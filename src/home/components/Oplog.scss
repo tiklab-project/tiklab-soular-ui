@@ -1,15 +1,15 @@
-.thoughtware_fulloplog {
+.tiklab_fulloplog {
   height: 100%;
   width: 100%;
   overflow: auto;
-  .thoughtware_fulloplog-title{
+  .tiklab_fulloplog-title{
     margin-bottom: 8px;
   }
   &_nav {
-    font-size: var(--thoughtware-font-16);
-    font-weight: var(--thoughtware-font-weight-bold);
+    font-size: var(--tiklab-font-16);
+    font-weight: var(--tiklab-font-weight-bold);
   }
-  .thoughtware_fulloplog_select{
+  .tiklab_fulloplog_select{
     gap: 15px;
     flex-wrap: wrap;
     padding: 15px 0;
