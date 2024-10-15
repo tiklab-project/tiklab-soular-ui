@@ -49,7 +49,7 @@ soular是一款开源、免费的账号中心管理工具，帮助你轻松实�
 
 ### 安装
 
-`git clone https://github.com/tiklab/tiklab-soular-ui.git`
+`git clone https://github.com/tiklab-project/tiklab-soular-ui.git`
 
 `cd tiklab-soular-ui`
 
