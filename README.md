@@ -59,7 +59,7 @@ soular是一款开源、免费的账号中心管理工具，帮助你轻松实�
 
 ### 使用示例
 1. 使用IDEA运行soular-start启动。
-2. 打开浏览器，访问 http://localhost:3010。
+2. 打开浏览器，访问 http://localhost:3010
 3. 登录信息，用户名：admin 密码：123456。
 
 
@@ -74,7 +74,7 @@ soular是一款开源、免费的账号中心管理工具，帮助你轻松实�
 
 [官方网站](https://www.tiklab.net)
 
-邮箱: tiklab@126.com
+邮箱: tiklab@163.com
 
 #### 立即体验 soular，高效的账号与门户中心管理工具！
 
