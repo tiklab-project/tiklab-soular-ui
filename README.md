@@ -68,7 +68,7 @@ soular是一款开源、免费的账号中心管理工具，帮助你轻松实�
 
 [联系我们](https://tiklab.net/account/workOrder/add)
 
-邮箱: tiklab@126.com
+邮箱: tiklab@163.com
 
 如需了解更多信息，请访问我们的官方网站或加入我们的社区讨论：
 
