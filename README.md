@@ -1,3 +1,10 @@
+<h1 align="center" style="border-bottom: none">
+    <a href="https://soular.tiklab.net/" target="_blank">
+      <img alt="soular" src="./RElogo.png">
+    </a>
+    <br> soular 
+</h1>
+
 # soular - 开源免费的账号与门户中心管理工具
 
 soular是一款开源、免费的账号中心管理工具，帮助你轻松实现用户管理、权限控制、消息动态管理和统一认证等功能，全面提升系统的安全性和管理效率。
@@ -8,17 +15,20 @@ soular是一款开源、免费的账号中心管理工具，帮助你轻松实�
 - 不同系统的消息，代办，动态在这里都能获取到。
 - 关联所有Tiklab应用。
 - 集成TikLab下产品，同一用户访问多个应用。
+![REhome.png](REhome.png)
 
 ### 2. 账号管理
 - 多种账号体系，包括内部用户，企业微信用户，Ldap用户。
 - 在目录服务中管理不同的组织单位。
 - 根据不同的角色和职责创建用户组。
 - 根据公司的战略目标和业务需求，设置不同的部门。
+![REdir.png](REdir.png)
 
 ### 3. 权限控制
 - 对资源的具体操作进行权限划分。
 - 授权用户能访问特定应用功能和数据。
 - 根据业务需求，自定义角色及其权限。
+![REpermission.png](REpermission.png)
 
 ### 4. 消息管理
 - 支持多种消息方式，满足你多种需求。
