@@ -53,7 +53,7 @@ soular是一款开源、免费的账号中心管理工具，帮助你轻松实�
 `git clone https://github.com/tiklab-project/tiklab-soular-ui.git`
 
 #### 配置npm仓库
-`npm config set registry http://172.16.0.43:8083/repository/tiklab-npm`
+`npm config set registry https://mirror.tiklab.net/repository/tiklab-npm`
 
 #### 启动操作
 `cd tiklab-soular-ui`
