@@ -47,20 +47,24 @@ soular是一款开源、免费的账号中心管理工具，帮助你轻松实�
 - Node 14+
 - Npm 6.14+
 
-### 安装
+### 构建项目
 
+#### 克隆
 `git clone https://github.com/tiklab-project/tiklab-soular-ui.git`
 
+#### 配置npm仓库
+`npm config set registry http://172.16.0.43:8083/repository/tiklab-npm`
+
+#### 启动操作
 `cd tiklab-soular-ui`
 
 `npm install`
 
 `npm run soular-start`
 
-### 使用示例
-1. 使用IDEA运行soular-start启动。
-2. 打开浏览器，访问 http://localhost:3010
-3. 登录信息，用户名：admin 密码：123456。
+#### 启动访问
+1. 打开浏览器，访问 http://localhost:3010
+2. 登录信息，用户名：admin 密码：123456。
 
 
 ### 贡献
