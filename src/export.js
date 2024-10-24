@@ -7,6 +7,7 @@ const Layout = SyncComponent(() => import('./common/layout/Layout'));
 
 const Login = SyncComponent(() => import('./login/Login'));
 const LoginRpw = SyncComponent(()=>import('./login/LoginRpw'));
+const SysException = SyncComponent(()=>import('./login/SysException'));
 const ExcludeProductUser = SyncComponent(() => import('./login/ExcludeProductUser'))
 const Logout=SyncComponent(()=>import("./login/Logout"))
 
@@ -92,6 +93,7 @@ export {
     Logout,
     Login,
     LoginRpw,
+    SysException,
     ExcludeProductUser,
 
     NotFound,

@@ -5,6 +5,7 @@ import {
     Logout,
     Login,
     LoginRpw,
+    SysException,
     ExcludeProductUser,
 
     NotFound,
@@ -66,6 +67,11 @@ const routers = [
         component: ExcludeProductUser,
         exact:true,
         path: "/noAuth"
+    },
+    {
+        path:"/500",
+        exact:true,
+        component:SysException,
     },
     {
         component: Layout,
