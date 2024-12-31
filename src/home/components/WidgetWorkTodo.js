@@ -34,8 +34,7 @@ const WidgetWorkTodo = props => {
             if(res.code===0){
                 setTodoData(res.data)
             }
-            setSpinning(false)
-        })
+        }).finally(()=>setSpinning(false))
     }
 
     const goTodo = (status) => {

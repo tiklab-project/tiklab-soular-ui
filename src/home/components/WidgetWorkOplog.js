@@ -27,8 +27,7 @@ const WidgetWorkOplog = props => {
             if(res.code===0){
                 setLogData(res.data?.dataList || [])
             }
-            setSpinning(false);
-        })
+        }).finally(()=>setSpinning(false))
     }
 
     return(

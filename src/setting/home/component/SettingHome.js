@@ -19,6 +19,12 @@ import {
 } from "@ant-design/icons";
 import {getOplogPageService} from '../../../home/store/HomeStore'
 
+/**
+ * 设置首页
+ * @param props
+ * @returns {Element}
+ * @constructor
+ */
 const SettingHome = props => {
 
     const {findCount} = countStore;
@@ -32,16 +38,19 @@ const SettingHome = props => {
     const [log,setLog] = useState(null);
 
     useEffect(()=>{
+        //统计数据
         findCount().then(res=>{
             if(res.code===0){
                 setCount(res.data)
             }
         })
+        //版本
         findUseLicence().then(res=>{
             if(res.code===0){
                 setLicence(res.data)
             }
         })
+        //操作日志
         getOplogPageService({
             pageParam: {pageSize: 1, currentPage: 1},
             userId:getUser().userId,

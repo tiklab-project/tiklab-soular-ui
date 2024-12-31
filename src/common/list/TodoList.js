@@ -15,40 +15,20 @@ const TodoList = (props) => {
         }
     }
 
-    const renderDescMessage = (dataObj,bgroup) => {
-        switch (bgroup) {
-            case 'arbess':
-            case 'soular':
-                return  dataObj?.message &&
-                    <div className='desc-message'>{dataObj.message}</div>
-            case 'kanass':
-                return dataObj?.oldValue && dataObj?.newValue &&
-                    <>
-                        <div className='desc-message'>{dataObj?.oldValue?.name || dataObj?.oldValue?.nickname}</div>
-                        <div className='desc-separato'/>
-                        <div className='desc-message'>{dataObj?.newValue.name || dataObj?.newValue?.nickname}</div>
-                    </>
-        }
-    }
-
     return (
         <div className='soular-todo-center'>
             {
                 todoList && todoList.length > 0?
                     todoList.map(item=>{
-                        const {todoType,action,createUser,createTime,data,bgroup} = item
-                        // const dataObj = data && JSON.parse(data)
+                        const {todoType,action,createUser,createTime} = item
                         return (
                             <div key={item.id} className="todo-item soular-user-avatar" onClick={()=>goTodoLink(item)}>
                                 <div className="todo-item-data">
-                                    <Profile
-                                        userInfo={createUser}
-                                    />
+                                    <Profile userInfo={createUser}/>
                                     <div className='item-data-info'>
                                         <div className='item-data-info-name'>{createUser?.nickname || createUser?.name} {todoType?.name}</div>
                                         <div className='item-data-info-desc'>
                                             <div className='desc-action'> {action}</div>
-                                            {/*{renderDescMessage(dataObj,bgroup)}*/}
                                         </div>
                                     </div>
                                 </div>

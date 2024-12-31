@@ -22,13 +22,10 @@ const DataImport = (props) => {
 
     // 进度条内容
     const [press,setPress] = useState(null)
-
     // 进度展示状态
     const [pressVisible,setPressVisible] = useState(false)
-
     // 进度日志滚动状态
     const [isActiveSlide,setIsActiveSlide] = useState(true)
-
     // 加载状态
     const [isLoading,setIsLoading] = useState(true)
 
@@ -80,8 +77,7 @@ const DataImport = (props) => {
                 setPressVisible(true)
                 findInter()
             }
-            setIsLoading(false)
-        })
+        }).finally(()=>setIsLoading(false))
     }
 
     /**
@@ -102,8 +98,7 @@ const DataImport = (props) => {
                 clearInterval(interval)
                 setPressVisible(false)
             }
-            setIsLoading(false)
-        }),1000)
+        }).finally(()=>setIsLoading(false)),1000)
     }
 
     /**

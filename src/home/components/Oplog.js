@@ -70,8 +70,7 @@ const Oplog = props => {
                     totalRecord:res.data.totalRecord
                 })
             }
-            setSpinning(false)
-        })
+        }).finally(()=>setSpinning(false))
     }
 
     /**
