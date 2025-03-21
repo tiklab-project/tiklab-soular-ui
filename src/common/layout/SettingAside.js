@@ -2,9 +2,9 @@ import React from "react";
 import {
     LayoutOutlined,
     MacCommandOutlined,
+    SafetyCertificateOutlined,
     SoundOutlined,
     TeamOutlined,
-    VerifiedOutlined
 } from "@ant-design/icons";
 import Aside from "../aside/Aside";
 
@@ -58,19 +58,23 @@ const applicationRouters =  [
     },
     {
         id:'integration',
-        title: '系统集成',
+        title: '集成与开放',
         icon :<MacCommandOutlined />,
         children:[
             {
                 id:'/setting/data_import',
                 title: '用户导入',
-            }
+            },
+            {
+                id:"/setting/openApi",
+                title: "openApi",
+            },
         ]
     },
     {
         id:'security',
         title: '安全',
-        icon :<LayoutOutlined/>,
+        icon :<SafetyCertificateOutlined/>,
         children:[
             {
                 id:'/setting/backups',
@@ -86,8 +90,8 @@ const applicationRouters =  [
     },
     {
         id:'licence',
-        title: '应用',
-        icon :<VerifiedOutlined />,
+        title: '系统',
+        icon :<LayoutOutlined />,
         children:[
             {
                 id:'/setting/version',
@@ -95,7 +99,7 @@ const applicationRouters =  [
             },
             {
                 id:'/setting/productAuth',
-                title: '应用访问权限',
+                title: '系统访问权限',
             },
         ]
     },

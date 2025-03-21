@@ -4,6 +4,8 @@ import {inject,observer} from "mobx-react";
 import {SYSTEM_ROLE_STORE} from "tiklab-privilege-ui/es/store";
 import {SystemNav,PrivilegeButton} from "tiklab-privilege-ui";
 import "./Aside.scss";
+import {disableFunction} from "tiklab-core-ui";
+import feature from '../../assets/images/soular_feature.png';
 
 const templateRouter = [
     {
@@ -71,11 +73,12 @@ const templateRouter = [
  */
 const Aside = props =>{
 
-    const {outerPath,applicationRouters,systemRoleStore} = props
+    const {enhance,outerPath,applicationRouters,systemRoleStore} = props
 
     const {systemPermissions} = systemRoleStore
 
-    let path = props.location.pathname
+    let path = props.location.pathname;
+    const disable = disableFunction();
 
     const menus = () =>{
         try{
@@ -97,7 +100,16 @@ const Aside = props =>{
      * @param data
      * @returns {*}
      */
-    const select = data => props.history.push(data.id)
+    const select = data => {
+        const {isEnhance,id} = data;
+        if(isEnhance && disable){
+            if (typeof enhance === 'function') {
+                enhance(data);
+            }
+            return
+        }
+        props.history.push(id)
+    }
 
     const isExpandedTree = key => expandedTree.some(item => item ===key)
 
@@ -125,6 +137,10 @@ const Aside = props =>{
                         {data?.icon && <span className="sys-content-icon">{data.icon}</span>}
                         <span className='aside-second-title'>{data.title}</span>
                     </div>
+                    {
+                        data.isEnhance && disable &&
+                        <img src={feature} alt="增强功能" width={16} height={16}/>
+                    }
                 </li>
             </PrivilegeButton>
         )
@@ -201,6 +217,7 @@ const Aside = props =>{
                                 renderSubMenu(firstItem,20) : renderMenu(firstItem,20)
                         })
                     }
+                    {props.children}
                 </ul>
             </div>
         </SystemNav>

@@ -32,6 +32,9 @@ import {
     VersionPage,
     ProductAuth,
 
+    OpenApi,
+    OpenApiDoc,
+
     SystemFeature,
     SystemRoleTrue,
     ProjectRole,
@@ -72,6 +75,11 @@ const routers = [
         path:"/500",
         exact:true,
         component:SysException,
+    },
+    {
+        path:"/openApiDoc",
+        exact:true,
+        component: OpenApiDoc,
     },
     {
         component: Layout,
@@ -167,6 +175,11 @@ const routers = [
                     {
                         component: ProductAuth,
                         path:"/setting/productAuth",
+                        exact:true,
+                    },
+                    {
+                        component: OpenApi,
+                        path: "/setting/openApi",
                         exact:true,
                     },
                     {

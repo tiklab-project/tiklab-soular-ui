@@ -1,6 +1,7 @@
 import {store as soularStore} from "./store";
 import App from "./app";
 import Portal from "./common/layout/Portal";
+import SettingAside from "./common/aside/Aside";
 import SyncComponent from "./common/lazy/SyncComponent";
 
 const Layout = SyncComponent(() => import('./common/layout/Layout'));
@@ -61,6 +62,9 @@ const DataImport = SyncComponent(()=>import('./setting/integration/dataImport/co
 const BackupRestore = SyncComponent(()=>import('./setting/secuity/BackupRestore'))
 
 
+const OpenApi = SyncComponent(()=>import('./setting/integration/openApi/components/OpenApi'))
+const OpenApiDoc = SyncComponent(()=>import('./setting/integration/openApi/components/OpenApiDoc'))
+
 /**
  * 基础数据
  * @type {LazyComponent|*}
@@ -89,6 +93,7 @@ export {
     App,
     Portal,
     SyncComponent,
+    SettingAside,
 
     Logout,
     Login,
@@ -112,6 +117,9 @@ export {
     User,
     Directory,
     UserGroup,
+
+    OpenApi,
+    OpenApiDoc,
 
     SystemRole,
     MessageSendType,

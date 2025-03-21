@@ -1,6 +1,7 @@
 import React from "react";
 import {UserVerify} from "tiklab-eam-ui";
 import Portal from "./Portal";
+import SettingAside from "./SettingAside";
 
 /**
  * 首页入口
@@ -10,9 +11,9 @@ import Portal from "./Portal";
  */
 const Layout = props => {
     return (
-        <Portal
-            {...props}
-        />
+        <Portal{...props}>
+            <SettingAside {...props}/>
+        </Portal>
     )
 }
 
