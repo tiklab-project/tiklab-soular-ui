@@ -1,17 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import {
     LayoutOutlined,
     MacCommandOutlined,
     SafetyCertificateOutlined,
+    ScheduleOutlined,
     SoundOutlined,
     TeamOutlined,
 } from "@ant-design/icons";
-import Aside from "../aside/Aside";
+import Aside from "../component/aside/Aside";
+import {SecurityEnhance} from "tiklab-security-ui";
+import {LicenceEnhance} from "tiklab-licence-ui";
+import ipRoster from "../../assets/images/soular-feature-ipRoster.png";
+import customLogo from "../../assets/images/soular-feature-customLogo.png";
 
 const applicationRouters =  [
     {
         id: "user",
-        title: "用户与权限",
+        title: "用户",
         icon: <TeamOutlined/>,
         children: [
             {
@@ -34,12 +39,13 @@ const applicationRouters =  [
                 title: "用户目录",
                 purviewCode: "user_dir",
             },
-            {
-                id:"/setting/permission",
-                title:"权限",
-                purviewCode:"permission",
-            },
         ]
+    },
+    {
+        id:"/setting/permission",
+        title:"权限",
+        purviewCode:"permission",
+        icon :<ScheduleOutlined />,
     },
     {
         id:'message',
@@ -86,6 +92,11 @@ const applicationRouters =  [
                 title: '操作日志',
                 purviewCode:'log',
             },
+            {
+                id:"/setting/ipRoster",
+                title: "IP黑白名单",
+                isEnhance: true,
+            },
         ]
     },
     {
@@ -101,6 +112,11 @@ const applicationRouters =  [
                 id:'/setting/productAuth',
                 title: '系统访问权限',
             },
+            {
+                id:'/setting/customLogo',
+                title: '系统Logo',
+                isEnhance: true,
+            },
         ]
     },
 ]
@@ -108,12 +124,50 @@ const applicationRouters =  [
 const SettingAside = (props) => {
 
 
+    //licence增强功能弹出框
+    const [licenceVisible,setLicenceVisible] = useState(false);
+    //security增强功能弹出框
+    const [securityVisible,setSecurityVisible] = useState(false);
+
+    /**
+     * 引导订阅
+     * @param data
+     */
+    const enhance = data => {
+        const {id} = data;
+        if(id==='/setting/customLogo'){
+            setLicenceVisible(true)
+        }
+        if(id==='/setting/ipRoster'){
+            setSecurityVisible(true)
+        }
+    }
+
+
     return (
         <Aside
             {...props}
+            enhance={enhance}
             outerPath={"/setting"}
             applicationRouters={applicationRouters}
-        />
+        >
+            <SecurityEnhance
+                visible={securityVisible}
+                setVisible={setSecurityVisible}
+                bgroup={'sward'}
+                list={[
+                    {id:'ipRoster',title:'IP黑白名单',icon:ipRoster}
+                ]}
+            />
+            <LicenceEnhance
+                visible={licenceVisible}
+                setVisible={setLicenceVisible}
+                bgroup={'sward'}
+                list={[
+                    {id:'logo',title:'自定义Logo',icon:customLogo}
+                ]}
+            />
+        </Aside>
     )
 
 }

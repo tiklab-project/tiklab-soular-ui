@@ -2,11 +2,11 @@ import React, {useState, useEffect} from "react";
 import {Row, Col, Spin} from "antd";
 import {getUser,productSelect} from 'tiklab-core-ui';
 import {findTodoCount, getTodoPageService} from "../store/HomeStore";
-import Page from '../../common/page/Page'
-import BreadCrumb from "../../common/breadCrumb/BreadCrumb";
-import Tabs from "../../common/tabs/Tabs";
-import SearchSelect from "../../common/search/SearchSelect";
-import TodoList from "../../common/list/TodoList";
+import Page from '../../common/component/page/Page'
+import BreadCrumb from "../../common/component/breadCrumb/BreadCrumb";
+import Tabs from "../../common/component/tabs/Tabs";
+import SearchSelect from "../../common/component/search/SearchSelect";
+import TodoList from "../../common/component/list/TodoList";
 import './Todo.scss';
 
 

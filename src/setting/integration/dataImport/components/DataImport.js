@@ -1,7 +1,7 @@
 import React,{useEffect,useState,useRef} from "react";
 import {Input, Form, message, Select, Spin,Row,Col} from "antd";
-import Btn from "../../../../common/btn/Btn";
-import BreadCrumb from "../../../../common/breadCrumb/BreadCrumb";
+import Button from "../../../../common/component/button/Button";
+import BreadCrumb from "../../../../common/component/breadCrumb/BreadCrumb";
 import {productTitle, productSelect} from "tiklab-core-ui";
 import dataImportStore from "../store/DataImportStore";
 
@@ -281,7 +281,7 @@ const DataImport = (props) => {
                         </Form>
                     </div>
                     <div className='data-content-btn'>
-                        <Btn onClick={imports} type={"primary"} title={"导入"}/>
+                        <Button onClick={imports} type={"primary"} title={"导入"}/>
                     </div>
                 </div>
             </Col>

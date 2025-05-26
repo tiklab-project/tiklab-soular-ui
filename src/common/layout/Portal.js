@@ -8,13 +8,13 @@ import {
     CarryOutOutlined,
     SettingOutlined,
 } from "@ant-design/icons";
-import PortalMessage from "../messages/Messages";
+import PortalMessage from "./PortalMessage";
 import {AvatarLink, AppLink, HelpLink} from "tiklab-licence-ui";
 import {inject, observer} from "mobx-react";
 import {getUser,productTitle, productImg,productWhiteImg} from "tiklab-core-ui";
 import {renderRoutes} from "react-router-config";
 import './Portal.scss';
-import Profile from "../profile/Profile";
+import Profile from "../component/profile/Profile";
 import menuBlack from '../../assets/images/menu-black.png';
 import menuWhite from '../../assets/images/menu-white.png';
 

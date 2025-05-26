@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 import {Spin} from 'antd';
 import {RightOutlined} from '@ant-design/icons';
 import {findLogPageByTime} from '../store/HomeStore';
-import DynamicList from "../../common/list/DynamicList";
+import DynamicList from "../../common/component/list/DynamicList";
 
 /**
  * 日志，工作台

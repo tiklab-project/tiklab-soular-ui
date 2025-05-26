@@ -6,11 +6,11 @@ import {
     CloseOutlined,
     DeleteOutlined
 } from "@ant-design/icons";
-import Btn from "../btn/Btn";
-import Profile from "../profile/Profile";
-import ListEmpty from "../list/ListEmpty";
-import messageStore from "./MessageStore"
-import "./Messages.scss";
+import Button from "../component/button/Button";
+import Profile from "../component/profile/Profile";
+import ListEmpty from "../component/list/ListEmpty";
+import messageStore from "../../home/store/MessageStore"
+import "./PortalMessage.scss";
 
 /**
  * 消息通知
@@ -204,7 +204,7 @@ const PortalMessage = props =>{
                         <span className="messageModal-up-icon"><BellOutlined/></span>
                         <span>消息</span>
                     </div>
-                    <Btn
+                    <Button
                         title={<CloseOutlined />}
                         type="text"
                         onClick={onClose}

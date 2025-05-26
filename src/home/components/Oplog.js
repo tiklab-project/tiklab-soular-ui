@@ -3,11 +3,11 @@ import {DatePicker, Row, Col, Space, Spin} from "antd";
 import {productSelect} from 'tiklab-core-ui';
 import moment from 'moment';
 import {findLogPageByTime,findlogtypelist} from "../store/HomeStore";
-import Page from '../../common/page/Page'
-import BreadCrumb from "../../common/breadCrumb/BreadCrumb";
-import SearchSelect from "../../common/search/SearchSelect";
-import SearchPicker from "../../common/search/SearchPicker";
-import DynamicList from "../../common/list/DynamicList";
+import Page from '../../common/component/page/Page'
+import BreadCrumb from "../../common/component/breadCrumb/BreadCrumb";
+import SearchSelect from "../../common/component/search/SearchSelect";
+import SearchPicker from "../../common/component/search/SearchPicker";
+import DynamicList from "../../common/component/list/DynamicList";
 import './Oplog.scss'
 
 const { RangePicker } = DatePicker;

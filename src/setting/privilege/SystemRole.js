@@ -11,7 +11,7 @@ import {SystemRole} from "tiklab-privilege-ui";
 
 const SystemRoleContent = props => {
 
-    return(
+    return (
         <SystemRole {...props} group={'system'}/>
     )
 }

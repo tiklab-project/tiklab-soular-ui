@@ -1,7 +1,7 @@
 import {store as soularStore} from "./store";
 import App from "./app";
 import Portal from "./common/layout/Portal";
-import SettingAside from "./common/aside/Aside";
+import SettingAside from "./common/component/aside/Aside";
 import SyncComponent from "./common/lazy/SyncComponent";
 
 const Layout = SyncComponent(() => import('./common/layout/Layout'));

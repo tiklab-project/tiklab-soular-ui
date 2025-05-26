@@ -7,7 +7,7 @@ import {useAccountConfig} from 'tiklab-eam-ui/es/utils';
 import {ConfigProvider} from "antd";
 import zhCN from "antd/es/locale/zh_CN";
 import './common/language/i18n';
-import './styles/index.scss';
+import './common/styles/index.scss';
 
 const App = (props) => {
 

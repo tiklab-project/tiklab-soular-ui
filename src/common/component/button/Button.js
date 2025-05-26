@@ -1,11 +1,11 @@
 import React from "react";
 import {Space} from "antd";
-import "./Btn.scss";
+import "./Button.scss";
 
 /**
  * 操作按钮
  */
-const Btn = ({icon,type,title,onClick,isMar,children}) =>{
+const Button = ({icon,type,title,onClick,isMar,children}) =>{
 
     return (
         <div className={`soular-btn ${type?`soular-btn-${type}`:""} ${isMar?"soular-btn-mar":""}`} onClick={onClick}>
@@ -17,4 +17,4 @@ const Btn = ({icon,type,title,onClick,isMar,children}) =>{
     )
 }
 
-export default Btn
+export default Button

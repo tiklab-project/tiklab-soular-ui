@@ -5,7 +5,7 @@ import {SYSTEM_ROLE_STORE} from "tiklab-privilege-ui/es/store";
 import {SystemNav,PrivilegeButton} from "tiklab-privilege-ui";
 import "./Aside.scss";
 import {disableFunction} from "tiklab-core-ui";
-import feature from '../../assets/images/soular_feature.png';
+import feature from '../../../assets/images/soular-feature.png';
 
 const templateRouter = [
     {
@@ -137,10 +137,10 @@ const Aside = props =>{
                         {data?.icon && <span className="sys-content-icon">{data.icon}</span>}
                         <span className='aside-second-title'>{data.title}</span>
                     </div>
-                    {
-                        data.isEnhance && disable &&
-                        <img src={feature} alt="增强功能" width={16} height={16}/>
-                    }
+                    {/*{*/}
+                    {/*    data.isEnhance && disable &&*/}
+                    {/*    <img src={feature} alt="增强功能" width={16} height={16}/>*/}
+                    {/*}*/}
                 </li>
             </PrivilegeButton>
         )
