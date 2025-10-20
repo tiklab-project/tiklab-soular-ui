@@ -110,8 +110,9 @@
     --tiklab-gray-300: #edf0f5;  /* hover颜色 */
     --tiklab-gray-400: #e3e8f0;  /* 左侧导航 选中颜色 */
     --tiklab-gray-500: #999999; /* 文字次级颜色灰色调 */
-    --tiklab-gray-600: #fafbfc; /* 侧边栏色调 */
-    --tiklab-gray-700: #f0f3fa; /* 内容区域色调 */
+    --tiklab-gray-600: #f7f7f7; /* 内容区域色调 */
+    --tiklab-gray-700: #f0f3fa; /* 侧边栏色调(一级) */
+    --tiklab-gray-800: #fafbfc; /* 侧边栏色调(二级) */
     --tiklab-gray: #efefef;  /* 主色调灰 */
 
 
@@ -139,6 +140,7 @@
     --soular-hover-color: var(--tiklab-gray-300);
     --soular-select-color: var(--tiklab-gray-400);
     --soular-aside-color: var(--tiklab-gray-700);
+    --soular-aside-two-color: var(--tiklab-gray-800);
     --soular-backdrop-color: var(--tiklab-gray-600);
     --soular-head-height: 48px;
     --soular-content-height: calc(100% - 48px)

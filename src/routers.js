@@ -24,11 +24,10 @@ import {
     Directory,
     UserGroup,
     SystemRole,
-    MessageSendType,
-    MessageNotice,
-    LogListPage,
+    Message,
     DataImport,
     BackupRestore,
+    RequestError,
     VersionPage,
     ProductAuth,
 
@@ -75,6 +74,11 @@ const routers = [
         path:"/500",
         exact:true,
         component:SysException,
+    },
+    {
+        path:"/requestError",
+        exact:true,
+        component:RequestError,
     },
     {
         path:"/openApiDoc",
@@ -143,18 +147,8 @@ const routers = [
                         exact:true,
                     },
                     {
-                        component: MessageSendType,
-                        path:"/setting/messagesendtype",
-                        exact:true,
-                    },
-                    {
-                        component: MessageNotice,
+                        component: Message,
                         path:"/setting/message",
-                        exact:true,
-                    },
-                    {
-                        component: LogListPage,
-                        path:"/setting/log",
                         exact:true,
                     },
                     {

@@ -49,21 +49,19 @@ const Setting = SyncComponent(()=> import('./setting/navigator/setting'));
 
 const SettingHome = SyncComponent(() => import('./setting/home/component/SettingHome'));
 
-const MessageSendType = SyncComponent(() => import('./setting/message/MessageSendType'));
-const MessageNotice = SyncComponent(() => import('./setting/message/MessageNotice'));
+const DataImport = SyncComponent(()=>import('./setting/integration/dataImport/components/DataImport'))
+
+const Message = SyncComponent(() => import('./setting/message/Message'));
 
 const ProductAuth = SyncComponent(() => import('./setting/licence/ProductAuth'));
 const VersionPage = SyncComponent(() => import('./setting/licence/Version'));
 const SystemRole = SyncComponent(() => import('./setting/privilege/SystemRole'));
 
-const LogListPage = SyncComponent(()=> import('./setting/secuity/LogList'))
-const DataImport = SyncComponent(()=>import('./setting/integration/dataImport/components/DataImport'))
-
 const BackupRestore = SyncComponent(()=>import('./setting/secuity/BackupRestore'))
+const RequestError = SyncComponent(()=>import('./setting/secuity/RequestError'))
 
-
-const OpenApi = SyncComponent(()=>import('./setting/integration/openApi/components/OpenApi'))
-const OpenApiDoc = SyncComponent(()=>import('./setting/integration/openApi/components/OpenApiDoc'))
+const OpenApi = SyncComponent(()=>import('./setting/integration/openApi/OpenApi'))
+const OpenApiDoc = SyncComponent(()=>import('./setting/integration/openApi/OpenApiDoc'))
 
 /**
  * 基础数据
@@ -122,11 +120,10 @@ export {
     OpenApiDoc,
 
     SystemRole,
-    MessageSendType,
-    MessageNotice,
-    LogListPage,
+    Message,
     DataImport,
     BackupRestore,
+    RequestError,
     VersionPage,
     ProductAuth,
 

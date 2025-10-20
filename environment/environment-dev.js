@@ -15,8 +15,8 @@ const webpackGlobal = {
     // plugin_base_url : JSON.stringify( `http://192.168.10.13:3010`),
     // plugin_url: JSON.stringify( `http://192.168.10.13:3010/plugin.json`),
 
-    appKey: JSON.stringify('appKey-1'),
-    appSecret: JSON.stringify('appSecret-1'),
+    appKey: JSON.stringify('tiklab_soular'),
+    appSecret: JSON.stringify(''),
     version: JSON.stringify('ce'),
     client: JSON.stringify('web'),
 

@@ -6,6 +6,7 @@ import {productTitle, productSelect} from "tiklab-core-ui";
 import dataImportStore from "../store/DataImportStore";
 
 import "./DataImport.scss";
+import {DownOutlined, ImportOutlined, RightOutlined} from "@ant-design/icons";
 
 /**
  * 用户数据导入页面
@@ -28,6 +29,8 @@ const DataImport = (props) => {
     const [isActiveSlide,setIsActiveSlide] = useState(true)
     // 加载状态
     const [isLoading,setIsLoading] = useState(true)
+    //树的展开与闭合
+    const [expandedTree,setExpandedTree] = useState([])
 
     useEffect(()=>{
         if(pressRef?.current && isActiveSlide){
@@ -144,6 +147,29 @@ const DataImport = (props) => {
         setPressVisible(false)
     }
 
+    /**
+     * 是否符合要求
+     * @param key
+     * @returns {boolean}
+     */
+    const isExpandedTree = key => {
+        return expandedTree.some(item => item ===key)
+    }
+
+    /**
+     * 展开和闭合
+     * @param key
+     */
+    const setOpenOrClose = key => {
+        if (isExpandedTree(key)) {
+            // false--闭合
+            setExpandedTree(expandedTree.filter(item => item !== key))
+        } else {
+            // ture--展开
+            setExpandedTree(expandedTree.concat(key))
+        }
+    }
+
     // 运行结果
     const renderResult = () => {
         if(press?.speed===100 && !press?.state){
@@ -206,7 +232,6 @@ const DataImport = (props) => {
                             <div className='up-progress-desc'>{press?.speed || 0}%</div>
                         </div>
                         <div className='progress-content-title'>输出</div>
-
                         <div className='progress-content-log'
                              ref={pressRef}
                              onWheel={onWheel}
@@ -221,6 +246,72 @@ const DataImport = (props) => {
         )
     }
 
+    const lis = [
+        {
+            key:1,
+            title:"用户导入",
+            desc: "数据导入",
+            icon: <ImportOutlined />,
+            content: (
+                <div className="bottom-import">
+                    <Form
+                        form={form}
+                        layout={"vertical"}
+                        initialValues={{application:'arbess'}}
+                    >
+                        <Form.Item
+                            label={'选择产品'}
+                            name={'application'}
+                            rules={[
+                                {required:true,message:"数据库地址不能为空"},
+                            ]}
+                        >
+                            <Select options={productSelect}/>
+                        </Form.Item>
+                        <Form.Item
+                            label={'数据库链接信息'}
+                            name={'url'}
+                            rules={[
+                                {required:true,message:"数据库链接信息不能为空"},
+                            ]}
+                        >
+                            <Input
+                                autoComplete="off"
+                                placeholder="数据库链接信息，如 jdbc:postgresql://192.168.10.1:5432/tiklab_soular"
+                            />
+                        </Form.Item>
+                        <Form.Item
+                            label={'用户名'}
+                            name={'username'}
+                            rules={[
+                                {required:true,message:"用户名不能为空"},
+                            ]}
+                        >
+                            <Input placeholder="用户名"/>
+                        </Form.Item>
+                        <Form.Item
+                            label={'密码'}
+                            name={'password'}
+                            rules={[
+                                {required:true,message:"密码不能为空"},
+                            ]}
+                        >
+                            <Input.Password placeholder="密码"/>
+                        </Form.Item>
+                    </Form>
+                    <div>
+                        <Button onClick={()=>setOpenOrClose(1)} isMar={true}>
+                            取消
+                        </Button>
+                        <Button onClick={imports} type={"primary"}>
+                            导入
+                        </Button>
+                    </div>
+                </div>
+            )
+        },
+    ]
+
     return (
         <Row className="data-import">
             <Col
@@ -233,55 +324,31 @@ const DataImport = (props) => {
             >
                 <div className="soular-home-limited">
                     <BreadCrumb firstItem={"用户导入"}/>
-                    <div className='data-content-form'>
-                        <Form
-                            form={form}
-                            layout={"vertical"}
-                            initialValues={{application:'arbess'}}
-                        >
-                            <Form.Item
-                                label={'选择产品'}
-                                name={'application'}
-                                rules={[
-                                    {required:true,message:"数据库地址不能为空"},
-                                ]}
-                            >
-                                <Select options={productSelect}/>
-                            </Form.Item>
-                            <Form.Item
-                                label={'数据库链接信息'}
-                                name={'url'}
-                                rules={[
-                                    {required:true,message:"数据库链接信息不能为空"},
-                                ]}
-                            >
-                                <Input
-                                    autoComplete="off"
-                                    placeholder="数据库链接信息，如 jdbc:postgresql://192.168.10.1:5432/tiklab_soular"
-                                />
-                            </Form.Item>
-                            <Form.Item
-                                label={'用户名'}
-                                name={'username'}
-                                rules={[
-                                    {required:true,message:"用户名不能为空"},
-                                ]}
-                            >
-                                <Input placeholder="用户名"/>
-                            </Form.Item>
-                            <Form.Item
-                                label={'密码'}
-                                name={'password'}
-                                rules={[
-                                    {required:true,message:"密码不能为空"},
-                                ]}
-                            >
-                                <Input.Password placeholder="密码"/>
-                            </Form.Item>
-                        </Form>
-                    </div>
-                    <div className='data-content-btn'>
-                        <Button onClick={imports} type={"primary"} title={"导入"}/>
+                    <div className="data-import-ul">
+                        {
+                            lis.map(item=> (
+                                <div key={item.key} className="data-import-li">
+                                    <div className={`data-import-li-top ${isExpandedTree(item.key) ?"data-import-li-select":"data-import-li-unselect"}`}
+                                         onClick={()=>setOpenOrClose(item.key)}
+                                    >
+                                        <div className="data-import-li-icon">{item.icon}</div>
+                                        <div className="data-import-li-center">
+                                            <div className="data-import-li-title">{item.title}</div>
+                                            {
+                                                !isExpandedTree(item.key) &&
+                                                <div className="data-import-li-desc">{item.desc}</div>
+                                            }
+                                        </div>
+                                        <div className="data-import-li-down">
+                                            { isExpandedTree(item.key)? <DownOutlined />:<RightOutlined /> }
+                                        </div>
+                                    </div>
+                                    <div className={`${isExpandedTree(item.key)? "data-import-li-bottom":"data-import-li-none"}`}>
+                                        { isExpandedTree(item.key) && item.content }
+                                    </div>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             </Col>

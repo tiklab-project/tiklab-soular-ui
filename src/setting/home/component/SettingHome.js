@@ -163,7 +163,7 @@ const SettingHome = props => {
                                         {count?.noticeNumber || 0}
                                     </div>
                                 </div>
-                                <div className='home-message-item' onClick={()=>goPath('messagesendtype')}>
+                                <div className='home-message-item' onClick={()=>goPath('message')}>
                                     <div className='home-left'>
                                         <div className='home-icon'><AlertOutlined /></div>
                                         <div className='home-label'>消息发送方式</div>
@@ -184,7 +184,7 @@ const SettingHome = props => {
                                     </div>
                                     <div className='home-info'>{count?.lastBackupsTime && moment(count.lastBackupsTime).format('YYYY-MM-DD') || '无'}</div>
                                 </div>
-                                <div className='home-security-item' onClick={()=>goPath('log')}>
+                                <div className='home-security-item' onClick={version==='ce' ? undefined : ()=>goPath('log')}>
                                     <div className='home-left'>
                                         <div className='home-icon'><LaptopOutlined /></div>
                                         <div className='home-label'>操作日志</div>

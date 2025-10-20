@@ -6,7 +6,6 @@ $aside-border-color: #e4e4e4;
     flex-shrink: 0;
     flex-basis: 220px;
     background: var(--soular-aside-color);
-    border-right: 1px solid var(--soular-border-color);
     .system-aside-top{
         height: 100%;
         overflow: auto;
@@ -73,7 +72,7 @@ $aside-border-color: #e4e4e4;
 
     .system-aside-back{
         border-bottom: 1px solid $aside-border-color;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         padding-bottom: 5px;
         .aside-back-box{
             display: flex;

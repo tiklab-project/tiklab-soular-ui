@@ -9,11 +9,13 @@ import React from "react";
 import {OpenApiDocPage} from "tiklab-postin-client-ui";
 
 const OpenApiDoc = (props) => {
+
     return (
         <OpenApiDocPage
             {...props}
         />
     )
+
 }
 
 export default OpenApiDoc

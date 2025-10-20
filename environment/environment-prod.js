@@ -12,8 +12,8 @@ const webpackGlobal = {
     plugin_url: JSON.stringify( '/pluginConfig/getPluginConfig'),
     method:JSON.stringify('post'),
 
-    appKey: JSON.stringify('appKey-1'),
-    appSecret: JSON.stringify('appSecret-1'),
+    appKey: JSON.stringify('tiklab_soular'),
+    appSecret: JSON.stringify(''),
     version: JSON.stringify('ce'),
     client: JSON.stringify('web'),
     devProduction: false

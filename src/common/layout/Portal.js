@@ -194,10 +194,6 @@ const Portal = props =>{
                         }
                     />
                 </div>
-                <div className="aside-hover-expand"/>
-                <div className="aside-expand" onClick={()=>setIsExpand(!isExpand)}>
-                    {isExpand ? <LeftCircleOutlined />:<RightCircleOutlined />}
-                </div>
             </div>
         )
     }

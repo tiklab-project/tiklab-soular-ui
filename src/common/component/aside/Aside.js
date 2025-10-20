@@ -4,8 +4,6 @@ import {inject,observer} from "mobx-react";
 import {SYSTEM_ROLE_STORE} from "tiklab-privilege-ui/es/store";
 import {SystemNav,PrivilegeButton} from "tiklab-privilege-ui";
 import "./Aside.scss";
-import {disableFunction} from "tiklab-core-ui";
-import feature from '../../../assets/images/soular-feature.png';
 
 const templateRouter = [
     {
@@ -73,12 +71,11 @@ const templateRouter = [
  */
 const Aside = props =>{
 
-    const {enhance,outerPath,applicationRouters,systemRoleStore} = props
+    const {applicationRouters,systemRoleStore} = props
 
     const {systemPermissions} = systemRoleStore
 
     let path = props.location.pathname;
-    const disable = disableFunction();
 
     const menus = () =>{
         try{
@@ -101,14 +98,7 @@ const Aside = props =>{
      * @returns {*}
      */
     const select = data => {
-        const {isEnhance,id} = data;
-        if(isEnhance && disable){
-            if (typeof enhance === 'function') {
-                enhance(data);
-            }
-            return
-        }
-        props.history.push(id)
+        props.history.push(data.id)
     }
 
     const isExpandedTree = key => expandedTree.some(item => item ===key)
@@ -137,10 +127,6 @@ const Aside = props =>{
                         {data?.icon && <span className="sys-content-icon">{data.icon}</span>}
                         <span className='aside-second-title'>{data.title}</span>
                     </div>
-                    {/*{*/}
-                    {/*    data.isEnhance && disable &&*/}
-                    {/*    <img src={feature} alt="增强功能" width={16} height={16}/>*/}
-                    {/*}*/}
                 </li>
             </PrivilegeButton>
         )
@@ -191,7 +177,7 @@ const Aside = props =>{
         <SystemNav
             {...props}
             applicationRouters={menus()}
-            outerPath={outerPath}
+            outerPath={"/setting"}
             expandedTree={expandedTree}
             setExpandedTree={setExpandedTree}
             noAccessPath={"/noaccess"}
@@ -199,8 +185,8 @@ const Aside = props =>{
             <div className="system-aside">
                 <ul className="system-aside-top">
                     <li className='system-aside-head'>
-                        <span onClick={()=>props.history.push(`${outerPath}/home`)}>
-                            {outerPath==='/setting'?'设置':'企业管理'}
+                        <span onClick={()=>props.history.push(`/setting/home`)}>
+                            设置
                         </span>
                     </li>
                     <li className="system-aside-back" onClick={()=>props.history.push('/index')}>

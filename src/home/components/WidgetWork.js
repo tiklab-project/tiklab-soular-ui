@@ -1,3 +1,10 @@
+/**
+ * @Description: 工作台
+ * @Author: gaomengyuan
+ * @Date:
+ * @LastEditors: gaomengyuan
+ * @LastEditTime: 2025/5/27
+ */
 import React,{useState,useEffect} from 'react';
 import {Row, Col, message, Tag} from "antd";
 import {inject,observer} from "mobx-react";
@@ -10,13 +17,9 @@ import WidgetWorkTodo from "./WidgetWorkTodo";
 import Oplog from "./Oplog";
 import Todo from './Todo';
 import './WidgetWork.scss';
+import settingImg from "../../assets/setting.svg";
+import {PrivilegeButton} from "tiklab-privilege-ui";
 
-/**
- * 工作台
- * @param props
- * @returns {JSX.Element}
- * @constructor
- */
 const WidgetWork = props =>{
 
     const {homeStore} = props
@@ -46,8 +49,11 @@ const WidgetWork = props =>{
         const data = await findAppLinkList();
         if (data.length > 0 ) {
             setInstallApp(data)
-            if(type==='clear'){setEdit({...data[0],edit:'edit'})}
-            else {setEdit({...app,edit:'edit'})}
+            if(type==='clear'){
+                setEdit({...data[0],edit:'edit'})
+            } else {
+                setEdit({...app,edit:'edit'})
+            }
         } else {
             setInstallApp([])
             setEdit({edit:'add'})
@@ -58,7 +64,7 @@ const WidgetWork = props =>{
         const app = installApp?.find(item=>item.appType===code)
         if(app?.appUrl){
             applyJump(app.appUrl)
-        }else {
+        } else {
             message.info('请先配置链接地址！')
         }
     }
@@ -104,16 +110,18 @@ const WidgetWork = props =>{
                 md={{ span: "24" }}
                 lg={{ span: "24" }}
                 xl={{ span: "18", offset: "3" }}
-                xxl={{ span: "16", offset: "4" }}
+                xxl={{ span: "18", offset: "3" }}
             >
                 <div className="soular-home-limited">
                     <div className="product_widget">
                         <div className="product_widget-card">
                             <div className="workLayout-guide">
                                 <div className="workLayout-title">应用</div>
-                                <div className='workLayout-guide-link' onClick={()=>setVisible(true)}>
-                                    配置
-                                </div>
+                                <PrivilegeButton code={'application'}>
+                                    <div className='workLayout-guide-link' onClick={()=>setVisible(true)}>
+                                        <img src={settingImg} width={20} height={20} alt={''}/>
+                                    </div>
+                                </PrivilegeButton>
                                 <AppLinkEdit
                                     edit={edit}
                                     setEdit={setEdit}
